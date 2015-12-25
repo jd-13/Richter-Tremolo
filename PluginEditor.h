@@ -67,6 +67,7 @@ private:
     //[/UserVariables]
 
     //==============================================================================
+    ScopedPointer<GroupComponent> LFO1Group;
     ScopedPointer<Slider> DepthLFO1Sld;
     ScopedPointer<Slider> FreqLFO1Sld;
     ScopedPointer<ComboBox> WaveLFO1Cmb;
@@ -75,6 +76,19 @@ private:
     ScopedPointer<Slider> MasterVolSld;
     ScopedPointer<Label> DbgLbl;
     ScopedPointer<TextButton> BypassLFO1Btn;
+    ScopedPointer<Label> FreqLFO1Lbl;
+    ScopedPointer<Label> DepthLFO1Lbl;
+    ScopedPointer<Label> WaveLFO1Lbl;
+    ScopedPointer<GroupComponent> LFO2Group;
+    ScopedPointer<Slider> DepthLFO2Sld;
+    ScopedPointer<Slider> FreqLFO2Sld;
+    ScopedPointer<ComboBox> WaveLFO2Cmb;
+    ScopedPointer<Slider> DepthModLFO2Sld;
+    ScopedPointer<Slider> FreqModLFO2Sld;
+    ScopedPointer<TextButton> BypassLFO2Btn;
+    ScopedPointer<Label> FreqLFO2Lbl;
+    ScopedPointer<Label> DepthLFO2Lbl;
+    ScopedPointer<Label> WaveLFO2Lbl;
 
 
     //==============================================================================
