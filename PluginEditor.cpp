@@ -177,6 +177,46 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveLFO2Lbl->setColour (TextEditor::textColourId, Colours::black);
     WaveLFO2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
+    addAndMakeVisible (TempoSyncLFO1Btn = new TextButton ("LFO 1 Tempo Sync Button"));
+    TempoSyncLFO1Btn->setButtonText (TRANS("Tempo Sync"));
+    TempoSyncLFO1Btn->addListener (this);
+
+    addAndMakeVisible (TempoSyncLFO2Btn = new TextButton ("LFO 2 Tempo Sync Button"));
+    TempoSyncLFO2Btn->setButtonText (TRANS("Tempo Sync"));
+    TempoSyncLFO2Btn->addListener (this);
+
+    addAndMakeVisible (TempoNumerLFO1Sld = new Slider ("LFO 1 Tempo Numer Slider"));
+    TempoNumerLFO1Sld->setRange (1, 4, 1);
+    TempoNumerLFO1Sld->setSliderStyle (Slider::IncDecButtons);
+    TempoNumerLFO1Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
+    TempoNumerLFO1Sld->addListener (this);
+
+    addAndMakeVisible (TempoDenomLFO1Sld = new Slider ("LFO 1 Tempo Denom Slider"));
+    TempoDenomLFO1Sld->setRange (1, 32, 1);
+    TempoDenomLFO1Sld->setSliderStyle (Slider::IncDecButtons);
+    TempoDenomLFO1Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
+    TempoDenomLFO1Sld->addListener (this);
+
+    addAndMakeVisible (TempoNumerLFO2Sld = new Slider ("LFO 2 Tempo Numer Slider"));
+    TempoNumerLFO2Sld->setRange (1, 4, 1);
+    TempoNumerLFO2Sld->setSliderStyle (Slider::IncDecButtons);
+    TempoNumerLFO2Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
+    TempoNumerLFO2Sld->addListener (this);
+
+    addAndMakeVisible (TempoDenomLFO2Sld = new Slider ("LFO 2 Tempo Denom Slider"));
+    TempoDenomLFO2Sld->setRange (1, 32, 1);
+    TempoDenomLFO2Sld->setSliderStyle (Slider::IncDecButtons);
+    TempoDenomLFO2Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
+    TempoDenomLFO2Sld->addListener (this);
+
+    addAndMakeVisible (PhaseSyncLFO1Btn = new TextButton ("LFO 1 Phase Sync Button"));
+    PhaseSyncLFO1Btn->setButtonText (TRANS("Phase Sync"));
+    PhaseSyncLFO1Btn->addListener (this);
+
+    addAndMakeVisible (PhaseSyncLFO2Btn = new TextButton ("LFO 2 Phase Sync Button"));
+    PhaseSyncLFO2Btn->setButtonText (TRANS("Phase Sync"));
+    PhaseSyncLFO2Btn->addListener (this);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -189,6 +229,10 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     if (!DEBUGGING_MODE) {
         DbgLbl->setText(" ", dontSendNotification);
     }
+    TempoNumerLFO1Sld->setVisible(false);
+    TempoNumerLFO1Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
+    TempoDenomLFO1Sld->setVisible(false);
+    TempoDenomLFO1Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
     //[/Constructor]
 }
 
@@ -219,6 +263,14 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     FreqLFO2Lbl = nullptr;
     DepthLFO2Lbl = nullptr;
     WaveLFO2Lbl = nullptr;
+    TempoSyncLFO1Btn = nullptr;
+    TempoSyncLFO2Btn = nullptr;
+    TempoNumerLFO1Sld = nullptr;
+    TempoDenomLFO1Sld = nullptr;
+    TempoNumerLFO2Sld = nullptr;
+    TempoDenomLFO2Sld = nullptr;
+    PhaseSyncLFO1Btn = nullptr;
+    PhaseSyncLFO2Btn = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -242,19 +294,19 @@ void RichterAudioProcessorEditor::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    LFO1Group->setBounds (16, 56, 232, 144);
+    LFO1Group->setBounds (16, 64, 232, 128);
     DepthLFO1Sld->setBounds (96, 112, 32, 24);
     FreqLFO1Sld->setBounds (40, 112, 32, 24);
     WaveLFO1Cmb->setBounds (144, 120, 80, 24);
     DepthModLFO1Sld->setBounds (104, 160, 16, 16);
     FreqModLFO1Sld->setBounds (48, 160, 16, 16);
-    MasterVolSld->setBounds (16, 40, 440, 24);
+    MasterVolSld->setBounds (16, 40, 480, 24);
     DbgLbl->setBounds (16, 8, 150, 24);
     BypassLFO1Btn->setBounds (168, 80, 56, 24);
     FreqLFO1Lbl->setBounds (38, 136, 40, 24);
     DepthLFO1Lbl->setBounds (90, 136, 46, 24);
     WaveLFO1Lbl->setBounds (160, 152, 46, 24);
-    LFO2Group->setBounds (264, 56, 232, 144);
+    LFO2Group->setBounds (264, 64, 232, 128);
     DepthLFO2Sld->setBounds (344, 112, 32, 24);
     FreqLFO2Sld->setBounds (288, 112, 32, 24);
     WaveLFO2Cmb->setBounds (392, 120, 80, 24);
@@ -264,6 +316,14 @@ void RichterAudioProcessorEditor::resized()
     FreqLFO2Lbl->setBounds (286, 136, 40, 24);
     DepthLFO2Lbl->setBounds (338, 136, 46, 24);
     WaveLFO2Lbl->setBounds (408, 152, 46, 24);
+    TempoSyncLFO1Btn->setBounds (32, 88, 56, 16);
+    TempoSyncLFO2Btn->setBounds (280, 88, 56, 16);
+    TempoNumerLFO1Sld->setBounds (32, 120, 56, 16);
+    TempoDenomLFO1Sld->setBounds (32, 152, 56, 16);
+    TempoNumerLFO2Sld->setBounds (280, 120, 56, 16);
+    TempoDenomLFO2Sld->setBounds (280, 152, 56, 16);
+    PhaseSyncLFO1Btn->setBounds (96, 88, 56, 16);
+    PhaseSyncLFO2Btn->setBounds (344, 88, 56, 16);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -328,6 +388,30 @@ void RichterAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMoved
         ourProcessor->setParameter(RichterAudioProcessor::freqModLFO2, static_cast<float>(FreqModLFO2Sld->getValue()));
         //[/UserSliderCode_FreqModLFO2Sld]
     }
+    else if (sliderThatWasMoved == TempoNumerLFO1Sld)
+    {
+        //[UserSliderCode_TempoNumerLFO1Sld] -- add your slider handling code here..
+        ourProcessor->setParameter(RichterAudioProcessor::tempoNumerLFO1, static_cast<float>(TempoNumerLFO1Sld->getValue()));
+        //[/UserSliderCode_TempoNumerLFO1Sld]
+    }
+    else if (sliderThatWasMoved == TempoDenomLFO1Sld)
+    {
+        //[UserSliderCode_TempoDenomLFO1Sld] -- add your slider handling code here..
+        ourProcessor->setParameter(RichterAudioProcessor::tempoDenomLFO1, static_cast<float>(TempoDenomLFO1Sld->getValue()));
+        //[/UserSliderCode_TempoDenomLFO1Sld]
+    }
+    else if (sliderThatWasMoved == TempoNumerLFO2Sld)
+    {
+        //[UserSliderCode_TempoNumerLFO2Sld] -- add your slider handling code here..
+        ourProcessor->setParameter(RichterAudioProcessor::tempoNumerLFO2, static_cast<float>(TempoNumerLFO2Sld->getValue()));
+        //[/UserSliderCode_TempoNumerLFO2Sld]
+    }
+    else if (sliderThatWasMoved == TempoDenomLFO2Sld)
+    {
+        //[UserSliderCode_TempoDenomLFO2Sld] -- add your slider handling code here..
+        ourProcessor->setParameter(RichterAudioProcessor::tempoDenomLFO2, static_cast<float>(TempoDenomLFO2Sld->getValue()));
+        //[/UserSliderCode_TempoDenomLFO2Sld]
+    }
 
     //[UsersliderValueChanged_Post]
     if (DEBUGGING_MODE) {
@@ -378,6 +462,30 @@ void RichterAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
         ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchLFO2, static_cast<float>(BypassLFO2Btn->getToggleState()));
         //[/UserButtonCode_BypassLFO2Btn]
     }
+    else if (buttonThatWasClicked == TempoSyncLFO1Btn)
+    {
+        //[UserButtonCode_TempoSyncLFO1Btn] -- add your button handler code here..
+        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncLFO1, static_cast<float>(TempoSyncLFO1Btn->getToggleState()));
+        //[/UserButtonCode_TempoSyncLFO1Btn]
+    }
+    else if (buttonThatWasClicked == TempoSyncLFO2Btn)
+    {
+        //[UserButtonCode_TempoSyncLFO2Btn] -- add your button handler code here..
+        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncLFO2, static_cast<float>(TempoSyncLFO2Btn->getToggleState()));
+        //[/UserButtonCode_TempoSyncLFO2Btn]
+    }
+    else if (buttonThatWasClicked == PhaseSyncLFO1Btn)
+    {
+        //[UserButtonCode_PhaseSyncLFO1Btn] -- add your button handler code here..
+        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncLFO1, static_cast<float>(PhaseSyncLFO1Btn->getToggleState()));
+        //[/UserButtonCode_PhaseSyncLFO1Btn]
+    }
+    else if (buttonThatWasClicked == PhaseSyncLFO2Btn)
+    {
+        //[UserButtonCode_PhaseSyncLFO2Btn] -- add your button handler code here..
+        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncLFO2, static_cast<float>(PhaseSyncLFO2Btn->getToggleState()));
+        //[/UserButtonCode_PhaseSyncLFO2Btn]
+    }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
@@ -392,23 +500,57 @@ void RichterAudioProcessorEditor::timerCallback()
 
     if (ourProcessor->NeedsUIUpdate()) {
         BypassLFO1Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::bypassSwitchLFO1), dontSendNotification);
+        PhaseSyncLFO1Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::phaseSyncLFO1), dontSendNotification);
+        TempoSyncLFO1Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::tempoSyncLFO1), dontSendNotification);
         WaveLFO1Cmb->setSelectedId(ourProcessor->getParameter(RichterAudioProcessor::waveLFO1), dontSendNotification);
         DepthLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::depthLFO1), dontSendNotification);
         DepthModLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::depthModLFO1), dontSendNotification);
         FreqLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::freqLFO1), dontSendNotification);
         FreqModLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::freqModLFO1), dontSendNotification);
+        TempoNumerLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoNumerLFO1), dontSendNotification);
+        TempoDenomLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoDenomLFO1), dontSendNotification);
 
         BypassLFO2Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::bypassSwitchLFO2), dontSendNotification);
+        PhaseSyncLFO2Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::phaseSyncLFO2), dontSendNotification);
+        TempoSyncLFO2Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::tempoSyncLFO2), dontSendNotification);
         WaveLFO2Cmb->setSelectedId(ourProcessor->getParameter(RichterAudioProcessor::waveLFO2), dontSendNotification);
         DepthLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::depthLFO2), dontSendNotification);
         DepthModLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::depthModLFO2), dontSendNotification);
         FreqLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::freqLFO2), dontSendNotification);
         FreqModLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::freqModLFO2), dontSendNotification);
+        TempoNumerLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoNumerLFO2), dontSendNotification);
+        TempoDenomLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoDenomLFO2), dontSendNotification);
 
         MasterVolSld->setValue(ourProcessor->getParameter(RichterAudioProcessor::masterVol), dontSendNotification);
-    }
 
-    DbgLbl->setText(ourProcessor->getParameterText(RichterAudioProcessor::bypassSwitchLFO1), dontSendNotification);
+        if (TempoSyncLFO1Btn->getToggleState()) {
+            FreqLFO1Sld->setVisible(false);
+            FreqModLFO1Sld->setVisible(false);
+            FreqLFO1Lbl->setVisible(false);
+            TempoNumerLFO1Sld->setVisible(true);
+            TempoDenomLFO1Sld->setVisible(true);
+        } else {
+            FreqLFO1Sld->setVisible(true);
+            FreqModLFO1Sld->setVisible(true);
+            FreqLFO1Lbl->setVisible(true);
+            TempoNumerLFO1Sld->setVisible(false);
+            TempoDenomLFO1Sld->setVisible(false);
+        }
+
+        if (TempoSyncLFO2Btn->getToggleState()) {
+            FreqLFO2Sld->setVisible(false);
+            FreqModLFO2Sld->setVisible(false);
+            FreqLFO2Lbl->setVisible(false);
+            TempoNumerLFO2Sld->setVisible(true);
+            TempoDenomLFO2Sld->setVisible(true);
+        } else {
+            FreqLFO2Sld->setVisible(true);
+            FreqModLFO2Sld->setVisible(true);
+            FreqLFO2Lbl->setVisible(true);
+            TempoNumerLFO2Sld->setVisible(false);
+            TempoDenomLFO2Sld->setVisible(false);
+        }
+    }
 }
 //[/MiscUserCode]
 
@@ -429,7 +571,7 @@ BEGIN_JUCER_METADATA
                  fixedSize="1" initialWidth="800" initialHeight="400">
   <BACKGROUND backgroundColour="ffffffff"/>
   <GROUPCOMPONENT name="LFO 1 Group" id="2a8643bc712454bf" memberName="LFO1Group"
-                  virtualName="" explicitFocusOrder="0" pos="16 56 232 144" title=""/>
+                  virtualName="" explicitFocusOrder="0" pos="16 64 232 128" title=""/>
   <SLIDER name="LFO 1 Depth Slider" id="98ad3308f709f25c" memberName="DepthLFO1Sld"
           virtualName="" explicitFocusOrder="0" pos="96 112 32 24" min="0"
           max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
@@ -455,7 +597,7 @@ BEGIN_JUCER_METADATA
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="new slider" id="65acc0b358aa2541" memberName="MasterVolSld"
-          virtualName="" explicitFocusOrder="0" pos="16 40 440 24" min="0"
+          virtualName="" explicitFocusOrder="0" pos="16 40 480 24" min="0"
           max="1" int="0.010000000000000000208" style="LinearHorizontal"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
@@ -483,7 +625,7 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <GROUPCOMPONENT name="LFO 2 Group" id="35e8ad61c86b603a" memberName="LFO2Group"
-                  virtualName="" explicitFocusOrder="0" pos="264 56 232 144" title=""/>
+                  virtualName="" explicitFocusOrder="0" pos="264 64 232 128" title=""/>
   <SLIDER name="LFO 2 Depth Slider" id="2596adc2e61cd58e" memberName="DepthLFO2Sld"
           virtualName="" explicitFocusOrder="0" pos="344 112 32 24" min="0"
           max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
@@ -526,6 +668,34 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
+  <TEXTBUTTON name="LFO 1 Tempo Sync Button" id="95825bc0b3290b8b" memberName="TempoSyncLFO1Btn"
+              virtualName="" explicitFocusOrder="0" pos="32 88 56 16" buttonText="Tempo Sync"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="LFO 2 Tempo Sync Button" id="3a20b52dc2308f55" memberName="TempoSyncLFO2Btn"
+              virtualName="" explicitFocusOrder="0" pos="280 88 56 16" buttonText="Tempo Sync"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <SLIDER name="LFO 1 Tempo Numer Slider" id="ae3b2cb5fc40f879" memberName="TempoNumerLFO1Sld"
+          virtualName="" explicitFocusOrder="0" pos="32 120 56 16" min="1"
+          max="4" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="LFO 1 Tempo Denom Slider" id="79fb8b0e645e1976" memberName="TempoDenomLFO1Sld"
+          virtualName="" explicitFocusOrder="0" pos="32 152 56 16" min="1"
+          max="32" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="LFO 2 Tempo Numer Slider" id="7ef07d530a2439f7" memberName="TempoNumerLFO2Sld"
+          virtualName="" explicitFocusOrder="0" pos="280 120 56 16" min="1"
+          max="4" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="LFO 2 Tempo Denom Slider" id="684fae94c6ad39f8" memberName="TempoDenomLFO2Sld"
+          virtualName="" explicitFocusOrder="0" pos="280 152 56 16" min="1"
+          max="32" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
+  <TEXTBUTTON name="LFO 1 Phase Sync Button" id="1df73348199bbe85" memberName="PhaseSyncLFO1Btn"
+              virtualName="" explicitFocusOrder="0" pos="96 88 56 16" buttonText="Phase Sync"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="LFO 2 Phase Sync Button" id="6956f3f885f5801d" memberName="PhaseSyncLFO2Btn"
+              virtualName="" explicitFocusOrder="0" pos="344 88 56 16" buttonText="Phase Sync"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

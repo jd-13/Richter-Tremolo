@@ -70,6 +70,7 @@ public:
     
     enum Parameters {
         bypassSwitchLFO1 = 0,
+        phaseSyncLFO1,
         tempoSyncLFO1,
         waveLFO1,
         depthLFO1,
@@ -80,6 +81,7 @@ public:
         tempoDenomLFO1,
         
         bypassSwitchLFO2,
+        phaseSyncLFO2,
         tempoSyncLFO2,
         waveLFO2,
         depthLFO2,
@@ -90,6 +92,7 @@ public:
         tempoDenomLFO2,
         
         bypassSwitchMOD1,
+        phaseSyncMOD1,
         tempoSyncMOD1,
         waveMOD1,
         depthMOD1,
@@ -98,6 +101,7 @@ public:
         tempoDenomMOD1,
         
         bypassSwitchMOD2,
+        phaseSyncMOD2,
         tempoSyncMOD2,
         waveMOD2,
         depthMOD2,

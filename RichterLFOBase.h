@@ -31,6 +31,7 @@ class RichterLFOBase {
 protected:
     int bypassSwitch,
         tempoSyncSwitch,
+        phaseSyncSwitch,
         wave,
         index,
         indexOffset;
@@ -65,6 +66,8 @@ public:
     
     int getBypassSwitch() const { return bypassSwitch; }
     
+    int getPhaseSyncSwitch() const { return phaseSyncSwitch; }
+    
     int getTempoSyncSwitch() const { return tempoSyncSwitch; }
     
     float getWave() const { return wave; }
@@ -91,6 +94,8 @@ public:
     
     void setBypassSwitch(int val);
     
+    void setPhaseSyncSwitch(int val);
+    
     void setTempoSyncSwitch(int val);
     
     void setTempoNumer(int val);
@@ -110,9 +115,9 @@ public:
     
     
     
-    void calcTempoOffset(float beats, int nBeats, float tempo, long mSamplesProcessed);
+    void calcPhaseOffset(double timeInSeconds, long mSamplesProcessed);
     
-    void calcFreq();
+    void calcFreq(double bpm);
     
     void calcSamplesPerTremoloCycle(float sampleRate);
     

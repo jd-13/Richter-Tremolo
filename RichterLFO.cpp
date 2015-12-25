@@ -106,13 +106,16 @@ void RichterLFO::setDepthMod(float val) {
 
 // override the similar method in the base class, as the true LFOs are depentant on more parameters
 
-void RichterLFO::calcFreq(int modBypassSwitch, float modGain) {
+void RichterLFO::calcFreq(double bpm, int modBypassSwitch, float modGain) {
     // calculate the frequency based on whether tempo sync or frequency modulation is active
     
-    if (tempoSyncSwitch) { freq = tempoFreq; }
-    else if (!tempoSyncSwitch) {
+    tempoFreq = (bpm / 60) * (tempoDenom / tempoNumer);
+    
+    if (tempoSyncSwitch) {
+        freq = tempoFreq;
+    } else {
         if (modBypassSwitch) {
-            freq = rawFreq + (freqMod * 20 * modGain * 0.01);
+            freq = rawFreq + (freqMod * 20 * modGain);
         } else {
             freq = rawFreq;
         }

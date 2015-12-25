@@ -89,6 +89,14 @@ private:
     ScopedPointer<Label> FreqLFO2Lbl;
     ScopedPointer<Label> DepthLFO2Lbl;
     ScopedPointer<Label> WaveLFO2Lbl;
+    ScopedPointer<TextButton> TempoSyncLFO1Btn;
+    ScopedPointer<TextButton> TempoSyncLFO2Btn;
+    ScopedPointer<Slider> TempoNumerLFO1Sld;
+    ScopedPointer<Slider> TempoDenomLFO1Sld;
+    ScopedPointer<Slider> TempoNumerLFO2Sld;
+    ScopedPointer<Slider> TempoDenomLFO2Sld;
+    ScopedPointer<TextButton> PhaseSyncLFO1Btn;
+    ScopedPointer<TextButton> PhaseSyncLFO2Btn;
 
 
     //==============================================================================

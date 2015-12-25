@@ -38,6 +38,12 @@ void RichterLFOBase::setBypassSwitch(int val) {
     bypassSwitch = boundsCheck(bypassSwitch, 0, 1);
 }
 
+void RichterLFOBase::setPhaseSyncSwitch(int val) {
+    phaseSyncSwitch = val;
+    phaseSyncSwitch = boundsCheck(phaseSyncSwitch, 0, 1);
+}
+
+
 void RichterLFOBase::setTempoSyncSwitch(int val) {
     tempoSyncSwitch = val;
     tempoSyncSwitch = boundsCheck(tempoSyncSwitch, 0, 1);
@@ -77,43 +83,20 @@ void RichterLFOBase::setWaveTablePointers() {
 
 
 
-void RichterLFOBase::calcTempoOffset(float beats, int nBeats, float tempo, long mSamplesProcessed) {
-    
-    // Convert the bpm to a frequency value in HZ
-    tempoFreq = (tempo / 60) * (tempoDenom / tempoNumer);
-    
-    // The below int is later used to check if any beat correction is actually needed at all (beat correction is explained below)
-    // They are multiplied by 100000 as the smallest value ratio is 1/32, and this enables int casting, such that modulo is easier later on
-    int tempoRatio = (tempoNumer / tempoDenom) * 100000;
-    
-    // The following calcs should only be applied at the instant the sequencer begins playing, hence the if statement. They allow an index offset to be calculated such that the oscs can start playing at a different part of the wave depending on where the sequencer starts playing in order to ensure consistent processing.
-    
-    if (mSamplesProcessed < 1000) { // TODO: The upper bound for mSamplesProcessed should be experimented with, and the optimal value may be related to the frequency
+void RichterLFOBase::calcPhaseOffset(double timeInSeconds, long mSamplesProcessed) {
+    if (phaseSyncSwitch && (mSamplesProcessed < 1000)) {
+        float waveLength {1 / freq};
+        double waveTimePosition {0};
         
-        if (tempoSyncSwitch) {
-            
-            if ( (tempoNumer / tempoDenom) < beats ) {
-                offset = fmod(beats, (tempoNumer / tempoDenom)) / (tempoNumer / tempoDenom); // This is the offset as a fraction of kWaveArraySize
-                
-                indexOffset = offset * kWaveArraySize;
-            }
-            
-            else {
-                offset = beats / (tempoNumer / tempoDenom); // Again this is the offset as a fraction of kWaveArraySize
-                indexOffset = offset * kWaveArraySize;
-                
-            }
-            
+        if (waveLength < timeInSeconds) {
+            waveTimePosition = fmod(timeInSeconds, waveLength);
+        } else {
+            waveTimePosition = timeInSeconds;
         }
-        
-        if (!tempoSyncSwitch || ((nBeats % tempoRatio) < 1)) {
-            //offset = 0;
-            //indexOffset = 0;
-            //LFO1Offset = GetParameter();              Possibly add in a user adjustable phase control
-        }
+        indexOffset = (waveTimePosition / waveLength) * kWaveArraySize;
     }
     
-    if (beats < (1/64)) {
+    if (!phaseSyncSwitch && (mSamplesProcessed < 1000)) {
         indexOffset = 0;
     }
 }
@@ -121,8 +104,10 @@ void RichterLFOBase::calcTempoOffset(float beats, int nBeats, float tempo, long 
 
 
 
- void RichterLFOBase::calcFreq() {
+ void RichterLFOBase::calcFreq(double bpm) {
     // calculate the frequency based on whether tempo sync is active
+     
+    tempoFreq = (bpm / 60) * (tempoDenom / tempoNumer);
     
     if (tempoSyncSwitch) { freq = tempoFreq; }
     

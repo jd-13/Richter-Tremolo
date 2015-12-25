@@ -16,6 +16,7 @@
 RichterAudioProcessor::RichterAudioProcessor()
 {
     mRichter.LFO1.setBypassSwitch(LFOSWITCH_DEFAULT);
+    mRichter.LFO1.setPhaseSyncSwitch(PHASESYNC_DEFAULT);
     mRichter.LFO1.setTempoSyncSwitch(TEMPOSYNC_DEFAULT);
     mRichter.LFO1.setWave(WAVE_DEFAULT);
     mRichter.LFO1.setDepth(DEPTH_DEFAULT);
@@ -26,6 +27,7 @@ RichterAudioProcessor::RichterAudioProcessor()
     mRichter.LFO1.setTempoDenom(TEMPODENOM_DEFAULT);
     
     mRichter.LFO2.setBypassSwitch(LFOSWITCH_DEFAULT);
+    mRichter.LFO2.setPhaseSyncSwitch(PHASESYNC_DEFAULT);
     mRichter.LFO2.setTempoSyncSwitch(TEMPOSYNC_DEFAULT);
     mRichter.LFO2.setWave(WAVE_DEFAULT);
     mRichter.LFO2.setDepth(DEPTH_DEFAULT);
@@ -36,6 +38,7 @@ RichterAudioProcessor::RichterAudioProcessor()
     mRichter.LFO2.setTempoDenom(TEMPODENOM_DEFAULT);
     
     mRichter.MOD1.setBypassSwitch(LFOSWITCH_DEFAULT);
+    mRichter.MOD1.setPhaseSyncSwitch(PHASESYNC_DEFAULT);
     mRichter.MOD1.setTempoSyncSwitch(TEMPOSYNC_DEFAULT);
     mRichter.MOD1.setWave(WAVE_DEFAULT);
     mRichter.MOD1.setDepth(DEPTH_DEFAULT);
@@ -44,6 +47,7 @@ RichterAudioProcessor::RichterAudioProcessor()
     mRichter.MOD1.setTempoDenom(TEMPODENOM_DEFAULT);
     
     mRichter.MOD2.setBypassSwitch(LFOSWITCH_DEFAULT);
+    mRichter.MOD2.setPhaseSyncSwitch(PHASESYNC_DEFAULT);
     mRichter.MOD2.setTempoSyncSwitch(TEMPOSYNC_DEFAULT);
     mRichter.MOD2.setWave(WAVE_DEFAULT);
     mRichter.MOD2.setDepth(DEPTH_DEFAULT);
@@ -78,6 +82,9 @@ float RichterAudioProcessor::getParameter (int index)
         case bypassSwitchLFO1:
             return mRichter.LFO1.getBypassSwitch();
             
+        case phaseSyncLFO1:
+            return mRichter.LFO1.getPhaseSyncSwitch();
+            
         case tempoSyncLFO1:
             return mRichter.LFO1.getTempoSyncSwitch();
             
@@ -97,10 +104,10 @@ float RichterAudioProcessor::getParameter (int index)
             return TranslateParam_Inter2Norm(mRichter.LFO1.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX);
             
         case tempoNumerLFO1:
-            return TranslateParam_Inter2Norm(mRichter.LFO1.getTempoNumer(), TEMPONUMER_MIN, TEMPONUMER_MAX);
+            return mRichter.LFO1.getTempoNumer();
             
         case tempoDenomLFO1:
-            return TranslateParam_Inter2Norm(mRichter.LFO1.getTempoDenom(), TEMPODENOM_MIN, TEMPODENOM_MAX);
+            return mRichter.LFO1.getTempoDenom();
             
             
           
@@ -108,6 +115,9 @@ float RichterAudioProcessor::getParameter (int index)
             
         case bypassSwitchLFO2:
             return mRichter.LFO2.getBypassSwitch();
+            
+        case phaseSyncLFO2:
+            return mRichter.LFO2.getPhaseSyncSwitch();
             
         case tempoSyncLFO2:
             return mRichter.LFO2.getTempoSyncSwitch();
@@ -128,10 +138,10 @@ float RichterAudioProcessor::getParameter (int index)
             return TranslateParam_Inter2Norm(mRichter.LFO2.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX);
             
         case tempoNumerLFO2:
-            return TranslateParam_Inter2Norm(mRichter.LFO2.getTempoNumer(), TEMPONUMER_MIN, TEMPONUMER_MAX);
+            return mRichter.LFO2.getTempoNumer();
             
         case tempoDenomLFO2:
-            return TranslateParam_Inter2Norm(mRichter.LFO2.getTempoDenom(), TEMPODENOM_MIN, TEMPODENOM_MAX);
+            return mRichter.LFO2.getTempoDenom();
             
             
             
@@ -140,6 +150,9 @@ float RichterAudioProcessor::getParameter (int index)
             
         case bypassSwitchMOD1:
             return mRichter.MOD1.getBypassSwitch();
+            
+        case phaseSyncMOD1:
+            return mRichter.MOD1.getPhaseSyncSwitch();
             
         case tempoSyncMOD1:
             return mRichter.MOD1.getTempoSyncSwitch();
@@ -154,10 +167,10 @@ float RichterAudioProcessor::getParameter (int index)
             return TranslateParam_Inter2Norm(mRichter.MOD1.getFreq(), FREQ_MIN, FREQ_MAX);
             
         case tempoNumerMOD1:
-            return TranslateParam_Inter2Norm(mRichter.MOD1.getTempoNumer(), TEMPONUMER_MIN, TEMPONUMER_MAX);
+            return mRichter.MOD1.getTempoNumer();
             
         case tempoDenomMOD1:
-            return TranslateParam_Inter2Norm(mRichter.MOD1.getTempoDenom(), TEMPODENOM_MIN, TEMPODENOM_MAX);
+            return mRichter.MOD1.getTempoDenom();
             
             
            
@@ -167,6 +180,9 @@ float RichterAudioProcessor::getParameter (int index)
             
         case bypassSwitchMOD2:
             return mRichter.MOD2.getBypassSwitch();
+            
+        case phaseSyncMOD2:
+            return mRichter.MOD2.getPhaseSyncSwitch();
             
         case tempoSyncMOD2:
             return mRichter.MOD2.getTempoSyncSwitch();
@@ -181,10 +197,10 @@ float RichterAudioProcessor::getParameter (int index)
             return TranslateParam_Inter2Norm(mRichter.MOD2.getFreq(), FREQ_MIN, FREQ_MAX);
             
         case tempoNumerMOD2:
-            return TranslateParam_Inter2Norm(mRichter.MOD2.getTempoNumer(), TEMPONUMER_MIN, TEMPONUMER_MAX);
+            return mRichter.MOD2.getTempoNumer();
             
         case tempoDenomMOD2:
-            return TranslateParam_Inter2Norm(mRichter.MOD2.getTempoDenom(), TEMPODENOM_MIN, TEMPODENOM_MAX);
+            return mRichter.MOD2.getTempoDenom();
             
             
             
@@ -209,8 +225,12 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             mRichter.LFO1.setBypassSwitch(newValue < 0.5 ? true : false);
             break;
             
+        case phaseSyncLFO1:
+            mRichter.LFO1.setPhaseSyncSwitch(newValue < 0.5 ? true : false);
+            break;
+            
         case tempoSyncLFO1:
-            mRichter.LFO1.setTempoSyncSwitch(round(newValue));
+            mRichter.LFO1.setTempoSyncSwitch(newValue < 0.5 ? true : false);
             break;
             
         case waveLFO1:
@@ -234,11 +254,11 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             break;
             
         case tempoNumerLFO1:
-            mRichter.LFO1.setTempoNumer(TranslateParam_Norm2Inter(newValue, TEMPONUMER_MIN, TEMPONUMER_MAX));
+            mRichter.LFO1.setTempoNumer(newValue);
             break;
             
         case tempoDenomLFO1:
-            mRichter.LFO1.setTempoDenom(TranslateParam_Norm2Inter(newValue, TEMPODENOM_MIN, TEMPODENOM_MAX));
+            mRichter.LFO1.setTempoDenom(newValue);
             break;
             
             
@@ -249,8 +269,12 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             mRichter.LFO2.setBypassSwitch(newValue < 0.5 ? true : false);
             break;
             
+        case phaseSyncLFO2:
+            mRichter.LFO2.setPhaseSyncSwitch(newValue < 0.5 ? true : false);
+            break;
+            
         case tempoSyncLFO2:
-            mRichter.LFO2.setTempoSyncSwitch(round(newValue));
+            mRichter.LFO2.setTempoSyncSwitch(newValue < 0.5 ? true : false);
             break;
             
         case waveLFO2:
@@ -274,11 +298,11 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             break;
             
         case tempoNumerLFO2:
-            mRichter.LFO2.setTempoNumer(TranslateParam_Norm2Inter(newValue, TEMPONUMER_MIN, TEMPONUMER_MAX));
+            mRichter.LFO2.setTempoNumer(newValue);
             break;
             
         case tempoDenomLFO2:
-            mRichter.LFO2.setTempoDenom(TranslateParam_Norm2Inter(newValue, TEMPODENOM_MIN, TEMPODENOM_MAX));
+            mRichter.LFO2.setTempoDenom(newValue);
             break;
             
             
@@ -289,8 +313,12 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             mRichter.MOD1.setBypassSwitch(newValue < 0.5 ? true : false);
             break;
             
+        case phaseSyncMOD1:
+            mRichter.MOD1.setPhaseSyncSwitch(newValue < 0.5 ? true : false);
+            break;
+            
         case tempoSyncMOD1:
-            mRichter.MOD1.setTempoSyncSwitch(round(newValue));
+            mRichter.MOD1.setTempoSyncSwitch(newValue < 0.5 ? true : false);
             break;
             
         case waveMOD1:
@@ -306,11 +334,11 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             break;
             
         case tempoNumerMOD1:
-            mRichter.MOD1.setTempoNumer(TranslateParam_Norm2Inter(newValue, TEMPONUMER_MIN, TEMPONUMER_MAX));
+            mRichter.MOD1.setTempoNumer(newValue);
             break;
             
         case tempoDenomMOD1:
-            mRichter.MOD1.setTempoDenom(TranslateParam_Norm2Inter(newValue, TEMPODENOM_MIN, TEMPODENOM_MAX));
+            mRichter.MOD1.setTempoDenom(newValue);
             break;
             
             
@@ -321,8 +349,12 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             mRichter.MOD2.setBypassSwitch(newValue < 0.5 ? true : false);
             break;
             
+        case phaseSyncMOD2:
+            mRichter.MOD2.setPhaseSyncSwitch(newValue < 0.5 ? true : false);
+            break;
+            
         case tempoSyncMOD2:
-            mRichter.MOD2.setTempoSyncSwitch(round(newValue));
+            mRichter.MOD2.setTempoSyncSwitch(newValue < 0.5 ? true : false);
             break;
             
         case waveMOD2:
@@ -338,11 +370,11 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             break;
             
         case tempoNumerMOD2:
-            mRichter.MOD2.setTempoNumer(TranslateParam_Norm2Inter(newValue, TEMPONUMER_MIN, TEMPONUMER_MAX));
+            mRichter.MOD2.setTempoNumer(newValue);
             break;
             
         case tempoDenomMOD2:
-            mRichter.MOD2.setTempoDenom(TranslateParam_Norm2Inter(newValue, TEMPODENOM_MIN, TEMPODENOM_MAX));
+            mRichter.MOD2.setTempoDenom(newValue);
             break;
             
             
@@ -366,6 +398,9 @@ const String RichterAudioProcessor::getParameterName (int index)
     switch (index) {
         case bypassSwitchLFO1:
             return SWITCHLFO1_STR;
+            
+        case phaseSyncLFO1:
+            return PHASESYNCLFO1_STR;
             
         case tempoSyncLFO1:
             return TEMPOSYNCLFO1_STR;
@@ -396,6 +431,9 @@ const String RichterAudioProcessor::getParameterName (int index)
             
         case bypassSwitchLFO2:
             return SWITCHLFO2_STR;
+            
+        case phaseSyncLFO2:
+            return PHASESYNCLFO2_STR;
             
         case tempoSyncLFO2:
             return TEMPOSYNCLFO2_STR;
@@ -428,6 +466,9 @@ const String RichterAudioProcessor::getParameterName (int index)
         case bypassSwitchMOD1:
             return SWITCHMOD1_STR;
             
+        case phaseSyncMOD1:
+            return PHASESYNCMOD1_STR;
+            
         case tempoSyncMOD1:
             return TEMPOSYNCMOD1_STR;
             
@@ -452,6 +493,9 @@ const String RichterAudioProcessor::getParameterName (int index)
             
         case bypassSwitchMOD2:
             return SWITCHMOD2_STR;
+            
+        case phaseSyncMOD2:
+            return PHASESYNCMOD2_STR;
             
         case tempoSyncMOD2:
             return TEMPOSYNCMOD2_STR;
@@ -489,6 +533,9 @@ const String RichterAudioProcessor::getParameterText (int index)
         case bypassSwitchLFO1:
             return String(mRichter.LFO1.getBypassSwitch());
             
+        case phaseSyncLFO1:
+            return String(mRichter.LFO1.getPhaseSyncSwitch());
+            
         case tempoSyncLFO1:
             return String(mRichter.LFO1.getTempoSyncSwitch());
             
@@ -508,10 +555,10 @@ const String RichterAudioProcessor::getParameterText (int index)
             return String(TranslateParam_Inter2Norm(mRichter.LFO1.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX));
             
         case tempoNumerLFO1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFO1.getTempoNumer(), TEMPONUMER_MIN, TEMPONUMER_MAX));
+            return String(mRichter.LFO1.getTempoNumer());
             
         case tempoDenomLFO1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFO1.getTempoDenom(), TEMPODENOM_MIN, TEMPODENOM_MAX));
+            return String(mRichter.LFO1.getTempoDenom());
             
             
             
@@ -519,6 +566,9 @@ const String RichterAudioProcessor::getParameterText (int index)
             
         case bypassSwitchLFO2:
             return String(mRichter.LFO2.getBypassSwitch());
+            
+        case phaseSyncLFO2:
+            return String(mRichter.LFO2.getPhaseSyncSwitch());
             
         case tempoSyncLFO2:
             return String(mRichter.LFO2.getTempoSyncSwitch());
@@ -539,10 +589,10 @@ const String RichterAudioProcessor::getParameterText (int index)
             return String(TranslateParam_Inter2Norm(mRichter.LFO2.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX));
             
         case tempoNumerLFO2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFO2.getTempoNumer(), TEMPONUMER_MIN, TEMPONUMER_MAX));
+            return String(mRichter.LFO2.getTempoNumer());
             
         case tempoDenomLFO2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFO2.getTempoDenom(), TEMPODENOM_MIN, TEMPODENOM_MAX));
+            return String(mRichter.LFO2.getTempoDenom());
             
             
             
@@ -550,6 +600,9 @@ const String RichterAudioProcessor::getParameterText (int index)
             
         case bypassSwitchMOD1:
             return String(mRichter.MOD1.getBypassSwitch());
+            
+        case phaseSyncMOD1:
+            return String(mRichter.MOD1.getPhaseSyncSwitch());
             
         case tempoSyncMOD1:
             return String(mRichter.MOD1.getTempoSyncSwitch());
@@ -564,10 +617,10 @@ const String RichterAudioProcessor::getParameterText (int index)
             return String(TranslateParam_Inter2Norm(mRichter.MOD1.getFreq(), FREQ_MIN, FREQ_MAX));
             
         case tempoNumerMOD1:
-            return String(TranslateParam_Inter2Norm(mRichter.MOD1.getTempoNumer(), TEMPONUMER_MIN, TEMPONUMER_MAX));
+            return String(mRichter.MOD1.getTempoNumer());
             
         case tempoDenomMOD1:
-            return String(TranslateParam_Inter2Norm(mRichter.MOD1.getTempoDenom(), TEMPODENOM_MIN, TEMPODENOM_MAX));
+            return String(mRichter.MOD1.getTempoDenom());
             
             
             
@@ -575,6 +628,9 @@ const String RichterAudioProcessor::getParameterText (int index)
             
         case bypassSwitchMOD2:
             return String(mRichter.MOD2.getBypassSwitch());
+            
+        case phaseSyncMOD2:
+            return String(mRichter.MOD2.getPhaseSyncSwitch());
             
         case tempoSyncMOD2:
             return String(mRichter.MOD2.getTempoSyncSwitch());
@@ -589,10 +645,10 @@ const String RichterAudioProcessor::getParameterText (int index)
             return String(TranslateParam_Inter2Norm(mRichter.MOD2.getFreq(), FREQ_MIN, FREQ_MAX));
             
         case tempoNumerMOD2:
-            return String(TranslateParam_Inter2Norm(mRichter.MOD2.getTempoNumer(), TEMPONUMER_MIN, TEMPONUMER_MAX));
+            return String(mRichter.MOD2.getTempoNumer());
             
         case tempoDenomMOD2:
-            return String(TranslateParam_Inter2Norm(mRichter.MOD2.getTempoDenom(), TEMPODENOM_MIN, TEMPODENOM_MAX));
+            return String(mRichter.MOD2.getTempoDenom());
             
             
         case 111:
@@ -612,6 +668,18 @@ const String RichterAudioProcessor::getParameterText (int index)
 
 bool RichterAudioProcessor::isParameterAutomatable(int parameterIndex) const {
     switch (parameterIndex) {
+        case bypassSwitchLFO1:
+        case bypassSwitchLFO2:
+        case bypassSwitchMOD1:
+        case bypassSwitchMOD2:
+        case tempoSyncLFO1:
+        case tempoSyncLFO2:
+        case tempoSyncMOD1:
+        case tempoSyncMOD2:
+        case phaseSyncLFO1:
+        case phaseSyncLFO2:
+        case phaseSyncMOD1:
+        case phaseSyncMOD2:
         case waveLFO1:
         case waveLFO2:
         case waveMOD1:
@@ -740,16 +808,21 @@ void RichterAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
     } else if (mRichter.getMasterVol() > MASTERVOL_MAX) {
         mRichter.setMasterVol(MASTERVOL_MAX);
     }
-    
+
     juce::AudioPlayHead::CurrentPositionInfo mTempoInfo;
     getPlayHead()->getCurrentPosition(mTempoInfo);
     
-
-    mRichter.MOD1.calcFreq();
-    mRichter.MOD2.calcFreq();
+    mRichter.MOD1.calcFreq(mTempoInfo.bpm);
+    mRichter.MOD2.calcFreq(mTempoInfo.bpm);
     
-    mRichter.LFO1.calcFreq(mRichter.MOD1.getBypassSwitch(), mRichter.MOD1.getGain());
-    mRichter.LFO2.calcFreq(mRichter.MOD2.getBypassSwitch(), mRichter.MOD2.getGain());
+    mRichter.MOD1.calcPhaseOffset(mTempoInfo.timeInSeconds, mRichter.getSamplesProcessed());
+    mRichter.MOD2.calcPhaseOffset(mTempoInfo.timeInSeconds, mRichter.getSamplesProcessed());
+    
+    mRichter.LFO1.calcFreq(mTempoInfo.bpm, mRichter.MOD1.getBypassSwitch(), mRichter.MOD1.getGain());
+    mRichter.LFO2.calcFreq(mTempoInfo.bpm, mRichter.MOD2.getBypassSwitch(), mRichter.MOD2.getGain());
+    
+    mRichter.LFO1.calcPhaseOffset(mTempoInfo.timeInSeconds, mRichter.getSamplesProcessed());
+    mRichter.LFO2.calcPhaseOffset(mTempoInfo.timeInSeconds, mRichter.getSamplesProcessed());
     
     mRichter.LFO1.calcSamplesPerTremoloCycle(getSampleRate());
     mRichter.LFO2.calcSamplesPerTremoloCycle(getSampleRate());
@@ -797,6 +870,9 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     el = root.createNewChildElement(SWITCHLFO1_STR);
     el->addTextElement(String(mRichter.LFO1.getBypassSwitch()));
     
+    el = root.createNewChildElement(PHASESYNCLFO1_STR);
+    el->addTextElement(String(mRichter.LFO1.getPhaseSyncSwitch()));
+    
     el = root.createNewChildElement(TEMPOSYNCLFO1_STR);
     el->addTextElement(String(mRichter.LFO1.getTempoSyncSwitch()));
     
@@ -827,6 +903,9 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     
     el = root.createNewChildElement(SWITCHLFO2_STR);
     el->addTextElement(String(mRichter.LFO2.getBypassSwitch()));
+    
+    el = root.createNewChildElement(PHASESYNCLFO2_STR);
+    el->addTextElement(String(mRichter.LFO2.getPhaseSyncSwitch()));
     
     el = root.createNewChildElement(TEMPOSYNCLFO2_STR);
     el->addTextElement(String(mRichter.LFO2.getTempoSyncSwitch()));
@@ -860,6 +939,9 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     el = root.createNewChildElement(SWITCHMOD1_STR);
     el->addTextElement(String(mRichter.MOD1.getBypassSwitch()));
     
+    el = root.createNewChildElement(PHASESYNCMOD1_STR);
+    el->addTextElement(String(mRichter.MOD1.getPhaseSyncSwitch()));
+    
     el = root.createNewChildElement(TEMPOSYNCMOD1_STR);
     el->addTextElement(String(mRichter.MOD1.getTempoSyncSwitch()));
     
@@ -886,6 +968,9 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     el = root.createNewChildElement(SWITCHMOD2_STR);
     el->addTextElement(String(mRichter.MOD2.getBypassSwitch()));
     
+    el = root.createNewChildElement(PHASESYNCMOD2_STR);
+    el->addTextElement(String(mRichter.MOD2.getPhaseSyncSwitch()));
+    
     el = root.createNewChildElement(TEMPOSYNCMOD2_STR);
     el->addTextElement(String(mRichter.MOD2.getTempoSyncSwitch()));
     
@@ -907,6 +992,11 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     
     
     
+    el = root.createNewChildElement(MASTERVOL_STR);
+    el->addTextElement(String(mRichter.getMasterVol()));
+    
+    
+    
     copyXmlToBinary(root, destData);
 }
 
@@ -921,6 +1011,9 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
             if (pChild->hasTagName(SWITCHLFO1_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(bypassSwitchLFO1, text.getFloatValue());
+            } else if (pChild->hasTagName(PHASESYNCLFO1_STR)) {
+                String text = pChild->getAllSubText();
+                setParameter(phaseSyncLFO1, text.getFloatValue());
             } else if (pChild->hasTagName(TEMPOSYNCLFO1_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(tempoSyncLFO1, text.getFloatValue());
@@ -953,6 +1046,9 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
             else if (pChild->hasTagName(SWITCHLFO2_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(bypassSwitchLFO2, text.getFloatValue());
+            } else if (pChild->hasTagName(PHASESYNCLFO2_STR)) {
+                String text = pChild->getAllSubText();
+                setParameter(phaseSyncLFO2, text.getFloatValue());
             } else if (pChild->hasTagName(TEMPOSYNCLFO2_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(tempoSyncLFO2, text.getFloatValue());
@@ -986,6 +1082,9 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
             else if (pChild->hasTagName(SWITCHMOD1_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(bypassSwitchMOD1, text.getFloatValue());
+            } else if (pChild->hasTagName(PHASESYNCMOD1_STR)) {
+                String text = pChild->getAllSubText();
+                setParameter(phaseSyncMOD1, text.getFloatValue());
             } else if (pChild->hasTagName(TEMPOSYNCMOD1_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(tempoSyncMOD1, text.getFloatValue());
@@ -1012,6 +1111,9 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
             else if (pChild->hasTagName(SWITCHMOD2_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(bypassSwitchMOD2, text.getFloatValue());
+            } else if (pChild->hasTagName(PHASESYNCMOD2_STR)) {
+                String text = pChild->getAllSubText();
+                setParameter(phaseSyncMOD2, text.getFloatValue());
             } else if (pChild->hasTagName(TEMPOSYNCMOD2_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(tempoSyncMOD2, text.getFloatValue());
@@ -1032,6 +1134,12 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
                 setParameter(tempoDenomMOD2, text.getFloatValue());
             }
 
+            
+            
+            else if (pChild->hasTagName(MASTERVOL_STR)) {
+                String text = pChild->getAllSubText();
+                setParameter(masterVol, text.getFloatValue());
+            }
             
         }
         
