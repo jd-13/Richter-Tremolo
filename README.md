@@ -7,8 +7,8 @@ Richter was original written using as an AudioUnit, and is now being rebuilt usi
 
 Timeline:  
 23/11/15 -- Development Start [DONE][TESTED]  
-27/11/15 -- Single LFO with multiple waveforms [DONE] [TESTED]  
-5/12/15 -- Tempo sync [DONE]  
+27/11/15 -- Single LFO with multiple waveforms [DONE][TESTED]  
+5/12/15 -- Tempo sync [DONE][TESTED]  
 10/12/15 -- Four LFOs  
 16/12/15 -- GUI enhancement  
 30/12/15 -- Testing completion  
