@@ -29,6 +29,8 @@ public:
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
+    void reset() override;
+
 
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override;
 
@@ -77,6 +79,7 @@ public:
         depthModLFO1,
         freqLFO1,
         freqModLFO1,
+        phaseLFO1,
         tempoNumerLFO1,
         tempoDenomLFO1,
         
@@ -88,6 +91,7 @@ public:
         depthModLFO2,
         freqLFO2,
         freqModLFO2,
+        phaseLFO2,
         tempoNumerLFO2,
         tempoDenomLFO2,
         
@@ -97,6 +101,7 @@ public:
         waveMOD1,
         depthMOD1,
         freqMOD1,
+        phaseMOD1,
         tempoNumerMOD1,
         tempoDenomMOD1,
         
@@ -106,6 +111,7 @@ public:
         waveMOD2,
         depthMOD2,
         freqMOD2,
+        phaseMOD2,
         tempoNumerMOD2,
         tempoDenomMOD2,
         

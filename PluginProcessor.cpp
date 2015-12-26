@@ -23,6 +23,7 @@ RichterAudioProcessor::RichterAudioProcessor()
     mRichter.LFO1.setDepthMod(DEPTHMOD_DEFAULT);
     mRichter.LFO1.setFreq(FREQ_DEFAULT);
     mRichter.LFO1.setFreqMod(FREQMOD_DEFAULT);
+    mRichter.LFO1.setManualPhase(PHASE_DEFAULT);
     mRichter.LFO1.setTempoNumer(TEMPONUMER_DEFAULT);
     mRichter.LFO1.setTempoDenom(TEMPODENOM_DEFAULT);
     
@@ -34,6 +35,7 @@ RichterAudioProcessor::RichterAudioProcessor()
     mRichter.LFO2.setDepthMod(DEPTHMOD_DEFAULT);
     mRichter.LFO2.setFreq(FREQ_DEFAULT);
     mRichter.LFO2.setFreqMod(FREQMOD_DEFAULT);
+    mRichter.LFO2.setManualPhase(PHASE_DEFAULT);
     mRichter.LFO2.setTempoNumer(TEMPONUMER_DEFAULT);
     mRichter.LFO2.setTempoDenom(TEMPODENOM_DEFAULT);
     
@@ -43,6 +45,7 @@ RichterAudioProcessor::RichterAudioProcessor()
     mRichter.MOD1.setWave(WAVE_DEFAULT);
     mRichter.MOD1.setDepth(DEPTH_DEFAULT);
     mRichter.MOD1.setFreq(FREQ_DEFAULT);
+    mRichter.MOD1.setManualPhase(PHASE_DEFAULT);
     mRichter.MOD1.setTempoNumer(TEMPONUMER_DEFAULT);
     mRichter.MOD1.setTempoDenom(TEMPODENOM_DEFAULT);
     
@@ -52,6 +55,7 @@ RichterAudioProcessor::RichterAudioProcessor()
     mRichter.MOD2.setWave(WAVE_DEFAULT);
     mRichter.MOD2.setDepth(DEPTH_DEFAULT);
     mRichter.MOD2.setFreq(FREQ_DEFAULT);
+    mRichter.MOD2.setManualPhase(PHASE_DEFAULT);
     mRichter.MOD2.setTempoNumer(TEMPONUMER_DEFAULT);
     mRichter.MOD2.setTempoDenom(TEMPODENOM_DEFAULT);
     
@@ -103,6 +107,9 @@ float RichterAudioProcessor::getParameter (int index)
         case freqModLFO1:
             return TranslateParam_Inter2Norm(mRichter.LFO1.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX);
             
+        case phaseLFO1:
+            return TranslateParam_Inter2Norm(mRichter.LFO1.getManualPhase(), PHASE_MIN, PHASE_MAX);
+            
         case tempoNumerLFO1:
             return mRichter.LFO1.getTempoNumer();
             
@@ -137,6 +144,9 @@ float RichterAudioProcessor::getParameter (int index)
         case freqModLFO2:
             return TranslateParam_Inter2Norm(mRichter.LFO2.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX);
             
+        case phaseLFO2:
+            return TranslateParam_Inter2Norm(mRichter.LFO2.getManualPhase(), PHASE_MIN, PHASE_MAX);
+            
         case tempoNumerLFO2:
             return mRichter.LFO2.getTempoNumer();
             
@@ -165,6 +175,9 @@ float RichterAudioProcessor::getParameter (int index)
             
         case freqMOD1:
             return TranslateParam_Inter2Norm(mRichter.MOD1.getFreq(), FREQ_MIN, FREQ_MAX);
+            
+        case phaseMOD1:
+            return TranslateParam_Inter2Norm(mRichter.MOD1.getManualPhase(), PHASE_MIN, PHASE_MAX);
             
         case tempoNumerMOD1:
             return mRichter.MOD1.getTempoNumer();
@@ -195,6 +208,9 @@ float RichterAudioProcessor::getParameter (int index)
             
         case freqMOD2:
             return TranslateParam_Inter2Norm(mRichter.MOD2.getFreq(), FREQ_MIN, FREQ_MAX);
+            
+        case phaseMOD2:
+            return TranslateParam_Inter2Norm(mRichter.MOD2.getManualPhase(), PHASE_MIN, PHASE_MAX);
             
         case tempoNumerMOD2:
             return mRichter.MOD2.getTempoNumer();
@@ -253,6 +269,10 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             mRichter.LFO1.setFreqMod(TranslateParam_Norm2Inter(newValue, FREQMOD_MIN, FREQMOD_MAX));
             break;
             
+        case phaseLFO1:
+            mRichter.LFO2.setManualPhase(TranslateParam_Norm2Inter(newValue, PHASE_MIN, PHASE_MAX));
+            break;
+            
         case tempoNumerLFO1:
             mRichter.LFO1.setTempoNumer(newValue);
             break;
@@ -297,6 +317,10 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             mRichter.LFO2.setFreqMod(TranslateParam_Norm2Inter(newValue, FREQMOD_MIN, FREQMOD_MAX));
             break;
             
+        case phaseLFO2:
+            mRichter.LFO2.setManualPhase(TranslateParam_Norm2Inter(newValue, PHASE_MIN, PHASE_MAX));
+            break;
+            
         case tempoNumerLFO2:
             mRichter.LFO2.setTempoNumer(newValue);
             break;
@@ -333,6 +357,10 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             mRichter.MOD1.setFreq(TranslateParam_Norm2Inter(newValue, FREQ_MIN, FREQ_MAX));
             break;
             
+        case phaseMOD1:
+            mRichter.MOD1.setManualPhase(TranslateParam_Norm2Inter(newValue, PHASE_MIN, PHASE_MAX));
+            break;
+            
         case tempoNumerMOD1:
             mRichter.MOD1.setTempoNumer(newValue);
             break;
@@ -367,6 +395,10 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             
         case freqMOD2:
             mRichter.MOD2.setFreq(TranslateParam_Norm2Inter(newValue, FREQ_MIN, FREQ_MAX));
+            break;
+            
+        case phaseMOD2:
+            mRichter.MOD2.setManualPhase(TranslateParam_Norm2Inter(newValue, PHASE_MIN, PHASE_MAX));
             break;
             
         case tempoNumerMOD2:
@@ -420,6 +452,9 @@ const String RichterAudioProcessor::getParameterName (int index)
         case freqModLFO1:
             return FREQMODLFO1_STR;
             
+        case phaseLFO1:
+            return PHASELFO1_STR;
+            
         case tempoNumerLFO1:
             return TEMPONUMERLFO1_STR;
             
@@ -453,6 +488,9 @@ const String RichterAudioProcessor::getParameterName (int index)
         case freqModLFO2:
             return FREQMODLFO2_STR;
             
+        case phaseLFO2:
+            return PHASELFO2_STR;
+            
         case tempoNumerLFO2:
             return TEMPONUMERLFO2_STR;
             
@@ -481,6 +519,9 @@ const String RichterAudioProcessor::getParameterName (int index)
         case freqMOD1:
             return FREQMOD1_STR;
             
+        case phaseMOD1:
+            return PHASEMOD1_STR;
+            
         case tempoNumerMOD1:
             return TEMPONUMERMOD1_STR;
             
@@ -508,6 +549,9 @@ const String RichterAudioProcessor::getParameterName (int index)
             
         case freqMOD2:
             return FREQMOD2_STR;
+            
+        case phaseMOD2:
+            return PHASEMOD2_STR;
             
         case tempoNumerMOD2:
             return TEMPONUMERMOD2_STR;
@@ -554,6 +598,9 @@ const String RichterAudioProcessor::getParameterText (int index)
         case freqModLFO1:
             return String(TranslateParam_Inter2Norm(mRichter.LFO1.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX));
             
+        case phaseLFO1:
+            return String(TranslateParam_Inter2Norm(mRichter.LFO1.getManualPhase(), PHASE_MIN, PHASE_MAX));
+            
         case tempoNumerLFO1:
             return String(mRichter.LFO1.getTempoNumer());
             
@@ -588,6 +635,9 @@ const String RichterAudioProcessor::getParameterText (int index)
         case freqModLFO2:
             return String(TranslateParam_Inter2Norm(mRichter.LFO2.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX));
             
+        case phaseLFO2:
+            return String(TranslateParam_Inter2Norm(mRichter.LFO2.getManualPhase(), PHASE_MIN, PHASE_MAX));
+            
         case tempoNumerLFO2:
             return String(mRichter.LFO2.getTempoNumer());
             
@@ -615,6 +665,9 @@ const String RichterAudioProcessor::getParameterText (int index)
             
         case freqMOD1:
             return String(TranslateParam_Inter2Norm(mRichter.MOD1.getFreq(), FREQ_MIN, FREQ_MAX));
+            
+        case phaseMOD1:
+            return String(TranslateParam_Inter2Norm(mRichter.MOD1.getManualPhase(), PHASE_MIN, PHASE_MAX));
             
         case tempoNumerMOD1:
             return String(mRichter.MOD1.getTempoNumer());
@@ -644,15 +697,15 @@ const String RichterAudioProcessor::getParameterText (int index)
         case freqMOD2:
             return String(TranslateParam_Inter2Norm(mRichter.MOD2.getFreq(), FREQ_MIN, FREQ_MAX));
             
+        case phaseMOD2:
+            return String(TranslateParam_Inter2Norm(mRichter.MOD2.getManualPhase(), PHASE_MIN, PHASE_MAX));
+            
         case tempoNumerMOD2:
             return String(mRichter.MOD2.getTempoNumer());
             
         case tempoDenomMOD2:
             return String(mRichter.MOD2.getTempoDenom());
             
-            
-        case 111:
-            return String(mRichter.LFO1.getDepth());
             
             
             
@@ -768,16 +821,11 @@ void RichterAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBloc
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
-    mRichter.LFO1.setCurrentScale(0);
-    mRichter.LFO2.setCurrentScale(0);
-    mRichter.MOD1.setCurrentScale(0);
-    mRichter.MOD2.setCurrentScale(0);
+    mRichter.LFO1.reset();
+    mRichter.LFO2.reset();
+    mRichter.MOD1.reset();
+    mRichter.MOD2.reset();
     mRichter.resetSamplesProcessed();
-    
-    mRichter.LFO1.setIndexOffset(0);
-    mRichter.LFO2.setIndexOffset(0);
-    mRichter.MOD1.setIndexOffset(0);
-    mRichter.MOD2.setIndexOffset(0);
 }
 
 void RichterAudioProcessor::releaseResources()
@@ -785,6 +833,18 @@ void RichterAudioProcessor::releaseResources()
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
 }
+
+
+void RichterAudioProcessor::reset()
+{
+    Logger::outputDebugString("reset called");
+    mRichter.LFO1.reset();
+    mRichter.LFO2.reset();
+    mRichter.MOD1.reset();
+    mRichter.MOD2.reset();
+    mRichter.resetSamplesProcessed();
+}
+
 
 void RichterAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer& midiMessages)
 {
@@ -815,14 +875,14 @@ void RichterAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
     mRichter.MOD1.calcFreq(mTempoInfo.bpm);
     mRichter.MOD2.calcFreq(mTempoInfo.bpm);
     
-    mRichter.MOD1.calcPhaseOffset(mTempoInfo.timeInSeconds, mRichter.getSamplesProcessed());
-    mRichter.MOD2.calcPhaseOffset(mTempoInfo.timeInSeconds, mRichter.getSamplesProcessed());
+    mRichter.MOD1.calcPhaseOffset(mTempoInfo.timeInSeconds);
+    mRichter.MOD2.calcPhaseOffset(mTempoInfo.timeInSeconds);
     
     mRichter.LFO1.calcFreq(mTempoInfo.bpm, mRichter.MOD1.getBypassSwitch(), mRichter.MOD1.getGain());
     mRichter.LFO2.calcFreq(mTempoInfo.bpm, mRichter.MOD2.getBypassSwitch(), mRichter.MOD2.getGain());
     
-    mRichter.LFO1.calcPhaseOffset(mTempoInfo.timeInSeconds, mRichter.getSamplesProcessed());
-    mRichter.LFO2.calcPhaseOffset(mTempoInfo.timeInSeconds, mRichter.getSamplesProcessed());
+    mRichter.LFO1.calcPhaseOffset(mTempoInfo.timeInSeconds);
+    mRichter.LFO2.calcPhaseOffset(mTempoInfo.timeInSeconds);
     
     mRichter.LFO1.calcSamplesPerTremoloCycle(getSampleRate());
     mRichter.LFO2.calcSamplesPerTremoloCycle(getSampleRate());
@@ -891,6 +951,9 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     el = root.createNewChildElement(FREQMODLFO1_STR);
     el->createTextElement(String(mRichter.LFO1.getFreqMod()));
     
+    el = root.createNewChildElement(PHASELFO1_STR);
+    el->createTextElement(String(mRichter.LFO1.getManualPhase()));
+    
     el = root.createNewChildElement(TEMPONUMERLFO1_STR);
     el->createTextElement(String(mRichter.LFO1.getTempoNumer()));
     
@@ -925,6 +988,9 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     el = root.createNewChildElement(FREQMODLFO2_STR);
     el->createTextElement(String(mRichter.LFO2.getFreqMod()));
     
+    el = root.createNewChildElement(PHASELFO2_STR);
+    el->createTextElement(String(mRichter.LFO2.getManualPhase()));
+    
     el = root.createNewChildElement(TEMPONUMERLFO2_STR);
     el->createTextElement(String(mRichter.LFO2.getTempoNumer()));
     
@@ -954,6 +1020,9 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     el = root.createNewChildElement(FREQMOD1_STR);
     el->createTextElement(String(mRichter.MOD1.getFreq()));
     
+    el = root.createNewChildElement(PHASEMOD1_STR);
+    el->createTextElement(String(mRichter.MOD1.getManualPhase()));
+    
     el = root.createNewChildElement(TEMPONUMERMOD1_STR);
     el->createTextElement(String(mRichter.MOD1.getTempoNumer()));
     
@@ -982,6 +1051,9 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     
     el = root.createNewChildElement(FREQMOD2_STR);
     el->createTextElement(String(mRichter.MOD2.getFreq()));
+    
+    el = root.createNewChildElement(PHASEMOD2_STR);
+    el->createTextElement(String(mRichter.MOD2.getManualPhase()));
     
     el = root.createNewChildElement(TEMPONUMERMOD2_STR);
     el->createTextElement(String(mRichter.MOD2.getTempoNumer()));
@@ -1032,6 +1104,9 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
             } else if (pChild->hasTagName(FREQMODLFO1_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(freqModLFO1, text.getFloatValue());
+            } else if (pChild->hasTagName(PHASELFO1_STR)) {
+                String text = pChild->getAllSubText();
+                setParameter(phaseLFO1, text.getFloatValue());
             } else if (pChild->hasTagName(TEMPONUMERLFO1_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(tempoNumerLFO1, text.getFloatValue());
@@ -1067,6 +1142,9 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
             } else if (pChild->hasTagName(FREQMODLFO2_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(freqModLFO2, text.getFloatValue());
+            } else if (pChild->hasTagName(PHASELFO2_STR)) {
+                String text = pChild->getAllSubText();
+                setParameter(phaseLFO2, text.getFloatValue());
             } else if (pChild->hasTagName(TEMPONUMERLFO2_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(tempoNumerLFO2, text.getFloatValue());
@@ -1097,6 +1175,9 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
             } else if (pChild->hasTagName(FREQMOD1_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(freqMOD1, text.getFloatValue());
+            } else if (pChild->hasTagName(PHASEMOD1_STR)) {
+                String text = pChild->getAllSubText();
+                setParameter(phaseMOD1, text.getFloatValue());
             } else if (pChild->hasTagName(TEMPONUMERMOD1_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(tempoNumerMOD1, text.getFloatValue());
@@ -1126,6 +1207,9 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
             } else if (pChild->hasTagName(FREQMOD2_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(freqMOD2, text.getFloatValue());
+            } else if (pChild->hasTagName(PHASEMOD2_STR)) {
+                String text = pChild->getAllSubText();
+                setParameter(phaseMOD2, text.getFloatValue());
             } else if (pChild->hasTagName(TEMPONUMERMOD2_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(tempoNumerMOD2, text.getFloatValue());

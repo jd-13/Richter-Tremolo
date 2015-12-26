@@ -74,7 +74,6 @@ private:
     ScopedPointer<Slider> DepthModLFO1Sld;
     ScopedPointer<Slider> FreqModLFO1Sld;
     ScopedPointer<Slider> MasterVolSld;
-    ScopedPointer<Label> DbgLbl;
     ScopedPointer<TextButton> BypassLFO1Btn;
     ScopedPointer<Label> FreqLFO1Lbl;
     ScopedPointer<Label> DepthLFO1Lbl;
@@ -97,6 +96,38 @@ private:
     ScopedPointer<Slider> TempoDenomLFO2Sld;
     ScopedPointer<TextButton> PhaseSyncLFO1Btn;
     ScopedPointer<TextButton> PhaseSyncLFO2Btn;
+    ScopedPointer<Slider> PhaseLFO1Sld;
+    ScopedPointer<Label> PhaseLFO1Lbl;
+    ScopedPointer<Slider> PhaseLFO2Sld;
+    ScopedPointer<Label> PhaseLFO2Lbl;
+    ScopedPointer<GroupComponent> MOD1Group;
+    ScopedPointer<Slider> DepthMOD1Sld;
+    ScopedPointer<Slider> FreqMOD1Sld;
+    ScopedPointer<ComboBox> WaveMOD1Cmb;
+    ScopedPointer<TextButton> BypassMOD1Btn;
+    ScopedPointer<Label> FreqMOD1Lbl;
+    ScopedPointer<Label> DepthMOD1Lbl;
+    ScopedPointer<Label> WaveMOD1Lbl;
+    ScopedPointer<TextButton> TempoSyncMOD1Btn;
+    ScopedPointer<Slider> TempoNumerMOD1Sld;
+    ScopedPointer<Slider> TempoDenomMOD1Sld;
+    ScopedPointer<TextButton> PhaseSyncMOD1Btn;
+    ScopedPointer<Slider> PhaseMOD1Sld;
+    ScopedPointer<Label> PhaseMOD1Lbl;
+    ScopedPointer<GroupComponent> MOD2Group;
+    ScopedPointer<Slider> DepthMOD2Sld;
+    ScopedPointer<Slider> FreqMOD2Sld;
+    ScopedPointer<ComboBox> WaveMOD2Cmb;
+    ScopedPointer<TextButton> BypassMOD2Btn;
+    ScopedPointer<Label> FreqMOD2Lbl;
+    ScopedPointer<Label> DepthMOD2Lbl;
+    ScopedPointer<Label> WaveMOD2Lbl;
+    ScopedPointer<TextButton> TempoSyncMOD2Btn;
+    ScopedPointer<Slider> TempoNumerMOD2Sld;
+    ScopedPointer<Slider> TempoDenomMOD2Sld;
+    ScopedPointer<TextButton> PhaseSyncMOD2Btn;
+    ScopedPointer<Slider> PhaseMOD2Sld;
+    ScopedPointer<Label> PhaseMOD2Lbl;
 
 
     //==============================================================================

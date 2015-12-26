@@ -76,14 +76,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     MasterVolSld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     MasterVolSld->addListener (this);
 
-    addAndMakeVisible (DbgLbl = new Label ("Debugging Label",
-                                           TRANS("label text")));
-    DbgLbl->setFont (Font (15.00f, Font::plain));
-    DbgLbl->setJustificationType (Justification::centredLeft);
-    DbgLbl->setEditable (false, false, false);
-    DbgLbl->setColour (TextEditor::textColourId, Colours::black);
-    DbgLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
     addAndMakeVisible (BypassLFO1Btn = new TextButton ("LFO 1 Bypass Button"));
     BypassLFO1Btn->setButtonText (TRANS("LFO 1"));
     BypassLFO1Btn->addListener (this);
@@ -217,22 +209,229 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseSyncLFO2Btn->setButtonText (TRANS("Phase Sync"));
     PhaseSyncLFO2Btn->addListener (this);
 
+    addAndMakeVisible (PhaseLFO1Sld = new Slider ("LFO 1 Phase Slider"));
+    PhaseLFO1Sld->setRange (0, 1, 0.01);
+    PhaseLFO1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
+    PhaseLFO1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    PhaseLFO1Sld->addListener (this);
+
+    addAndMakeVisible (PhaseLFO1Lbl = new Label ("LFO 1 Phase Label",
+                                                 TRANS("Phase")));
+    PhaseLFO1Lbl->setFont (Font (15.00f, Font::plain));
+    PhaseLFO1Lbl->setJustificationType (Justification::centredLeft);
+    PhaseLFO1Lbl->setEditable (false, false, false);
+    PhaseLFO1Lbl->setColour (TextEditor::textColourId, Colours::black);
+    PhaseLFO1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (PhaseLFO2Sld = new Slider ("LFO 2 Phase Slider"));
+    PhaseLFO2Sld->setRange (0, 1, 0.01);
+    PhaseLFO2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
+    PhaseLFO2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    PhaseLFO2Sld->addListener (this);
+
+    addAndMakeVisible (PhaseLFO2Lbl = new Label ("LFO 2 Phase Label",
+                                                 TRANS("Phase")));
+    PhaseLFO2Lbl->setFont (Font (15.00f, Font::plain));
+    PhaseLFO2Lbl->setJustificationType (Justification::centredLeft);
+    PhaseLFO2Lbl->setEditable (false, false, false);
+    PhaseLFO2Lbl->setColour (TextEditor::textColourId, Colours::black);
+    PhaseLFO2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (MOD1Group = new GroupComponent ("MOD 1 Group",
+                                                       String::empty));
+
+    addAndMakeVisible (DepthMOD1Sld = new Slider ("MOD 1 Depth Slider"));
+    DepthMOD1Sld->setRange (0, 1, 0.01);
+    DepthMOD1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
+    DepthMOD1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    DepthMOD1Sld->addListener (this);
+
+    addAndMakeVisible (FreqMOD1Sld = new Slider ("MOD 1 Freq Slider"));
+    FreqMOD1Sld->setRange (0, 1, 0.01);
+    FreqMOD1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
+    FreqMOD1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    FreqMOD1Sld->addListener (this);
+
+    addAndMakeVisible (WaveMOD1Cmb = new ComboBox ("MOD 1 Wave"));
+    WaveMOD1Cmb->setEditableText (false);
+    WaveMOD1Cmb->setJustificationType (Justification::centredLeft);
+    WaveMOD1Cmb->setTextWhenNothingSelected (String::empty);
+    WaveMOD1Cmb->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
+    WaveMOD1Cmb->addItem (TRANS("Sine"), 1);
+    WaveMOD1Cmb->addItem (TRANS("Square"), 2);
+    WaveMOD1Cmb->addItem (TRANS("Saw"), 3);
+    WaveMOD1Cmb->addListener (this);
+
+    addAndMakeVisible (BypassMOD1Btn = new TextButton ("MOD 1 Bypass Button"));
+    BypassMOD1Btn->setButtonText (TRANS("MOD 1"));
+    BypassMOD1Btn->addListener (this);
+
+    addAndMakeVisible (FreqMOD1Lbl = new Label ("MOD 1 Freq Label",
+                                                TRANS("Rate")));
+    FreqMOD1Lbl->setFont (Font (15.00f, Font::plain));
+    FreqMOD1Lbl->setJustificationType (Justification::centredLeft);
+    FreqMOD1Lbl->setEditable (false, false, false);
+    FreqMOD1Lbl->setColour (TextEditor::textColourId, Colours::black);
+    FreqMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (DepthMOD1Lbl = new Label ("MOD 1 Depth Label",
+                                                 TRANS("Depth")));
+    DepthMOD1Lbl->setFont (Font (15.00f, Font::plain));
+    DepthMOD1Lbl->setJustificationType (Justification::centredLeft);
+    DepthMOD1Lbl->setEditable (false, false, false);
+    DepthMOD1Lbl->setColour (TextEditor::textColourId, Colours::black);
+    DepthMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (WaveMOD1Lbl = new Label ("MOD 1 Wave Label",
+                                                TRANS("Wave\n")));
+    WaveMOD1Lbl->setFont (Font (15.00f, Font::plain));
+    WaveMOD1Lbl->setJustificationType (Justification::centredLeft);
+    WaveMOD1Lbl->setEditable (false, false, false);
+    WaveMOD1Lbl->setColour (TextEditor::textColourId, Colours::black);
+    WaveMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (TempoSyncMOD1Btn = new TextButton ("MOD 1 Tempo Sync Button"));
+    TempoSyncMOD1Btn->setButtonText (TRANS("Tempo Sync"));
+    TempoSyncMOD1Btn->addListener (this);
+
+    addAndMakeVisible (TempoNumerMOD1Sld = new Slider ("MOD 1 Tempo Numer Slider"));
+    TempoNumerMOD1Sld->setRange (1, 4, 1);
+    TempoNumerMOD1Sld->setSliderStyle (Slider::IncDecButtons);
+    TempoNumerMOD1Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
+    TempoNumerMOD1Sld->addListener (this);
+
+    addAndMakeVisible (TempoDenomMOD1Sld = new Slider ("MOD 1 Tempo Denom Slider"));
+    TempoDenomMOD1Sld->setRange (1, 32, 1);
+    TempoDenomMOD1Sld->setSliderStyle (Slider::IncDecButtons);
+    TempoDenomMOD1Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
+    TempoDenomMOD1Sld->addListener (this);
+
+    addAndMakeVisible (PhaseSyncMOD1Btn = new TextButton ("MOD 1 Phase Sync Button"));
+    PhaseSyncMOD1Btn->setButtonText (TRANS("Phase Sync"));
+    PhaseSyncMOD1Btn->addListener (this);
+
+    addAndMakeVisible (PhaseMOD1Sld = new Slider ("MOD 1 Phase Slider"));
+    PhaseMOD1Sld->setRange (0, 1, 0.01);
+    PhaseMOD1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
+    PhaseMOD1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    PhaseMOD1Sld->addListener (this);
+
+    addAndMakeVisible (PhaseMOD1Lbl = new Label ("MOD 1 Phase Label",
+                                                 TRANS("Phase")));
+    PhaseMOD1Lbl->setFont (Font (15.00f, Font::plain));
+    PhaseMOD1Lbl->setJustificationType (Justification::centredLeft);
+    PhaseMOD1Lbl->setEditable (false, false, false);
+    PhaseMOD1Lbl->setColour (TextEditor::textColourId, Colours::black);
+    PhaseMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (MOD2Group = new GroupComponent ("MOD 2 Group",
+                                                       String::empty));
+
+    addAndMakeVisible (DepthMOD2Sld = new Slider ("MOD 2 Depth Slider"));
+    DepthMOD2Sld->setRange (0, 1, 0.01);
+    DepthMOD2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
+    DepthMOD2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    DepthMOD2Sld->addListener (this);
+
+    addAndMakeVisible (FreqMOD2Sld = new Slider ("MOD 2 Freq Slider"));
+    FreqMOD2Sld->setRange (0, 1, 0.01);
+    FreqMOD2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
+    FreqMOD2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    FreqMOD2Sld->addListener (this);
+
+    addAndMakeVisible (WaveMOD2Cmb = new ComboBox ("MOD 2 Wave"));
+    WaveMOD2Cmb->setEditableText (false);
+    WaveMOD2Cmb->setJustificationType (Justification::centredLeft);
+    WaveMOD2Cmb->setTextWhenNothingSelected (String::empty);
+    WaveMOD2Cmb->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
+    WaveMOD2Cmb->addItem (TRANS("Sine"), 1);
+    WaveMOD2Cmb->addItem (TRANS("Square"), 2);
+    WaveMOD2Cmb->addItem (TRANS("Saw"), 3);
+    WaveMOD2Cmb->addListener (this);
+
+    addAndMakeVisible (BypassMOD2Btn = new TextButton ("MOD 2 Bypass Button"));
+    BypassMOD2Btn->setButtonText (TRANS("MOD 2"));
+    BypassMOD2Btn->addListener (this);
+
+    addAndMakeVisible (FreqMOD2Lbl = new Label ("MOD 2 Freq Label",
+                                                TRANS("Rate")));
+    FreqMOD2Lbl->setFont (Font (15.00f, Font::plain));
+    FreqMOD2Lbl->setJustificationType (Justification::centredLeft);
+    FreqMOD2Lbl->setEditable (false, false, false);
+    FreqMOD2Lbl->setColour (TextEditor::textColourId, Colours::black);
+    FreqMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (DepthMOD2Lbl = new Label ("MOD 2 Depth Label",
+                                                 TRANS("Depth")));
+    DepthMOD2Lbl->setFont (Font (15.00f, Font::plain));
+    DepthMOD2Lbl->setJustificationType (Justification::centredLeft);
+    DepthMOD2Lbl->setEditable (false, false, false);
+    DepthMOD2Lbl->setColour (TextEditor::textColourId, Colours::black);
+    DepthMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (WaveMOD2Lbl = new Label ("MOD 2 Wave Label",
+                                                TRANS("Wave\n")));
+    WaveMOD2Lbl->setFont (Font (15.00f, Font::plain));
+    WaveMOD2Lbl->setJustificationType (Justification::centredLeft);
+    WaveMOD2Lbl->setEditable (false, false, false);
+    WaveMOD2Lbl->setColour (TextEditor::textColourId, Colours::black);
+    WaveMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    addAndMakeVisible (TempoSyncMOD2Btn = new TextButton ("MOD 2 Tempo Sync Button"));
+    TempoSyncMOD2Btn->setButtonText (TRANS("Tempo Sync"));
+    TempoSyncMOD2Btn->addListener (this);
+
+    addAndMakeVisible (TempoNumerMOD2Sld = new Slider ("MOD 2 Tempo Numer Slider"));
+    TempoNumerMOD2Sld->setRange (1, 4, 1);
+    TempoNumerMOD2Sld->setSliderStyle (Slider::IncDecButtons);
+    TempoNumerMOD2Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
+    TempoNumerMOD2Sld->addListener (this);
+
+    addAndMakeVisible (TempoDenomMOD2Sld = new Slider ("MOD 2 Tempo Denom Slider"));
+    TempoDenomMOD2Sld->setRange (1, 32, 1);
+    TempoDenomMOD2Sld->setSliderStyle (Slider::IncDecButtons);
+    TempoDenomMOD2Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
+    TempoDenomMOD2Sld->addListener (this);
+
+    addAndMakeVisible (PhaseSyncMOD2Btn = new TextButton ("MOD 2 Phase Sync Button"));
+    PhaseSyncMOD2Btn->setButtonText (TRANS("Phase Sync"));
+    PhaseSyncMOD2Btn->addListener (this);
+
+    addAndMakeVisible (PhaseMOD2Sld = new Slider ("MOD 2 Phase Slider"));
+    PhaseMOD2Sld->setRange (0, 1, 0.01);
+    PhaseMOD2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
+    PhaseMOD2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    PhaseMOD2Sld->addListener (this);
+
+    addAndMakeVisible (PhaseMOD2Lbl = new Label ("MOD 2 Phase Label",
+                                                 TRANS("Phase")));
+    PhaseMOD2Lbl->setFont (Font (15.00f, Font::plain));
+    PhaseMOD2Lbl->setJustificationType (Justification::centredLeft);
+    PhaseMOD2Lbl->setEditable (false, false, false);
+    PhaseMOD2Lbl->setColour (TextEditor::textColourId, Colours::black);
+    PhaseMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
 
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (800, 400);
+    setSize (600, 330);
 
 
     //[Constructor] You can add your own custom stuff here..
     startTimer(200);
-    if (!DEBUGGING_MODE) {
-        DbgLbl->setText(" ", dontSendNotification);
-    }
-    TempoNumerLFO1Sld->setVisible(false);
     TempoNumerLFO1Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
-    TempoDenomLFO1Sld->setVisible(false);
     TempoDenomLFO1Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
+
+    TempoNumerLFO2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
+    TempoDenomLFO2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
+
+    TempoNumerMOD1Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
+    TempoDenomMOD1Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
+
+    TempoNumerMOD2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
+    TempoDenomMOD2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
+
     //[/Constructor]
 }
 
@@ -248,7 +447,6 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     DepthModLFO1Sld = nullptr;
     FreqModLFO1Sld = nullptr;
     MasterVolSld = nullptr;
-    DbgLbl = nullptr;
     BypassLFO1Btn = nullptr;
     FreqLFO1Lbl = nullptr;
     DepthLFO1Lbl = nullptr;
@@ -271,6 +469,38 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     TempoDenomLFO2Sld = nullptr;
     PhaseSyncLFO1Btn = nullptr;
     PhaseSyncLFO2Btn = nullptr;
+    PhaseLFO1Sld = nullptr;
+    PhaseLFO1Lbl = nullptr;
+    PhaseLFO2Sld = nullptr;
+    PhaseLFO2Lbl = nullptr;
+    MOD1Group = nullptr;
+    DepthMOD1Sld = nullptr;
+    FreqMOD1Sld = nullptr;
+    WaveMOD1Cmb = nullptr;
+    BypassMOD1Btn = nullptr;
+    FreqMOD1Lbl = nullptr;
+    DepthMOD1Lbl = nullptr;
+    WaveMOD1Lbl = nullptr;
+    TempoSyncMOD1Btn = nullptr;
+    TempoNumerMOD1Sld = nullptr;
+    TempoDenomMOD1Sld = nullptr;
+    PhaseSyncMOD1Btn = nullptr;
+    PhaseMOD1Sld = nullptr;
+    PhaseMOD1Lbl = nullptr;
+    MOD2Group = nullptr;
+    DepthMOD2Sld = nullptr;
+    FreqMOD2Sld = nullptr;
+    WaveMOD2Cmb = nullptr;
+    BypassMOD2Btn = nullptr;
+    FreqMOD2Lbl = nullptr;
+    DepthMOD2Lbl = nullptr;
+    WaveMOD2Lbl = nullptr;
+    TempoSyncMOD2Btn = nullptr;
+    TempoNumerMOD2Sld = nullptr;
+    TempoDenomMOD2Sld = nullptr;
+    PhaseSyncMOD2Btn = nullptr;
+    PhaseMOD2Sld = nullptr;
+    PhaseMOD2Lbl = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -294,36 +524,67 @@ void RichterAudioProcessorEditor::resized()
     //[UserPreResize] Add your own custom resize code here..
     //[/UserPreResize]
 
-    LFO1Group->setBounds (16, 64, 232, 128);
+    LFO1Group->setBounds (16, 64, 280, 128);
     DepthLFO1Sld->setBounds (96, 112, 32, 24);
     FreqLFO1Sld->setBounds (40, 112, 32, 24);
-    WaveLFO1Cmb->setBounds (144, 120, 80, 24);
+    WaveLFO1Cmb->setBounds (200, 120, 80, 24);
     DepthModLFO1Sld->setBounds (104, 160, 16, 16);
     FreqModLFO1Sld->setBounds (48, 160, 16, 16);
-    MasterVolSld->setBounds (16, 40, 480, 24);
-    DbgLbl->setBounds (16, 8, 150, 24);
-    BypassLFO1Btn->setBounds (168, 80, 56, 24);
+    MasterVolSld->setBounds (16, 40, 560, 24);
+    BypassLFO1Btn->setBounds (224, 80, 56, 24);
     FreqLFO1Lbl->setBounds (38, 136, 40, 24);
     DepthLFO1Lbl->setBounds (90, 136, 46, 24);
-    WaveLFO1Lbl->setBounds (160, 152, 46, 24);
-    LFO2Group->setBounds (264, 64, 232, 128);
-    DepthLFO2Sld->setBounds (344, 112, 32, 24);
-    FreqLFO2Sld->setBounds (288, 112, 32, 24);
-    WaveLFO2Cmb->setBounds (392, 120, 80, 24);
-    DepthModLFO2Sld->setBounds (352, 160, 16, 16);
-    FreqModLFO2Sld->setBounds (296, 160, 16, 16);
-    BypassLFO2Btn->setBounds (416, 80, 56, 24);
-    FreqLFO2Lbl->setBounds (286, 136, 40, 24);
-    DepthLFO2Lbl->setBounds (338, 136, 46, 24);
-    WaveLFO2Lbl->setBounds (408, 152, 46, 24);
+    WaveLFO1Lbl->setBounds (216, 152, 46, 24);
+    LFO2Group->setBounds (304, 64, 280, 128);
+    DepthLFO2Sld->setBounds (384, 112, 32, 24);
+    FreqLFO2Sld->setBounds (328, 112, 32, 24);
+    WaveLFO2Cmb->setBounds (488, 120, 80, 24);
+    DepthModLFO2Sld->setBounds (392, 160, 16, 16);
+    FreqModLFO2Sld->setBounds (336, 160, 16, 16);
+    BypassLFO2Btn->setBounds (512, 80, 56, 24);
+    FreqLFO2Lbl->setBounds (326, 136, 40, 24);
+    DepthLFO2Lbl->setBounds (378, 136, 46, 24);
+    WaveLFO2Lbl->setBounds (504, 152, 46, 24);
     TempoSyncLFO1Btn->setBounds (32, 88, 56, 16);
-    TempoSyncLFO2Btn->setBounds (280, 88, 56, 16);
+    TempoSyncLFO2Btn->setBounds (320, 88, 56, 16);
     TempoNumerLFO1Sld->setBounds (32, 120, 56, 16);
     TempoDenomLFO1Sld->setBounds (32, 152, 56, 16);
-    TempoNumerLFO2Sld->setBounds (280, 120, 56, 16);
-    TempoDenomLFO2Sld->setBounds (280, 152, 56, 16);
-    PhaseSyncLFO1Btn->setBounds (96, 88, 56, 16);
-    PhaseSyncLFO2Btn->setBounds (344, 88, 56, 16);
+    TempoNumerLFO2Sld->setBounds (320, 120, 56, 16);
+    TempoDenomLFO2Sld->setBounds (320, 152, 56, 16);
+    PhaseSyncLFO1Btn->setBounds (144, 88, 56, 16);
+    PhaseSyncLFO2Btn->setBounds (432, 88, 56, 16);
+    PhaseLFO1Sld->setBounds (152, 112, 32, 24);
+    PhaseLFO1Lbl->setBounds (144, 136, 46, 24);
+    PhaseLFO2Sld->setBounds (440, 112, 32, 24);
+    PhaseLFO2Lbl->setBounds (432, 136, 46, 24);
+    MOD1Group->setBounds (16, 192, 280, 128);
+    DepthMOD1Sld->setBounds (96, 240, 32, 24);
+    FreqMOD1Sld->setBounds (40, 240, 32, 24);
+    WaveMOD1Cmb->setBounds (200, 248, 80, 24);
+    BypassMOD1Btn->setBounds (224, 208, 56, 24);
+    FreqMOD1Lbl->setBounds (38, 264, 40, 24);
+    DepthMOD1Lbl->setBounds (90, 264, 46, 24);
+    WaveMOD1Lbl->setBounds (216, 280, 46, 24);
+    TempoSyncMOD1Btn->setBounds (32, 216, 56, 16);
+    TempoNumerMOD1Sld->setBounds (32, 248, 56, 16);
+    TempoDenomMOD1Sld->setBounds (32, 280, 56, 16);
+    PhaseSyncMOD1Btn->setBounds (144, 216, 56, 16);
+    PhaseMOD1Sld->setBounds (152, 240, 32, 24);
+    PhaseMOD1Lbl->setBounds (144, 264, 46, 24);
+    MOD2Group->setBounds (304, 192, 280, 128);
+    DepthMOD2Sld->setBounds (384, 240, 32, 24);
+    FreqMOD2Sld->setBounds (328, 240, 32, 24);
+    WaveMOD2Cmb->setBounds (488, 248, 80, 24);
+    BypassMOD2Btn->setBounds (512, 208, 56, 24);
+    FreqMOD2Lbl->setBounds (326, 264, 40, 24);
+    DepthMOD2Lbl->setBounds (378, 264, 46, 24);
+    WaveMOD2Lbl->setBounds (504, 280, 46, 24);
+    TempoSyncMOD2Btn->setBounds (320, 216, 56, 16);
+    TempoNumerMOD2Sld->setBounds (320, 248, 56, 16);
+    TempoDenomMOD2Sld->setBounds (320, 280, 56, 16);
+    PhaseSyncMOD2Btn->setBounds (432, 216, 56, 16);
+    PhaseMOD2Sld->setBounds (440, 240, 32, 24);
+    PhaseMOD2Lbl->setBounds (432, 264, 46, 24);
     //[UserResized] Add your own custom resize handling here..
     //[/UserResized]
 }
@@ -412,12 +673,68 @@ void RichterAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMoved
         ourProcessor->setParameter(RichterAudioProcessor::tempoDenomLFO2, static_cast<float>(TempoDenomLFO2Sld->getValue()));
         //[/UserSliderCode_TempoDenomLFO2Sld]
     }
+    else if (sliderThatWasMoved == PhaseLFO1Sld)
+    {
+        //[UserSliderCode_PhaseLFO1Sld] -- add your slider handling code here..
+        //[/UserSliderCode_PhaseLFO1Sld]
+    }
+    else if (sliderThatWasMoved == PhaseLFO2Sld)
+    {
+        //[UserSliderCode_PhaseLFO2Sld] -- add your slider handling code here..
+        //[/UserSliderCode_PhaseLFO2Sld]
+    }
+    else if (sliderThatWasMoved == DepthMOD1Sld)
+    {
+        //[UserSliderCode_DepthMOD1Sld] -- add your slider handling code here..
+        //[/UserSliderCode_DepthMOD1Sld]
+    }
+    else if (sliderThatWasMoved == FreqMOD1Sld)
+    {
+        //[UserSliderCode_FreqMOD1Sld] -- add your slider handling code here..
+        //[/UserSliderCode_FreqMOD1Sld]
+    }
+    else if (sliderThatWasMoved == TempoNumerMOD1Sld)
+    {
+        //[UserSliderCode_TempoNumerMOD1Sld] -- add your slider handling code here..
+        //[/UserSliderCode_TempoNumerMOD1Sld]
+    }
+    else if (sliderThatWasMoved == TempoDenomMOD1Sld)
+    {
+        //[UserSliderCode_TempoDenomMOD1Sld] -- add your slider handling code here..
+        //[/UserSliderCode_TempoDenomMOD1Sld]
+    }
+    else if (sliderThatWasMoved == PhaseMOD1Sld)
+    {
+        //[UserSliderCode_PhaseMOD1Sld] -- add your slider handling code here..
+        //[/UserSliderCode_PhaseMOD1Sld]
+    }
+    else if (sliderThatWasMoved == DepthMOD2Sld)
+    {
+        //[UserSliderCode_DepthMOD2Sld] -- add your slider handling code here..
+        //[/UserSliderCode_DepthMOD2Sld]
+    }
+    else if (sliderThatWasMoved == FreqMOD2Sld)
+    {
+        //[UserSliderCode_FreqMOD2Sld] -- add your slider handling code here..
+        //[/UserSliderCode_FreqMOD2Sld]
+    }
+    else if (sliderThatWasMoved == TempoNumerMOD2Sld)
+    {
+        //[UserSliderCode_TempoNumerMOD2Sld] -- add your slider handling code here..
+        //[/UserSliderCode_TempoNumerMOD2Sld]
+    }
+    else if (sliderThatWasMoved == TempoDenomMOD2Sld)
+    {
+        //[UserSliderCode_TempoDenomMOD2Sld] -- add your slider handling code here..
+        //[/UserSliderCode_TempoDenomMOD2Sld]
+    }
+    else if (sliderThatWasMoved == PhaseMOD2Sld)
+    {
+        //[UserSliderCode_PhaseMOD2Sld] -- add your slider handling code here..
+        //[/UserSliderCode_PhaseMOD2Sld]
+    }
 
     //[UsersliderValueChanged_Post]
-    if (DEBUGGING_MODE) {
-        float val = sliderThatWasMoved->getValue();
-        DbgLbl->setText(String(val), dontSendNotification);
-    }
     //[/UsersliderValueChanged_Post]
 }
 
@@ -438,6 +755,16 @@ void RichterAudioProcessorEditor::comboBoxChanged (ComboBox* comboBoxThatHasChan
         //[UserComboBoxCode_WaveLFO2Cmb] -- add your combo box handling code here..
         ourProcessor->setParameter(RichterAudioProcessor::waveLFO2, static_cast<float>(WaveLFO2Cmb->getSelectedId()));
         //[/UserComboBoxCode_WaveLFO2Cmb]
+    }
+    else if (comboBoxThatHasChanged == WaveMOD1Cmb)
+    {
+        //[UserComboBoxCode_WaveMOD1Cmb] -- add your combo box handling code here..
+        //[/UserComboBoxCode_WaveMOD1Cmb]
+    }
+    else if (comboBoxThatHasChanged == WaveMOD2Cmb)
+    {
+        //[UserComboBoxCode_WaveMOD2Cmb] -- add your combo box handling code here..
+        //[/UserComboBoxCode_WaveMOD2Cmb]
     }
 
     //[UsercomboBoxChanged_Post]
@@ -486,6 +813,36 @@ void RichterAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
         ourProcessor->setParameter(RichterAudioProcessor::phaseSyncLFO2, static_cast<float>(PhaseSyncLFO2Btn->getToggleState()));
         //[/UserButtonCode_PhaseSyncLFO2Btn]
     }
+    else if (buttonThatWasClicked == BypassMOD1Btn)
+    {
+        //[UserButtonCode_BypassMOD1Btn] -- add your button handler code here..
+        //[/UserButtonCode_BypassMOD1Btn]
+    }
+    else if (buttonThatWasClicked == TempoSyncMOD1Btn)
+    {
+        //[UserButtonCode_TempoSyncMOD1Btn] -- add your button handler code here..
+        //[/UserButtonCode_TempoSyncMOD1Btn]
+    }
+    else if (buttonThatWasClicked == PhaseSyncMOD1Btn)
+    {
+        //[UserButtonCode_PhaseSyncMOD1Btn] -- add your button handler code here..
+        //[/UserButtonCode_PhaseSyncMOD1Btn]
+    }
+    else if (buttonThatWasClicked == BypassMOD2Btn)
+    {
+        //[UserButtonCode_BypassMOD2Btn] -- add your button handler code here..
+        //[/UserButtonCode_BypassMOD2Btn]
+    }
+    else if (buttonThatWasClicked == TempoSyncMOD2Btn)
+    {
+        //[UserButtonCode_TempoSyncMOD2Btn] -- add your button handler code here..
+        //[/UserButtonCode_TempoSyncMOD2Btn]
+    }
+    else if (buttonThatWasClicked == PhaseSyncMOD2Btn)
+    {
+        //[UserButtonCode_PhaseSyncMOD2Btn] -- add your button handler code here..
+        //[/UserButtonCode_PhaseSyncMOD2Btn]
+    }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
@@ -523,6 +880,13 @@ void RichterAudioProcessorEditor::timerCallback()
 
         MasterVolSld->setValue(ourProcessor->getParameter(RichterAudioProcessor::masterVol), dontSendNotification);
 
+        // Activate/Deactivale phase control depending on phase sync
+        PhaseLFO1Sld->setEnabled(PhaseSyncLFO1Btn->getToggleState());
+        PhaseLFO2Sld->setEnabled(PhaseSyncLFO2Btn->getToggleState());
+        PhaseMOD1Sld->setEnabled(PhaseSyncMOD1Btn->getToggleState());
+        PhaseMOD2Sld->setEnabled(PhaseSyncMOD2Btn->getToggleState());
+
+        // Toggle visibility for rate controls depending on tempo sync
         if (TempoSyncLFO1Btn->getToggleState()) {
             FreqLFO1Sld->setVisible(false);
             FreqModLFO1Sld->setVisible(false);
@@ -550,6 +914,30 @@ void RichterAudioProcessorEditor::timerCallback()
             TempoNumerLFO2Sld->setVisible(false);
             TempoDenomLFO2Sld->setVisible(false);
         }
+
+        if (TempoSyncMOD1Btn->getToggleState()) {
+            FreqMOD1Sld->setVisible(false);
+            FreqMOD1Lbl->setVisible(false);
+            TempoNumerMOD1Sld->setVisible(true);
+            TempoDenomMOD1Sld->setVisible(true);
+        } else {
+            FreqMOD1Sld->setVisible(true);
+            FreqMOD1Lbl->setVisible(true);
+            TempoNumerMOD1Sld->setVisible(false);
+            TempoDenomMOD1Sld->setVisible(false);
+        }
+
+        if (TempoSyncMOD2Btn->getToggleState()) {
+            FreqMOD2Sld->setVisible(false);
+            FreqMOD2Lbl->setVisible(false);
+            TempoNumerMOD2Sld->setVisible(true);
+            TempoDenomMOD2Sld->setVisible(true);
+        } else {
+            FreqMOD2Sld->setVisible(true);
+            FreqMOD2Lbl->setVisible(true);
+            TempoNumerMOD2Sld->setVisible(false);
+            TempoDenomMOD2Sld->setVisible(false);
+        }
     }
 }
 //[/MiscUserCode]
@@ -568,10 +956,10 @@ BEGIN_JUCER_METADATA
                  componentName="" parentClasses="public AudioProcessorEditor, public Timer"
                  constructorParams="RichterAudioProcessor&amp; ownerFilter" variableInitialisers="AudioProcessorEditor(ownerFilter)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="1" initialWidth="800" initialHeight="400">
+                 fixedSize="1" initialWidth="600" initialHeight="330">
   <BACKGROUND backgroundColour="ffffffff"/>
   <GROUPCOMPONENT name="LFO 1 Group" id="2a8643bc712454bf" memberName="LFO1Group"
-                  virtualName="" explicitFocusOrder="0" pos="16 64 232 128" title=""/>
+                  virtualName="" explicitFocusOrder="0" pos="16 64 280 128" title=""/>
   <SLIDER name="LFO 1 Depth Slider" id="98ad3308f709f25c" memberName="DepthLFO1Sld"
           virtualName="" explicitFocusOrder="0" pos="96 112 32 24" min="0"
           max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
@@ -583,7 +971,7 @@ BEGIN_JUCER_METADATA
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
   <COMBOBOX name="LFO 1 Wave" id="6343a9cc42a2eda5" memberName="WaveLFO1Cmb"
-            virtualName="" explicitFocusOrder="0" pos="144 120 80 24" editable="0"
+            virtualName="" explicitFocusOrder="0" pos="200 120 80 24" editable="0"
             layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 1 Depth Mod Slider" id="9a3f86cb168e586e" memberName="DepthModLFO1Sld"
@@ -597,17 +985,12 @@ BEGIN_JUCER_METADATA
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="new slider" id="65acc0b358aa2541" memberName="MasterVolSld"
-          virtualName="" explicitFocusOrder="0" pos="16 40 480 24" min="0"
+          virtualName="" explicitFocusOrder="0" pos="16 40 560 24" min="0"
           max="1" int="0.010000000000000000208" style="LinearHorizontal"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
-  <LABEL name="Debugging Label" id="4e3323314b846bd7" memberName="DbgLbl"
-         virtualName="" explicitFocusOrder="0" pos="16 8 150 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="label text" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
-         bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="LFO 1 Bypass Button" id="27660ce1c9366ec3" memberName="BypassLFO1Btn"
-              virtualName="" explicitFocusOrder="0" pos="168 80 56 24" buttonText="LFO 1"
+              virtualName="" explicitFocusOrder="0" pos="224 80 56 24" buttonText="LFO 1"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="LFO 1 Freq Label" id="29836e1fe4622869" memberName="FreqLFO1Lbl"
          virtualName="" explicitFocusOrder="0" pos="38 136 40 24" edTextCol="ff000000"
@@ -620,51 +1003,51 @@ BEGIN_JUCER_METADATA
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="LFO 1 Wave Label" id="75dbcd5f6a0cc700" memberName="WaveLFO1Lbl"
-         virtualName="" explicitFocusOrder="0" pos="160 152 46 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="216 152 46 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <GROUPCOMPONENT name="LFO 2 Group" id="35e8ad61c86b603a" memberName="LFO2Group"
-                  virtualName="" explicitFocusOrder="0" pos="264 64 232 128" title=""/>
+                  virtualName="" explicitFocusOrder="0" pos="304 64 280 128" title=""/>
   <SLIDER name="LFO 2 Depth Slider" id="2596adc2e61cd58e" memberName="DepthLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="344 112 32 24" min="0"
+          virtualName="" explicitFocusOrder="0" pos="384 112 32 24" min="0"
           max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="LFO 2 Freq Slider" id="f5dbcdc53c502e69" memberName="FreqLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="288 112 32 24" min="0"
+          virtualName="" explicitFocusOrder="0" pos="328 112 32 24" min="0"
           max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
   <COMBOBOX name="LFO 2 Wave" id="b76d5189aafe8e3f" memberName="WaveLFO2Cmb"
-            virtualName="" explicitFocusOrder="0" pos="392 120 80 24" editable="0"
+            virtualName="" explicitFocusOrder="0" pos="488 120 80 24" editable="0"
             layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 2 Depth Mod Slider" id="4a524c9e1974186c" memberName="DepthModLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="352 160 16 16" min="0"
+          virtualName="" explicitFocusOrder="0" pos="392 160 16 16" min="0"
           max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="LFO 2 Freq Mod Slider" id="e49bd74bef8aaca1" memberName="FreqModLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="296 160 16 16" min="0"
+          virtualName="" explicitFocusOrder="0" pos="336 160 16 16" min="0"
           max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
   <TEXTBUTTON name="LFO 2 Bypass Button" id="74a3a05dda891f9c" memberName="BypassLFO2Btn"
-              virtualName="" explicitFocusOrder="0" pos="416 80 56 24" buttonText="LFO 2"
+              virtualName="" explicitFocusOrder="0" pos="512 80 56 24" buttonText="LFO 2"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="LFO 2 Freq Label" id="5463cd286934c4bc" memberName="FreqLFO2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="286 136 40 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="326 136 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Rate" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="LFO 2 Depth Label" id="39dd59a998ec443" memberName="DepthLFO2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="338 136 46 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="378 136 46 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Depth" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
   <LABEL name="LFO 2 Wave Label" id="e01fc09efde6d339" memberName="WaveLFO2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="408 152 46 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="504 152 46 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15"
          bold="0" italic="0" justification="33"/>
@@ -672,7 +1055,7 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="32 88 56 16" buttonText="Tempo Sync"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="LFO 2 Tempo Sync Button" id="3a20b52dc2308f55" memberName="TempoSyncLFO2Btn"
-              virtualName="" explicitFocusOrder="0" pos="280 88 56 16" buttonText="Tempo Sync"
+              virtualName="" explicitFocusOrder="0" pos="320 88 56 16" buttonText="Tempo Sync"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="LFO 1 Tempo Numer Slider" id="ae3b2cb5fc40f879" memberName="TempoNumerLFO1Sld"
           virtualName="" explicitFocusOrder="0" pos="32 120 56 16" min="1"
@@ -683,19 +1066,155 @@ BEGIN_JUCER_METADATA
           max="32" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="LFO 2 Tempo Numer Slider" id="7ef07d530a2439f7" memberName="TempoNumerLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="280 120 56 16" min="1"
+          virtualName="" explicitFocusOrder="0" pos="320 120 56 16" min="1"
           max="4" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="LFO 2 Tempo Denom Slider" id="684fae94c6ad39f8" memberName="TempoDenomLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="280 152 56 16" min="1"
+          virtualName="" explicitFocusOrder="0" pos="320 152 56 16" min="1"
           max="32" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
           textBoxEditable="1" textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
   <TEXTBUTTON name="LFO 1 Phase Sync Button" id="1df73348199bbe85" memberName="PhaseSyncLFO1Btn"
-              virtualName="" explicitFocusOrder="0" pos="96 88 56 16" buttonText="Phase Sync"
+              virtualName="" explicitFocusOrder="0" pos="144 88 56 16" buttonText="Phase Sync"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="LFO 2 Phase Sync Button" id="6956f3f885f5801d" memberName="PhaseSyncLFO2Btn"
-              virtualName="" explicitFocusOrder="0" pos="344 88 56 16" buttonText="Phase Sync"
+              virtualName="" explicitFocusOrder="0" pos="432 88 56 16" buttonText="Phase Sync"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <SLIDER name="LFO 1 Phase Slider" id="1fa393dc85f550ee" memberName="PhaseLFO1Sld"
+          virtualName="" explicitFocusOrder="0" pos="152 112 32 24" min="0"
+          max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="LFO 1 Phase Label" id="e8d899c4a3a19f8" memberName="PhaseLFO1Lbl"
+         virtualName="" explicitFocusOrder="0" pos="144 136 46 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Phase" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <SLIDER name="LFO 2 Phase Slider" id="df30ce6c91b8975b" memberName="PhaseLFO2Sld"
+          virtualName="" explicitFocusOrder="0" pos="440 112 32 24" min="0"
+          max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="LFO 2 Phase Label" id="5fd532cc21a16f51" memberName="PhaseLFO2Lbl"
+         virtualName="" explicitFocusOrder="0" pos="432 136 46 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Phase" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <GROUPCOMPONENT name="MOD 1 Group" id="a2c7412d0fb46a58" memberName="MOD1Group"
+                  virtualName="" explicitFocusOrder="0" pos="16 192 280 128" title=""/>
+  <SLIDER name="MOD 1 Depth Slider" id="499f6451911662cc" memberName="DepthMOD1Sld"
+          virtualName="" explicitFocusOrder="0" pos="96 240 32 24" min="0"
+          max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="MOD 1 Freq Slider" id="1d9800ca18cf5bba" memberName="FreqMOD1Sld"
+          virtualName="" explicitFocusOrder="0" pos="40 240 32 24" min="0"
+          max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1"/>
+  <COMBOBOX name="MOD 1 Wave" id="370e5062e67cf738" memberName="WaveMOD1Cmb"
+            virtualName="" explicitFocusOrder="0" pos="200 248 80 24" editable="0"
+            layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
+            textWhenNoItems="(no choices)"/>
+  <TEXTBUTTON name="MOD 1 Bypass Button" id="cd667ff923e74db5" memberName="BypassMOD1Btn"
+              virtualName="" explicitFocusOrder="0" pos="224 208 56 24" buttonText="MOD 1"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <LABEL name="MOD 1 Freq Label" id="dabfca26c640fd58" memberName="FreqMOD1Lbl"
+         virtualName="" explicitFocusOrder="0" pos="38 264 40 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Rate" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <LABEL name="MOD 1 Depth Label" id="77092a4a55225c68" memberName="DepthMOD1Lbl"
+         virtualName="" explicitFocusOrder="0" pos="90 264 46 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Depth" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <LABEL name="MOD 1 Wave Label" id="7eb50c1a44463588" memberName="WaveMOD1Lbl"
+         virtualName="" explicitFocusOrder="0" pos="216 280 46 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <TEXTBUTTON name="MOD 1 Tempo Sync Button" id="b43affdb8ac7bb90" memberName="TempoSyncMOD1Btn"
+              virtualName="" explicitFocusOrder="0" pos="32 216 56 16" buttonText="Tempo Sync"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <SLIDER name="MOD 1 Tempo Numer Slider" id="6c49dac77f3e6f4b" memberName="TempoNumerMOD1Sld"
+          virtualName="" explicitFocusOrder="0" pos="32 248 56 16" min="1"
+          max="4" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="MOD 1 Tempo Denom Slider" id="a116d9c60bf4c7b5" memberName="TempoDenomMOD1Sld"
+          virtualName="" explicitFocusOrder="0" pos="32 280 56 16" min="1"
+          max="32" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
+  <TEXTBUTTON name="MOD 1 Phase Sync Button" id="4509e154e4918174" memberName="PhaseSyncMOD1Btn"
+              virtualName="" explicitFocusOrder="0" pos="144 216 56 16" buttonText="Phase Sync"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <SLIDER name="MOD 1 Phase Slider" id="3f1ef3d10c303bac" memberName="PhaseMOD1Sld"
+          virtualName="" explicitFocusOrder="0" pos="152 240 32 24" min="0"
+          max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="MOD 1 Phase Label" id="af1abf98d305cb5c" memberName="PhaseMOD1Lbl"
+         virtualName="" explicitFocusOrder="0" pos="144 264 46 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Phase" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <GROUPCOMPONENT name="MOD 2 Group" id="384e0ba59bb5f2ff" memberName="MOD2Group"
+                  virtualName="" explicitFocusOrder="0" pos="304 192 280 128" title=""/>
+  <SLIDER name="MOD 2 Depth Slider" id="8c1762ee0dd0d28a" memberName="DepthMOD2Sld"
+          virtualName="" explicitFocusOrder="0" pos="384 240 32 24" min="0"
+          max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="MOD 2 Freq Slider" id="362166b8c676eba4" memberName="FreqMOD2Sld"
+          virtualName="" explicitFocusOrder="0" pos="328 240 32 24" min="0"
+          max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1"/>
+  <COMBOBOX name="MOD 2 Wave" id="c85d4543a533be92" memberName="WaveMOD2Cmb"
+            virtualName="" explicitFocusOrder="0" pos="488 248 80 24" editable="0"
+            layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
+            textWhenNoItems="(no choices)"/>
+  <TEXTBUTTON name="MOD 2 Bypass Button" id="7773dc0327675392" memberName="BypassMOD2Btn"
+              virtualName="" explicitFocusOrder="0" pos="512 208 56 24" buttonText="MOD 2"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <LABEL name="MOD 2 Freq Label" id="f37a78a0ec1cab07" memberName="FreqMOD2Lbl"
+         virtualName="" explicitFocusOrder="0" pos="326 264 40 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Rate" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <LABEL name="MOD 2 Depth Label" id="c19bf3a6d5ab63f9" memberName="DepthMOD2Lbl"
+         virtualName="" explicitFocusOrder="0" pos="378 264 46 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Depth" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <LABEL name="MOD 2 Wave Label" id="1bdb7eca9ab250c8" memberName="WaveMOD2Lbl"
+         virtualName="" explicitFocusOrder="0" pos="504 280 46 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
+  <TEXTBUTTON name="MOD 2 Tempo Sync Button" id="bfc616fbcdb92b04" memberName="TempoSyncMOD2Btn"
+              virtualName="" explicitFocusOrder="0" pos="320 216 56 16" buttonText="Tempo Sync"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <SLIDER name="MOD 2 Tempo Numer Slider" id="2bcaaa8e6b75d2b9" memberName="TempoNumerMOD2Sld"
+          virtualName="" explicitFocusOrder="0" pos="320 248 56 16" min="1"
+          max="4" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
+  <SLIDER name="MOD 2 Tempo Denom Slider" id="255bbe43957852ba" memberName="TempoDenomMOD2Sld"
+          virtualName="" explicitFocusOrder="0" pos="320 280 56 16" min="1"
+          max="32" int="1" style="IncDecButtons" textBoxPos="TextBoxLeft"
+          textBoxEditable="1" textBoxWidth="40" textBoxHeight="20" skewFactor="1"/>
+  <TEXTBUTTON name="MOD 2 Phase Sync Button" id="7b0a4004498f92b3" memberName="PhaseSyncMOD2Btn"
+              virtualName="" explicitFocusOrder="0" pos="432 216 56 16" buttonText="Phase Sync"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <SLIDER name="MOD 2 Phase Slider" id="54fd5481a5970106" memberName="PhaseMOD2Sld"
+          virtualName="" explicitFocusOrder="0" pos="440 240 32 24" min="0"
+          max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1"/>
+  <LABEL name="MOD 2 Phase Label" id="d3b9d517ecdfe1bc" memberName="PhaseMOD2Lbl"
+         virtualName="" explicitFocusOrder="0" pos="432 264 46 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Phase" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         bold="0" italic="0" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

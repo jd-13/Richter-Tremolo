@@ -32,12 +32,13 @@ protected:
     int bypassSwitch,
         tempoSyncSwitch,
         phaseSyncSwitch,
+        manualPhase,
         wave,
         index,
         indexOffset;
     
-    enum	{kWaveArraySize = 2000};
-    
+    bool needsPhaseCalc;
+        
     float   tempoNumer,
             tempoDenom,
             tempoFreq,
@@ -60,8 +61,7 @@ protected:
     
 public:
     RichterLFOBase() : currentScale(0) {}
-    
-    
+        
     // getter methods
     
     int getBypassSwitch() const { return bypassSwitch; }
@@ -76,6 +76,8 @@ public:
     
     float getFreq() const { return freq; }
     
+    int getManualPhase() const { return manualPhase; }
+    
     float getTempoNumer() const { return tempoNumer; }
     
     float getTempoDenom() const { return tempoDenom; }
@@ -83,12 +85,10 @@ public:
     float getWaveArraySize() const { return kWaveArraySize; }
     
     
-    
+    int getIndexOffset() { return indexOffset; }
         
     void setIndexOffset(int val) { indexOffset = val; }
-    
-    void setCurrentScale(float val) { currentScale = val; }
-    
+        
     
     // set parameter methods, w/ integrated bounds checks
     
@@ -106,6 +106,8 @@ public:
     
     void setDepth(float val);
     
+    void setManualPhase(int val);
+    
     void setWave(float val);
     
     void setWaveTablePointers();
@@ -114,8 +116,9 @@ public:
     
     
     
+    void reset();
     
-    void calcPhaseOffset(double timeInSeconds, long mSamplesProcessed);
+    void calcPhaseOffset(double timeInSeconds);
     
     void calcFreq(double bpm);
     

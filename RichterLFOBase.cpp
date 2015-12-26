@@ -69,6 +69,11 @@ void RichterLFOBase::setDepth(float val) {
     depth = boundsCheck(depth, DEPTH_MIN, DEPTH_MAX);
 }
 
+void RichterLFOBase::setManualPhase(int val) {
+    manualPhase = val;
+    manualPhase = boundsCheck(manualPhase, PHASE_MIN, PHASE_MAX);
+}
+
 void RichterLFOBase::setWave(float val) {
     wave = val;
     wave = boundsCheck<int>(wave, WAVE_MIN, WAVE_MAX);
@@ -82,9 +87,14 @@ void RichterLFOBase::setWaveTablePointers() {
 
 
 
+void RichterLFOBase::reset() {
+    needsPhaseCalc = true;
+    indexOffset = 0;
+    currentScale = 0;
+}
 
-void RichterLFOBase::calcPhaseOffset(double timeInSeconds, long mSamplesProcessed) {
-    if (phaseSyncSwitch && (mSamplesProcessed < 1000)) {
+void RichterLFOBase::calcPhaseOffset(double timeInSeconds) {
+    if (phaseSyncSwitch && needsPhaseCalc) {
         float waveLength {1 / freq};
         double waveTimePosition {0};
         
@@ -93,18 +103,21 @@ void RichterLFOBase::calcPhaseOffset(double timeInSeconds, long mSamplesProcesse
         } else {
             waveTimePosition = timeInSeconds;
         }
-        indexOffset = (waveTimePosition / waveLength) * kWaveArraySize;
+        indexOffset = (waveTimePosition / waveLength) * kWaveArraySize + manualPhase;
+        Logger::outputDebugString(String(indexOffset));
     }
     
-    if (!phaseSyncSwitch && (mSamplesProcessed < 1000)) {
-        indexOffset = 0;
+    if (!phaseSyncSwitch && needsPhaseCalc) {
+        indexOffset = manualPhase;
     }
+    needsPhaseCalc = false;
+
 }
 
 
 
 
- void RichterLFOBase::calcFreq(double bpm) {
+void RichterLFOBase::calcFreq(double bpm) {
     // calculate the frequency based on whether tempo sync is active
      
     tempoFreq = (bpm / 60) * (tempoDenom / tempoNumer);
@@ -135,9 +148,11 @@ void RichterLFOBase::calcIndexAndScaleInLoop(long &mSamplesProcessed) {
     
     // Must provide two possibilities for each index lookup in order to protect the array from being overflowed by the indexOffset, the first if statement uses the standard index lookup while second if statement deals with the overflow possibility
     
-    if ((index + indexOffset) < kWaveArraySize)    { gain = waveArrayPointer[index + indexOffset]; }
-    else if ((index + indexOffset) >= kWaveArraySize)   { gain = waveArrayPointer[(index + indexOffset) % kWaveArraySize]; }
-    
+    if ((index + indexOffset) < kWaveArraySize) {
+        gain = waveArrayPointer[index + indexOffset];
+    } else if ((index + indexOffset) >= kWaveArraySize) {
+        gain = waveArrayPointer[(index + indexOffset) % kWaveArraySize];
+    }
 }
 
 void RichterLFOBase::calcNextScale() {
