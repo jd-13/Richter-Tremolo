@@ -59,6 +59,7 @@ RichterAudioProcessor::RichterAudioProcessor()
     mRichter.MOD2.setTempoNumer(TEMPONUMER_DEFAULT);
     mRichter.MOD2.setTempoDenom(TEMPODENOM_DEFAULT);
     
+    mRichter.setStereo(STEREO_DEFAULT);
     mRichter.setMasterVol(MASTERVOL_DEFAULT);
     
     UIUpdateFlag = true;
@@ -220,7 +221,8 @@ float RichterAudioProcessor::getParameter (int index)
             
             
             
-            
+        case stereo:
+            return mRichter.getStereo();
             
         case masterVol:
             return TranslateParam_Inter2Norm(mRichter.getMasterVol(), MASTERVOL_MIN, MASTERVOL_MAX);
@@ -270,7 +272,7 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             break;
             
         case phaseLFO1:
-            mRichter.LFO2.setManualPhase(TranslateParam_Norm2Inter(newValue, PHASE_MIN, PHASE_MAX));
+            mRichter.LFO1.setManualPhase(TranslateParam_Norm2Inter(newValue, PHASE_MIN, PHASE_MAX));
             break;
             
         case tempoNumerLFO1:
@@ -411,6 +413,8 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             
             
             
+        case stereo:
+            mRichter.setStereo(newValue < 0.5 ? true : false);
             
         case masterVol:
             mRichter.setMasterVol(TranslateParam_Norm2Inter(newValue, MASTERVOL_MIN, MASTERVOL_MAX));
@@ -562,6 +566,9 @@ const String RichterAudioProcessor::getParameterName (int index)
             
             
             
+        case stereo:
+            return STEREO_STR;
+            
             
         case masterVol:
             return MASTERVOL_STR;
@@ -709,6 +716,9 @@ const String RichterAudioProcessor::getParameterText (int index)
             
             
             
+        case stereo:
+            return String(mRichter.getStereo());
+            
         case masterVol:
             return String(TranslateParam_Inter2Norm(mRichter.getMasterVol(), MASTERVOL_MIN, MASTERVOL_MAX));
             
@@ -737,6 +747,7 @@ bool RichterAudioProcessor::isParameterAutomatable(int parameterIndex) const {
         case waveLFO2:
         case waveMOD1:
         case waveMOD2:
+        case stereo:
             return false;
             
         default:
@@ -784,7 +795,7 @@ bool RichterAudioProcessor::producesMidi() const
 
 bool RichterAudioProcessor::silenceInProducesSilenceOut() const
 {
-    return false;
+    return true;
 }
 
 double RichterAudioProcessor::getTailLengthSeconds() const
@@ -837,7 +848,6 @@ void RichterAudioProcessor::releaseResources()
 
 void RichterAudioProcessor::reset()
 {
-    Logger::outputDebugString("reset called");
     mRichter.LFO1.reset();
     mRichter.LFO2.reset();
     mRichter.MOD1.reset();
@@ -878,8 +888,8 @@ void RichterAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
     mRichter.MOD1.calcPhaseOffset(mTempoInfo.timeInSeconds);
     mRichter.MOD2.calcPhaseOffset(mTempoInfo.timeInSeconds);
     
-    mRichter.LFO1.calcFreq(mTempoInfo.bpm, mRichter.MOD1.getBypassSwitch(), mRichter.MOD1.getGain());
-    mRichter.LFO2.calcFreq(mTempoInfo.bpm, mRichter.MOD2.getBypassSwitch(), mRichter.MOD2.getGain());
+    mRichter.LFO1.calcFreq(mTempoInfo.bpm);
+    mRichter.LFO2.calcFreq(mTempoInfo.bpm);
     
     mRichter.LFO1.calcPhaseOffset(mTempoInfo.timeInSeconds);
     mRichter.LFO2.calcPhaseOffset(mTempoInfo.timeInSeconds);
@@ -893,18 +903,33 @@ void RichterAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
     mRichter.LFO2.calcNextScale();
     mRichter.MOD1.calcNextScale();
     mRichter.MOD2.calcNextScale();
-
-
     
-    float* inLeftSample {buffer.getWritePointer(0)};
-    float* inRightSample {buffer.getWritePointer(1)};
 
     
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
-    for (long iii = 0; iii < buffer.getNumSamples(); iii++) {
-        mRichter.ClockProcess(&inLeftSample[iii], &inRightSample[iii], iii);
+    if (getNumInputChannels() == 1 && getNumOutputChannels() == 1) {
+        float* inSample {buffer.getWritePointer(0)};
+        
+        for (long iii = 0; iii < buffer.getNumSamples(); iii++) {
+            mRichter.ClockProcess1in1out(&inSample[iii], iii);
+        }
+    } else if (getNumInputChannels() == 1 && getNumOutputChannels() == 2) {
+        float* inLeftSample {buffer.getWritePointer(0)};
+        float* inRightSample {buffer.getWritePointer(1)};
+        
+        for (long iii = 0; iii < buffer.getNumSamples(); iii++) {
+            mRichter.ClockProcess1in2out(&inLeftSample[iii], &inRightSample[iii], iii);
+        }
+    } else if (getNumInputChannels() == 2 && getNumOutputChannels() == 2) {
+        float* inLeftSample {buffer.getWritePointer(0)};
+        float* inRightSample {buffer.getWritePointer(1)};
+        
+        for (long iii = 0; iii < buffer.getNumSamples(); iii++) {
+            mRichter.ClockProcess2in2out(&inLeftSample[iii], &inRightSample[iii], iii);
+        }
     }
+    
 }
 
 //==============================================================================
@@ -1064,6 +1089,9 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     
     
     
+    el = root.createNewChildElement(STEREO_STR);
+    el->createTextElement(String(mRichter.getStereo()));
+    
     el = root.createNewChildElement(MASTERVOL_STR);
     el->addTextElement(String(mRichter.getMasterVol()));
     
@@ -1220,7 +1248,10 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
 
             
             
-            else if (pChild->hasTagName(MASTERVOL_STR)) {
+            else if (pChild->hasTagName(STEREO_STR)) {
+                String text = pChild->getAllSubText();
+                setParameter(stereo, text.getFloatValue());
+            } else if (pChild->hasTagName(MASTERVOL_STR)) {
                 String text = pChild->getAllSubText();
                 setParameter(masterVol, text.getFloatValue());
             }

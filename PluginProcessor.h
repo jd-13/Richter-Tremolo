@@ -115,6 +115,7 @@ public:
         tempoNumerMOD2,
         tempoDenomMOD2,
         
+        stereo,
         masterVol,
         totalNumParams
     };

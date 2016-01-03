@@ -60,14 +60,9 @@ public:
     
     
     
-    // override the similar method in the base class, as the true LFOs are depentant on more parameters
-    void calcFreq(double bpm, int modBypassSwitch, float modGain);
-    
-    
+    void calcFreqInLoop(int modBypassSwitch, float modGain);
     
     void calcDepthInLoop(int modBypassSwitch, float modGain);
-    
-    
 };
 
 #endif

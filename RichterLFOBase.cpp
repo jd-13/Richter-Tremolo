@@ -104,7 +104,6 @@ void RichterLFOBase::calcPhaseOffset(double timeInSeconds) {
             waveTimePosition = timeInSeconds;
         }
         indexOffset = (waveTimePosition / waveLength) * kWaveArraySize + manualPhase;
-        Logger::outputDebugString(String(indexOffset));
     }
     
     if (!phaseSyncSwitch && needsPhaseCalc) {

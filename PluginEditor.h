@@ -128,6 +128,7 @@ private:
     ScopedPointer<TextButton> PhaseSyncMOD2Btn;
     ScopedPointer<Slider> PhaseMOD2Sld;
     ScopedPointer<Label> PhaseMOD2Lbl;
+    ScopedPointer<TextButton> StereoBtn;
 
 
     //==============================================================================

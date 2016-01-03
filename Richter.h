@@ -23,7 +23,9 @@ public:
     RichterLFO LFO1, LFO2;
     RichterMOD MOD1, MOD2;
     
-    void ClockProcess(float* inLeftSample, float* inRightSample, int index);
+    void ClockProcess1in1out(float* inSample, int index);
+    void ClockProcess1in2out(float* inLeftSample, float* inRightSample, int index);
+    void ClockProcess2in2out(float* inLeftSample, float* inRightSample, int index);
     
     
     
@@ -38,8 +40,6 @@ public:
     
     void setStereo(bool val) { isStereo = val; }
     
-    void setStereoAvailable(bool val) { isStereoAvailable = val; }
-    
     void setMasterVol(float val) { masterVol = val; }
     
     void resetSamplesProcessed() { samplesProcessed = 0; }
@@ -52,8 +52,7 @@ private:
     
     enum    { sampleLimit = (int) 10E6 };
     
-    bool    isStereo,
-            isStereoAvailable;
+    bool    isStereo;
     
 };
 
