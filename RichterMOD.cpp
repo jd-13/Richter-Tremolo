@@ -25,7 +25,7 @@
 
 RichterMOD::RichterMOD() : RichterLFOBase() {
     
-    // mod wavetables below (no correction, may move below 0)
+    // mod wavetables below (no correction, move below 0)
         
     for (int i = 0; i < kWaveArraySize; ++i) {
         
@@ -69,4 +69,12 @@ RichterMOD::RichterMOD() : RichterLFOBase() {
          );
     }
     
+}
+
+float RichterMOD::calcGain() const {
+    if (bypassSwitch) {
+        return (gain * depth);
+    } else {
+        return 0;
+    }
 }

@@ -27,11 +27,11 @@ void Richter::ClockProcess1in1out(float *inSample, int index) {
     }
     
     // Check whether MOD oscs are activated and apply depth parameter modulation accordingly
-    LFO1.calcDepthInLoop(MOD1.getBypassSwitch(), MOD1.getGain());
-    LFO2.calcDepthInLoop(MOD2.getBypassSwitch(), MOD2.getGain());
+    LFO1.calcDepthInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
+    LFO2.calcDepthInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
     
-    LFO1.calcFreqInLoop(MOD1.getBypassSwitch(), MOD1.getGain());
-    LFO2.calcFreqInLoop(MOD2.getBypassSwitch(), MOD2.getGain());
+    LFO1.calcFreqInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
+    LFO2.calcFreqInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
     
     
     float tremoloGain = (LFO1.calcGain()) * (LFO2.calcGain());
@@ -52,11 +52,11 @@ void Richter::ClockProcess1in2out(float *inLeftSample, float *inRightSample, int
     }
     
     // Check whether MOD oscs are activated and apply depth parameter modulation accordingly
-    LFO1.calcDepthInLoop(MOD1.getBypassSwitch(), MOD1.getGain());
-    LFO2.calcDepthInLoop(MOD2.getBypassSwitch(), MOD2.getGain());
+    LFO1.calcDepthInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
+    LFO2.calcDepthInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
     
-    LFO1.calcFreqInLoop(MOD1.getBypassSwitch(), MOD1.getGain());
-    LFO2.calcFreqInLoop(MOD2.getBypassSwitch(), MOD2.getGain());
+    LFO1.calcFreqInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
+    LFO2.calcFreqInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
     
     
     
@@ -84,11 +84,12 @@ void Richter::ClockProcess2in2out(float* inLeftSample, float* inRightSample, int
     }
     
     // Check whether MOD oscs are activated and apply depth parameter modulation accordingly
-    LFO1.calcDepthInLoop(MOD1.getBypassSwitch(), MOD1.getGain());
-    LFO2.calcDepthInLoop(MOD2.getBypassSwitch(), MOD2.getGain());
+    LFO1.calcDepthInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
+    LFO2.calcDepthInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
     
-    LFO1.calcFreqInLoop(MOD1.getBypassSwitch(), MOD1.getGain());
-    LFO2.calcFreqInLoop(MOD2.getBypassSwitch(), MOD2.getGain());
+    LFO1.calcFreqInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
+    LFO2.calcFreqInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
+    
     
     
     if (isStereo) {

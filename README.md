@@ -9,8 +9,8 @@ Timeline:
 23/11/15 -- Development Start [DONE][TESTED]  
 27/11/15 -- Single LFO with multiple waveforms [DONE][TESTED]  
 5/12/15 -- Tempo sync [DONE][TESTED]  
-10/12/15 -- Four LFOs  
-16/12/15 -- GUI enhancement  
-30/12/15 -- Testing completion  
-05/01/16 -- AU Release  
-05/01/16 -- VST Release  
+10/12/15 -- Four LFOs [DONE][TESTED]  
+10/01/15 -- GUI enhancement  
+20/01/15 -- Testing completion  
+25/01/16 -- AU Release  
+25/01/16 -- VST Release  

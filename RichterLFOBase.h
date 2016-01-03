@@ -61,6 +61,8 @@ protected:
     
 public:
     RichterLFOBase() : currentScale(0) {}
+    
+    virtual ~RichterLFOBase() {};
         
     // getter methods
     
@@ -128,7 +130,7 @@ public:
     
     void calcNextScale();
     
-    float calcGain() const;
+    virtual float calcGain() const;
         
 };
 

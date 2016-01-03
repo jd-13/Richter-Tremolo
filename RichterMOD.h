@@ -31,8 +31,8 @@ class RichterMOD : public RichterLFOBase {
     
 public:
     RichterMOD();
-    
-    float getGain() const { return gain; }
+        
+    float calcGain() const override;
     
 };
 
