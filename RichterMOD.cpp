@@ -43,8 +43,7 @@ RichterMOD::RichterMOD() : RichterLFOBase() {
          0.075 * sin (7 * squareRadians) +
          0.0375 * sin (9 * squareRadians) +
          0.01875 * sin (11 * squareRadians) +
-         0.009375 * sin (13 * squareRadians) +
-         0.8
+         0.009375 * sin (13 * squareRadians)
          );
         
         // saw wavetable

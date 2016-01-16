@@ -14,6 +14,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Richter.h"
 #include "ParameterData.h"
+#include <memory>
 
 
 //==============================================================================

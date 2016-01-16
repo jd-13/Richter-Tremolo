@@ -34,7 +34,7 @@ void Richter::ClockProcess1in1out(float *inSample, int index) {
     LFO2.calcFreqInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
     
     
-    float tremoloGain = (LFO1.calcGain()) * (LFO2.calcGain());
+    float tremoloGain {LFO1.calcGain() * LFO2.calcGain()};
     
     *inSample = *inSample * tremoloGain * masterVol;
     

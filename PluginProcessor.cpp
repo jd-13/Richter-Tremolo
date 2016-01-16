@@ -415,6 +415,7 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             
         case stereo:
             mRichter.setStereo(newValue < 0.5 ? true : false);
+            break;
             
         case masterVol:
             mRichter.setMasterVol(TranslateParam_Norm2Inter(newValue, MASTERVOL_MIN, MASTERVOL_MAX));
@@ -950,7 +951,8 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
     XmlElement root("Root");
-    XmlElement *el;
+    XmlElement *el {nullptr};
+    //std::unique_ptr<XmlElement> el(nullptr);
     
     el = root.createNewChildElement(SWITCHLFO1_STR);
     el->addTextElement(String(mRichter.LFO1.getBypassSwitch()));
@@ -1104,7 +1106,7 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
-    XmlElement* pRoot = getXmlFromBinary(data, sizeInBytes);
+    std::unique_ptr<XmlElement> pRoot(getXmlFromBinary(data, sizeInBytes));
     
     if (pRoot != NULL) {
         forEachXmlChildElement((*pRoot), pChild) {
@@ -1258,8 +1260,6 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
             
         }
         
-        delete pRoot;
-        pRoot = NULL;
         UIUpdateFlag = true;
     }
     
