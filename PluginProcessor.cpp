@@ -950,155 +950,15 @@ void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
+    std::vector<float> userParams;
+    for (int iii {0}; iii < totalNumParams; iii++) {
+        userParams.push_back(getParameter(iii));
+    }
+    
     XmlElement root("Root");
-    XmlElement *el {nullptr};
-    //std::unique_ptr<XmlElement> el(nullptr);
-    
-    el = root.createNewChildElement(SWITCHLFO1_STR);
-    el->addTextElement(String(mRichter.LFO1.getBypassSwitch()));
-    
-    el = root.createNewChildElement(PHASESYNCLFO1_STR);
-    el->addTextElement(String(mRichter.LFO1.getPhaseSyncSwitch()));
-    
-    el = root.createNewChildElement(TEMPOSYNCLFO1_STR);
-    el->addTextElement(String(mRichter.LFO1.getTempoSyncSwitch()));
-    
-    el = root.createNewChildElement(WAVELFO1_STR);
-    el->createTextElement(String(mRichter.LFO1.getWave()));
-    
-    el = root.createNewChildElement(DEPTHLFO1_STR);
-    el->createTextElement(String(mRichter.LFO1.getDepth()));
-    
-    el = root.createNewChildElement(DEPTHMOD1_STR);
-    el->createTextElement(String(mRichter.LFO1.getDepthMod()));
-    
-    el = root.createNewChildElement(FREQLFO1_STR);
-    el->createTextElement(String(mRichter.LFO1.getFreq()));
-    
-    el = root.createNewChildElement(FREQMODLFO1_STR);
-    el->createTextElement(String(mRichter.LFO1.getFreqMod()));
-    
-    el = root.createNewChildElement(PHASELFO1_STR);
-    el->createTextElement(String(mRichter.LFO1.getManualPhase()));
-    
-    el = root.createNewChildElement(TEMPONUMERLFO1_STR);
-    el->createTextElement(String(mRichter.LFO1.getTempoNumer()));
-    
-    el = root.createNewChildElement(TEMPODENOMLFO1_STR);
-    el->createTextElement(String(mRichter.LFO1.getTempoDenom()));
-    
-    
-    
-    
-    
-    el = root.createNewChildElement(SWITCHLFO2_STR);
-    el->addTextElement(String(mRichter.LFO2.getBypassSwitch()));
-    
-    el = root.createNewChildElement(PHASESYNCLFO2_STR);
-    el->addTextElement(String(mRichter.LFO2.getPhaseSyncSwitch()));
-    
-    el = root.createNewChildElement(TEMPOSYNCLFO2_STR);
-    el->addTextElement(String(mRichter.LFO2.getTempoSyncSwitch()));
-    
-    el = root.createNewChildElement(WAVELFO2_STR);
-    el->createTextElement(String(mRichter.LFO2.getWave()));
-    
-    el = root.createNewChildElement(DEPTHLFO2_STR);
-    el->createTextElement(String(mRichter.LFO2.getDepth()));
-    
-    el = root.createNewChildElement(DEPTHMOD1_STR);
-    el->createTextElement(String(mRichter.LFO2.getDepthMod()));
-    
-    el = root.createNewChildElement(FREQLFO2_STR);
-    el->createTextElement(String(mRichter.LFO2.getFreq()));
-    
-    el = root.createNewChildElement(FREQMODLFO2_STR);
-    el->createTextElement(String(mRichter.LFO2.getFreqMod()));
-    
-    el = root.createNewChildElement(PHASELFO2_STR);
-    el->createTextElement(String(mRichter.LFO2.getManualPhase()));
-    
-    el = root.createNewChildElement(TEMPONUMERLFO2_STR);
-    el->createTextElement(String(mRichter.LFO2.getTempoNumer()));
-    
-    el = root.createNewChildElement(TEMPODENOMLFO2_STR);
-    el->createTextElement(String(mRichter.LFO2.getTempoDenom()));
-    
-    
-    
-    
-    
-    
-    el = root.createNewChildElement(SWITCHMOD1_STR);
-    el->addTextElement(String(mRichter.MOD1.getBypassSwitch()));
-    
-    el = root.createNewChildElement(PHASESYNCMOD1_STR);
-    el->addTextElement(String(mRichter.MOD1.getPhaseSyncSwitch()));
-    
-    el = root.createNewChildElement(TEMPOSYNCMOD1_STR);
-    el->addTextElement(String(mRichter.MOD1.getTempoSyncSwitch()));
-    
-    el = root.createNewChildElement(WAVEMOD1_STR);
-    el->createTextElement(String(mRichter.MOD1.getWave()));
-    
-    el = root.createNewChildElement(DEPTHMOD1_STR);
-    el->createTextElement(String(mRichter.MOD1.getDepth()));
-    
-    el = root.createNewChildElement(FREQMOD1_STR);
-    el->createTextElement(String(mRichter.MOD1.getFreq()));
-    
-    el = root.createNewChildElement(PHASEMOD1_STR);
-    el->createTextElement(String(mRichter.MOD1.getManualPhase()));
-    
-    el = root.createNewChildElement(TEMPONUMERMOD1_STR);
-    el->createTextElement(String(mRichter.MOD1.getTempoNumer()));
-    
-    el = root.createNewChildElement(TEMPODENOMMOD1_STR);
-    el->createTextElement(String(mRichter.MOD1.getTempoDenom()));
-    
-    
-    
-    
-    
-    
-    el = root.createNewChildElement(SWITCHMOD2_STR);
-    el->addTextElement(String(mRichter.MOD2.getBypassSwitch()));
-    
-    el = root.createNewChildElement(PHASESYNCMOD2_STR);
-    el->addTextElement(String(mRichter.MOD2.getPhaseSyncSwitch()));
-    
-    el = root.createNewChildElement(TEMPOSYNCMOD2_STR);
-    el->addTextElement(String(mRichter.MOD2.getTempoSyncSwitch()));
-    
-    el = root.createNewChildElement(WAVEMOD2_STR);
-    el->createTextElement(String(mRichter.MOD2.getWave()));
-    
-    el = root.createNewChildElement(DEPTHMOD2_STR);
-    el->createTextElement(String(mRichter.MOD2.getDepth()));
-    
-    el = root.createNewChildElement(FREQMOD2_STR);
-    el->createTextElement(String(mRichter.MOD2.getFreq()));
-    
-    el = root.createNewChildElement(PHASEMOD2_STR);
-    el->createTextElement(String(mRichter.MOD2.getManualPhase()));
-    
-    el = root.createNewChildElement(TEMPONUMERMOD2_STR);
-    el->createTextElement(String(mRichter.MOD2.getTempoNumer()));
-    
-    el = root.createNewChildElement(TEMPODENOMMOD2_STR);
-    el->createTextElement(String(mRichter.MOD2.getTempoDenom()));
-    
-    
-    
-    
-    el = root.createNewChildElement(STEREO_STR);
-    el->createTextElement(String(mRichter.getStereo()));
-    
-    el = root.createNewChildElement(MASTERVOL_STR);
-    el->addTextElement(String(mRichter.getMasterVol()));
-    
-    
-    
+    XmlElement *el = root.createNewChildElement("AllUserParam");
+
+    el->addTextElement(String(floatVectorToString(userParams)));
     copyXmlToBinary(root, destData);
 }
 
@@ -1107,164 +967,51 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
     std::unique_ptr<XmlElement> pRoot(getXmlFromBinary(data, sizeInBytes));
+    std::vector<float> tmpUserParam;
     
     if (pRoot != NULL) {
         forEachXmlChildElement((*pRoot), pChild) {
-            if (pChild->hasTagName(SWITCHLFO1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(bypassSwitchLFO1, text.getFloatValue());
-            } else if (pChild->hasTagName(PHASESYNCLFO1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(phaseSyncLFO1, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPOSYNCLFO1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoSyncLFO1, text.getFloatValue());
-            } else if (pChild->hasTagName(WAVELFO1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(waveLFO1, text.getFloatValue());
-            } else if (pChild->hasTagName(DEPTHLFO1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(depthLFO1, text.getFloatValue());
-            } else if (pChild->hasTagName(DEPTHMODLFO1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(depthModLFO1, text.getFloatValue());
-            } else if (pChild->hasTagName(FREQLFO1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(freqLFO1, text.getFloatValue());
-            } else if (pChild->hasTagName(FREQMODLFO1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(freqModLFO1, text.getFloatValue());
-            } else if (pChild->hasTagName(PHASELFO1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(phaseLFO1, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPONUMERLFO1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoNumerLFO1, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPODENOMLFO1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoDenomLFO1, text.getFloatValue());
+            if (pChild->hasTagName("AllUserParam")) {
+                String sFloatCSV = pChild->getAllSubText();
+                if (stringToFloatVector(sFloatCSV, tmpUserParam, totalNumParams) == totalNumParams) {
+                    for (int iii {0}; iii < totalNumParams; iii++) {
+                        setParameter(iii, tmpUserParam[iii]);
+                    }
+                }
             }
-            
-            
-            
-            
-            else if (pChild->hasTagName(SWITCHLFO2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(bypassSwitchLFO2, text.getFloatValue());
-            } else if (pChild->hasTagName(PHASESYNCLFO2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(phaseSyncLFO2, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPOSYNCLFO2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoSyncLFO2, text.getFloatValue());
-            } else if (pChild->hasTagName(WAVELFO2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(waveLFO2, text.getFloatValue());
-            } else if (pChild->hasTagName(DEPTHLFO2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(depthLFO2, text.getFloatValue());
-            } else if (pChild->hasTagName(DEPTHMODLFO2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(depthModLFO2, text.getFloatValue());
-            } else if (pChild->hasTagName(FREQLFO2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(freqLFO2, text.getFloatValue());
-            } else if (pChild->hasTagName(FREQMODLFO2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(freqModLFO2, text.getFloatValue());
-            } else if (pChild->hasTagName(PHASELFO2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(phaseLFO2, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPONUMERLFO2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoNumerLFO2, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPODENOMLFO2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoDenomLFO2, text.getFloatValue());
-            }
-            
-            
-            
-            
-            
-            else if (pChild->hasTagName(SWITCHMOD1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(bypassSwitchMOD1, text.getFloatValue());
-            } else if (pChild->hasTagName(PHASESYNCMOD1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(phaseSyncMOD1, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPOSYNCMOD1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoSyncMOD1, text.getFloatValue());
-            } else if (pChild->hasTagName(WAVEMOD1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(waveMOD1, text.getFloatValue());
-            } else if (pChild->hasTagName(DEPTHMOD1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(depthMOD1, text.getFloatValue());
-            } else if (pChild->hasTagName(FREQMOD1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(freqMOD1, text.getFloatValue());
-            } else if (pChild->hasTagName(PHASEMOD1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(phaseMOD1, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPONUMERMOD1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoNumerMOD1, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPODENOMMOD1_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoDenomMOD1, text.getFloatValue());
-            }
-            
-            
-            
-            
-            else if (pChild->hasTagName(SWITCHMOD2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(bypassSwitchMOD2, text.getFloatValue());
-            } else if (pChild->hasTagName(PHASESYNCMOD2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(phaseSyncMOD2, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPOSYNCMOD2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoSyncMOD2, text.getFloatValue());
-            } else if (pChild->hasTagName(WAVEMOD2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(waveMOD2, text.getFloatValue());
-            } else if (pChild->hasTagName(DEPTHMOD2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(depthMOD2, text.getFloatValue());
-            } else if (pChild->hasTagName(FREQMOD2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(freqMOD2, text.getFloatValue());
-            } else if (pChild->hasTagName(PHASEMOD2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(phaseMOD2, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPONUMERMOD2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoNumerMOD2, text.getFloatValue());
-            } else if (pChild->hasTagName(TEMPODENOMMOD2_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(tempoDenomMOD2, text.getFloatValue());
-            }
-
-            
-            
-            else if (pChild->hasTagName(STEREO_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(stereo, text.getFloatValue());
-            } else if (pChild->hasTagName(MASTERVOL_STR)) {
-                String text = pChild->getAllSubText();
-                setParameter(masterVol, text.getFloatValue());
-            }
-            
         }
         
         UIUpdateFlag = true;
     }
-    
 }
 
+String RichterAudioProcessor::floatVectorToString(const std::vector<float>& fData) const {
+    String result {""};
+    
+    if (fData.size() < 1) {
+        return result;
+    }
+    
+    for (int iii {0}; iii < (fData.size() - 1); iii++) {
+        result << String(fData[iii])<<",";
+    }
+    
+    result << String(fData[fData.size() - 1]);
+    
+    return result;
+}
+
+int RichterAudioProcessor::stringToFloatVector(const String sFloatCSV, std::vector<float>& fData, int maxNumFloat) const {
+    StringArray tokenizer;
+    int tokenCount {tokenizer.addTokens(sFloatCSV, ",","")};
+    int resultCount {(maxNumFloat <= tokenCount) ? maxNumFloat : tokenCount};
+    
+    for (int iii {0}; iii < resultCount; iii++) {
+        fData.push_back(tokenizer[iii].getFloatValue());
+    }
+    
+    return ((tokenCount <= maxNumFloat) ? resultCount : -1);
+}
 //==============================================================================
 // This creates new instances of the plugin..
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()

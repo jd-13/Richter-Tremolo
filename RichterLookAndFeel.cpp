@@ -117,7 +117,7 @@ void RichterLookAndFeel::drawButtonBackground(Graphics& g,
                                 roundToInt(height * 0.4f))};
     
     Path p;
-    PathStrokeType pStroke(2);
+    PathStrokeType pStroke(1);
     Colour* bc {nullptr};
     
     
@@ -245,7 +245,7 @@ void RichterLookAndFeel::drawGroupComponentOutline(Graphics& g,
                                                    const Justification& justification,
                                                    GroupComponent& groupComponent) {
     Path p;
-    PathStrokeType pStroke(2);
+    PathStrokeType pStroke(1);
     Colour* outlineColour {&lightGrey};
     
     // find which LFO this group is for and find if the lfo is active
