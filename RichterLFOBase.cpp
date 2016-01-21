@@ -33,20 +33,18 @@ T RichterLFOBase::boundsCheck(T param, T min, T max) {
 
 
 // setter methods
-void RichterLFOBase::setBypassSwitch(int val) {
+void RichterLFOBase::setBypassSwitch(bool val) {
     bypassSwitch = val;
-    bypassSwitch = boundsCheck(bypassSwitch, 0, 1);
 }
 
-void RichterLFOBase::setPhaseSyncSwitch(int val) {
+void RichterLFOBase::setPhaseSyncSwitch(bool val) {
     phaseSyncSwitch = val;
-    phaseSyncSwitch = boundsCheck(phaseSyncSwitch, 0, 1);
+
 }
 
-
-void RichterLFOBase::setTempoSyncSwitch(int val) {
+void RichterLFOBase::setTempoSyncSwitch(bool val) {
     tempoSyncSwitch = val;
-    tempoSyncSwitch = boundsCheck(tempoSyncSwitch, 0, 1);
+
 }
 
 void RichterLFOBase::setTempoNumer(int val) {

@@ -240,15 +240,15 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
 {
     switch (index) {
         case bypassSwitchLFO1:
-            mRichter.LFO1.setBypassSwitch(newValue < 0.5 ? true : false);
+            mRichter.LFO1.setBypassSwitch(newValue < 0.5);
             break;
             
         case phaseSyncLFO1:
-            mRichter.LFO1.setPhaseSyncSwitch(newValue < 0.5 ? true : false);
+            mRichter.LFO1.setPhaseSyncSwitch(newValue < 0.5);
             break;
             
         case tempoSyncLFO1:
-            mRichter.LFO1.setTempoSyncSwitch(newValue < 0.5 ? true : false);
+            mRichter.LFO1.setTempoSyncSwitch(newValue < 0.5);
             break;
             
         case waveLFO1:
@@ -288,15 +288,15 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             
             
         case bypassSwitchLFO2:
-            mRichter.LFO2.setBypassSwitch(newValue < 0.5 ? true : false);
+            mRichter.LFO2.setBypassSwitch(newValue < 0.5);
             break;
             
         case phaseSyncLFO2:
-            mRichter.LFO2.setPhaseSyncSwitch(newValue < 0.5 ? true : false);
+            mRichter.LFO2.setPhaseSyncSwitch(newValue < 0.5);
             break;
             
         case tempoSyncLFO2:
-            mRichter.LFO2.setTempoSyncSwitch(newValue < 0.5 ? true : false);
+            mRichter.LFO2.setTempoSyncSwitch(newValue < 0.5);
             break;
             
         case waveLFO2:
@@ -336,15 +336,15 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             
             
         case bypassSwitchMOD1:
-            mRichter.MOD1.setBypassSwitch(newValue < 0.5 ? true : false);
+            mRichter.MOD1.setBypassSwitch(newValue < 0.5);
             break;
             
         case phaseSyncMOD1:
-            mRichter.MOD1.setPhaseSyncSwitch(newValue < 0.5 ? true : false);
+            mRichter.MOD1.setPhaseSyncSwitch(newValue < 0.5);
             break;
             
         case tempoSyncMOD1:
-            mRichter.MOD1.setTempoSyncSwitch(newValue < 0.5 ? true : false);
+            mRichter.MOD1.setTempoSyncSwitch(newValue < 0.5);
             break;
             
         case waveMOD1:
@@ -376,15 +376,15 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             
             
         case bypassSwitchMOD2:
-            mRichter.MOD2.setBypassSwitch(newValue < 0.5 ? true : false);
+            mRichter.MOD2.setBypassSwitch(newValue < 0.5);
             break;
             
         case phaseSyncMOD2:
-            mRichter.MOD2.setPhaseSyncSwitch(newValue < 0.5 ? true : false);
+            mRichter.MOD2.setPhaseSyncSwitch(newValue < 0.5);
             break;
             
         case tempoSyncMOD2:
-            mRichter.MOD2.setTempoSyncSwitch(newValue < 0.5 ? true : false);
+            mRichter.MOD2.setTempoSyncSwitch(newValue < 0.5);
             break;
             
         case waveMOD2:
@@ -414,7 +414,8 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             
             
         case stereo:
-            mRichter.setStereo(newValue < 0.5 ? true : false);
+            Logger::outputDebugString("setStereo: " + String(newValue));
+            mRichter.setStereo(newValue < 0.5);
             break;
             
         case masterVol:
@@ -980,6 +981,26 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
                 }
             }
         }
+        
+        // Slightly hacky fix to prevent inverted button settings on startup
+        setParameter(stereo, getParameter(stereo));
+        
+        setParameter(bypassSwitchLFO1, getParameter(bypassSwitchLFO1));
+        setParameter(phaseSyncLFO1, getParameter(phaseSyncLFO1));
+        setParameter(tempoSyncLFO1, getParameter(tempoSyncLFO1));
+
+        setParameter(bypassSwitchLFO2, getParameter(bypassSwitchLFO2));
+        setParameter(phaseSyncLFO2, getParameter(phaseSyncLFO2));
+        setParameter(tempoSyncLFO2, getParameter(tempoSyncLFO2));
+        
+        setParameter(bypassSwitchMOD1, getParameter(bypassSwitchMOD1));
+        setParameter(phaseSyncMOD1, getParameter(phaseSyncMOD1));
+        setParameter(tempoSyncMOD1, getParameter(tempoSyncMOD1));
+        
+        setParameter(bypassSwitchMOD2, getParameter(bypassSwitchMOD2));
+        setParameter(phaseSyncMOD2, getParameter(phaseSyncMOD2));
+        setParameter(tempoSyncMOD2, getParameter(tempoSyncMOD2));
+        
         
         UIUpdateFlag = true;
     }

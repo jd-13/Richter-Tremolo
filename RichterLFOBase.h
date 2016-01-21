@@ -29,15 +29,15 @@
 
 class RichterLFOBase {
 protected:
-    int bypassSwitch,
-        tempoSyncSwitch,
-        phaseSyncSwitch,
-        manualPhase,
+    int manualPhase,
         wave,
         index,
         indexOffset;
     
-    bool needsPhaseCalc;
+    bool    bypassSwitch,
+            tempoSyncSwitch,
+            phaseSyncSwitch,
+            needsPhaseCalc;
         
     float   tempoNumer,
             tempoDenom,
@@ -94,11 +94,11 @@ public:
     
     // set parameter methods, w/ integrated bounds checks
     
-    void setBypassSwitch(int val);
+    void setBypassSwitch(bool val);
     
-    void setPhaseSyncSwitch(int val);
+    void setPhaseSyncSwitch(bool val);
     
-    void setTempoSyncSwitch(int val);
+    void setTempoSyncSwitch(bool val);
     
     void setTempoNumer(int val);
     

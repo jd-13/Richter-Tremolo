@@ -857,6 +857,7 @@ void RichterAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == BypassLFO1Btn)
     {
         //[UserButtonCode_BypassLFO1Btn] -- add your button handler code here..
+        Logger::outputDebugString("getToggleState: " + String(BypassLFO1Btn->getToggleState()));
         ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchLFO1, static_cast<float>(BypassLFO1Btn->getToggleState()));
         //[/UserButtonCode_BypassLFO1Btn]
     }
@@ -929,6 +930,7 @@ void RichterAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == StereoBtn)
     {
         //[UserButtonCode_StereoBtn] -- add your button handler code here..
+        Logger::outputDebugString("onclick getToggleState: " + String(StereoBtn->getToggleState()));
         ourProcessor->setParameter(RichterAudioProcessor::stereo, static_cast<float>(StereoBtn->getToggleState()));
         //[/UserButtonCode_StereoBtn]
     }
@@ -1002,6 +1004,7 @@ void RichterAudioProcessorEditor::timerCallback()
         MasterVolSld->setValue(ourProcessor->getParameter(RichterAudioProcessor::masterVol), dontSendNotification);
 
 
+        Logger::outputDebugString("refresh getToggleState: " + String(StereoBtn->getToggleState()));
 
         // Change LFO names if stereo
         if (StereoBtn->getToggleState()) {

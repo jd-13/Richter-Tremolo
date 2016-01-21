@@ -90,8 +90,7 @@ private:
             darkGrey,
             neonGreen;
     
-    bool    isStereo,
-            LFO1On,
+    bool    LFO1On,
             LFO2On,
             MOD1On,
             MOD2On;
