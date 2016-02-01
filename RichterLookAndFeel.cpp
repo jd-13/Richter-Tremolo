@@ -18,7 +18,8 @@ RichterLookAndFeel::RichterLookAndFeel() :  LookAndFeel_V2(),
                                             LFO2On(false),
                                             MOD1On(false),
                                             MOD2On(false) {
-
+    setColour(PopupMenu::highlightedBackgroundColourId, darkGrey);
+    setColour(PopupMenu::backgroundColourId, lightGrey);
 }
 
 // Used as an interface between the LFO bypass buttons and drawGroupComponentOutline

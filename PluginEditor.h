@@ -131,6 +131,9 @@ private:
     ScopedPointer<Slider> PhaseMOD2Sld;
     ScopedPointer<Label> PhaseMOD2Lbl;
     ScopedPointer<TextButton> StereoBtn;
+    ScopedPointer<Label> MasterVolLbl;
+    ScopedPointer<Label> MODLFO1Lbl;
+    ScopedPointer<Label> MODLFO2Lbl;
 
 
     //==============================================================================
