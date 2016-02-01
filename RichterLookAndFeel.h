@@ -11,10 +11,13 @@
 #ifndef RICHTERLOOKANDFEEL_H_INCLUDED
 #define RICHTERLOOKANDFEEL_H_INCLUDED
 
+#define _USE_MATH_DEFINES
+
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "ParameterData.h"
 #include <string.h>
 #include <memory>
+#include "math.h"
 
 class RichterLookAndFeel : public LookAndFeel_V2 {
 public:

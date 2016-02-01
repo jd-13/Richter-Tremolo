@@ -23,7 +23,11 @@
 #include "RichterLFO.h"
 
 
-RichterLFO::RichterLFO() : RichterLFOBase() {
+RichterLFO::RichterLFO() :  RichterLFOBase(),
+                            rawFreq(FREQ_DEFAULT),
+                            freqMod(FREQMOD_DEFAULT),
+                            rawDepth(DEPTH_DEFAULT),
+                            depthMod(DEPTHMOD_DEFAULT) {
     
     
     // initialise wavetable array values

@@ -24,6 +24,8 @@
 #ifndef Richter_RichterLFOBase_h
 #define Richter_RichterLFOBase_h
 
+#define _USE_MATH_DEFINES
+
 #include "math.h"
 #include "ParameterData.h"
 
@@ -60,7 +62,7 @@ protected:
     T boundsCheck(T param, T min, T max);
     
 public:
-    RichterLFOBase() : currentScale(0) {}
+    RichterLFOBase();
     
     virtual ~RichterLFOBase() {};
         

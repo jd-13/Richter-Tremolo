@@ -23,6 +23,28 @@
 
 #include "RichterLFOBase.h"
 
+RichterLFOBase::RichterLFOBase() :  manualPhase(0),
+                                    wave(WAVE_DEFAULT),
+                                    index(0),
+                                    indexOffset(0),
+                                    bypassSwitch(LFOSWITCH_DEFAULT),
+                                    tempoSyncSwitch(TEMPOSYNC_DEFAULT),
+                                    phaseSyncSwitch(PHASESYNC_DEFAULT),
+                                    needsPhaseCalc(true),
+                                    tempoNumer(TEMPONUMER_DEFAULT),
+                                    tempoDenom(TEMPODENOM_DEFAULT),
+                                    tempoFreq(FREQ_DEFAULT),
+                                    freq(FREQ_DEFAULT),
+                                    depth(DEPTH_DEFAULT),
+                                    samplesPerTremoloCycle(1),
+                                    gain(1),
+                                    offset(0),
+                                    currentScale(0),
+                                    nextScale(0),
+                                    waveArrayPointer(&mSine[0]) {
+}
+
+
 template <typename T>
 T RichterLFOBase::boundsCheck(T param, T min, T max) {
     if (param < min) param = min;
@@ -48,39 +70,33 @@ void RichterLFOBase::setTempoSyncSwitch(bool val) {
 }
 
 void RichterLFOBase::setTempoNumer(int val) {
-    tempoNumer = val;
-    tempoNumer = boundsCheck<int>(tempoNumer, TEMPONUMER_MIN, TEMPONUMER_MAX);
+    tempoNumer = boundsCheck<int>(val, TEMPONUMER_MIN, TEMPONUMER_MAX);
 }
 
 void RichterLFOBase::setTempoDenom (int val) {
-    tempoDenom = val;
-    tempoDenom = boundsCheck<int>(tempoDenom, TEMPODENOM_MIN, TEMPODENOM_MAX);
+    tempoDenom = boundsCheck<int>(val, TEMPODENOM_MIN, TEMPODENOM_MAX);
 }
 
 void RichterLFOBase::setFreq(float val) {
-    freq = val;
-    freq = boundsCheck(freq, FREQ_MIN, FREQ_MAX);
+    freq = boundsCheck(val, FREQ_MIN, FREQ_MAX);
 }
 
 void RichterLFOBase::setDepth(float val) {
-    depth = val;
-    depth = boundsCheck(depth, DEPTH_MIN, DEPTH_MAX);
+    depth = boundsCheck(val, DEPTH_MIN, DEPTH_MAX);
 }
 
 void RichterLFOBase::setManualPhase(int val) {
-    manualPhase = val;
-    manualPhase = boundsCheck(manualPhase, PHASE_MIN, PHASE_MAX);
+    manualPhase = boundsCheck(val, PHASE_MIN, PHASE_MAX);
 }
 
 void RichterLFOBase::setWave(float val) {
-    wave = val;
-    wave = boundsCheck<int>(wave, WAVE_MIN, WAVE_MAX);
+    wave = boundsCheck<int>(val, WAVE_MIN, WAVE_MAX);
 }
 
 void RichterLFOBase::setWaveTablePointers() {
-    if (wave == 1) { waveArrayPointer = &mSine[0]; }
-    if (wave == 2) { waveArrayPointer = &mSquare[0]; }
-    if (wave == 3) { waveArrayPointer = &mSaw[0]; }
+    if (wave == WAVE_SINE) { waveArrayPointer = &mSine[0]; }
+    if (wave == WAVE_SQUARE) { waveArrayPointer = &mSquare[0]; }
+    if (wave == WAVE_SAW) { waveArrayPointer = &mSaw[0]; }
 }
 
 

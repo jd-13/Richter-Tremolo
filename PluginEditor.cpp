@@ -75,7 +75,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqModLFO1Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
     FreqModLFO1Sld->addListener (this);
 
-    addAndMakeVisible (MasterVolSld = new Slider ("new slider"));
+    addAndMakeVisible (MasterVolSld = new Slider ("Master Vol Slider"));
     MasterVolSld->setRange (0, 1, 0.01);
     MasterVolSld->setSliderStyle (Slider::LinearHorizontal);
     MasterVolSld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -1134,7 +1134,7 @@ BEGIN_JUCER_METADATA
           min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
-  <SLIDER name="new slider" id="65acc0b358aa2541" memberName="MasterVolSld"
+  <SLIDER name="Master Vol Slider" id="65acc0b358aa2541" memberName="MasterVolSld"
           virtualName="" explicitFocusOrder="0" pos="56 48 480 24" min="0"
           max="1" int="0.010000000000000000208" style="LinearHorizontal"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"

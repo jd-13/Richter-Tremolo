@@ -173,34 +173,32 @@ void RichterLookAndFeel::drawRotarySlider(Graphics& g,
                                           float rotaryStartAngle,
                                           float rotaryEndAngle,
                                           Slider &slider) {
+    // calculate useful constants
+    const float rangeOfMotion {260 * (M_PI / 180)};
+    const double rotation {((slider.getValue() - slider.getMinimum()) / (slider.getMaximum() - slider.getMinimum())) * rangeOfMotion - rangeOfMotion / 2};
     
-    std::unique_ptr<Image> image {nullptr};
+    const int margin {1};
+    const float diameter {static_cast<float>(height - margin * 2)};
     
-    if (slider.isEnabled()) {
-        image = std::make_unique<Image>(Image(ImageCache::getFromMemory(BinaryData::RotarySliderOnStrip_png, BinaryData::RotarySliderOnStrip_pngSize)));
-    } else {
-        image = std::make_unique<Image>(Image(ImageCache::getFromMemory(BinaryData::RotarySliderOffStrip_png, BinaryData::RotarySliderOffStrip_pngSize)));
+    // draw centre circle
+    Path p;
+    g.setColour(darkGrey);
+    p.addEllipse(width / 2 - diameter / 2, height / 2 - diameter / 2, diameter, diameter);
+    g.fillPath(p);
+    
+    // draw outer ring
+    Colour* ringColour {&neonGreen};
+    if (!slider.isEnabled()) {
+        ringColour = &lightGrey;
     }
     
-    const double rotation {(slider.getValue() - slider.getMinimum()) / (slider.getMaximum() - slider.getMinimum())};
-    const int nFrames {image->getHeight() / image->getWidth()};
-    const int frameIdx {static_cast<int>(ceil(rotation * (static_cast<double>(nFrames) - 1.0)))};
+    g.setColour(*ringColour);
+    p.clear();
     
-    const float radius {jmin(width / 2.0f, height / 2.0f)};
-    const float centreX {x + width * 0.5f};
-    const float centreY {y + height * 0.5f};
-    const float rx {centreX - radius - 1.0f};
-    const float ry {centreY - radius - 1.0f};
+    const float gap {0.4};
+    p.addCentredArc(width / 2, height / 2, diameter / 2, diameter / 2, rotation, gap, 2 * M_PI - gap, true);
     
-    g.drawImage(*image,
-                (int)rx,
-                (int)ry,
-                2 * (int)radius,
-                2 * (int)radius,
-                0,
-                frameIdx * image->getWidth(),
-                image->getWidth(),
-                image->getWidth());
+    g.strokePath(p, PathStrokeType(2.0f));
 }
 
 void RichterLookAndFeel::drawComboBox(Graphics& g,

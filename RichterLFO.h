@@ -21,10 +21,10 @@
  *  along with the Richter.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "RichterLFOBase.h"
-
 #ifndef Richter_RichterLFO_h
 #define Richter_RichterLFO_h
+
+#include "RichterLFOBase.h"
 
 class RichterLFO : public RichterLFOBase {
 private:
