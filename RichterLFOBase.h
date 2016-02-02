@@ -58,8 +58,13 @@ protected:
     float mSquare[kWaveArraySize];
     float mSaw[kWaveArraySize];
     
-    template<typename T>
-    T boundsCheck(T param, T min, T max);
+    template <typename T>
+    T boundsCheck(T param, T min, T max) {
+        if (param < min) param = min;
+        if (param > max) param = max;
+        
+        return param;
+    }
     
 public:
     RichterLFOBase();

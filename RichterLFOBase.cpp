@@ -45,13 +45,7 @@ RichterLFOBase::RichterLFOBase() :  manualPhase(0),
 }
 
 
-template <typename T>
-T RichterLFOBase::boundsCheck(T param, T min, T max) {
-    if (param < min) param = min;
-    if (param > max) param = max;
-    
-    return param;
-}
+
 
 
 // setter methods
