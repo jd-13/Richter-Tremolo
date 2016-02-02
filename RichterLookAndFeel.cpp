@@ -175,7 +175,7 @@ void RichterLookAndFeel::drawRotarySlider(Graphics& g,
                                           float rotaryEndAngle,
                                           Slider &slider) {
     // calculate useful constants
-    const float rangeOfMotion {260 * (M_PI / 180)};
+    const double rangeOfMotion {260 * (M_PI / 180)};
     const double rotation {((slider.getValue() - slider.getMinimum()) / (slider.getMaximum() - slider.getMinimum())) * rangeOfMotion - rangeOfMotion / 2};
     
     const int margin {1};
@@ -196,7 +196,7 @@ void RichterLookAndFeel::drawRotarySlider(Graphics& g,
     g.setColour(*ringColour);
     p.clear();
     
-    const float gap {0.4};
+    const double gap {0.4};
     p.addCentredArc(width / 2, height / 2, diameter / 2, diameter / 2, rotation, gap, 2 * M_PI - gap, true);
     
     g.strokePath(p, PathStrokeType(2.0f));
