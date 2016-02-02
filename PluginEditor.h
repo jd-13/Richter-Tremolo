@@ -66,6 +66,7 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     RichterLookAndFeel customLookAndFeel;
+    SharedResourcePointer<TooltipWindow> tooltipWindow;
     //[/UserVariables]
 
     //==============================================================================

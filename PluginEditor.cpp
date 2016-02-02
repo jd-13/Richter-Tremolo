@@ -28,7 +28,7 @@
 
 //==============================================================================
 RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor& ownerFilter)
-    : AudioProcessorEditor(ownerFilter)
+    : AudioProcessorEditor(ownerFilter), tooltipWindow()
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -38,6 +38,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     LFO1Group->setColour (GroupComponent::textColourId, Colours::black);
 
     addAndMakeVisible (DepthLFO1Sld = new Slider ("LFO 1 Depth Slider"));
+    DepthLFO1Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthLFO1Sld->setRange (0, 1, 0.01);
     DepthLFO1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     DepthLFO1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -45,6 +46,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthLFO1Sld->addListener (this);
 
     addAndMakeVisible (FreqLFO1Sld = new Slider ("LFO 1 Freq Slider"));
+    FreqLFO1Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqLFO1Sld->setRange (0, 1, 0.01);
     FreqLFO1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     FreqLFO1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -52,6 +54,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqLFO1Sld->addListener (this);
 
     addAndMakeVisible (WaveLFO1Cmb = new ComboBox ("LFO 1 Wave"));
+    WaveLFO1Cmb->setTooltip (TRANS("LFO wave shape"));
     WaveLFO1Cmb->setEditableText (false);
     WaveLFO1Cmb->setJustificationType (Justification::centredLeft);
     WaveLFO1Cmb->setTextWhenNothingSelected (String::empty);
@@ -62,6 +65,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveLFO1Cmb->addListener (this);
 
     addAndMakeVisible (DepthModLFO1Sld = new Slider ("LFO 1 Depth Mod Slider"));
+    DepthModLFO1Sld->setTooltip (TRANS("Amount of depth modulation from MOD 1"));
     DepthModLFO1Sld->setRange (0, 1, 0.01);
     DepthModLFO1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     DepthModLFO1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -69,6 +73,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthModLFO1Sld->addListener (this);
 
     addAndMakeVisible (FreqModLFO1Sld = new Slider ("LFO 1 Freq Mod Slider"));
+    FreqModLFO1Sld->setTooltip (TRANS("Amount of rate modulation from MOD 1"));
     FreqModLFO1Sld->setRange (0, 1, 0.01);
     FreqModLFO1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     FreqModLFO1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -76,12 +81,14 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqModLFO1Sld->addListener (this);
 
     addAndMakeVisible (MasterVolSld = new Slider ("Master Vol Slider"));
+    MasterVolSld->setTooltip (TRANS("Master volume"));
     MasterVolSld->setRange (0, 1, 0.01);
     MasterVolSld->setSliderStyle (Slider::LinearHorizontal);
     MasterVolSld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
     MasterVolSld->addListener (this);
 
     addAndMakeVisible (BypassLFO1Btn = new TextButton ("LFO 1 Bypass Button"));
+    BypassLFO1Btn->setTooltip (TRANS("Bypass button for LFO 1. LFO 1 operates directly on sound."));
     BypassLFO1Btn->setButtonText (TRANS("LFO 1"));
     BypassLFO1Btn->addListener (this);
 
@@ -116,6 +123,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                                        TRANS("LFO2")));
 
     addAndMakeVisible (DepthLFO2Sld = new Slider ("LFO 2 Depth Slider"));
+    DepthLFO2Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthLFO2Sld->setRange (0, 1, 0.01);
     DepthLFO2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     DepthLFO2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -123,6 +131,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthLFO2Sld->addListener (this);
 
     addAndMakeVisible (FreqLFO2Sld = new Slider ("LFO 2 Freq Slider"));
+    FreqLFO2Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqLFO2Sld->setRange (0, 1, 0.01);
     FreqLFO2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     FreqLFO2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -130,6 +139,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqLFO2Sld->addListener (this);
 
     addAndMakeVisible (WaveLFO2Cmb = new ComboBox ("LFO 2 Wave"));
+    WaveLFO2Cmb->setTooltip (TRANS("LFO wave shape"));
     WaveLFO2Cmb->setEditableText (false);
     WaveLFO2Cmb->setJustificationType (Justification::centredLeft);
     WaveLFO2Cmb->setTextWhenNothingSelected (String::empty);
@@ -140,6 +150,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveLFO2Cmb->addListener (this);
 
     addAndMakeVisible (DepthModLFO2Sld = new Slider ("LFO 2 Depth Mod Slider"));
+    DepthModLFO2Sld->setTooltip (TRANS("Amount of depth modulation from MOD 1"));
     DepthModLFO2Sld->setRange (0, 1, 0.01);
     DepthModLFO2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     DepthModLFO2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -147,6 +158,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthModLFO2Sld->addListener (this);
 
     addAndMakeVisible (FreqModLFO2Sld = new Slider ("LFO 2 Freq Mod Slider"));
+    FreqModLFO2Sld->setTooltip (TRANS("Amount of rate modulation from MOD 2"));
     FreqModLFO2Sld->setRange (0, 1, 0.01);
     FreqModLFO2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     FreqModLFO2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -154,6 +166,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqModLFO2Sld->addListener (this);
 
     addAndMakeVisible (BypassLFO2Btn = new TextButton ("LFO 2 Bypass Button"));
+    BypassLFO2Btn->setTooltip (TRANS("Bypass button for LFO 2. LFO 2 operates directly on sound."));
     BypassLFO2Btn->setButtonText (TRANS("LFO 2"));
     BypassLFO2Btn->addListener (this);
 
@@ -185,10 +198,12 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveLFO2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (TempoSyncLFO1Btn = new TextButton ("LFO 1 Tempo Sync Button"));
+    TempoSyncLFO1Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
     TempoSyncLFO1Btn->setButtonText (TRANS("Tempo Sync"));
     TempoSyncLFO1Btn->addListener (this);
 
     addAndMakeVisible (TempoSyncLFO2Btn = new TextButton ("LFO 2 Tempo Sync Button"));
+    TempoSyncLFO2Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
     TempoSyncLFO2Btn->setButtonText (TRANS("Tempo Sync"));
     TempoSyncLFO2Btn->addListener (this);
 
@@ -225,14 +240,17 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     TempoDenomLFO2Sld->addListener (this);
 
     addAndMakeVisible (PhaseSyncLFO1Btn = new TextButton ("LFO 1 Phase Sync Button"));
+    PhaseSyncLFO1Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
     PhaseSyncLFO1Btn->setButtonText (TRANS("Phase Sync"));
     PhaseSyncLFO1Btn->addListener (this);
 
     addAndMakeVisible (PhaseSyncLFO2Btn = new TextButton ("LFO 2 Phase Sync Button"));
+    PhaseSyncLFO2Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
     PhaseSyncLFO2Btn->setButtonText (TRANS("Phase Sync"));
     PhaseSyncLFO2Btn->addListener (this);
 
     addAndMakeVisible (PhaseLFO1Sld = new Slider ("LFO 1 Phase Slider"));
+    PhaseLFO1Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
     PhaseLFO1Sld->setRange (0, 1, 0.01);
     PhaseLFO1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     PhaseLFO1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -250,6 +268,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseLFO1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (PhaseLFO2Sld = new Slider ("LFO 2 Phase Slider"));
+    PhaseLFO2Sld->setTooltip (TRANS("Changes the phase of the LFO by up to 360 degrees"));
     PhaseLFO2Sld->setRange (0, 1, 0.01);
     PhaseLFO2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     PhaseLFO2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -269,6 +288,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                                        TRANS("MOD1")));
 
     addAndMakeVisible (DepthMOD1Sld = new Slider ("MOD 1 Depth Slider"));
+    DepthMOD1Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthMOD1Sld->setRange (0, 1, 0.01);
     DepthMOD1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     DepthMOD1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -276,6 +296,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthMOD1Sld->addListener (this);
 
     addAndMakeVisible (FreqMOD1Sld = new Slider ("MOD 1 Freq Slider"));
+    FreqMOD1Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqMOD1Sld->setRange (0, 1, 0.01);
     FreqMOD1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     FreqMOD1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -283,6 +304,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqMOD1Sld->addListener (this);
 
     addAndMakeVisible (WaveMOD1Cmb = new ComboBox ("MOD 1 Wave"));
+    WaveMOD1Cmb->setTooltip (TRANS("LFO wave shape"));
     WaveMOD1Cmb->setEditableText (false);
     WaveMOD1Cmb->setJustificationType (Justification::centredLeft);
     WaveMOD1Cmb->setTextWhenNothingSelected (String::empty);
@@ -293,6 +315,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveMOD1Cmb->addListener (this);
 
     addAndMakeVisible (BypassMOD1Btn = new TextButton ("MOD 1 Bypass Button"));
+    BypassMOD1Btn->setTooltip (TRANS("Bypass button for MOD 1. MOD 1 modulates the rate and depth of LFO 1."));
     BypassMOD1Btn->setButtonText (TRANS("MOD 1"));
     BypassMOD1Btn->addListener (this);
 
@@ -324,6 +347,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (TempoSyncMOD1Btn = new TextButton ("MOD 1 Tempo Sync Button"));
+    TempoSyncMOD1Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
     TempoSyncMOD1Btn->setButtonText (TRANS("Tempo Sync"));
     TempoSyncMOD1Btn->addListener (this);
 
@@ -344,10 +368,12 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     TempoDenomMOD1Sld->addListener (this);
 
     addAndMakeVisible (PhaseSyncMOD1Btn = new TextButton ("MOD 1 Phase Sync Button"));
+    PhaseSyncMOD1Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
     PhaseSyncMOD1Btn->setButtonText (TRANS("Phase Sync"));
     PhaseSyncMOD1Btn->addListener (this);
 
     addAndMakeVisible (PhaseMOD1Sld = new Slider ("MOD 1 Phase Slider"));
+    PhaseMOD1Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
     PhaseMOD1Sld->setRange (0, 1, 0.01);
     PhaseMOD1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     PhaseMOD1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -367,6 +393,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                                        TRANS("MOD2")));
 
     addAndMakeVisible (DepthMOD2Sld = new Slider ("MOD 2 Depth Slider"));
+    DepthMOD2Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthMOD2Sld->setRange (0, 1, 0.01);
     DepthMOD2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     DepthMOD2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -374,6 +401,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthMOD2Sld->addListener (this);
 
     addAndMakeVisible (FreqMOD2Sld = new Slider ("MOD 2 Freq Slider"));
+    FreqMOD2Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqMOD2Sld->setRange (0, 1, 0.01);
     FreqMOD2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     FreqMOD2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -381,6 +409,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqMOD2Sld->addListener (this);
 
     addAndMakeVisible (WaveMOD2Cmb = new ComboBox ("MOD 2 Wave"));
+    WaveMOD2Cmb->setTooltip (TRANS("LFO wave shape"));
     WaveMOD2Cmb->setEditableText (false);
     WaveMOD2Cmb->setJustificationType (Justification::centredLeft);
     WaveMOD2Cmb->setTextWhenNothingSelected (String::empty);
@@ -391,6 +420,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveMOD2Cmb->addListener (this);
 
     addAndMakeVisible (BypassMOD2Btn = new TextButton ("MOD 2 Bypass Button"));
+    BypassMOD2Btn->setTooltip (TRANS("Bypass button for MOD 2. MOD 2 modulates the rate and depth of LFO 2."));
     BypassMOD2Btn->setButtonText (TRANS("MOD 2"));
     BypassMOD2Btn->addListener (this);
 
@@ -422,6 +452,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (TempoSyncMOD2Btn = new TextButton ("MOD 2 Tempo Sync Button"));
+    TempoSyncMOD2Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
     TempoSyncMOD2Btn->setButtonText (TRANS("Tempo Sync"));
     TempoSyncMOD2Btn->addListener (this);
 
@@ -442,10 +473,12 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     TempoDenomMOD2Sld->addListener (this);
 
     addAndMakeVisible (PhaseSyncMOD2Btn = new TextButton ("MOD 2 Phase Sync Button"));
+    PhaseSyncMOD2Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
     PhaseSyncMOD2Btn->setButtonText (TRANS("Phase Sync"));
     PhaseSyncMOD2Btn->addListener (this);
 
     addAndMakeVisible (PhaseMOD2Sld = new Slider ("MOD 2 Phase Slider"));
+    PhaseMOD2Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
     PhaseMOD2Sld->setRange (0, 1, 0.01);
     PhaseMOD2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
     PhaseMOD2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
@@ -462,6 +495,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
     addAndMakeVisible (StereoBtn = new TextButton ("Stereo Button"));
+    StereoBtn->setTooltip (TRANS("Enables LFO 1 and LFO 2 to operate on the left and right channels independently"));
     StereoBtn->setButtonText (TRANS("Stereo"));
     StereoBtn->addListener (this);
 
@@ -516,7 +550,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerMOD2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
     TempoDenomMOD2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
-    
+
     // make sure some labels which overlap dials are sent to back
     MODLFO1Lbl->toBack();
     MODLFO2Lbl->toBack();
@@ -1162,37 +1196,37 @@ BEGIN_JUCER_METADATA
                   virtualName="" explicitFocusOrder="0" pos="54 72 280 128" textcol="ff000000"
                   title="LFO1"/>
   <SLIDER name="LFO 1 Depth Slider" id="98ad3308f709f25c" memberName="DepthLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="134 120 32 24" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="134 120 32 24" tooltip="Depth of the LFO"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="LFO 1 Freq Slider" id="94530d5c05e4a382" memberName="FreqLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="78 120 32 24" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="78 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <COMBOBOX name="LFO 1 Wave" id="6343a9cc42a2eda5" memberName="WaveLFO1Cmb"
-            virtualName="" explicitFocusOrder="0" pos="238 128 80 24" editable="0"
-            layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
+            virtualName="" explicitFocusOrder="0" pos="238 128 80 24" tooltip="LFO wave shape"
+            editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 1 Depth Mod Slider" id="9a3f86cb168e586e" memberName="DepthModLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="142 168 16 16" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="142 168 16 16" tooltip="Amount of depth modulation from MOD 1"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="LFO 1 Freq Mod Slider" id="b0488ea613d92dcf" memberName="FreqModLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="86 168 16 16" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="86 168 16 16" tooltip="Amount of rate modulation from MOD 1"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="Master Vol Slider" id="65acc0b358aa2541" memberName="MasterVolSld"
-          virtualName="" explicitFocusOrder="0" pos="56 48 398 24" min="0"
-          max="1" int="0.010000000000000000208" style="LinearHorizontal"
+          virtualName="" explicitFocusOrder="0" pos="56 48 398 24" tooltip="Master volume"
+          min="0" max="1" int="0.010000000000000000208" style="LinearHorizontal"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1"/>
   <TEXTBUTTON name="LFO 1 Bypass Button" id="27660ce1c9366ec3" memberName="BypassLFO1Btn"
-              virtualName="" explicitFocusOrder="0" pos="262 88 56 24" buttonText="LFO 1"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="262 88 56 24" tooltip="Bypass button for LFO 1. LFO 1 operates directly on sound."
+              buttonText="LFO 1" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="LFO 1 Freq Label" id="29836e1fe4622869" memberName="FreqLFO1Lbl"
          virtualName="" explicitFocusOrder="0" pos="76 144 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
@@ -1211,32 +1245,32 @@ BEGIN_JUCER_METADATA
   <GROUPCOMPONENT name="LFO 2 Group" id="35e8ad61c86b603a" memberName="LFO2Group"
                   virtualName="" explicitFocusOrder="0" pos="342 72 280 128" title="LFO2"/>
   <SLIDER name="LFO 2 Depth Slider" id="2596adc2e61cd58e" memberName="DepthLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="422 120 32 24" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="422 120 32 24" tooltip="Depth of the LFO"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="LFO 2 Freq Slider" id="f5dbcdc53c502e69" memberName="FreqLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="366 120 32 24" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="366 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <COMBOBOX name="LFO 2 Wave" id="b76d5189aafe8e3f" memberName="WaveLFO2Cmb"
-            virtualName="" explicitFocusOrder="0" pos="526 128 80 24" editable="0"
-            layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
+            virtualName="" explicitFocusOrder="0" pos="526 128 80 24" tooltip="LFO wave shape"
+            editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 2 Depth Mod Slider" id="4a524c9e1974186c" memberName="DepthModLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="430 168 16 16" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="430 168 16 16" tooltip="Amount of depth modulation from MOD 1"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="LFO 2 Freq Mod Slider" id="e49bd74bef8aaca1" memberName="FreqModLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="374 168 16 16" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="374 168 16 16" tooltip="Amount of rate modulation from MOD 2"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <TEXTBUTTON name="LFO 2 Bypass Button" id="74a3a05dda891f9c" memberName="BypassLFO2Btn"
-              virtualName="" explicitFocusOrder="0" pos="550 88 56 24" buttonText="LFO 2"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="550 88 56 24" tooltip="Bypass button for LFO 2. LFO 2 operates directly on sound."
+              buttonText="LFO 2" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="LFO 2 Freq Label" id="5463cd286934c4bc" memberName="FreqLFO2Lbl"
          virtualName="" explicitFocusOrder="0" pos="364 144 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
@@ -1253,11 +1287,13 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="LFO 1 Tempo Sync Button" id="95825bc0b3290b8b" memberName="TempoSyncLFO1Btn"
-              virtualName="" explicitFocusOrder="0" pos="70 96 56 16" buttonText="Tempo Sync"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="70 96 56 16" tooltip="Tempo sync LFO frequency"
+              buttonText="Tempo Sync" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
   <TEXTBUTTON name="LFO 2 Tempo Sync Button" id="3a20b52dc2308f55" memberName="TempoSyncLFO2Btn"
-              virtualName="" explicitFocusOrder="0" pos="358 96 56 16" buttonText="Tempo Sync"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="358 96 56 16" tooltip="Tempo sync LFO frequency"
+              buttonText="Tempo Sync" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
   <SLIDER name="LFO 1 Tempo Numer Slider" id="ae3b2cb5fc40f879" memberName="TempoNumerLFO1Sld"
           virtualName="" explicitFocusOrder="0" pos="70 128 56 16" textboxbkgd="ffc8c8c8"
           textboxoutline="808080" min="1" max="4" int="1" style="IncDecButtons"
@@ -1279,26 +1315,28 @@ BEGIN_JUCER_METADATA
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1"/>
   <TEXTBUTTON name="LFO 1 Phase Sync Button" id="1df73348199bbe85" memberName="PhaseSyncLFO1Btn"
-              virtualName="" explicitFocusOrder="0" pos="182 96 56 16" buttonText="Phase Sync"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="182 96 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
+              buttonText="Phase Sync" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
   <TEXTBUTTON name="LFO 2 Phase Sync Button" id="6956f3f885f5801d" memberName="PhaseSyncLFO2Btn"
-              virtualName="" explicitFocusOrder="0" pos="470 96 56 16" buttonText="Phase Sync"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="470 96 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
+              buttonText="Phase Sync" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
   <SLIDER name="LFO 1 Phase Slider" id="1fa393dc85f550ee" memberName="PhaseLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="190 120 32 24" thumbcol="ffbdffbb"
-          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="190 120 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
+          thumbcol="ffbdffbb" rotarysliderfill="7f00ff03" min="0" max="1"
+          int="0.010000000000000000208" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="LFO 1 Phase Label" id="e8d899c4a3a19f8" memberName="PhaseLFO1Lbl"
          virtualName="" explicitFocusOrder="0" pos="182 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="33"/>
   <SLIDER name="LFO 2 Phase Slider" id="df30ce6c91b8975b" memberName="PhaseLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="478 120 32 24" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="478 120 32 24" tooltip="Changes the phase of the LFO by up to 360 degrees"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="LFO 2 Phase Label" id="5fd532cc21a16f51" memberName="PhaseLFO2Lbl"
          virtualName="" explicitFocusOrder="0" pos="470 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
@@ -1307,22 +1345,22 @@ BEGIN_JUCER_METADATA
   <GROUPCOMPONENT name="MOD 1 Group" id="a2c7412d0fb46a58" memberName="MOD1Group"
                   virtualName="" explicitFocusOrder="0" pos="54 200 280 128" title="MOD1"/>
   <SLIDER name="MOD 1 Depth Slider" id="499f6451911662cc" memberName="DepthMOD1Sld"
-          virtualName="" explicitFocusOrder="0" pos="134 248 32 24" rotarysliderfill="7f00ff0d"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="134 248 32 24" tooltip="Depth of the LFO"
+          rotarysliderfill="7f00ff0d" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="MOD 1 Freq Slider" id="1d9800ca18cf5bba" memberName="FreqMOD1Sld"
-          virtualName="" explicitFocusOrder="0" pos="78 248 32 24" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="78 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <COMBOBOX name="MOD 1 Wave" id="370e5062e67cf738" memberName="WaveMOD1Cmb"
-            virtualName="" explicitFocusOrder="0" pos="238 256 80 24" editable="0"
-            layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
+            virtualName="" explicitFocusOrder="0" pos="238 256 80 24" tooltip="LFO wave shape"
+            editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <TEXTBUTTON name="MOD 1 Bypass Button" id="cd667ff923e74db5" memberName="BypassMOD1Btn"
-              virtualName="" explicitFocusOrder="0" pos="262 216 56 24" buttonText="MOD 1"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="262 216 56 24" tooltip="Bypass button for MOD 1. MOD 1 modulates the rate and depth of LFO 1."
+              buttonText="MOD 1" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="MOD 1 Freq Label" id="dabfca26c640fd58" memberName="FreqMOD1Lbl"
          virtualName="" explicitFocusOrder="0" pos="76 272 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
@@ -1339,8 +1377,9 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="MOD 1 Tempo Sync Button" id="b43affdb8ac7bb90" memberName="TempoSyncMOD1Btn"
-              virtualName="" explicitFocusOrder="0" pos="70 224 56 16" buttonText="Tempo Sync"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="70 224 56 16" tooltip="Tempo sync LFO frequency"
+              buttonText="Tempo Sync" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
   <SLIDER name="MOD 1 Tempo Numer Slider" id="6c49dac77f3e6f4b" memberName="TempoNumerMOD1Sld"
           virtualName="" explicitFocusOrder="0" pos="70 256 56 16" textboxbkgd="ffc8c8c8"
           textboxoutline="808080" min="1" max="4" int="1" style="IncDecButtons"
@@ -1352,13 +1391,14 @@ BEGIN_JUCER_METADATA
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1"/>
   <TEXTBUTTON name="MOD 1 Phase Sync Button" id="4509e154e4918174" memberName="PhaseSyncMOD1Btn"
-              virtualName="" explicitFocusOrder="0" pos="182 224 56 16" buttonText="Phase Sync"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="182 224 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
+              buttonText="Phase Sync" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
   <SLIDER name="MOD 1 Phase Slider" id="3f1ef3d10c303bac" memberName="PhaseMOD1Sld"
-          virtualName="" explicitFocusOrder="0" pos="190 248 32 24" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="190 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="MOD 1 Phase Label" id="af1abf98d305cb5c" memberName="PhaseMOD1Lbl"
          virtualName="" explicitFocusOrder="0" pos="182 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
@@ -1367,22 +1407,22 @@ BEGIN_JUCER_METADATA
   <GROUPCOMPONENT name="MOD 2 Group" id="384e0ba59bb5f2ff" memberName="MOD2Group"
                   virtualName="" explicitFocusOrder="0" pos="342 200 280 128" title="MOD2"/>
   <SLIDER name="MOD 2 Depth Slider" id="8c1762ee0dd0d28a" memberName="DepthMOD2Sld"
-          virtualName="" explicitFocusOrder="0" pos="422 248 32 24" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="422 248 32 24" tooltip="Depth of the LFO"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <SLIDER name="MOD 2 Freq Slider" id="362166b8c676eba4" memberName="FreqMOD2Sld"
-          virtualName="" explicitFocusOrder="0" pos="366 248 32 24" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="366 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <COMBOBOX name="MOD 2 Wave" id="c85d4543a533be92" memberName="WaveMOD2Cmb"
-            virtualName="" explicitFocusOrder="0" pos="526 256 80 24" editable="0"
-            layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
+            virtualName="" explicitFocusOrder="0" pos="526 256 80 24" tooltip="LFO wave shape"
+            editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <TEXTBUTTON name="MOD 2 Bypass Button" id="7773dc0327675392" memberName="BypassMOD2Btn"
-              virtualName="" explicitFocusOrder="0" pos="550 216 56 24" buttonText="MOD 2"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="550 216 56 24" tooltip="Bypass button for MOD 2. MOD 2 modulates the rate and depth of LFO 2."
+              buttonText="MOD 2" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="MOD 2 Freq Label" id="f37a78a0ec1cab07" memberName="FreqMOD2Lbl"
          virtualName="" explicitFocusOrder="0" pos="364 272 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
@@ -1399,8 +1439,9 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="MOD 2 Tempo Sync Button" id="bfc616fbcdb92b04" memberName="TempoSyncMOD2Btn"
-              virtualName="" explicitFocusOrder="0" pos="358 224 56 16" buttonText="Tempo Sync"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="358 224 56 16" tooltip="Tempo sync LFO frequency"
+              buttonText="Tempo Sync" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
   <SLIDER name="MOD 2 Tempo Numer Slider" id="2bcaaa8e6b75d2b9" memberName="TempoNumerMOD2Sld"
           virtualName="" explicitFocusOrder="0" pos="358 256 56 16" textboxbkgd="ffc8c8c8"
           textboxoutline="9808080" min="1" max="4" int="1" style="IncDecButtons"
@@ -1412,21 +1453,22 @@ BEGIN_JUCER_METADATA
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1"/>
   <TEXTBUTTON name="MOD 2 Phase Sync Button" id="7b0a4004498f92b3" memberName="PhaseSyncMOD2Btn"
-              virtualName="" explicitFocusOrder="0" pos="470 224 56 16" buttonText="Phase Sync"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="470 224 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
+              buttonText="Phase Sync" connectedEdges="0" needsCallback="1"
+              radioGroupId="0"/>
   <SLIDER name="MOD 2 Phase Slider" id="54fd5481a5970106" memberName="PhaseMOD2Sld"
-          virtualName="" explicitFocusOrder="0" pos="478 248 32 24" rotarysliderfill="7f00ff03"
-          min="0" max="1" int="0.010000000000000000208" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1"/>
+          virtualName="" explicitFocusOrder="0" pos="478 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
+          rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
+          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
+          textBoxWidth="80" textBoxHeight="20" skewFactor="1"/>
   <LABEL name="MOD 2 Phase Label" id="d3b9d517ecdfe1bc" memberName="PhaseMOD2Lbl"
          virtualName="" explicitFocusOrder="0" pos="470 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="Stereo Button" id="91683bb4fa1cc3c7" memberName="StereoBtn"
-              virtualName="" explicitFocusOrder="0" pos="542 48 72 24" buttonText="Stereo"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="542 48 72 24" tooltip="Enables LFO 1 and LFO 2 to operate on the left and right channels independently"
+              buttonText="Stereo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="Master Vol Label" id="431abe2cd3bfe0c4" memberName="MasterVolLbl"
          virtualName="" explicitFocusOrder="0" pos="456 48 80 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Master Vol" editableSingleClick="0"

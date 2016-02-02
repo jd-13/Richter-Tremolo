@@ -271,3 +271,14 @@ void RichterLookAndFeel::drawGroupComponentOutline(Graphics& g,
     g.setColour(*outlineColour);
     g.strokePath(p, pStroke);
 }
+
+void RichterLookAndFeel::drawTooltip(Graphics& g,
+                                     const String& text,
+                                     int width,
+                                     int height) {
+    g.setColour(lightGrey);
+    g.fillRect(0, 0, width, height);
+    
+    g.setColour(darkGrey);
+    g.drawFittedText(text, 0, 0, width, height, Justification::centred, 3);
+}

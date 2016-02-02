@@ -84,6 +84,11 @@ public:
                                            const Justification& justification,
                                            GroupComponent& groupComponent) override;
     
+    virtual void drawTooltip(Graphics& g,
+                             const String& text,
+                             int width,
+                             int height) override;
+    
     void updateLFOState(String lfoName, bool val);
     
 private:
