@@ -125,10 +125,14 @@ void RichterLookAndFeel::drawButtonBackground(Graphics& g,
     // differentiates between the small button on the tempo sync ratio and larger buttons
     if (button.getWidth() > 24) {
         
-        if (button.getToggleState()) {
-            bc = &neonGreen;
+        if (button.isEnabled()) {
+            if (button.getToggleState()) {
+                bc = &neonGreen;
+            } else {
+                bc = &lightGrey;
+            }
         } else {
-            bc = &lightGrey;
+            bc = &darkGrey;
         }
         
         p.addRoundedRectangle(indent, indent, width - 2 * indent, height - 2 * indent, static_cast<float>(cornerSize));
@@ -148,12 +152,16 @@ void RichterLookAndFeel::drawButtonText(Graphics& g,
     
     Colour* textColour {nullptr};
     
-    if (textButton.getToggleState() || textButton.getWidth() < 24) {
-        textColour = &neonGreen;
+    if (textButton.isEnabled()) {
+        if (textButton.getToggleState() || textButton.getWidth() < 24) {
+            textColour = &neonGreen;
+        } else {
+            textColour = &lightGrey;
+        }
     } else {
-        textColour = &lightGrey;
+        textColour = &darkGrey;
     }
-    
+
     g.setColour(*textColour);
     int margin {0};
     
