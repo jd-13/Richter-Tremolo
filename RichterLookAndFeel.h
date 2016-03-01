@@ -54,8 +54,8 @@ public:
     virtual void drawLinearSlider(Graphics& g,
                                   int x,
                                   int y,
-                                  int w,
-                                  int h,
+                                  int width,
+                                  int height,
                                   float sliderPos,
                                   float minSliderPos,
                                   float maxSliderPos,
@@ -78,8 +78,8 @@ public:
                               ComboBox& box) override;
     
     virtual void drawGroupComponentOutline(Graphics& g,
-                                           int w,
-                                           int h,
+                                           int width,
+                                           int height,
                                            const String& title,
                                            const Justification& justification,
                                            GroupComponent& groupComponent) override;

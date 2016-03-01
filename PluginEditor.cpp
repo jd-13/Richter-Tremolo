@@ -28,7 +28,7 @@
 
 //==============================================================================
 RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor& ownerFilter)
-    : AudioProcessorEditor(ownerFilter), tooltipWindow()
+    : AudioProcessorEditor(ownerFilter)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -558,31 +558,31 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     // check if stereo mode should be available
     RichterAudioProcessor* ourProcessor {getProcessor()};
     StereoBtn->setEnabled(ourProcessor->getNumOutputChannels() == 2);
-    
+
     // set double click to default for sliders
     FreqLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
     FreqModLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQMOD_DEFAULT, FREQMOD_MIN, FREQMOD_MAX));
     DepthLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
     DepthModLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTHMOD_DEFAULT, DEPTHMOD_MIN, DEPTHMOD_MAX));
     PhaseLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
-    
+
     FreqLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
     FreqModLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQMOD_DEFAULT, FREQMOD_MIN, FREQMOD_MAX));
     DepthLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
     DepthModLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTHMOD_DEFAULT, DEPTHMOD_MIN, DEPTHMOD_MAX));
     PhaseLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
-    
+
     FreqMOD1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
     DepthMOD1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
     PhaseMOD1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
-    
+
     FreqMOD2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
     DepthMOD2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
     PhaseMOD2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
-    
+
     MasterVolSld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(MASTERVOL_DEFAULT, MASTERVOL_MIN, MASTERVOL_MAX));
-    
-    
+
+
     //[/Constructor]
 }
 

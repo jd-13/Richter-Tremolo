@@ -88,8 +88,8 @@ void RichterLookAndFeel::drawLinearSliderThumb(Graphics& g,
 void RichterLookAndFeel::drawLinearSlider(Graphics& g,
                                           int x,
                                           int y,
-                                          int w,
-                                          int h,
+                                          int width,
+                                          int height,
                                           float sliderPos,
                                           float minSliderPos,
                                           float maxSliderPos,
@@ -98,10 +98,10 @@ void RichterLookAndFeel::drawLinearSlider(Graphics& g,
     g.setColour(lightGrey);
     
     if (slider.isHorizontal()) {
-        g.fillRect(x, y + h / 2, w, 2);
+        g.fillRect(x, y + height / 2, width, 2);
     }
     
-    drawLinearSliderThumb(g, x, y, w, h, sliderPos, minSliderPos, maxSliderPos, style, slider);
+    drawLinearSliderThumb(g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, slider);
 }
 
 void RichterLookAndFeel::drawButtonBackground(Graphics& g,
@@ -245,8 +245,8 @@ void RichterLookAndFeel::drawComboBox(Graphics& g,
 
 
 void RichterLookAndFeel::drawGroupComponentOutline(Graphics& g,
-                                                   int w,
-                                                   int h,
+                                                   int width,
+                                                   int height,
                                                    const String& title,
                                                    const Justification& justification,
                                                    GroupComponent& groupComponent) {
