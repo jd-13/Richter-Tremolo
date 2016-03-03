@@ -551,7 +551,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     TempoNumerMOD2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
     TempoDenomMOD2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
 
-    // make sure some labels which overlap dials are sent to back
+    // make sure some labels whose regions overlap dials are sent to back
     MODLFO1Lbl->toBack();
     MODLFO2Lbl->toBack();
 
