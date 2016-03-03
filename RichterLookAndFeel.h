@@ -51,16 +51,16 @@ public:
                                        const Slider::SliderStyle style,
                                        Slider& slider) override;
     
-    virtual void drawLinearSlider(Graphics& g,
-                                  int x,
-                                  int y,
-                                  int width,
-                                  int height,
-                                  float sliderPos,
-                                  float minSliderPos,
-                                  float maxSliderPos,
-                                  const Slider::SliderStyle style,
-                                  Slider& slider) override;
+    virtual void drawLinearSliderBackground(Graphics& g,
+                                            int x,
+                                            int y,
+                                            int width,
+                                            int height,
+                                            float sliderPos,
+                                            float minSliderPos,
+                                            float maxSliderPos,
+                                            const Slider::SliderStyle style,
+                                            Slider& slider) override;
     
     virtual void drawButtonText(Graphics& g,
                                 TextButton& textButton,

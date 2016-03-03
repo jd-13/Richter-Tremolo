@@ -85,23 +85,21 @@ void RichterLookAndFeel::drawLinearSliderThumb(Graphics& g,
     
 }
 
-void RichterLookAndFeel::drawLinearSlider(Graphics& g,
-                                          int x,
-                                          int y,
-                                          int width,
-                                          int height,
-                                          float sliderPos,
-                                          float minSliderPos,
-                                          float maxSliderPos,
-                                          const Slider::SliderStyle style,
-                                          Slider& slider) {
+void RichterLookAndFeel::drawLinearSliderBackground(Graphics& g,
+                                                    int x,
+                                                    int y,
+                                                    int width,
+                                                    int height,
+                                                    float sliderPos,
+                                                    float minSliderPos,
+                                                    float maxSliderPos,
+                                                    const Slider::SliderStyle style,
+                                                    Slider& slider) {
     g.setColour(lightGrey);
     
     if (slider.isHorizontal()) {
         g.fillRect(x, y + height / 2, width, 2);
     }
-    
-    drawLinearSliderThumb(g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, slider);
 }
 
 void RichterLookAndFeel::drawButtonBackground(Graphics& g,
