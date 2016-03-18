@@ -124,19 +124,62 @@ public:
     
     
     
-    
+    /* reset
+     *
+     * Resets indexOffset and currentScale. Call before beginning a new buffer of
+     * samples.
+     */
     void reset();
     
+    /* calcPhaseOffset
+     *
+     * Calculates the phase offset to be applied to the oscillator, including any
+     * offset required by the phase sync and any offset applied by the user.
+     *
+     * args: timeInSeconds   Position of the host DAW's playhead at the start of
+     *                       playback
+     */
     void calcPhaseOffset(double timeInSeconds);
     
+    /* calcFreq
+     *
+     * Calculates the frequency of the oscillator. Will use either the frequency
+     * or tempoNumer/tempoDenom depending on whether tempo sync is enabled.
+     *
+     * args: bpm   Current bpm of the host DAW
+     */
     void calcFreq(double bpm);
     
+    /* calcSamplesPerTremoloCycle
+     *
+     * Calculates the number of samples which pass in the same time as one cycle
+     * of the LFO. Dependant on the LFO frequency and the sample rate.
+     *
+     * args: sampleRate   Sample rate of the host DAW
+     */
     void calcSamplesPerTremoloCycle(float sampleRate);
     
+    /* calcIndexAndScaleInLoop
+     *
+     * Calculates the current index of the oscillator in its wavetable. Includes
+     * protection against indexes out of range (caused by phase offset) and updates
+     * currentScale. Call from within the processing loop.
+     *
+     * args: mSamplesProcessed   Number of samples processed
+     */
     void calcIndexAndScaleInLoop(long &mSamplesProcessed);
     
+    /* calcNextScale
+     *
+     * Calculates the scale factor to be applied when calculating the index. 
+     */
     void calcNextScale();
     
+    /* calcGain
+     *
+     * Calculates the gain value to be applied to a signal which the oscillator
+     * is operating on. Outputs a value between 0 and 1. Always outputs 1 if bypassed.
+     */
     virtual float calcGain() const;
         
 };
