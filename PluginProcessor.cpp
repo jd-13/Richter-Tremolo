@@ -414,7 +414,6 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             
             
         case stereo:
-            Logger::outputDebugString("setStereo: " + String(newValue));
             mRichter.setStereo(newValue < 0.5);
             break;
             

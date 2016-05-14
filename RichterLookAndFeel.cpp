@@ -85,23 +85,21 @@ void RichterLookAndFeel::drawLinearSliderThumb(Graphics& g,
     
 }
 
-void RichterLookAndFeel::drawLinearSlider(Graphics& g,
-                                          int x,
-                                          int y,
-                                          int w,
-                                          int h,
-                                          float sliderPos,
-                                          float minSliderPos,
-                                          float maxSliderPos,
-                                          const Slider::SliderStyle style,
-                                          Slider& slider) {
+void RichterLookAndFeel::drawLinearSliderBackground(Graphics& g,
+                                                    int x,
+                                                    int y,
+                                                    int width,
+                                                    int height,
+                                                    float sliderPos,
+                                                    float minSliderPos,
+                                                    float maxSliderPos,
+                                                    const Slider::SliderStyle style,
+                                                    Slider& slider) {
     g.setColour(lightGrey);
     
     if (slider.isHorizontal()) {
-        g.fillRect(x, y + h / 2, w, 2);
+        g.fillRect(x, y + height / 2, width, 2);
     }
-    
-    drawLinearSliderThumb(g, x, y, w, h, sliderPos, minSliderPos, maxSliderPos, style, slider);
 }
 
 void RichterLookAndFeel::drawButtonBackground(Graphics& g,
@@ -125,10 +123,14 @@ void RichterLookAndFeel::drawButtonBackground(Graphics& g,
     // differentiates between the small button on the tempo sync ratio and larger buttons
     if (button.getWidth() > 24) {
         
-        if (button.getToggleState()) {
-            bc = &neonGreen;
+        if (button.isEnabled()) {
+            if (button.getToggleState()) {
+                bc = &neonGreen;
+            } else {
+                bc = &lightGrey;
+            }
         } else {
-            bc = &lightGrey;
+            bc = &darkGrey;
         }
         
         p.addRoundedRectangle(indent, indent, width - 2 * indent, height - 2 * indent, static_cast<float>(cornerSize));
@@ -148,12 +150,16 @@ void RichterLookAndFeel::drawButtonText(Graphics& g,
     
     Colour* textColour {nullptr};
     
-    if (textButton.getToggleState() || textButton.getWidth() < 24) {
-        textColour = &neonGreen;
+    if (textButton.isEnabled()) {
+        if (textButton.getToggleState() || textButton.getWidth() < 24) {
+            textColour = &neonGreen;
+        } else {
+            textColour = &lightGrey;
+        }
     } else {
-        textColour = &lightGrey;
+        textColour = &darkGrey;
     }
-    
+
     g.setColour(*textColour);
     int margin {0};
     
@@ -237,8 +243,8 @@ void RichterLookAndFeel::drawComboBox(Graphics& g,
 
 
 void RichterLookAndFeel::drawGroupComponentOutline(Graphics& g,
-                                                   int w,
-                                                   int h,
+                                                   int width,
+                                                   int height,
                                                    const String& title,
                                                    const Justification& justification,
                                                    GroupComponent& groupComponent) {

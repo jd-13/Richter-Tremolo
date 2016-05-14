@@ -31,7 +31,13 @@ class RichterMOD : public RichterLFOBase {
     
 public:
     RichterMOD();
-        
+    
+    /* calcGain
+     *
+     * Calculates the gain value to be applied to a signal (in this case a
+     * parameter of another oscillator) which the oscillator is operating on.
+     * Outputs a value between -0.5 and 0.5. Always outputs 0 if bypassed.
+     */
     float calcGain() const override;
     
 };

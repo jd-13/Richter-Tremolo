@@ -59,9 +59,26 @@ public:
     
     
     
-    
+    /* calcFreqInLoop
+     *
+     * Applies frequency modulation to the oscillator. Performed in the processing
+     * loop so that the frequency can be updated before processing each sample.
+     *
+     * args: modBypassSwitch   The state of the modulation oscillator. Determines
+     *                         whether modGain is applied to the calculation
+     *       modGain           The gain output from the modulation oscillator
+     */
     void calcFreqInLoop(int modBypassSwitch, float modGain);
     
+    /* calcDepthInLoop
+     *
+     * Applies depth modulation to the oscillator. Performed in the processing
+     * loop so that the frequency can be updated before processing each sample.
+     *
+     * args: modBypassSwitch   The state of the modulation oscillator. Determines
+     *                         whether modGain is applied to the calculation
+     *       modGain           The gain output from the modulation oscillator
+     */
     void calcDepthInLoop(int modBypassSwitch, float modGain);
 };
 

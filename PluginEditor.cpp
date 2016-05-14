@@ -28,7 +28,7 @@
 
 //==============================================================================
 RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor& ownerFilter)
-    : AudioProcessorEditor(ownerFilter), tooltipWindow()
+    : AudioProcessorEditor(ownerFilter)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -551,13 +551,38 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     TempoNumerMOD2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
     TempoDenomMOD2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
 
-    // make sure some labels which overlap dials are sent to back
+    // make sure some labels whose regions overlap dials are sent to back
     MODLFO1Lbl->toBack();
     MODLFO2Lbl->toBack();
 
     // check if stereo mode should be available
     RichterAudioProcessor* ourProcessor {getProcessor()};
     StereoBtn->setEnabled(ourProcessor->getNumOutputChannels() == 2);
+
+    // set double click to default for sliders
+    FreqLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
+    FreqModLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQMOD_DEFAULT, FREQMOD_MIN, FREQMOD_MAX));
+    DepthLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
+    DepthModLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTHMOD_DEFAULT, DEPTHMOD_MIN, DEPTHMOD_MAX));
+    PhaseLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
+
+    FreqLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
+    FreqModLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQMOD_DEFAULT, FREQMOD_MIN, FREQMOD_MAX));
+    DepthLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
+    DepthModLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTHMOD_DEFAULT, DEPTHMOD_MIN, DEPTHMOD_MAX));
+    PhaseLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
+
+    FreqMOD1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
+    DepthMOD1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
+    PhaseMOD1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
+
+    FreqMOD2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
+    DepthMOD2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
+    PhaseMOD2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
+
+    MasterVolSld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(MASTERVOL_DEFAULT, MASTERVOL_MIN, MASTERVOL_MAX));
+
+
     //[/Constructor]
 }
 
@@ -930,7 +955,6 @@ void RichterAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == BypassLFO1Btn)
     {
         //[UserButtonCode_BypassLFO1Btn] -- add your button handler code here..
-        Logger::outputDebugString("getToggleState: " + String(BypassLFO1Btn->getToggleState()));
         ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchLFO1, static_cast<float>(BypassLFO1Btn->getToggleState()));
         //[/UserButtonCode_BypassLFO1Btn]
     }
@@ -1003,7 +1027,6 @@ void RichterAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == StereoBtn)
     {
         //[UserButtonCode_StereoBtn] -- add your button handler code here..
-        Logger::outputDebugString("onclick getToggleState: " + String(StereoBtn->getToggleState()));
         ourProcessor->setParameter(RichterAudioProcessor::stereo, static_cast<float>(StereoBtn->getToggleState()));
         //[/UserButtonCode_StereoBtn]
     }
@@ -1076,8 +1099,6 @@ void RichterAudioProcessorEditor::timerCallback()
         StereoBtn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::stereo), dontSendNotification);
         MasterVolSld->setValue(ourProcessor->getParameter(RichterAudioProcessor::masterVol), dontSendNotification);
 
-
-        Logger::outputDebugString("refresh getToggleState: " + String(StereoBtn->getToggleState()));
 
         // Change LFO names if stereo
         if (StereoBtn->getToggleState()) {
