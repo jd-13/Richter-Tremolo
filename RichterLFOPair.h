@@ -30,15 +30,40 @@
 
 class RichterLFOPair {
 public:
-    RichterLFOPair();
+    RichterLFOPair() : _LFO(), _MOD() {
+    }
     
-    void reset();
+    void reset() {
+        _LFO.reset();
+        _MOD.reset();
+    }
     
     void processBlock(const juce::AudioPlayHead::CurrentPositionInfo& mTempoInfo,
-                      double sampleRate);
-    
-    float calcGainInLoop();
+                                      double sampleRate) {
+        _LFO.setWaveTablePointers();
+        _MOD.setWaveTablePointers();
         
+        _MOD.calcFreq(mTempoInfo.bpm);
+        _MOD.calcPhaseOffset(mTempoInfo.timeInSeconds);
+        
+        _LFO.calcFreq(mTempoInfo.bpm);
+        _LFO.calcPhaseOffset(mTempoInfo.timeInSeconds);
+        
+        _LFO.calcSamplesPerTremoloCycle(sampleRate);
+        _MOD.calcSamplesPerTremoloCycle(sampleRate);
+        
+        _LFO.calcNextScale();
+        _MOD.calcNextScale();
+    }
+    
+    float calcGainInLoop() {
+        _LFO.calcIndexAndScaleInLoop();
+        _MOD.calcIndexAndScaleInLoop();
+        
+        return _LFO.calcGain(_MOD.getBypassSwitch(), _MOD.calcGain());
+    }
+    
+    
     RichterLFO _LFO;
     RichterMOD _MOD;
     

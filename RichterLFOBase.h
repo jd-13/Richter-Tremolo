@@ -68,10 +68,30 @@ protected:
     }
     
 public:
-    RichterLFOBase();
+    RichterLFOBase() :  manualPhase(0),
+                        wave(WAVE_DEFAULT),
+                        index(0),
+                        indexOffset(0),
+                        samplesProcessed(0),
+                        bypassSwitch(LFOSWITCH_DEFAULT),
+                        tempoSyncSwitch(TEMPOSYNC_DEFAULT),
+                        phaseSyncSwitch(PHASESYNC_DEFAULT),
+                        needsPhaseCalc(true),
+                        tempoNumer(TEMPONUMER_DEFAULT),
+                        tempoDenom(TEMPODENOM_DEFAULT),
+                        tempoFreq(FREQ_DEFAULT),
+                        freq(FREQ_DEFAULT),
+                        depth(DEPTH_DEFAULT),
+                        samplesPerTremoloCycle(1),
+                        gain(1),
+                        offset(0),
+                        currentScale(0),
+                        nextScale(0),
+                        waveArrayPointer(&mSine[0]) {
+    }
     
     virtual ~RichterLFOBase() {};
-        
+    
     // getter methods
     
     int getBypassSwitch() const { return bypassSwitch; }
@@ -100,25 +120,29 @@ public:
     
     // set parameter methods, w/ integrated bounds checks
     
-    void setBypassSwitch(bool val);
+    void setBypassSwitch(bool val) { bypassSwitch = val; }
     
-    void setPhaseSyncSwitch(bool val);
+    void setPhaseSyncSwitch(bool val) { phaseSyncSwitch = val; }
     
-    void setTempoSyncSwitch(bool val);
+    void setTempoSyncSwitch(bool val) { tempoSyncSwitch = val; }
     
-    void setTempoNumer(int val);
+    void setTempoNumer(int val) { tempoNumer = boundsCheck<int>(val, TEMPONUMER_MIN, TEMPONUMER_MAX); }
     
-    void setTempoDenom (int val);
+    void setTempoDenom (int val) { tempoDenom = boundsCheck<int>(val, TEMPODENOM_MIN, TEMPODENOM_MAX); }
     
-    void setFreq(float val);
+    void setFreq(float val) { freq = boundsCheck(val, FREQ_MIN, FREQ_MAX); }
     
-    void setDepth(float val);
+    void setDepth(float val) { depth = boundsCheck(val, DEPTH_MIN, DEPTH_MAX); }
     
-    void setManualPhase(int val);
+    void setManualPhase(int val) { manualPhase = boundsCheck(val, PHASE_MIN, PHASE_MAX); }
     
-    void setWave(float val);
+    void setWave(float val) { wave = boundsCheck<int>(val, WAVE_MIN, WAVE_MAX); }
     
-    void setWaveTablePointers();
+    void setWaveTablePointers() {
+        if (wave == WAVE_SINE) { waveArrayPointer = &mSine[0]; }
+        if (wave == WAVE_SQUARE) { waveArrayPointer = &mSquare[0]; }
+        if (wave == WAVE_SAW) { waveArrayPointer = &mSaw[0]; }
+    }
     
     void setIndexOffset(int val) { indexOffset = val; }
     
@@ -128,7 +152,12 @@ public:
      * Resets indexOffset and currentScale. Call before beginning a new buffer of
      * samples.
      */
-    void reset();
+    void reset() {
+        needsPhaseCalc = true;
+        indexOffset = 0;
+        currentScale = 0;
+        samplesProcessed = 0;
+    }
     
     /* calcPhaseOffset
      *
@@ -138,7 +167,25 @@ public:
      * args: timeInSeconds   Position of the host DAW's playhead at the start of
      *                       playback
      */
-    void calcPhaseOffset(double timeInSeconds);
+    void calcPhaseOffset(double timeInSeconds) {
+        if (phaseSyncSwitch && needsPhaseCalc) {
+            float waveLength {1 / freq};
+            double waveTimePosition {0};
+            
+            if (waveLength < timeInSeconds) {
+                waveTimePosition = fmod(timeInSeconds, waveLength);
+            } else {
+                waveTimePosition = timeInSeconds;
+            }
+            indexOffset = (waveTimePosition / waveLength) * kWaveArraySize + manualPhase;
+        }
+        
+        if (!phaseSyncSwitch && needsPhaseCalc) {
+            indexOffset = manualPhase;
+        }
+        needsPhaseCalc = false;
+        
+    }
     
     /* calcFreq
      *
@@ -147,7 +194,16 @@ public:
      *
      * args: bpm   Current bpm of the host DAW
      */
-    void calcFreq(double bpm);
+    void calcFreq(double bpm) {
+        // calculate the frequency based on whether tempo sync is active
+        
+        tempoFreq = (bpm / 60) * (tempoDenom / tempoNumer);
+        
+        if (tempoSyncSwitch) { freq = tempoFreq; }
+        
+        boundsCheck(freq, FREQ_MIN, FREQ_MAX);
+        
+    }
     
     /* calcSamplesPerTremoloCycle
      *
@@ -156,7 +212,9 @@ public:
      *
      * args: sampleRate   Sample rate of the host DAW
      */
-    void calcSamplesPerTremoloCycle(float sampleRate);
+    void calcSamplesPerTremoloCycle(float sampleRate) {
+        samplesPerTremoloCycle = sampleRate / freq;
+    }
     
     /* calcIndexAndScaleInLoop
      *
@@ -166,13 +224,35 @@ public:
      * samples processed
      *
      */
-    void calcIndexAndScaleInLoop();
+    void calcIndexAndScaleInLoop() {
+        // calculate the current index within the wave table
+        
+        index = static_cast<long>(samplesProcessed * currentScale) % kWaveArraySize;
+        
+        if ((nextScale != currentScale) && (index == 0)) {
+            currentScale = nextScale;
+            samplesProcessed = 0;
+        }
+        
+        
+        // Must provide two possibilities for each index lookup in order to protect the array from being overflowed by the indexOffset, the first if statement uses the standard index lookup while second if statement deals with the overflow possibility
+        
+        if ((index + indexOffset) < kWaveArraySize) {
+            gain = waveArrayPointer[index + indexOffset];
+        } else if ((index + indexOffset) >= kWaveArraySize) {
+            gain = waveArrayPointer[(index + indexOffset) % kWaveArraySize];
+        }
+        
+        samplesProcessed++;
+    }
     
     /* calcNextScale
      *
      * Calculates the scale factor to be applied when calculating the index. 
      */
-    void calcNextScale();
+    void calcNextScale() {
+        nextScale = kWaveArraySize / samplesPerTremoloCycle;
+    }
     
     RichterLFOBase operator=(RichterLFOBase& other) = delete;
     RichterLFOBase(RichterLFOBase& other) = delete;
