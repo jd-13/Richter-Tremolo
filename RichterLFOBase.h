@@ -34,7 +34,8 @@ protected:
     int manualPhase,
         wave,
         index,
-        indexOffset;
+        indexOffset,
+        samplesProcessed;
     
     bool    bypassSwitch,
             tempoSyncSwitch,
@@ -93,11 +94,9 @@ public:
     
     float getWaveArraySize() const { return kWaveArraySize; }
     
-    
     int getIndexOffset() { return indexOffset; }
         
-    void setIndexOffset(int val) { indexOffset = val; }
-        
+    
     
     // set parameter methods, w/ integrated bounds checks
     
@@ -121,7 +120,7 @@ public:
     
     void setWaveTablePointers();
     
-    
+    void setIndexOffset(int val) { indexOffset = val; }
     
     
     /* reset
@@ -163,11 +162,11 @@ public:
      *
      * Calculates the current index of the oscillator in its wavetable. Includes
      * protection against indexes out of range (caused by phase offset) and updates
-     * currentScale. Call from within the processing loop.
+     * currentScale. Call from within the processing loop. Increments the number of 
+     * samples processed
      *
-     * args: mSamplesProcessed   Number of samples processed
      */
-    void calcIndexAndScaleInLoop(long &mSamplesProcessed);
+    void calcIndexAndScaleInLoop();
     
     /* calcNextScale
      *
@@ -175,13 +174,8 @@ public:
      */
     void calcNextScale();
     
-    /* calcGain
-     *
-     * Calculates the gain value to be applied to a signal which the oscillator
-     * is operating on. Outputs a value between 0 and 1. Always outputs 1 if bypassed.
-     */
-    virtual float calcGain() const;
-        
+    RichterLFOBase operator=(RichterLFOBase& other) = delete;
+    RichterLFOBase(RichterLFOBase& other) = delete;
 };
 
 #endif

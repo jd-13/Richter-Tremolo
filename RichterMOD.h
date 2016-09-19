@@ -38,7 +38,10 @@ public:
      * parameter of another oscillator) which the oscillator is operating on.
      * Outputs a value between -0.5 and 0.5. Always outputs 0 if bypassed.
      */
-    float calcGain() const override;
+    float calcGain();
+    
+    RichterMOD operator=(RichterMOD& other) = delete;
+    RichterMOD(RichterMOD& other) = delete;
     
 };
 

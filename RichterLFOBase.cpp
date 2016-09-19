@@ -27,6 +27,7 @@ RichterLFOBase::RichterLFOBase() :  manualPhase(0),
                                     wave(WAVE_DEFAULT),
                                     index(0),
                                     indexOffset(0),
+                                    samplesProcessed(0),
                                     bypassSwitch(LFOSWITCH_DEFAULT),
                                     tempoSyncSwitch(TEMPOSYNC_DEFAULT),
                                     phaseSyncSwitch(PHASESYNC_DEFAULT),
@@ -99,6 +100,7 @@ void RichterLFOBase::reset() {
     needsPhaseCalc = true;
     indexOffset = 0;
     currentScale = 0;
+    samplesProcessed = 0;
 }
 
 void RichterLFOBase::calcPhaseOffset(double timeInSeconds) {
@@ -142,14 +144,14 @@ void RichterLFOBase::calcSamplesPerTremoloCycle(float sampleRate) {
 
 
 
-void RichterLFOBase::calcIndexAndScaleInLoop(long &mSamplesProcessed) {
+void RichterLFOBase::calcIndexAndScaleInLoop() {
     // calculate the current index within the wave table
     
-    index = static_cast<long>(mSamplesProcessed * currentScale) % kWaveArraySize;
+    index = static_cast<long>(samplesProcessed * currentScale) % kWaveArraySize;
     
     if ((nextScale != currentScale) && (index == 0)) {
         currentScale = nextScale;
-        mSamplesProcessed = 0;
+        samplesProcessed = 0;
     }
     
     
@@ -160,19 +162,10 @@ void RichterLFOBase::calcIndexAndScaleInLoop(long &mSamplesProcessed) {
     } else if ((index + indexOffset) >= kWaveArraySize) {
         gain = waveArrayPointer[(index + indexOffset) % kWaveArraySize];
     }
+    
+    samplesProcessed++;
 }
 
 void RichterLFOBase::calcNextScale() {
     nextScale = kWaveArraySize / samplesPerTremoloCycle;
-}
-
-
-
-
-float RichterLFOBase::calcGain() const {
-    if (bypassSwitch) {
-        return ((gain * depth - depth + 1));
-    } else {
-        return 1;
-    }
 }

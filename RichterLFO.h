@@ -27,12 +27,6 @@
 #include "RichterLFOBase.h"
 
 class RichterLFO : public RichterLFOBase {
-private:
-    
-    float   rawFreq,
-            freqMod,
-            rawDepth,
-            depthMod;
     
 public:
     RichterLFO();
@@ -57,7 +51,26 @@ public:
     
     void setDepthMod(float val);
     
+    /* calcGain
+     *
+     * Calculates the gain value to be applied to a signal which the oscillator
+     * is operating on. Outputs a value between 0 and 1. Always outputs 1 if bypassed.
+     *
+     * args: modBypassSwitch   The state of the modulation oscillator. Determines
+     *                         whether modGain is applied to the calculation
+     *       modGain           The gain output from the modulation oscillator
+     */
+    virtual float calcGain(int modBypassSwitch, float modGain);
     
+    RichterLFO operator= (RichterLFO& other) = delete;
+    RichterLFO(RichterLFO&) = delete;
+    
+private:
+    
+    float   rawFreq,
+            freqMod,
+            rawDepth,
+            depthMod;
     
     /* calcFreqInLoop
      *

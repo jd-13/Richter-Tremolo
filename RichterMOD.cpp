@@ -70,7 +70,7 @@ RichterMOD::RichterMOD() : RichterLFOBase() {
     
 }
 
-float RichterMOD::calcGain() const {
+float RichterMOD::calcGain() {
     if (bypassSwitch) {
         return (gain * depth);
     } else {

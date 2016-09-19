@@ -142,3 +142,15 @@ void RichterLFO::calcDepthInLoop(int modBypassSwitch, float modGain) {
     depth = boundsCheck(depth, DEPTH_MIN, DEPTH_MAX);
     
 }
+
+// Check whether MOD oscs are activated and apply depth parameter modulation accordingly
+float RichterLFO::calcGain(int modBypassSwitch, float modGain) {
+    calcFreqInLoop(modBypassSwitch, modGain);
+    calcDepthInLoop(modBypassSwitch, modGain);
+    
+    if (bypassSwitch) {
+        return ((gain * depth - depth + 1));
+    } else {
+        return 1;
+    }
+}
