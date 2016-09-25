@@ -560,27 +560,27 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     StereoBtn->setEnabled(ourProcessor->getNumOutputChannels() == 2);
 
     // set double click to default for sliders
-    FreqLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
-    FreqModLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQMOD_DEFAULT, FREQMOD_MIN, FREQMOD_MAX));
-    DepthLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
-    DepthModLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTHMOD_DEFAULT, DEPTHMOD_MIN, DEPTHMOD_MAX));
-    PhaseLFO1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
+    FreqLFO1Sld->setDoubleClickReturnValue(true, FREQ.InteralToNormalised(FREQ.defaultValue));
+    FreqModLFO1Sld->setDoubleClickReturnValue(true, FREQMOD.InteralToNormalised(FREQMOD.defaultValue));
+    DepthLFO1Sld->setDoubleClickReturnValue(true, DEPTH.InteralToNormalised(DEPTH.defaultValue));
+    DepthModLFO1Sld->setDoubleClickReturnValue(true, DEPTHMOD.InteralToNormalised(DEPTHMOD.defaultValue));
+    PhaseLFO1Sld->setDoubleClickReturnValue(true, PHASE.InteralToNormalised(PHASE.defaultValue));
 
-    FreqLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
-    FreqModLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQMOD_DEFAULT, FREQMOD_MIN, FREQMOD_MAX));
-    DepthLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
-    DepthModLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTHMOD_DEFAULT, DEPTHMOD_MIN, DEPTHMOD_MAX));
-    PhaseLFO2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
+    FreqLFO2Sld->setDoubleClickReturnValue(true, FREQ.InteralToNormalised(FREQ.defaultValue));
+    FreqModLFO2Sld->setDoubleClickReturnValue(true, FREQMOD.InteralToNormalised(FREQMOD.defaultValue));
+    DepthLFO2Sld->setDoubleClickReturnValue(true, DEPTH.InteralToNormalised(DEPTH.defaultValue));
+    DepthModLFO2Sld->setDoubleClickReturnValue(true, DEPTHMOD.InteralToNormalised(DEPTHMOD.defaultValue));
+    PhaseLFO2Sld->setDoubleClickReturnValue(true, PHASE.InteralToNormalised(PHASE.defaultValue));
 
-    FreqMOD1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
-    DepthMOD1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
-    PhaseMOD1Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
+    FreqMOD1Sld->setDoubleClickReturnValue(true, FREQ.InteralToNormalised(FREQ.defaultValue));
+    DepthMOD1Sld->setDoubleClickReturnValue(true, DEPTH.InteralToNormalised(DEPTH.defaultValue));
+    PhaseMOD1Sld->setDoubleClickReturnValue(true, PHASE.InteralToNormalised(PHASE.defaultValue));
 
-    FreqMOD2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(FREQ_DEFAULT, FREQ_MIN, FREQ_MAX));
-    DepthMOD2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(DEPTH_DEFAULT, DEPTH_MIN, DEPTH_MAX));
-    PhaseMOD2Sld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(PHASE_DEFAULT, PHASE_MIN, PHASE_MAX));
+    FreqMOD2Sld->setDoubleClickReturnValue(true, FREQ.InteralToNormalised(FREQ.defaultValue));
+    DepthMOD2Sld->setDoubleClickReturnValue(true, DEPTH.InteralToNormalised(DEPTH.defaultValue));
+    PhaseMOD2Sld->setDoubleClickReturnValue(true, PHASE.InteralToNormalised(PHASE.defaultValue));
 
-    MasterVolSld->setDoubleClickReturnValue(true, TranslateParam_Inter2Norm(MASTERVOL_DEFAULT, MASTERVOL_MIN, MASTERVOL_MAX));
+    MasterVolSld->setDoubleClickReturnValue(true, MASTERVOL.InteralToNormalised(MASTERVOL.defaultValue));
 
 
     //[/Constructor]

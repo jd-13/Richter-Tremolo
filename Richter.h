@@ -25,6 +25,7 @@
 #define RICHTER_H_INCLUDED
 
 #include "RichterLFOPair.h"
+#include "ParameterData.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 
 class Richter {
@@ -74,7 +75,7 @@ public:
     
     void setStereo(bool val) { isStereo = val; }
     
-    void setMasterVol(float val) { masterVol = val; }
+    void setMasterVol(float val) { masterVol = MASTERVOL.BoundsCheck(val); }
     
     
     

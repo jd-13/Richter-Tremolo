@@ -18,49 +18,49 @@ RichterAudioProcessor::RichterAudioProcessor()
     mRichter.LFOPair1._LFO.setBypassSwitch(LFOSWITCH_DEFAULT);
     mRichter.LFOPair1._LFO.setPhaseSyncSwitch(PHASESYNC_DEFAULT);
     mRichter.LFOPair1._LFO.setTempoSyncSwitch(TEMPOSYNC_DEFAULT);
-    mRichter.LFOPair1._LFO.setWave(WAVE_DEFAULT);
-    mRichter.LFOPair1._LFO.setDepth(DEPTH_DEFAULT);
-    mRichter.LFOPair1._LFO.setDepthMod(DEPTHMOD_DEFAULT);
-    mRichter.LFOPair1._LFO.setFreq(FREQ_DEFAULT);
-    mRichter.LFOPair1._LFO.setFreqMod(FREQMOD_DEFAULT);
-    mRichter.LFOPair1._LFO.setManualPhase(PHASE_DEFAULT);
-    mRichter.LFOPair1._LFO.setTempoNumer(TEMPONUMER_DEFAULT);
-    mRichter.LFOPair1._LFO.setTempoDenom(TEMPODENOM_DEFAULT);
+    mRichter.LFOPair1._LFO.setWave(WAVE.defaultValue);
+    mRichter.LFOPair1._LFO.setDepth(DEPTH.defaultValue);
+    mRichter.LFOPair1._LFO.setDepthMod(DEPTHMOD.defaultValue);
+    mRichter.LFOPair1._LFO.setFreq(FREQ.defaultValue);
+    mRichter.LFOPair1._LFO.setFreqMod(FREQMOD.defaultValue);
+    mRichter.LFOPair1._LFO.setManualPhase(PHASE.defaultValue);
+    mRichter.LFOPair1._LFO.setTempoNumer(TEMPONUMER.defaultValue);
+    mRichter.LFOPair1._LFO.setTempoDenom(TEMPODENOM.defaultValue);
     
     mRichter.LFOPair2._LFO.setBypassSwitch(LFOSWITCH_DEFAULT);
     mRichter.LFOPair2._LFO.setPhaseSyncSwitch(PHASESYNC_DEFAULT);
     mRichter.LFOPair2._LFO.setTempoSyncSwitch(TEMPOSYNC_DEFAULT);
-    mRichter.LFOPair2._LFO.setWave(WAVE_DEFAULT);
-    mRichter.LFOPair2._LFO.setDepth(DEPTH_DEFAULT);
-    mRichter.LFOPair2._LFO.setDepthMod(DEPTHMOD_DEFAULT);
-    mRichter.LFOPair2._LFO.setFreq(FREQ_DEFAULT);
-    mRichter.LFOPair2._LFO.setFreqMod(FREQMOD_DEFAULT);
-    mRichter.LFOPair2._LFO.setManualPhase(PHASE_DEFAULT);
-    mRichter.LFOPair2._LFO.setTempoNumer(TEMPONUMER_DEFAULT);
-    mRichter.LFOPair2._LFO.setTempoDenom(TEMPODENOM_DEFAULT);
+    mRichter.LFOPair2._LFO.setWave(WAVE.defaultValue);
+    mRichter.LFOPair2._LFO.setDepth(DEPTH.defaultValue);
+    mRichter.LFOPair2._LFO.setDepthMod(DEPTHMOD.defaultValue);
+    mRichter.LFOPair2._LFO.setFreq(FREQ.defaultValue);
+    mRichter.LFOPair2._LFO.setFreqMod(FREQMOD.defaultValue);
+    mRichter.LFOPair2._LFO.setManualPhase(PHASE.defaultValue);
+    mRichter.LFOPair2._LFO.setTempoNumer(TEMPONUMER.defaultValue);
+    mRichter.LFOPair2._LFO.setTempoDenom(TEMPODENOM.defaultValue);
     
     mRichter.LFOPair1._MOD.setBypassSwitch(LFOSWITCH_DEFAULT);
     mRichter.LFOPair1._MOD.setPhaseSyncSwitch(PHASESYNC_DEFAULT);
     mRichter.LFOPair1._MOD.setTempoSyncSwitch(TEMPOSYNC_DEFAULT);
-    mRichter.LFOPair1._MOD.setWave(WAVE_DEFAULT);
-    mRichter.LFOPair1._MOD.setDepth(DEPTH_DEFAULT);
-    mRichter.LFOPair1._MOD.setFreq(FREQ_DEFAULT);
-    mRichter.LFOPair1._MOD.setManualPhase(PHASE_DEFAULT);
-    mRichter.LFOPair1._MOD.setTempoNumer(TEMPONUMER_DEFAULT);
-    mRichter.LFOPair1._MOD.setTempoDenom(TEMPODENOM_DEFAULT);
+    mRichter.LFOPair1._MOD.setWave(WAVE.defaultValue);
+    mRichter.LFOPair1._MOD.setDepth(DEPTH.defaultValue);
+    mRichter.LFOPair1._MOD.setFreq(FREQ.defaultValue);
+    mRichter.LFOPair1._MOD.setManualPhase(PHASE.defaultValue);
+    mRichter.LFOPair1._MOD.setTempoNumer(TEMPONUMER.defaultValue);
+    mRichter.LFOPair1._MOD.setTempoDenom(TEMPODENOM.defaultValue);
     
     mRichter.LFOPair2._MOD.setBypassSwitch(LFOSWITCH_DEFAULT);
     mRichter.LFOPair2._MOD.setPhaseSyncSwitch(PHASESYNC_DEFAULT);
     mRichter.LFOPair2._MOD.setTempoSyncSwitch(TEMPOSYNC_DEFAULT);
-    mRichter.LFOPair2._MOD.setWave(WAVE_DEFAULT);
-    mRichter.LFOPair2._MOD.setDepth(DEPTH_DEFAULT);
-    mRichter.LFOPair2._MOD.setFreq(FREQ_DEFAULT);
-    mRichter.LFOPair2._MOD.setManualPhase(PHASE_DEFAULT);
-    mRichter.LFOPair2._MOD.setTempoNumer(TEMPONUMER_DEFAULT);
-    mRichter.LFOPair2._MOD.setTempoDenom(TEMPODENOM_DEFAULT);
+    mRichter.LFOPair2._MOD.setWave(WAVE.defaultValue);
+    mRichter.LFOPair2._MOD.setDepth(DEPTH.defaultValue);
+    mRichter.LFOPair2._MOD.setFreq(FREQ.defaultValue);
+    mRichter.LFOPair2._MOD.setManualPhase(PHASE.defaultValue);
+    mRichter.LFOPair2._MOD.setTempoNumer(TEMPONUMER.defaultValue);
+    mRichter.LFOPair2._MOD.setTempoDenom(TEMPODENOM.defaultValue);
     
     mRichter.setStereo(STEREO_DEFAULT);
-    mRichter.setMasterVol(MASTERVOL_DEFAULT);
+    mRichter.setMasterVol(MASTERVOL.defaultValue);
     
     UIUpdateFlag = true;
     
@@ -97,19 +97,19 @@ float RichterAudioProcessor::getParameter (int index)
             return mRichter.LFOPair1._LFO.getWave();
             
         case depthLFO1:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair1._LFO.getRawDepth(), DEPTH_MIN, DEPTH_MAX);
+            return DEPTH.InteralToNormalised(mRichter.LFOPair1._LFO.getRawDepth());
             
         case depthModLFO1:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair1._LFO.getDepthMod(), DEPTHMOD_MIN, DEPTHMOD_MAX);
+            return DEPTHMOD.InteralToNormalised(mRichter.LFOPair1._LFO.getDepthMod());
             
         case freqLFO1:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair1._LFO.getRawFreq(), FREQ_MIN, FREQ_MAX);
+            return FREQ.InteralToNormalised(mRichter.LFOPair1._LFO.getRawFreq());
             
         case freqModLFO1:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair1._LFO.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX);
+            return FREQMOD.InteralToNormalised(mRichter.LFOPair1._LFO.getFreqMod());
             
         case phaseLFO1:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair1._LFO.getManualPhase(), PHASE_MIN, PHASE_MAX);
+            return PHASE.InteralToNormalised(mRichter.LFOPair1._LFO.getManualPhase());
             
         case tempoNumerLFO1:
             return mRichter.LFOPair1._LFO.getTempoNumer();
@@ -134,19 +134,19 @@ float RichterAudioProcessor::getParameter (int index)
             return mRichter.LFOPair2._LFO.getWave();
             
         case depthLFO2:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair2._LFO.getRawDepth(), DEPTH_MIN, DEPTH_MAX);
+            return DEPTH.InteralToNormalised(mRichter.LFOPair2._LFO.getRawDepth());
             
         case depthModLFO2:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair2._LFO.getDepthMod(), DEPTHMOD_MIN, DEPTHMOD_MAX);
+            return DEPTHMOD.InteralToNormalised(mRichter.LFOPair2._LFO.getDepthMod());
             
         case freqLFO2:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair2._LFO.getRawFreq(), FREQ_MIN, FREQ_MAX);
+            return FREQ.InteralToNormalised(mRichter.LFOPair2._LFO.getRawFreq());
             
         case freqModLFO2:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair2._LFO.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX);
+            return FREQMOD.InteralToNormalised(mRichter.LFOPair2._LFO.getFreqMod());
             
         case phaseLFO2:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair2._LFO.getManualPhase(), PHASE_MIN, PHASE_MAX);
+            return PHASE.InteralToNormalised(mRichter.LFOPair2._LFO.getManualPhase());
             
         case tempoNumerLFO2:
             return mRichter.LFOPair2._LFO.getTempoNumer();
@@ -172,13 +172,13 @@ float RichterAudioProcessor::getParameter (int index)
             return mRichter.LFOPair1._MOD.getWave();
             
         case depthMOD1:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair1._MOD.getDepth(), DEPTH_MIN, DEPTH_MAX);
+            return DEPTH.InteralToNormalised(mRichter.LFOPair1._MOD.getDepth());
             
         case freqMOD1:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair1._MOD.getFreq(), FREQ_MIN, FREQ_MAX);
+            return FREQ.InteralToNormalised(mRichter.LFOPair1._MOD.getFreq());
             
         case phaseMOD1:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair1._MOD.getManualPhase(), PHASE_MIN, PHASE_MAX);
+            return PHASE.InteralToNormalised(mRichter.LFOPair1._MOD.getManualPhase());
             
         case tempoNumerMOD1:
             return mRichter.LFOPair1._MOD.getTempoNumer();
@@ -205,13 +205,13 @@ float RichterAudioProcessor::getParameter (int index)
             return mRichter.LFOPair2._MOD.getWave();
             
         case depthMOD2:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair2._MOD.getDepth(), DEPTH_MIN, DEPTH_MAX);
+            return DEPTH.InteralToNormalised(mRichter.LFOPair2._MOD.getDepth());
             
         case freqMOD2:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair2._MOD.getFreq(), FREQ_MIN, FREQ_MAX);
+            return FREQ.InteralToNormalised(mRichter.LFOPair2._MOD.getFreq());
             
         case phaseMOD2:
-            return TranslateParam_Inter2Norm(mRichter.LFOPair2._MOD.getManualPhase(), PHASE_MIN, PHASE_MAX);
+            return PHASE.InteralToNormalised(mRichter.LFOPair2._MOD.getManualPhase());
             
         case tempoNumerMOD2:
             return mRichter.LFOPair2._MOD.getTempoNumer();
@@ -225,7 +225,7 @@ float RichterAudioProcessor::getParameter (int index)
             return mRichter.getStereo();
             
         case masterVol:
-            return TranslateParam_Inter2Norm(mRichter.getMasterVol(), MASTERVOL_MIN, MASTERVOL_MAX);
+            return MASTERVOL.InteralToNormalised(mRichter.getMasterVol());
             
             
             
@@ -256,23 +256,23 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             break;
             
         case depthLFO1:
-            mRichter.LFOPair1._LFO.setRawDepth(TranslateParam_Norm2Inter(newValue, DEPTH_MIN, DEPTH_MAX));
+            mRichter.LFOPair1._LFO.setRawDepth(DEPTH.NormalisedToInteral(newValue));
             break;
             
         case depthModLFO1:
-            mRichter.LFOPair1._LFO.setDepthMod(TranslateParam_Norm2Inter(newValue, DEPTHMOD_MIN, DEPTHMOD_MAX));
+            mRichter.LFOPair1._LFO.setDepthMod(DEPTHMOD.NormalisedToInteral(newValue));
             break;
             
         case freqLFO1:
-            mRichter.LFOPair1._LFO.setRawFreq(TranslateParam_Norm2Inter(newValue, FREQ_MIN, FREQ_MAX));
+            mRichter.LFOPair1._LFO.setRawFreq(FREQ.NormalisedToInteral(newValue));
             break;
             
         case freqModLFO1:
-            mRichter.LFOPair1._LFO.setFreqMod(TranslateParam_Norm2Inter(newValue, FREQMOD_MIN, FREQMOD_MAX));
+            mRichter.LFOPair1._LFO.setFreqMod(FREQMOD.NormalisedToInteral(newValue));
             break;
             
         case phaseLFO1:
-            mRichter.LFOPair1._LFO.setManualPhase(TranslateParam_Norm2Inter(newValue, PHASE_MIN, PHASE_MAX));
+            mRichter.LFOPair1._LFO.setManualPhase(PHASE.NormalisedToInteral(newValue));
             break;
             
         case tempoNumerLFO1:
@@ -304,23 +304,23 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             break;
             
         case depthLFO2:
-            mRichter.LFOPair2._LFO.setRawDepth(TranslateParam_Norm2Inter(newValue, DEPTH_MIN, DEPTH_MAX));
+            mRichter.LFOPair2._LFO.setRawDepth(DEPTH.NormalisedToInteral(newValue));
             break;
             
         case depthModLFO2:
-            mRichter.LFOPair2._LFO.setDepthMod(TranslateParam_Norm2Inter(newValue, DEPTHMOD_MIN, DEPTHMOD_MAX));
+            mRichter.LFOPair2._LFO.setDepthMod(DEPTHMOD.NormalisedToInteral(newValue));
             break;
             
         case freqLFO2:
-            mRichter.LFOPair2._LFO.setRawFreq(TranslateParam_Norm2Inter(newValue, FREQ_MIN, FREQ_MAX));
+            mRichter.LFOPair2._LFO.setRawFreq(FREQ.NormalisedToInteral(newValue));
             break;
             
         case freqModLFO2:
-            mRichter.LFOPair2._LFO.setFreqMod(TranslateParam_Norm2Inter(newValue, FREQMOD_MIN, FREQMOD_MAX));
+            mRichter.LFOPair2._LFO.setFreqMod(FREQMOD.NormalisedToInteral(newValue));
             break;
             
         case phaseLFO2:
-            mRichter.LFOPair2._LFO.setManualPhase(TranslateParam_Norm2Inter(newValue, PHASE_MIN, PHASE_MAX));
+            mRichter.LFOPair2._LFO.setManualPhase(PHASE.NormalisedToInteral(newValue));
             break;
             
         case tempoNumerLFO2:
@@ -352,15 +352,15 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             break;
             
         case depthMOD1:
-            mRichter.LFOPair1._MOD.setDepth(TranslateParam_Norm2Inter(newValue, DEPTH_MIN, DEPTH_MAX));
+            mRichter.LFOPair1._MOD.setDepth(DEPTH.NormalisedToInteral(newValue));
             break;
             
         case freqMOD1:
-            mRichter.LFOPair1._MOD.setFreq(TranslateParam_Norm2Inter(newValue, FREQ_MIN, FREQ_MAX));
+            mRichter.LFOPair1._MOD.setFreq(FREQ.NormalisedToInteral(newValue));
             break;
             
         case phaseMOD1:
-            mRichter.LFOPair1._MOD.setManualPhase(TranslateParam_Norm2Inter(newValue, PHASE_MIN, PHASE_MAX));
+            mRichter.LFOPair1._MOD.setManualPhase(PHASE.NormalisedToInteral(newValue));
             break;
             
         case tempoNumerMOD1:
@@ -392,15 +392,15 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             break;
             
         case depthMOD2:
-            mRichter.LFOPair2._MOD.setDepth(TranslateParam_Norm2Inter(newValue, DEPTH_MIN, DEPTH_MAX));
+            mRichter.LFOPair2._MOD.setDepth(DEPTH.NormalisedToInteral(newValue));
             break;
             
         case freqMOD2:
-            mRichter.LFOPair2._MOD.setFreq(TranslateParam_Norm2Inter(newValue, FREQ_MIN, FREQ_MAX));
+            mRichter.LFOPair2._MOD.setFreq(FREQ.NormalisedToInteral(newValue));
             break;
             
         case phaseMOD2:
-            mRichter.LFOPair2._MOD.setManualPhase(TranslateParam_Norm2Inter(newValue, PHASE_MIN, PHASE_MAX));
+            mRichter.LFOPair2._MOD.setManualPhase(PHASE.NormalisedToInteral(newValue));
             break;
             
         case tempoNumerMOD2:
@@ -418,7 +418,7 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
             break;
             
         case masterVol:
-            mRichter.setMasterVol(TranslateParam_Norm2Inter(newValue, MASTERVOL_MIN, MASTERVOL_MAX));
+            mRichter.setMasterVol(MASTERVOL.NormalisedToInteral(newValue));
             break;
             
             
@@ -592,22 +592,22 @@ const String RichterAudioProcessor::getParameterText (int index)
             return String(mRichter.LFOPair1._LFO.getTempoSyncSwitch());
             
         case waveLFO1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair1._LFO.getWave(), WAVE_MIN, WAVE_MAX));
+            return String(mRichter.LFOPair1._LFO.getWave());
             
         case depthLFO1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair1._LFO.getDepth(), DEPTH_MIN, DEPTH_MAX));
+            return String(DEPTH.InteralToNormalised(mRichter.LFOPair1._LFO.getDepth()));
                           
         case depthModLFO1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair1._LFO.getDepthMod(), DEPTHMOD_MIN, DEPTHMOD_MAX));
+            return String(DEPTHMOD.InteralToNormalised(mRichter.LFOPair1._LFO.getDepthMod()));
             
         case freqLFO1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair1._LFO.getFreq(), FREQ_MIN, FREQ_MAX));
+            return String(FREQ.InteralToNormalised(mRichter.LFOPair1._LFO.getFreq()));
             
         case freqModLFO1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair1._LFO.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX));
+            return String(FREQMOD.InteralToNormalised(mRichter.LFOPair1._LFO.getFreqMod()));
             
         case phaseLFO1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair1._LFO.getManualPhase(), PHASE_MIN, PHASE_MAX));
+            return String(PHASE.InteralToNormalised(mRichter.LFOPair1._LFO.getManualPhase()));
             
         case tempoNumerLFO1:
             return String(mRichter.LFOPair1._LFO.getTempoNumer());
@@ -629,22 +629,22 @@ const String RichterAudioProcessor::getParameterText (int index)
             return String(mRichter.LFOPair2._LFO.getTempoSyncSwitch());
             
         case waveLFO2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair2._LFO.getWave(), WAVE_MIN, WAVE_MAX));
+            return String(mRichter.LFOPair2._LFO.getWave());
             
         case depthLFO2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair2._LFO.getDepth(), DEPTH_MIN, DEPTH_MAX));
+            return String(DEPTH.InteralToNormalised(mRichter.LFOPair2._LFO.getDepth()));
             
         case depthModLFO2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair2._LFO.getDepthMod(), DEPTHMOD_MIN, DEPTHMOD_MAX));
+            return String(DEPTHMOD.InteralToNormalised(mRichter.LFOPair2._LFO.getDepthMod()));
             
         case freqLFO2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair2._LFO.getFreq(), FREQ_MIN, FREQ_MAX));
+            return String(FREQ.InteralToNormalised(mRichter.LFOPair2._LFO.getFreq()));
             
         case freqModLFO2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair2._LFO.getFreqMod(), FREQMOD_MIN, FREQMOD_MAX));
+            return String(FREQMOD.InteralToNormalised(mRichter.LFOPair2._LFO.getFreqMod()));
             
         case phaseLFO2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair2._LFO.getManualPhase(), PHASE_MIN, PHASE_MAX));
+            return String(PHASE.InteralToNormalised(mRichter.LFOPair2._LFO.getManualPhase()));
             
         case tempoNumerLFO2:
             return String(mRichter.LFOPair2._LFO.getTempoNumer());
@@ -666,16 +666,16 @@ const String RichterAudioProcessor::getParameterText (int index)
             return String(mRichter.LFOPair1._MOD.getTempoSyncSwitch());
             
         case waveMOD1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair1._MOD.getWave(), WAVE_MIN, WAVE_MAX));
+            return String(mRichter.LFOPair1._MOD.getWave());
             
         case depthMOD1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair1._MOD.getDepth(), DEPTH_MIN, DEPTH_MAX));
+            return String(DEPTH.InteralToNormalised(mRichter.LFOPair1._MOD.getDepth()));
             
         case freqMOD1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair1._MOD.getFreq(), FREQ_MIN, FREQ_MAX));
+            return String(FREQ.InteralToNormalised(mRichter.LFOPair1._MOD.getFreq()));
             
         case phaseMOD1:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair1._MOD.getManualPhase(), PHASE_MIN, PHASE_MAX));
+            return String(PHASE.InteralToNormalised(mRichter.LFOPair1._MOD.getManualPhase()));
             
         case tempoNumerMOD1:
             return String(mRichter.LFOPair1._MOD.getTempoNumer());
@@ -697,16 +697,16 @@ const String RichterAudioProcessor::getParameterText (int index)
             return String(mRichter.LFOPair2._MOD.getTempoSyncSwitch());
             
         case waveMOD2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair2._MOD.getWave(), WAVE_MIN, WAVE_MAX));
+            return String(mRichter.LFOPair2._MOD.getWave());
             
         case depthMOD2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair2._MOD.getDepth(), DEPTH_MIN, DEPTH_MAX));
+            return String(DEPTH.InteralToNormalised(mRichter.LFOPair2._MOD.getDepth()));
             
         case freqMOD2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair2._MOD.getFreq(), FREQ_MIN, FREQ_MAX));
+            return String(FREQ.InteralToNormalised(mRichter.LFOPair2._MOD.getFreq()));
             
         case phaseMOD2:
-            return String(TranslateParam_Inter2Norm(mRichter.LFOPair2._MOD.getManualPhase(), PHASE_MIN, PHASE_MAX));
+            return String(PHASE.InteralToNormalised(mRichter.LFOPair2._MOD.getManualPhase()));
             
         case tempoNumerMOD2:
             return String(mRichter.LFOPair2._MOD.getTempoNumer());
@@ -721,7 +721,7 @@ const String RichterAudioProcessor::getParameterText (int index)
             return String(mRichter.getStereo());
             
         case masterVol:
-            return String(TranslateParam_Inter2Norm(mRichter.getMasterVol(), MASTERVOL_MIN, MASTERVOL_MAX));
+            return String(MASTERVOL.InteralToNormalised(mRichter.getMasterVol()));
             
         default:
             return String::empty;
@@ -861,12 +861,6 @@ void RichterAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
     // this code if your algorithm already fills all the output channels.
     for (int i = getNumInputChannels(); i < getNumOutputChannels(); ++i) {
         buffer.clear (i, 0, buffer.getNumSamples());
-    }
-    
-    if (mRichter.getMasterVol() < MASTERVOL_MIN) {
-        mRichter.setMasterVol(MASTERVOL_MIN);
-    } else if (mRichter.getMasterVol() > MASTERVOL_MAX) {
-        mRichter.setMasterVol(MASTERVOL_MAX);
     }
 
     juce::AudioPlayHead::CurrentPositionInfo mTempoInfo;
