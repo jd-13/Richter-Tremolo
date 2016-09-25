@@ -866,8 +866,8 @@ void RichterAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
     juce::AudioPlayHead::CurrentPositionInfo mTempoInfo;
     getPlayHead()->getCurrentPosition(mTempoInfo);
     
-    mRichter.LFOPair1.prepareForNextBuffer(mTempoInfo, getSampleRate());
-    mRichter.LFOPair2.prepareForNextBuffer(mTempoInfo, getSampleRate());
+    mRichter.LFOPair1.prepareForNextBuffer(mTempoInfo.bpm, mTempoInfo.timeInSeconds, getSampleRate());
+    mRichter.LFOPair2.prepareForNextBuffer(mTempoInfo.bpm, mTempoInfo.timeInSeconds, getSampleRate());
     
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
