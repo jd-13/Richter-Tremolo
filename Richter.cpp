@@ -31,8 +31,8 @@ Richter::~Richter() {}
 
 void Richter::ClockProcess1in1out(float *inSample) {
     
-    float tremoloGain { LFOPair1.calcGainInLoop()
-                        * LFOPair2.calcGainInLoop()};
+    double tremoloGain { LFOPair1.calcGainInLoop()
+                         * LFOPair2.calcGainInLoop()};
     
     *inSample = *inSample * tremoloGain * masterVol;
 }
@@ -47,8 +47,8 @@ void Richter::ClockProcess1in2out(float *inLeftSample, float *inRightSample) {
                             * LFOPair1.calcGainInLoop()
                             * masterVol;
     } else {
-        float tremoloGain { LFOPair1.calcGainInLoop()
-                            * LFOPair2.calcGainInLoop()};
+        double tremoloGain { LFOPair1.calcGainInLoop()
+                             * LFOPair2.calcGainInLoop()};
         
         *inLeftSample = *inLeftSample * tremoloGain * masterVol;
         *inRightSample = *inRightSample * tremoloGain * masterVol;
@@ -66,7 +66,7 @@ void Richter::ClockProcess2in2out(float* inLeftSample, float* inRightSample) {
                             * LFOPair2.calcGainInLoop()
                             * masterVol;
     } else {
-        float tremoloGain {LFOPair1.calcGainInLoop()
+        double tremoloGain {LFOPair1.calcGainInLoop()
                             * LFOPair2.calcGainInLoop()};
         
         *inLeftSample = *inLeftSample * tremoloGain * masterVol;
