@@ -103,10 +103,10 @@ void RichterLookAndFeel::drawLinearSliderBackground(Graphics& g,
                                                     int y,
                                                     int width,
                                                     int height,
-                                                    float sliderPos,
-                                                    float minSliderPos,
-                                                    float maxSliderPos,
-                                                    const Slider::SliderStyle style,
+                                                    float /*sliderPos*/,
+                                                    float /*minSliderPos*/,
+                                                    float /*maxSliderPos*/,
+                                                    const Slider::SliderStyle /*style*/,
                                                     Slider& slider) {
     g.setColour(lightGrey);
     
@@ -117,9 +117,9 @@ void RichterLookAndFeel::drawLinearSliderBackground(Graphics& g,
 
 void RichterLookAndFeel::drawButtonBackground(Graphics& g,
                                             Button& button,
-                                            const Colour& backgroundColour,
-                                            bool isMouseOverButton,
-                                            bool isButtonDown) {
+                                            const Colour& /*backgroundColour*/,
+                                            bool /*isMouseOverButton*/,
+                                            bool /*isButtonDown*/) {
     const int width {button.getWidth()};
     const int height {button.getHeight()};
     
@@ -158,8 +158,8 @@ void RichterLookAndFeel::drawButtonBackground(Graphics& g,
 
 void RichterLookAndFeel::drawButtonText(Graphics& g,
                                         TextButton& textButton,
-                                        bool isMouseOverButton,
-                                        bool isButtonDown) {
+                                        bool /*isMouseOverButton*/,
+                                        bool /*isButtonDown*/) {
     
     Colour* textColour {nullptr};
     
@@ -185,13 +185,13 @@ void RichterLookAndFeel::drawButtonText(Graphics& g,
 }
 
 void RichterLookAndFeel::drawRotarySlider(Graphics& g,
-                                          int x,
-                                          int y,
+                                          int /*x*/,
+                                          int /*y*/,
                                           int width,
                                           int height,
-                                          float sliderPosProportional,
-                                          float rotaryStartAngle,
-                                          float rotaryEndAngle,
+                                          float /*sliderPosProportional*/,
+                                          float /*rotaryStartAngle*/,
+                                          float /*rotaryEndAngle*/,
                                           Slider &slider) {
     // calculate useful constants
     const double rangeOfMotion {260 * (M_PI / 180)};
@@ -222,9 +222,9 @@ void RichterLookAndFeel::drawRotarySlider(Graphics& g,
 }
 
 void RichterLookAndFeel::drawComboBox(Graphics& g,
-                                      int width,
-                                      int height,
-                                      const bool isButtonDown,
+                                      int /*width*/,
+                                      int /*height*/,
+                                      const bool /*isButtonDown*/,
                                       int buttonX,
                                       int buttonY,
                                       int buttonW,
@@ -256,10 +256,10 @@ void RichterLookAndFeel::drawComboBox(Graphics& g,
 
 
 void RichterLookAndFeel::drawGroupComponentOutline(Graphics& g,
-                                                   int width,
-                                                   int height,
+                                                   int /*width*/,
+                                                   int /*height*/,
                                                    const String& title,
-                                                   const Justification& justification,
+                                                   const Justification& /*justification*/,
                                                    GroupComponent& groupComponent) {
     Path p;
     PathStrokeType pStroke(1);
