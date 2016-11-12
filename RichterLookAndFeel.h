@@ -31,38 +31,12 @@
 #include <string.h>
 #include <memory>
 #include "math.h"
+#include "CoreLookAndFeel.h"
 
-class RichterLookAndFeel : public LookAndFeel_V2 {
+class RichterLookAndFeel : public CoreLookAndFeel {
 public:
     RichterLookAndFeel();
     virtual ~RichterLookAndFeel() {}
-    
-    virtual void drawButtonBackground(Graphics& g,
-                                      Button& button,
-                                      const Colour& backgroundColour,
-                                      bool isMouseOverButton,
-                                      bool isButtonDown) override;
-    
-    virtual void drawRotarySlider(Graphics& g,
-                                  int x,
-                                  int y,
-                                  int width,
-                                  int height,
-                                  float sliderPosProportional,
-                                  float rotaryStartAngle,
-                                  float rotaryEndAngle,
-                                  Slider& slider) override;
-    
-    virtual void drawLinearSliderThumb(Graphics& g,
-                                       int x,
-                                       int y,
-                                       int width,
-                                       int height,
-                                       float sliderPos,
-                                       float minSliderPos,
-                                       float maxSliderPos,
-                                       const Slider::SliderStyle style,
-                                       Slider& slider) override;
     
     virtual void drawLinearSliderBackground(Graphics& g,
                                             int x,
@@ -75,47 +49,42 @@ public:
                                             const Slider::SliderStyle style,
                                             Slider& slider) override;
     
-    virtual void drawButtonText(Graphics& g,
-                                TextButton& textButton,
-                                bool isMouseOverButton,
-                                bool isButtonDown) override;
-    
-    virtual void drawComboBox(Graphics& g,
-                              int width,
-                              int height,
-                              const bool isButtonDown,
-                              int buttonX,
-                              int buttonY,
-                              int buttonW,
-                              int buttonH,
-                              ComboBox& box) override;
-    
     virtual void drawGroupComponentOutline(Graphics& g,
                                            int width,
                                            int height,
                                            const String& title,
                                            const Justification& justification,
                                            GroupComponent& groupComponent) override;
-    
-    virtual void drawTooltip(Graphics& g,
-                             const String& text,
-                             int width,
-                             int height) override;
+
     
     void updateLFOState(String lfoName, bool val);
     
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(RichterLookAndFeel);
     
-    Colour  lightGrey,
-            darkGrey,
-            neonGreen;
-    
     bool    LFO1On,
             LFO2On,
             MOD1On,
             MOD2On;
 
+};
+
+// needed for the small buttons on the tempo sync ratio, they look weird with a border
+class RichterTempoButtonLookAndFeel : public RichterLookAndFeel {
+public:
+    RichterTempoButtonLookAndFeel() : RichterLookAndFeel() {}
+    virtual ~RichterTempoButtonLookAndFeel() {}
+    
+    virtual void drawButtonBackground(Graphics& /*g*/,
+                                      Button& /*button*/,
+                                      const Colour& /*backgroundColour*/,
+                                      bool /*isMouseOverButton*/,
+                                      bool /*isButtonDown*/) override {
+        // do nothing
+    }
+    
+private:
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(RichterTempoButtonLookAndFeel);
 };
 
 

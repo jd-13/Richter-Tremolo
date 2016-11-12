@@ -537,6 +537,20 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     startTimer(200);
 
     LookAndFeel::setDefaultLookAndFeel(&customLookAndFeel);
+    customLookAndFeel.setHighlightColour(Colour(0, 250, 0));
+    tempoLookAndFeel.setHighlightColour(Colour(0, 250, 0));
+
+    TempoNumerLFO1Sld->setLookAndFeel(&tempoLookAndFeel);
+    TempoDenomLFO1Sld->setLookAndFeel(&tempoLookAndFeel);
+    
+    TempoNumerLFO2Sld->setLookAndFeel(&tempoLookAndFeel);
+    TempoDenomLFO2Sld->setLookAndFeel(&tempoLookAndFeel);
+
+    TempoNumerMOD1Sld->setLookAndFeel(&tempoLookAndFeel);
+    TempoDenomMOD1Sld->setLookAndFeel(&tempoLookAndFeel);
+
+    TempoNumerMOD2Sld->setLookAndFeel(&tempoLookAndFeel);
+    TempoDenomMOD2Sld->setLookAndFeel(&tempoLookAndFeel);
 
     // make tempo sync buttons draggable
     TempoNumerLFO1Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
