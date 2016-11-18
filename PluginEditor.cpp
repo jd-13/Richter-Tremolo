@@ -542,7 +542,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerLFO1Sld->setLookAndFeel(&tempoLookAndFeel);
     TempoDenomLFO1Sld->setLookAndFeel(&tempoLookAndFeel);
-    
+
     TempoNumerLFO2Sld->setLookAndFeel(&tempoLookAndFeel);
     TempoDenomLFO2Sld->setLookAndFeel(&tempoLookAndFeel);
 
