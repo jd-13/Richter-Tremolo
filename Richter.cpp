@@ -1,106 +1,75 @@
 /*
-  ==============================================================================
-
-    Richter.cpp
-    Created: 24 Nov 2015 6:56:33pm
-    Author:  Jack Devlin
-
-  ==============================================================================
-*/
+ *  File:       Richter.cpp
+ *
+ *  Version:    2.0.0
+ *
+ *  Created:    24/11/2015
+ *
+ *	This file is part of Richter.
+ *
+ *  Richter is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *
+ *  Richter is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with the Richter.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
 #include "Richter.h"
 
-Richter::Richter() :    LFO1(), LFO2(), MOD1(), MOD2(),
+Richter::Richter() :    LFOPair1(), LFOPair2(),
                         isStereo(STEREO_DEFAULT) {
 }
 
 Richter::~Richter() {}
 
-void Richter::ClockProcess1in1out(float *inSample, int index) {
-    LFO1.calcIndexAndScaleInLoop(samplesProcessed);
-    LFO2.calcIndexAndScaleInLoop(samplesProcessed);
-    MOD1.calcIndexAndScaleInLoop(samplesProcessed);
-    MOD2.calcIndexAndScaleInLoop(samplesProcessed);
+void Richter::ClockProcess1in1out(float *inSample) {
     
-    if ((samplesProcessed >= sampleLimit) && (index == 0)) { // TODO: replace with index stored in LFO 1
-        resetSamplesProcessed();
-    }
-    
-    // Check whether MOD oscs are activated and apply depth parameter modulation accordingly
-    LFO1.calcDepthInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
-    LFO2.calcDepthInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
-    
-    LFO1.calcFreqInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
-    LFO2.calcFreqInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
-    
-    
-    float tremoloGain {LFO1.calcGain() * LFO2.calcGain()};
+    double tremoloGain { LFOPair1.calcGainInLoop()
+                         * LFOPair2.calcGainInLoop()};
     
     *inSample = *inSample * tremoloGain * masterVol;
-    
-    samplesProcessed += 1;
 }
 
-void Richter::ClockProcess1in2out(float *inLeftSample, float *inRightSample, int index) {
-    LFO1.calcIndexAndScaleInLoop(samplesProcessed);
-    LFO2.calcIndexAndScaleInLoop(samplesProcessed);
-    MOD1.calcIndexAndScaleInLoop(samplesProcessed);
-    MOD2.calcIndexAndScaleInLoop(samplesProcessed);
-    
-    if ((samplesProcessed >= sampleLimit) && (index == 0)) { // TODO: replace with index stored in LFO 1
-        resetSamplesProcessed();
-    }
-    
-    // Check whether MOD oscs are activated and apply depth parameter modulation accordingly
-    LFO1.calcDepthInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
-    LFO2.calcDepthInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
-    
-    LFO1.calcFreqInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
-    LFO2.calcFreqInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
-    
-    
+void Richter::ClockProcess1in2out(float *inLeftSample, float *inRightSample) {
     
     if (isStereo) {
-        *inRightSample = *inLeftSample * LFO2.calcGain() * masterVol;
-        *inLeftSample = *inLeftSample * LFO1.calcGain() * masterVol;
+        *inRightSample =    *inLeftSample
+                            * LFOPair2.calcGainInLoop()
+                            * masterVol;
+        *inLeftSample =     *inLeftSample
+                            * LFOPair1.calcGainInLoop()
+                            * masterVol;
     } else {
-        float tremoloGain = (LFO1.calcGain()) * (LFO2.calcGain());
+        double tremoloGain { LFOPair1.calcGainInLoop()
+                             * LFOPair2.calcGainInLoop()};
+        
         *inLeftSample = *inLeftSample * tremoloGain * masterVol;
         *inRightSample = *inRightSample * tremoloGain * masterVol;
     }
-    
-    
-    samplesProcessed += 1;
 }
 
-void Richter::ClockProcess2in2out(float* inLeftSample, float* inRightSample, int index) {
-    LFO1.calcIndexAndScaleInLoop(samplesProcessed);
-    LFO2.calcIndexAndScaleInLoop(samplesProcessed);
-    MOD1.calcIndexAndScaleInLoop(samplesProcessed);
-    MOD2.calcIndexAndScaleInLoop(samplesProcessed);
-    
-    if ((samplesProcessed >= sampleLimit) && (index == 0)) { // TODO: replace with index stored in LFO 1
-        resetSamplesProcessed();
-    }
-    
-    // Check whether MOD oscs are activated and apply depth parameter modulation accordingly
-    LFO1.calcDepthInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
-    LFO2.calcDepthInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
-    
-    LFO1.calcFreqInLoop(MOD1.getBypassSwitch(), MOD1.calcGain());
-    LFO2.calcFreqInLoop(MOD2.getBypassSwitch(), MOD2.calcGain());
-    
-    
+void Richter::ClockProcess2in2out(float* inLeftSample, float* inRightSample) {
     
     if (isStereo) {
-        *inLeftSample = *inLeftSample * LFO1.calcGain() * masterVol;
-        *inRightSample = *inRightSample * LFO2.calcGain() * masterVol;
+        *inLeftSample =     *inLeftSample
+                            * LFOPair1.calcGainInLoop()
+                            * masterVol;
+        
+        *inRightSample =    *inRightSample
+                            * LFOPair2.calcGainInLoop()
+                            * masterVol;
     } else {
-        float tremoloGain = (LFO1.calcGain()) * (LFO2.calcGain());
+        double tremoloGain {LFOPair1.calcGainInLoop()
+                            * LFOPair2.calcGainInLoop()};
+        
         *inLeftSample = *inLeftSample * tremoloGain * masterVol;
         *inRightSample = *inRightSample * tremoloGain * masterVol;
     }
-    
-    samplesProcessed += 1;
-    
 }

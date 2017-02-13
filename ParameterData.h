@@ -26,64 +26,13 @@
 #define PARAMETERDATA_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "ParameterDefinition.h"
 
-enum	{kWaveArraySize = 2000};
+const ParameterDefinition::RangedParameter<float>   MASTERVOL(0, 2, 1);
 
-const int   WAVE_SINE = 1,
-            WAVE_SQUARE = 2,
-            WAVE_SAW = 3,
-            WAVE_DEFAULT = WAVE_SINE,
-            WAVE_MIN = WAVE_SINE,
-            WAVE_MAX = WAVE_SAW,
-
-            TEMPONUMER_MIN = 1,
-            TEMPONUMER_MAX = 4,
-            TEMPONUMER_DEFAULT = TEMPONUMER_MIN,
-
-            TEMPODENOM_MIN = 1,
-            TEMPODENOM_MAX = 32,
-            TEMPODENOM_DEFAULT = TEMPODENOM_MIN,
-
-            PHASE_MIN = 0,
-            PHASE_MAX = kWaveArraySize,
-            PHASE_DEFAULT = PHASE_MIN;
-
-const float DEPTH_DEFAULT = 0.5,
-            DEPTH_MIN = 0,
-            DEPTH_MAX = 1,
-
-            DEPTHMOD_DEFAULT = 0,
-            DEPTHMOD_MIN = 0,
-            DEPTHMOD_MAX = 1,
-
-            FREQ_DEFAULT = 2,
-            FREQ_MIN = 0.5,
-            FREQ_MAX = 20,
-
-            FREQMOD_DEFAULT = 0,
-            FREQMOD_MIN = 0,
-            FREQMOD_MAX = 1,
-            
-            MASTERVOL_DEFAULT = 1,
-            MASTERVOL_MIN = 0,
-            MASTERVOL_MAX = 2;
-
-const bool  LFOSWITCH_OFF = false,
-            LFOSWITCH_ON = true,
-            LFOSWITCH_DEFAULT = LFOSWITCH_OFF,
-
-            TEMPOSYNC_OFF = false,
-            TEMPOSYNC_ON = true,
-            TEMPOSYNC_DEFAULT = TEMPOSYNC_OFF,
-
-            PHASESYNC_OFF = false,
-            PHASESYNC_ON = true,
-            PHASESYNC_DEFAULT = PHASESYNC_OFF,
-
-            STEREO_OFF = false,
+const bool  STEREO_OFF = false,
             STEREO_ON = true,
             STEREO_DEFAULT = STEREO_OFF;
-
 
 const String    SWITCHLFO1_STR = "LFO1Bypass",
                 SWITCHLFO2_STR = "LFO2Bypass",
@@ -131,37 +80,6 @@ const String    SWITCHLFO1_STR = "LFO1Bypass",
                 GROUP_LFO2 = "LFO2",
                 GROUP_MOD1 = "MOD1",
                 GROUP_MOD2 = "MOD2";
-
-
-/* TranslateParam_Norm2Inter
- *
- * Translates parameter values from the normalised (0 to 1) range as required
- * by VSTs to the range used internally for that parameter
- *
- * args: val    Normalised value of the parameter
- *       min    The minimum value of the parameter, as specified above
- *       max    The maximum value of the parameter, as specified above
- *
- * return: The value of the parameter in the internal range for that parameter
- */
-inline float TranslateParam_Norm2Inter(float val, float min, float max) {
-    return val * (max - min) + min;
-}
-
-/* TranslateParam_Inter2Norm
- *
- * Translates parameter values from the range used internally for that
- * parameter, to the normalised range (0 to 1) as required by VSTs.
- *
- * args: val    Value of the parameter in the internal range
- *       min    The minimum value of the parameter, as specified above
- *       max    The maximum value of the parameter, as specified above
- *
- * return: The normalised value of the parameter
- */
-inline float TranslateParam_Inter2Norm(float val, float min, float max) {
-    return (val - min) / (max - min);
-}
 
 
 #endif  // PARAMETERDATA_H_INCLUDED
