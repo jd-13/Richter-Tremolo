@@ -24,7 +24,7 @@
 #ifndef RICHTER_H_INCLUDED
 #define RICHTER_H_INCLUDED
 
-#include "RichterLFOPair.h"
+#include "RichterLFO/RichterLFOPair.h"
 #include "ParameterData.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 

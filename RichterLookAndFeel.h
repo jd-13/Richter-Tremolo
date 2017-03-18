@@ -31,7 +31,7 @@
 #include <string.h>
 #include <memory>
 #include "math.h"
-#include "CoreLookAndFeel.h"
+#include "CoreLookAndFeel/CoreLookAndFeel.h"
 
 class RichterLookAndFeel : public CoreLookAndFeel {
 public:

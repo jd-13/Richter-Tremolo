@@ -26,7 +26,7 @@
 #define PARAMETERDATA_H_INCLUDED
 
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "ParameterDefinition.h"
+#include "General/ParameterDefinition.h"
 
 const ParameterDefinition::RangedParameter<float>   MASTERVOL(0, 2, 1);
 
