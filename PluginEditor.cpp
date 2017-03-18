@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 4.2.1
+  Created with Projucer version: 4.3.0
 
   ------------------------------------------------------------------------------
 
@@ -28,7 +28,7 @@
 
 //==============================================================================
 RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor& ownerFilter)
-    : AudioProcessorEditor(ownerFilter)
+    : CoreProcessorEditor(ownerFilter)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -536,7 +536,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     //[Constructor] You can add your own custom stuff here..
     startTimer(200);
 
-    LookAndFeel::setDefaultLookAndFeel(&customLookAndFeel);
+    _assignLookAndFeelToAllChildren(customLookAndFeel);
     customLookAndFeel.setHighlightColour(Colour(0, 250, 0));
     tempoLookAndFeel.setHighlightColour(Colour(0, 250, 0));
 
@@ -1222,8 +1222,8 @@ void RichterAudioProcessorEditor::timerCallback()
 BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="RichterAudioProcessorEditor"
-                 componentName="" parentClasses="public AudioProcessorEditor, public Timer"
-                 constructorParams="RichterAudioProcessor&amp; ownerFilter" variableInitialisers="AudioProcessorEditor(ownerFilter)"
+                 componentName="" parentClasses="public CoreProcessorEditor, public Timer"
+                 constructorParams="RichterAudioProcessor&amp; ownerFilter" variableInitialisers="CoreProcessorEditor(ownerFilter)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="675" initialHeight="340">
   <BACKGROUND backgroundColour="ffffffff"/>

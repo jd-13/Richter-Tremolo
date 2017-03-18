@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 4.2.1
+  Created with Projucer version: 4.3.0
 
   ------------------------------------------------------------------------------
 
@@ -24,6 +24,7 @@
 #include "JuceHeader.h"
 #include "PluginProcessor.h"
 #include "RichterLookAndFeel.h"
+#include "CoreJUCEPlugin/CoreProcessorEditor.h"
 //[/Headers]
 
 
@@ -36,7 +37,7 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class RichterAudioProcessorEditor  : public AudioProcessorEditor,
+class RichterAudioProcessorEditor  : public CoreProcessorEditor,
                                      public Timer,
                                      public SliderListener,
                                      public ComboBoxListener,
@@ -67,7 +68,6 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     RichterLookAndFeel customLookAndFeel;
     RichterTempoButtonLookAndFeel tempoLookAndFeel;
-    SharedResourcePointer<TooltipWindow> tooltipWindow;
     //[/UserVariables]
 
     //==============================================================================
