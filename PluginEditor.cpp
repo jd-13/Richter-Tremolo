@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 4.3.0
+  Created with Projucer version: 5.0.1
 
   ------------------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (FreqLFO1Lbl = new Label ("LFO 1 Freq Label",
                                                 TRANS("Rate")));
-    FreqLFO1Lbl->setFont (Font (15.00f, Font::plain));
+    FreqLFO1Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     FreqLFO1Lbl->setJustificationType (Justification::centredLeft);
     FreqLFO1Lbl->setEditable (false, false, false);
     FreqLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -103,7 +103,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (DepthLFO1Lbl = new Label ("LFO 1 Depth Label",
                                                  TRANS("Depth")));
-    DepthLFO1Lbl->setFont (Font (15.00f, Font::plain));
+    DepthLFO1Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     DepthLFO1Lbl->setJustificationType (Justification::centredLeft);
     DepthLFO1Lbl->setEditable (false, false, false);
     DepthLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -112,7 +112,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (WaveLFO1Lbl = new Label ("LFO 1 Wave Label",
                                                 TRANS("Wave\n")));
-    WaveLFO1Lbl->setFont (Font (15.00f, Font::plain));
+    WaveLFO1Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     WaveLFO1Lbl->setJustificationType (Justification::centredLeft);
     WaveLFO1Lbl->setEditable (false, false, false);
     WaveLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -172,7 +172,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (FreqLFO2Lbl = new Label ("LFO 2 Freq Label",
                                                 TRANS("Rate")));
-    FreqLFO2Lbl->setFont (Font (15.00f, Font::plain));
+    FreqLFO2Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     FreqLFO2Lbl->setJustificationType (Justification::centredLeft);
     FreqLFO2Lbl->setEditable (false, false, false);
     FreqLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -181,7 +181,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (DepthLFO2Lbl = new Label ("LFO 2 Depth Label",
                                                  TRANS("Depth")));
-    DepthLFO2Lbl->setFont (Font (15.00f, Font::plain));
+    DepthLFO2Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     DepthLFO2Lbl->setJustificationType (Justification::centredLeft);
     DepthLFO2Lbl->setEditable (false, false, false);
     DepthLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -190,7 +190,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (WaveLFO2Lbl = new Label ("LFO 2 Wave Label",
                                                 TRANS("Wave\n")));
-    WaveLFO2Lbl->setFont (Font (15.00f, Font::plain));
+    WaveLFO2Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     WaveLFO2Lbl->setJustificationType (Justification::centredLeft);
     WaveLFO2Lbl->setEditable (false, false, false);
     WaveLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -260,7 +260,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (PhaseLFO1Lbl = new Label ("LFO 1 Phase Label",
                                                  TRANS("Phase")));
-    PhaseLFO1Lbl->setFont (Font (15.00f, Font::plain));
+    PhaseLFO1Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     PhaseLFO1Lbl->setJustificationType (Justification::centredLeft);
     PhaseLFO1Lbl->setEditable (false, false, false);
     PhaseLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -277,7 +277,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (PhaseLFO2Lbl = new Label ("LFO 2 Phase Label",
                                                  TRANS("Phase")));
-    PhaseLFO2Lbl->setFont (Font (15.00f, Font::plain));
+    PhaseLFO2Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     PhaseLFO2Lbl->setJustificationType (Justification::centredLeft);
     PhaseLFO2Lbl->setEditable (false, false, false);
     PhaseLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -321,7 +321,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (FreqMOD1Lbl = new Label ("MOD 1 Freq Label",
                                                 TRANS("Rate")));
-    FreqMOD1Lbl->setFont (Font (15.00f, Font::plain));
+    FreqMOD1Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     FreqMOD1Lbl->setJustificationType (Justification::centredLeft);
     FreqMOD1Lbl->setEditable (false, false, false);
     FreqMOD1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -330,7 +330,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (DepthMOD1Lbl = new Label ("MOD 1 Depth Label",
                                                  TRANS("Depth")));
-    DepthMOD1Lbl->setFont (Font (15.00f, Font::plain));
+    DepthMOD1Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     DepthMOD1Lbl->setJustificationType (Justification::centredLeft);
     DepthMOD1Lbl->setEditable (false, false, false);
     DepthMOD1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -339,7 +339,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (WaveMOD1Lbl = new Label ("MOD 1 Wave Label",
                                                 TRANS("Wave\n")));
-    WaveMOD1Lbl->setFont (Font (15.00f, Font::plain));
+    WaveMOD1Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     WaveMOD1Lbl->setJustificationType (Justification::centredLeft);
     WaveMOD1Lbl->setEditable (false, false, false);
     WaveMOD1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -382,7 +382,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (PhaseMOD1Lbl = new Label ("MOD 1 Phase Label",
                                                  TRANS("Phase")));
-    PhaseMOD1Lbl->setFont (Font (15.00f, Font::plain));
+    PhaseMOD1Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     PhaseMOD1Lbl->setJustificationType (Justification::centredLeft);
     PhaseMOD1Lbl->setEditable (false, false, false);
     PhaseMOD1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -426,7 +426,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (FreqMOD2Lbl = new Label ("MOD 2 Freq Label",
                                                 TRANS("Rate")));
-    FreqMOD2Lbl->setFont (Font (15.00f, Font::plain));
+    FreqMOD2Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     FreqMOD2Lbl->setJustificationType (Justification::centredLeft);
     FreqMOD2Lbl->setEditable (false, false, false);
     FreqMOD2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -435,7 +435,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (DepthMOD2Lbl = new Label ("MOD 2 Depth Label",
                                                  TRANS("Depth")));
-    DepthMOD2Lbl->setFont (Font (15.00f, Font::plain));
+    DepthMOD2Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     DepthMOD2Lbl->setJustificationType (Justification::centredLeft);
     DepthMOD2Lbl->setEditable (false, false, false);
     DepthMOD2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -444,7 +444,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (WaveMOD2Lbl = new Label ("MOD 2 Wave Label",
                                                 TRANS("Wave\n")));
-    WaveMOD2Lbl->setFont (Font (15.00f, Font::plain));
+    WaveMOD2Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     WaveMOD2Lbl->setJustificationType (Justification::centredLeft);
     WaveMOD2Lbl->setEditable (false, false, false);
     WaveMOD2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -487,7 +487,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (PhaseMOD2Lbl = new Label ("MOD 2 Phase Label",
                                                  TRANS("Phase")));
-    PhaseMOD2Lbl->setFont (Font (15.00f, Font::plain));
+    PhaseMOD2Lbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     PhaseMOD2Lbl->setJustificationType (Justification::centredLeft);
     PhaseMOD2Lbl->setEditable (false, false, false);
     PhaseMOD2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -501,7 +501,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (MasterVolLbl = new Label ("Master Vol Label",
                                                  TRANS("Master Vol")));
-    MasterVolLbl->setFont (Font (15.00f, Font::plain));
+    MasterVolLbl->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     MasterVolLbl->setJustificationType (Justification::centredLeft);
     MasterVolLbl->setEditable (false, false, false);
     MasterVolLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -510,7 +510,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (MODLFO1Lbl = new Label ("MOD LFO1 Label",
                                                TRANS("- MOD -")));
-    MODLFO1Lbl->setFont (Font (10.00f, Font::plain));
+    MODLFO1Lbl->setFont (Font (10.00f, Font::plain).withTypefaceStyle ("Regular"));
     MODLFO1Lbl->setJustificationType (Justification::centredLeft);
     MODLFO1Lbl->setEditable (false, false, false);
     MODLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -519,7 +519,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     addAndMakeVisible (MODLFO2Lbl = new Label ("MOD LFO2 Label",
                                                TRANS("- MOD -")));
-    MODLFO2Lbl->setFont (Font (10.00f, Font::plain));
+    MODLFO2Lbl->setFont (Font (10.00f, Font::plain).withTypefaceStyle ("Regular"));
     MODLFO2Lbl->setJustificationType (Justification::centredLeft);
     MODLFO2Lbl->setEditable (false, false, false);
     MODLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
@@ -1266,17 +1266,17 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="76 144 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="LFO 1 Depth Label" id="fa48be8976dad123" memberName="DepthLFO1Lbl"
          virtualName="" explicitFocusOrder="0" pos="128 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="LFO 1 Wave Label" id="75dbcd5f6a0cc700" memberName="WaveLFO1Lbl"
          virtualName="" explicitFocusOrder="0" pos="254 160 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <GROUPCOMPONENT name="LFO 2 Group" id="35e8ad61c86b603a" memberName="LFO2Group"
                   virtualName="" explicitFocusOrder="0" pos="342 72 280 128" title="LFO2"/>
   <SLIDER name="LFO 2 Depth Slider" id="2596adc2e61cd58e" memberName="DepthLFO2Sld"
@@ -1310,17 +1310,17 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="364 144 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="LFO 2 Depth Label" id="39dd59a998ec443" memberName="DepthLFO2Lbl"
          virtualName="" explicitFocusOrder="0" pos="416 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="LFO 2 Wave Label" id="e01fc09efde6d339" memberName="WaveLFO2Lbl"
          virtualName="" explicitFocusOrder="0" pos="542 160 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="LFO 1 Tempo Sync Button" id="95825bc0b3290b8b" memberName="TempoSyncLFO1Btn"
               virtualName="" explicitFocusOrder="0" pos="70 96 56 16" tooltip="Tempo sync LFO frequency"
               buttonText="Tempo Sync" connectedEdges="0" needsCallback="1"
@@ -1367,7 +1367,7 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="182 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <SLIDER name="LFO 2 Phase Slider" id="df30ce6c91b8975b" memberName="PhaseLFO2Sld"
           virtualName="" explicitFocusOrder="0" pos="478 120 32 24" tooltip="Changes the phase of the LFO by up to 360 degrees"
           rotarysliderfill="7f00ff03" min="0" max="1" int="0.010000000000000000208"
@@ -1377,7 +1377,7 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="470 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <GROUPCOMPONENT name="MOD 1 Group" id="a2c7412d0fb46a58" memberName="MOD1Group"
                   virtualName="" explicitFocusOrder="0" pos="54 200 280 128" title="MOD1"/>
   <SLIDER name="MOD 1 Depth Slider" id="499f6451911662cc" memberName="DepthMOD1Sld"
@@ -1401,17 +1401,17 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="76 272 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="MOD 1 Depth Label" id="77092a4a55225c68" memberName="DepthMOD1Lbl"
          virtualName="" explicitFocusOrder="0" pos="128 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="MOD 1 Wave Label" id="7eb50c1a44463588" memberName="WaveMOD1Lbl"
          virtualName="" explicitFocusOrder="0" pos="254 288 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="MOD 1 Tempo Sync Button" id="b43affdb8ac7bb90" memberName="TempoSyncMOD1Btn"
               virtualName="" explicitFocusOrder="0" pos="70 224 56 16" tooltip="Tempo sync LFO frequency"
               buttonText="Tempo Sync" connectedEdges="0" needsCallback="1"
@@ -1439,7 +1439,7 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="182 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <GROUPCOMPONENT name="MOD 2 Group" id="384e0ba59bb5f2ff" memberName="MOD2Group"
                   virtualName="" explicitFocusOrder="0" pos="342 200 280 128" title="MOD2"/>
   <SLIDER name="MOD 2 Depth Slider" id="8c1762ee0dd0d28a" memberName="DepthMOD2Sld"
@@ -1463,17 +1463,17 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="364 272 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="MOD 2 Depth Label" id="c19bf3a6d5ab63f9" memberName="DepthMOD2Lbl"
          virtualName="" explicitFocusOrder="0" pos="416 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="MOD 2 Wave Label" id="1bdb7eca9ab250c8" memberName="WaveMOD2Lbl"
          virtualName="" explicitFocusOrder="0" pos="542 288 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="MOD 2 Tempo Sync Button" id="bfc616fbcdb92b04" memberName="TempoSyncMOD2Btn"
               virtualName="" explicitFocusOrder="0" pos="358 224 56 16" tooltip="Tempo sync LFO frequency"
               buttonText="Tempo Sync" connectedEdges="0" needsCallback="1"
@@ -1501,7 +1501,7 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="470 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="Stereo Button" id="91683bb4fa1cc3c7" memberName="StereoBtn"
               virtualName="" explicitFocusOrder="0" pos="542 48 72 24" tooltip="Enables LFO 1 and LFO 2 to operate on the left and right channels independently"
               buttonText="Stereo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -1509,17 +1509,17 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="456 48 80 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Master Vol" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="MOD LFO1 Label" id="486fb1a75ad5862e" memberName="MODLFO1Lbl"
          virtualName="" explicitFocusOrder="0" pos="100 164 94 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="- MOD -" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="10" bold="0" italic="0" justification="33"/>
+         fontsize="10" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="MOD LFO2 Label" id="b1a4c6d32abd91a5" memberName="MODLFO2Lbl"
          virtualName="" explicitFocusOrder="0" pos="388 164 94 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="- MOD -" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="10" bold="0" italic="0" justification="33"/>
+         fontsize="10" kerning="0" bold="0" italic="0" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
