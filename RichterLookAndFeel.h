@@ -33,7 +33,7 @@
 #include "math.h"
 #include "CoreJUCEPlugin/CoreLookAndFeel.h"
 
-class RichterLookAndFeel : public CoreLookAndFeel {
+class RichterLookAndFeel : public WECore::JUCEPlugin::CoreLookAndFeel {
 public:
     RichterLookAndFeel();
     virtual ~RichterLookAndFeel() {}

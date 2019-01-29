@@ -7,12 +7,12 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.0.1
+  Created with Projucer version: 5.4.1
 
   ------------------------------------------------------------------------------
 
-  The Projucer is part of the JUCE library - "Jules' Utility Class Extensions"
-  Copyright (c) 2015 - ROLI Ltd.
+  The Projucer is part of the JUCE library.
+  Copyright (c) 2017 - ROLI Ltd.
 
   ==============================================================================
 */
@@ -36,11 +36,11 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class RichterAudioProcessorEditor  : public CoreProcessorEditor,
+class RichterAudioProcessorEditor  : public WECore::JUCEPlugin::CoreProcessorEditor,
                                      public Timer,
-                                     public SliderListener,
-                                     public ComboBoxListener,
-                                     public ButtonListener
+                                     public Slider::Listener,
+                                     public ComboBox::Listener,
+                                     public Button::Listener
 {
 public:
     //==============================================================================
@@ -70,71 +70,71 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    ScopedPointer<GroupComponent> LFO1Group;
-    ScopedPointer<Slider> DepthLFO1Sld;
-    ScopedPointer<Slider> FreqLFO1Sld;
-    ScopedPointer<ComboBox> WaveLFO1Cmb;
-    ScopedPointer<Slider> DepthModLFO1Sld;
-    ScopedPointer<Slider> FreqModLFO1Sld;
-    ScopedPointer<Slider> MasterVolSld;
-    ScopedPointer<TextButton> BypassLFO1Btn;
-    ScopedPointer<Label> FreqLFO1Lbl;
-    ScopedPointer<Label> DepthLFO1Lbl;
-    ScopedPointer<Label> WaveLFO1Lbl;
-    ScopedPointer<GroupComponent> LFO2Group;
-    ScopedPointer<Slider> DepthLFO2Sld;
-    ScopedPointer<Slider> FreqLFO2Sld;
-    ScopedPointer<ComboBox> WaveLFO2Cmb;
-    ScopedPointer<Slider> DepthModLFO2Sld;
-    ScopedPointer<Slider> FreqModLFO2Sld;
-    ScopedPointer<TextButton> BypassLFO2Btn;
-    ScopedPointer<Label> FreqLFO2Lbl;
-    ScopedPointer<Label> DepthLFO2Lbl;
-    ScopedPointer<Label> WaveLFO2Lbl;
-    ScopedPointer<TextButton> TempoSyncLFO1Btn;
-    ScopedPointer<TextButton> TempoSyncLFO2Btn;
-    ScopedPointer<Slider> TempoNumerLFO1Sld;
-    ScopedPointer<Slider> TempoDenomLFO1Sld;
-    ScopedPointer<Slider> TempoNumerLFO2Sld;
-    ScopedPointer<Slider> TempoDenomLFO2Sld;
-    ScopedPointer<TextButton> PhaseSyncLFO1Btn;
-    ScopedPointer<TextButton> PhaseSyncLFO2Btn;
-    ScopedPointer<Slider> PhaseLFO1Sld;
-    ScopedPointer<Label> PhaseLFO1Lbl;
-    ScopedPointer<Slider> PhaseLFO2Sld;
-    ScopedPointer<Label> PhaseLFO2Lbl;
-    ScopedPointer<GroupComponent> MOD1Group;
-    ScopedPointer<Slider> DepthMOD1Sld;
-    ScopedPointer<Slider> FreqMOD1Sld;
-    ScopedPointer<ComboBox> WaveMOD1Cmb;
-    ScopedPointer<TextButton> BypassMOD1Btn;
-    ScopedPointer<Label> FreqMOD1Lbl;
-    ScopedPointer<Label> DepthMOD1Lbl;
-    ScopedPointer<Label> WaveMOD1Lbl;
-    ScopedPointer<TextButton> TempoSyncMOD1Btn;
-    ScopedPointer<Slider> TempoNumerMOD1Sld;
-    ScopedPointer<Slider> TempoDenomMOD1Sld;
-    ScopedPointer<TextButton> PhaseSyncMOD1Btn;
-    ScopedPointer<Slider> PhaseMOD1Sld;
-    ScopedPointer<Label> PhaseMOD1Lbl;
-    ScopedPointer<GroupComponent> MOD2Group;
-    ScopedPointer<Slider> DepthMOD2Sld;
-    ScopedPointer<Slider> FreqMOD2Sld;
-    ScopedPointer<ComboBox> WaveMOD2Cmb;
-    ScopedPointer<TextButton> BypassMOD2Btn;
-    ScopedPointer<Label> FreqMOD2Lbl;
-    ScopedPointer<Label> DepthMOD2Lbl;
-    ScopedPointer<Label> WaveMOD2Lbl;
-    ScopedPointer<TextButton> TempoSyncMOD2Btn;
-    ScopedPointer<Slider> TempoNumerMOD2Sld;
-    ScopedPointer<Slider> TempoDenomMOD2Sld;
-    ScopedPointer<TextButton> PhaseSyncMOD2Btn;
-    ScopedPointer<Slider> PhaseMOD2Sld;
-    ScopedPointer<Label> PhaseMOD2Lbl;
-    ScopedPointer<TextButton> StereoBtn;
-    ScopedPointer<Label> MasterVolLbl;
-    ScopedPointer<Label> MODLFO1Lbl;
-    ScopedPointer<Label> MODLFO2Lbl;
+    std::unique_ptr<GroupComponent> LFO1Group;
+    std::unique_ptr<Slider> DepthLFO1Sld;
+    std::unique_ptr<Slider> FreqLFO1Sld;
+    std::unique_ptr<ComboBox> WaveLFO1Cmb;
+    std::unique_ptr<Slider> DepthModLFO1Sld;
+    std::unique_ptr<Slider> FreqModLFO1Sld;
+    std::unique_ptr<Slider> MasterVolSld;
+    std::unique_ptr<TextButton> BypassLFO1Btn;
+    std::unique_ptr<Label> FreqLFO1Lbl;
+    std::unique_ptr<Label> DepthLFO1Lbl;
+    std::unique_ptr<Label> WaveLFO1Lbl;
+    std::unique_ptr<GroupComponent> LFO2Group;
+    std::unique_ptr<Slider> DepthLFO2Sld;
+    std::unique_ptr<Slider> FreqLFO2Sld;
+    std::unique_ptr<ComboBox> WaveLFO2Cmb;
+    std::unique_ptr<Slider> DepthModLFO2Sld;
+    std::unique_ptr<Slider> FreqModLFO2Sld;
+    std::unique_ptr<TextButton> BypassLFO2Btn;
+    std::unique_ptr<Label> FreqLFO2Lbl;
+    std::unique_ptr<Label> DepthLFO2Lbl;
+    std::unique_ptr<Label> WaveLFO2Lbl;
+    std::unique_ptr<TextButton> TempoSyncLFO1Btn;
+    std::unique_ptr<TextButton> TempoSyncLFO2Btn;
+    std::unique_ptr<Slider> TempoNumerLFO1Sld;
+    std::unique_ptr<Slider> TempoDenomLFO1Sld;
+    std::unique_ptr<Slider> TempoNumerLFO2Sld;
+    std::unique_ptr<Slider> TempoDenomLFO2Sld;
+    std::unique_ptr<TextButton> PhaseSyncLFO1Btn;
+    std::unique_ptr<TextButton> PhaseSyncLFO2Btn;
+    std::unique_ptr<Slider> PhaseLFO1Sld;
+    std::unique_ptr<Label> PhaseLFO1Lbl;
+    std::unique_ptr<Slider> PhaseLFO2Sld;
+    std::unique_ptr<Label> PhaseLFO2Lbl;
+    std::unique_ptr<GroupComponent> MOD1Group;
+    std::unique_ptr<Slider> DepthMOD1Sld;
+    std::unique_ptr<Slider> FreqMOD1Sld;
+    std::unique_ptr<ComboBox> WaveMOD1Cmb;
+    std::unique_ptr<TextButton> BypassMOD1Btn;
+    std::unique_ptr<Label> FreqMOD1Lbl;
+    std::unique_ptr<Label> DepthMOD1Lbl;
+    std::unique_ptr<Label> WaveMOD1Lbl;
+    std::unique_ptr<TextButton> TempoSyncMOD1Btn;
+    std::unique_ptr<Slider> TempoNumerMOD1Sld;
+    std::unique_ptr<Slider> TempoDenomMOD1Sld;
+    std::unique_ptr<TextButton> PhaseSyncMOD1Btn;
+    std::unique_ptr<Slider> PhaseMOD1Sld;
+    std::unique_ptr<Label> PhaseMOD1Lbl;
+    std::unique_ptr<GroupComponent> MOD2Group;
+    std::unique_ptr<Slider> DepthMOD2Sld;
+    std::unique_ptr<Slider> FreqMOD2Sld;
+    std::unique_ptr<ComboBox> WaveMOD2Cmb;
+    std::unique_ptr<TextButton> BypassMOD2Btn;
+    std::unique_ptr<Label> FreqMOD2Lbl;
+    std::unique_ptr<Label> DepthMOD2Lbl;
+    std::unique_ptr<Label> WaveMOD2Lbl;
+    std::unique_ptr<TextButton> TempoSyncMOD2Btn;
+    std::unique_ptr<Slider> TempoNumerMOD2Sld;
+    std::unique_ptr<Slider> TempoDenomMOD2Sld;
+    std::unique_ptr<TextButton> PhaseSyncMOD2Btn;
+    std::unique_ptr<Slider> PhaseMOD2Sld;
+    std::unique_ptr<Label> PhaseMOD2Lbl;
+    std::unique_ptr<TextButton> StereoBtn;
+    std::unique_ptr<Label> MasterVolLbl;
+    std::unique_ptr<Label> MODLFO1Lbl;
+    std::unique_ptr<Label> MODLFO2Lbl;
 
 
     //==============================================================================

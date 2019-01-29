@@ -33,7 +33,7 @@ public:
     Richter();
     ~Richter();
     
-    RichterLFOPair LFOPair1, LFOPair2;
+    WECore::Richter::RichterLFOPair LFOPair1, LFOPair2;
     
     /* ClockProcess1in1out
      *
