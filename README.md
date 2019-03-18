@@ -3,7 +3,7 @@ Richter is a VST and Audio Unit tremolo plugin built using JUCE, featuring four 
 
 For more details and a free download of the compiled plugin: https://www.whiteelephantaudio.com/#plugins  
 
-![](https://whiteelephantaudio.com/thumbs/richterThumbOriginal.png)
+![](https://whiteelephantaudio.com/images/thumbs/originals/richterFull.png)
 
 ## Built using:  
 
