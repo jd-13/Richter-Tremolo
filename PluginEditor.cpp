@@ -868,6 +868,7 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
 
 
     //[Destructor]. You can add your own custom destruction code here..
+    _removeLookAndFeelFromAllChildren();
     //[/Destructor]
 }
 
