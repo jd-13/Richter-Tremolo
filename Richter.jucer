@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="koTjaP" name="Richter" projectType="audioplug" version="2.0.2"
+              bundleIdentifier="com.whiteelephantaudio.Richter" includeBinaryInAppConfig="1"
+              buildVST="1" buildVST3="1" buildAU="1" buildRTAS="0" buildAAX="0"
+              pluginName="Richter" pluginDesc="Richter" pluginManufacturer="White Elephant Audio"
+              pluginManufacturerCode="WEle" pluginCode="Rich" pluginChannelConfigs="{1, 1}, {1, 2}, {2, 2}"
+              pluginIsSynth="0" pluginWantsMidiIn="0" pluginProducesMidiOut="0"
+              pluginSilenceInIsSilenceOut="1" pluginEditorRequiresKeys="0"
+              pluginAUExportPrefix="RichterAU" pluginRTASCategory="" aaxIdentifier="com.whiteelephantaudio.Richter"
+              pluginAAXCategory="2" jucerVersion="5.4.1" companyName="White Elephant Audio"
+              companyWebsite="https://www.whiteelephantaudio.com" companyEmail="info@whiteelephantaudio.com"
+              buildAUv3="0" pluginIsMidiEffectPlugin="0" displaySplashScreen="0"
+              reportAppUsage="0" splashScreenColour="Dark" buildStandalone="0"
+              enableIAA="0" pluginFormats="buildVST,buildVST3,buildAU">
+  <MAINGROUP id="RDijmB" name="Richter">
+    <GROUP id="{E02DA306-B025-C26B-704D-83B247C7AC13}" name="Graphics">
+      <FILE id="x8IczZ" name="Richter Background.png" compile="0" resource="1"
+            file="Source/Graphics/Richter Background.png"/>
+    </GROUP>
+    <GROUP id="{1E6DDB0B-2F62-396D-F124-847431C0083E}" name="Source">
+      <GROUP id="{339A74FE-7A1E-F680-D32D-26B3FA25ED67}" name="GUI">
+        <FILE id="a0w3TF" name="RichterLookAndFeel.cpp" compile="1" resource="0"
+              file="Source/RichterLookAndFeel.cpp"/>
+        <FILE id="pxEMCU" name="RichterLookAndFeel.h" compile="0" resource="0"
+              file="Source/RichterLookAndFeel.h"/>
+        <FILE id="XpPIJh" name="PluginEditor.cpp" compile="1" resource="0"
+              file="Source/PluginEditor.cpp"/>
+        <FILE id="o0RJxh" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      </GROUP>
+      <FILE id="X88VaZ" name="Richter.cpp" compile="1" resource="0" file="Source/Richter.cpp"/>
+      <FILE id="fkI6vW" name="Richter.h" compile="0" resource="0" file="Source/Richter.h"/>
+      <FILE id="CzKZO0" name="ParameterData.h" compile="0" resource="0" file="Source/ParameterData.h"/>
+      <FILE id="BIr0v6" name="PluginProcessor.cpp" compile="1" resource="0"
+            file="Source/PluginProcessor.cpp"/>
+      <FILE id="nB56i7" name="PluginProcessor.h" compile="0" resource="0"
+            file="Source/PluginProcessor.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX" postbuildCommand="" extraCompilerFlags="-Wall -Wextra -Wconversion -Wshadow -Wpedantic"
+               vstFolder="~/SDKs/VST3 SDK">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" osxArchitecture="64BitIntel" isDebug="0" optimisation="3"
+                       targetName="Richter" cppLibType="" cppLanguageStandard="" linkTimeOptimisation="1"
+                       headerPath="$(WECORE_SRC)"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Richter"
+                       cppLanguageStandard="" cppLibType=""/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_video" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../../../SDKs/JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../../../../../SDKs/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile" vst3Folder="~/SDKs/VST3 SDK"
+                extraCompilerFlags="-Wall -Wextra -Wconversion -Wshadow -Wpedantic"
+                vstFolder="~/SDKs/VST3 SDK">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/" isDebug="0" optimisation="3"
+                       targetName="Richter" headerPath="~/WEA/WECore/Source/&#10;"/>
+        <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib/" isDebug="0" optimisation="3"
+                       targetName="Richter"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_video" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_opengl" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_plugin_client" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../JUCE/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
+    <VS2017 targetFolder="Builds/VisualStudio2017">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" headerPath="C:\WEA\WECore\Source\WECore"/>
+        <CONFIGURATION isDebug="0" name="Release"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_video"/>
+        <MODULEPATH id="juce_opengl"/>
+        <MODULEPATH id="juce_gui_extra"/>
+        <MODULEPATH id="juce_gui_basics"/>
+        <MODULEPATH id="juce_graphics"/>
+        <MODULEPATH id="juce_events"/>
+        <MODULEPATH id="juce_data_structures"/>
+        <MODULEPATH id="juce_cryptography"/>
+        <MODULEPATH id="juce_core"/>
+        <MODULEPATH id="juce_audio_processors"/>
+        <MODULEPATH id="juce_audio_plugin_client"/>
+        <MODULEPATH id="juce_audio_formats"/>
+        <MODULEPATH id="juce_audio_devices"/>
+        <MODULEPATH id="juce_audio_basics"/>
+      </MODULEPATHS>
+    </VS2017>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_formats" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_plugin_client" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_audio_processors" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_opengl" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_video" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_QUICKTIME="disabled"/>
+  <LIVE_SETTINGS>
+    <OSX/>
+  </LIVE_SETTINGS>
+</JUCERPROJECT>
