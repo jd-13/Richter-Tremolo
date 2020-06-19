@@ -43,7 +43,7 @@
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" osxArchitecture="64BitIntel" isDebug="0" optimisation="3"
                        targetName="Richter" cppLibType="" cppLanguageStandard="" linkTimeOptimisation="1"
-                       headerPath="$(WECORE_SRC)"/>
+                       headerPath="../../../WECore/Source/WECore"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Richter"
                        cppLanguageStandard="" cppLibType=""/>
       </CONFIGURATIONS>
