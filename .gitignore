@@ -1,4 +1,4 @@
-RotarySlider*
 .DS_Store
-Builds/*
-JuceLibraryCode/*
+Builds
+JuceLibraryCode
+private
