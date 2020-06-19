@@ -32,9 +32,9 @@ class Richter {
 public:
     Richter();
     ~Richter();
-    
+
     WECore::Richter::RichterLFOPair LFOPair1, LFOPair2;
-    
+
     /* ClockProcess1in1out
      *
      * Performs the effect processing on inSample. Use for mono in->mono out signals.
@@ -42,7 +42,7 @@ public:
      * args: inSample   Pointer to the sample to be processed
      */
     void ClockProcess1in1out(float* inSample);
-    
+
     /* ClockProcess1in2out
      *
      * Performs the effect processing on inLeftSample. Provides stereo processing for
@@ -53,7 +53,7 @@ public:
      *       inRightSample   Pointer to a location in an empty sample buffer
      */
     void ClockProcess1in2out(float* inLeftSample, float* inRightSample);
-    
+
     /* ClockProcess2in2out
      *
      * Performs the effect processing on inLeftSample and inRightSample. Use for
@@ -64,28 +64,28 @@ public:
      */
     void ClockProcess2in2out(float* inLeftSample, float* inRightSample);
 
-    
-    
+
+
     float getStereo() const { return isStereo; }
-    
-    float getMasterVol() const { return masterVol; }
-        
-    
-    
-    
+
+    float getOutputGain() const { return outputGain; }
+
+
+
+
     void setStereo(bool val) { isStereo = val; }
-    
-    void setMasterVol(float val) { masterVol = MASTERVOL.BoundsCheck(val); }
-    
-    
-    
+
+    void setOutputGain(float val) { outputGain = OUTPUTGAIN.BoundsCheck(val); }
+
+
+
 private:
-    float   masterVol;
-    
+    float   outputGain;
+
     enum    { sampleLimit = (int) 10E6 };
-    
+
     bool    isStereo;
-    
+
 };
 
 

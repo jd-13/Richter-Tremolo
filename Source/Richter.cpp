@@ -34,7 +34,7 @@ void Richter::ClockProcess1in1out(float *inSample) {
     double tremoloGain { LFOPair1.calcGainInLoop()
                          * LFOPair2.calcGainInLoop()};
     
-    *inSample = *inSample * tremoloGain * masterVol;
+    *inSample = *inSample * tremoloGain * outputGain;
 }
 
 void Richter::ClockProcess1in2out(float *inLeftSample, float *inRightSample) {
@@ -42,16 +42,16 @@ void Richter::ClockProcess1in2out(float *inLeftSample, float *inRightSample) {
     if (isStereo) {
         *inRightSample =    *inLeftSample
                             * LFOPair2.calcGainInLoop()
-                            * masterVol;
+                            * outputGain;
         *inLeftSample =     *inLeftSample
                             * LFOPair1.calcGainInLoop()
-                            * masterVol;
+                            * outputGain;
     } else {
         double tremoloGain { LFOPair1.calcGainInLoop()
                              * LFOPair2.calcGainInLoop()};
         
-        *inLeftSample = *inLeftSample * tremoloGain * masterVol;
-        *inRightSample = *inRightSample * tremoloGain * masterVol;
+        *inLeftSample = *inLeftSample * tremoloGain * outputGain;
+        *inRightSample = *inRightSample * tremoloGain * outputGain;
     }
 }
 
@@ -60,16 +60,16 @@ void Richter::ClockProcess2in2out(float* inLeftSample, float* inRightSample) {
     if (isStereo) {
         *inLeftSample =     *inLeftSample
                             * LFOPair1.calcGainInLoop()
-                            * masterVol;
+                            * outputGain;
         
         *inRightSample =    *inRightSample
                             * LFOPair2.calcGainInLoop()
-                            * masterVol;
+                            * outputGain;
     } else {
         double tremoloGain {LFOPair1.calcGainInLoop()
                             * LFOPair2.calcGainInLoop()};
         
-        *inLeftSample = *inLeftSample * tremoloGain * masterVol;
-        *inRightSample = *inRightSample * tremoloGain * masterVol;
+        *inLeftSample = *inLeftSample * tremoloGain * outputGain;
+        *inRightSample = *inRightSample * tremoloGain * outputGain;
     }
 }

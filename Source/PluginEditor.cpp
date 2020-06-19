@@ -98,15 +98,15 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqModLFO1Sld->setBounds (86, 168, 16, 16);
 
-    MasterVolSld.reset (new Slider ("Master Vol Slider"));
-    addAndMakeVisible (MasterVolSld.get());
-    MasterVolSld->setTooltip (TRANS("Master volume"));
-    MasterVolSld->setRange (0, 1, 0.01);
-    MasterVolSld->setSliderStyle (Slider::LinearHorizontal);
-    MasterVolSld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    MasterVolSld->addListener (this);
+    OutputGainSld.reset (new Slider ("Output Gain Slider"));
+    addAndMakeVisible (OutputGainSld.get());
+    OutputGainSld->setTooltip (TRANS("Output gain"));
+    OutputGainSld->setRange (0, 1, 0.01);
+    OutputGainSld->setSliderStyle (Slider::LinearHorizontal);
+    OutputGainSld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    OutputGainSld->addListener (this);
 
-    MasterVolSld->setBounds (56, 48, 398, 24);
+    OutputGainSld->setBounds (56, 48, 392, 24);
 
     BypassLFO1Btn.reset (new TextButton ("LFO 1 Bypass Button"));
     addAndMakeVisible (BypassLFO1Btn.get());
@@ -685,17 +685,17 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     StereoBtn->setBounds (542, 48, 72, 24);
 
-    MasterVolLbl.reset (new Label ("Master Vol Label",
-                                   TRANS("Master Vol")));
-    addAndMakeVisible (MasterVolLbl.get());
-    MasterVolLbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    MasterVolLbl->setJustificationType (Justification::centredLeft);
-    MasterVolLbl->setEditable (false, false, false);
-    MasterVolLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    MasterVolLbl->setColour (TextEditor::textColourId, Colours::black);
-    MasterVolLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    OutputGainLbl.reset (new Label ("Output Gain Label",
+                                    TRANS("Output Gain")));
+    addAndMakeVisible (OutputGainLbl.get());
+    OutputGainLbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
+    OutputGainLbl->setJustificationType (Justification::centredLeft);
+    OutputGainLbl->setEditable (false, false, false);
+    OutputGainLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
+    OutputGainLbl->setColour (TextEditor::textColourId, Colours::black);
+    OutputGainLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    MasterVolLbl->setBounds (456, 48, 80, 24);
+    OutputGainLbl->setBounds (448, 48, 88, 24);
 
     MODLFO1Lbl.reset (new Label ("MOD LFO1 Label",
                                  TRANS("- MOD -")));
@@ -789,7 +789,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
     PhaseMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
 
-    MasterVolSld->setDoubleClickReturnValue(true, MASTERVOL.InteralToNormalised(MASTERVOL.defaultValue));
+    OutputGainSld->setDoubleClickReturnValue(true, OUTPUTGAIN.InteralToNormalised(OUTPUTGAIN.defaultValue));
 
 
     //[/Constructor]
@@ -806,7 +806,7 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     WaveLFO1Cmb = nullptr;
     DepthModLFO1Sld = nullptr;
     FreqModLFO1Sld = nullptr;
-    MasterVolSld = nullptr;
+    OutputGainSld = nullptr;
     BypassLFO1Btn = nullptr;
     FreqLFO1Lbl = nullptr;
     DepthLFO1Lbl = nullptr;
@@ -862,7 +862,7 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     PhaseMOD2Sld = nullptr;
     PhaseMOD2Lbl = nullptr;
     StereoBtn = nullptr;
-    MasterVolLbl = nullptr;
+    OutputGainLbl = nullptr;
     MODLFO1Lbl = nullptr;
     MODLFO2Lbl = nullptr;
 
@@ -925,11 +925,11 @@ void RichterAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMoved
         ourProcessor->setParameter(RichterAudioProcessor::freqModLFO1, static_cast<float>(FreqModLFO1Sld->getValue()));
         //[/UserSliderCode_FreqModLFO1Sld]
     }
-    else if (sliderThatWasMoved == MasterVolSld.get())
+    else if (sliderThatWasMoved == OutputGainSld.get())
     {
-        //[UserSliderCode_MasterVolSld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::masterVol, static_cast<float>(MasterVolSld->getValue()));
-        //[/UserSliderCode_MasterVolSld]
+        //[UserSliderCode_OutputGainSld] -- add your slider handling code here..
+        ourProcessor->setParameter(RichterAudioProcessor::outputGain, static_cast<float>(OutputGainSld->getValue()));
+        //[/UserSliderCode_OutputGainSld]
     }
     else if (sliderThatWasMoved == DepthLFO2Sld.get())
     {
@@ -1242,7 +1242,7 @@ void RichterAudioProcessorEditor::timerCallback()
 
 
         StereoBtn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::stereo), dontSendNotification);
-        MasterVolSld->setValue(ourProcessor->getParameter(RichterAudioProcessor::masterVol), dontSendNotification);
+        OutputGainSld->setValue(ourProcessor->getParameter(RichterAudioProcessor::outputGain), dontSendNotification);
 
 
         // Change LFO names if stereo
@@ -1385,8 +1385,8 @@ BEGIN_JUCER_METADATA
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
-  <SLIDER name="Master Vol Slider" id="65acc0b358aa2541" memberName="MasterVolSld"
-          virtualName="" explicitFocusOrder="0" pos="56 48 398 24" tooltip="Master volume"
+  <SLIDER name="Output Gain Slider" id="65acc0b358aa2541" memberName="OutputGainSld"
+          virtualName="" explicitFocusOrder="0" pos="56 48 392 24" tooltip="Output gain"
           min="0.0" max="1.0" int="0.01000000000000000021" style="LinearHorizontal"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1636,9 +1636,9 @@ BEGIN_JUCER_METADATA
   <TEXTBUTTON name="Stereo Button" id="91683bb4fa1cc3c7" memberName="StereoBtn"
               virtualName="" explicitFocusOrder="0" pos="542 48 72 24" tooltip="Enables LFO 1 and LFO 2 to operate on the left and right channels independently"
               buttonText="Stereo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <LABEL name="Master Vol Label" id="431abe2cd3bfe0c4" memberName="MasterVolLbl"
-         virtualName="" explicitFocusOrder="0" pos="456 48 80 24" textCol="ffc8c8c8"
-         edTextCol="ff000000" edBkgCol="0" labelText="Master Vol" editableSingleClick="0"
+  <LABEL name="Output Gain Label" id="431abe2cd3bfe0c4" memberName="OutputGainLbl"
+         virtualName="" explicitFocusOrder="0" pos="448 48 88 24" textCol="ffc8c8c8"
+         edTextCol="ff000000" edBkgCol="0" labelText="Output Gain" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <LABEL name="MOD LFO1 Label" id="486fb1a75ad5862e" memberName="MODLFO1Lbl"

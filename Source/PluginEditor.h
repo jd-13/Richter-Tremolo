@@ -76,7 +76,7 @@ private:
     std::unique_ptr<ComboBox> WaveLFO1Cmb;
     std::unique_ptr<Slider> DepthModLFO1Sld;
     std::unique_ptr<Slider> FreqModLFO1Sld;
-    std::unique_ptr<Slider> MasterVolSld;
+    std::unique_ptr<Slider> OutputGainSld;
     std::unique_ptr<TextButton> BypassLFO1Btn;
     std::unique_ptr<Label> FreqLFO1Lbl;
     std::unique_ptr<Label> DepthLFO1Lbl;
@@ -132,7 +132,7 @@ private:
     std::unique_ptr<Slider> PhaseMOD2Sld;
     std::unique_ptr<Label> PhaseMOD2Lbl;
     std::unique_ptr<TextButton> StereoBtn;
-    std::unique_ptr<Label> MasterVolLbl;
+    std::unique_ptr<Label> OutputGainLbl;
     std::unique_ptr<Label> MODLFO1Lbl;
     std::unique_ptr<Label> MODLFO2Lbl;
 

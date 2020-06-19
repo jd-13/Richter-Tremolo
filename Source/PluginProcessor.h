@@ -70,7 +70,7 @@ public:
     //==============================================================================
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
-    
+
     enum Parameters {
         bypassSwitchLFO1 = 0,
         phaseSyncLFO1,
@@ -83,7 +83,7 @@ public:
         phaseLFO1,
         tempoNumerLFO1,
         tempoDenomLFO1,
-        
+
         bypassSwitchLFO2,
         phaseSyncLFO2,
         tempoSyncLFO2,
@@ -95,7 +95,7 @@ public:
         phaseLFO2,
         tempoNumerLFO2,
         tempoDenomLFO2,
-        
+
         bypassSwitchMOD1,
         phaseSyncMOD1,
         tempoSyncMOD1,
@@ -105,7 +105,7 @@ public:
         phaseMOD1,
         tempoNumerMOD1,
         tempoDenomMOD1,
-        
+
         bypassSwitchMOD2,
         phaseSyncMOD2,
         tempoSyncMOD2,
@@ -115,20 +115,20 @@ public:
         phaseMOD2,
         tempoNumerMOD2,
         tempoDenomMOD2,
-        
+
         stereo,
-        masterVol,
+        outputGain,
         totalNumParams
     };
-    
+
     bool NeedsUIUpdate() {
         return UIUpdateFlag;
     }
-    
+
     void RequestUIUpdate() {
         UIUpdateFlag = true;
     }
-    
+
     void ClearUIUpdate() {
         UIUpdateFlag = false;
     }
@@ -136,9 +136,9 @@ public:
 private:
     Richter mRichter;
     bool UIUpdateFlag;
-    
+
     String floatVectorToString(const std::vector<float>& fData) const;
-    
+
     int stringToFloatVector(const String sFloatCSV, std::vector<float>& fData, int maxNumFloat) const;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RichterAudioProcessor)

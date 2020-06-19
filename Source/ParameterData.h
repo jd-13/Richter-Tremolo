@@ -28,7 +28,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "General/ParameterDefinition.h"
 
-const ParameterDefinition::RangedParameter<float>   MASTERVOL(0, 2, 1);
+const ParameterDefinition::RangedParameter<float>   OUTPUTGAIN(0, 2, 1);
 
 const bool  STEREO_OFF = false,
             STEREO_ON = true,
@@ -75,7 +75,7 @@ const String    SWITCHLFO1_STR = "LFO1Bypass",
                 TEMPODENOMMOD1_STR = "MOD1TempoDenominator",
                 TEMPODENOMMOD2_STR = "MOD2TempoDenominator",
                 STEREO_STR = "Stereo",
-                MASTERVOL_STR = "MasterVol",
+                OUTPUTGAIN_STR = "OutputGain",
                 GROUP_LFO1 = "LFO1",
                 GROUP_LFO2 = "LFO2",
                 GROUP_MOD1 = "MOD1",
