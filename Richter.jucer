@@ -15,6 +15,10 @@
               enableIAA="0" pluginFormats="buildVST,buildVST3,buildAU">
   <MAINGROUP id="RDijmB" name="Richter">
     <GROUP id="{E02DA306-B025-C26B-704D-83B247C7AC13}" name="Graphics">
+      <FILE id="e8UWm7" name="Montserrat-Bold.ttf" compile="0" resource="1"
+            file="Source/Graphics/Montserrat-Bold.ttf"/>
+      <FILE id="kUjChD" name="Montserrat-Regular.ttf" compile="0" resource="1"
+            file="Source/Graphics/Montserrat-Regular.ttf"/>
       <FILE id="x8IczZ" name="Richter Background.png" compile="0" resource="1"
             file="Source/Graphics/Richter Background.png"/>
     </GROUP>

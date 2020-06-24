@@ -37,7 +37,7 @@ class RichterLookAndFeel : public WECore::JUCEPlugin::CoreLookAndFeel {
 public:
     RichterLookAndFeel();
     virtual ~RichterLookAndFeel() {}
-    
+
     virtual void drawGroupComponentOutline(Graphics& g,
                                            int width,
                                            int height,
@@ -45,17 +45,19 @@ public:
                                            const Justification& justification,
                                            GroupComponent& groupComponent) override;
 
-    
+    virtual Typeface::Ptr getTypefaceForFont(const Font& font) override;
+
     void updateLFOState(String lfoName, bool val);
-    
+
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(RichterLookAndFeel);
-    
+
     bool    LFO1On,
             LFO2On,
             MOD1On,
             MOD2On;
 
+    Font _regularFont;
 };
 
 // needed for the small buttons on the tempo sync ratio, they look weird with a border
@@ -63,7 +65,7 @@ class RichterTempoButtonLookAndFeel : public RichterLookAndFeel {
 public:
     RichterTempoButtonLookAndFeel() : RichterLookAndFeel() {}
     virtual ~RichterTempoButtonLookAndFeel() {}
-    
+
     virtual void drawButtonBackground(Graphics& /*g*/,
                                       Button& /*button*/,
                                       const Colour& /*backgroundColour*/,
@@ -71,7 +73,7 @@ public:
                                       bool /*isButtonDown*/) override {
         // do nothing
     }
-    
+
 private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(RichterTempoButtonLookAndFeel);
 };

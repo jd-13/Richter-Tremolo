@@ -263,7 +263,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     TempoSyncLFO1Btn.reset (new TextButton ("LFO 1 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncLFO1Btn.get());
     TempoSyncLFO1Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
-    TempoSyncLFO1Btn->setButtonText (TRANS("Tempo Sync"));
+    TempoSyncLFO1Btn->setButtonText (TRANS("Tempo"));
     TempoSyncLFO1Btn->addListener (this);
 
     TempoSyncLFO1Btn->setBounds (70, 96, 56, 16);
@@ -271,7 +271,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     TempoSyncLFO2Btn.reset (new TextButton ("LFO 2 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncLFO2Btn.get());
     TempoSyncLFO2Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
-    TempoSyncLFO2Btn->setButtonText (TRANS("Tempo Sync"));
+    TempoSyncLFO2Btn->setButtonText (TRANS("Tempo"));
     TempoSyncLFO2Btn->addListener (this);
 
     TempoSyncLFO2Btn->setBounds (358, 96, 56, 16);
@@ -472,7 +472,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     TempoSyncMOD1Btn.reset (new TextButton ("MOD 1 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncMOD1Btn.get());
     TempoSyncMOD1Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
-    TempoSyncMOD1Btn->setButtonText (TRANS("Tempo Sync"));
+    TempoSyncMOD1Btn->setButtonText (TRANS("Tempo"));
     TempoSyncMOD1Btn->addListener (this);
 
     TempoSyncMOD1Btn->setBounds (70, 224, 56, 16);
@@ -619,7 +619,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     TempoSyncMOD2Btn.reset (new TextButton ("MOD 2 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncMOD2Btn.get());
     TempoSyncMOD2Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
-    TempoSyncMOD2Btn->setButtonText (TRANS("Tempo Sync"));
+    TempoSyncMOD2Btn->setButtonText (TRANS("Tempo"));
     TempoSyncMOD2Btn->addListener (this);
 
     TempoSyncMOD2Btn->setBounds (358, 224, 56, 16);
@@ -746,6 +746,9 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerMOD2Sld->setLookAndFeel(&tempoLookAndFeel);
     TempoDenomMOD2Sld->setLookAndFeel(&tempoLookAndFeel);
+
+    // This is needed for the fonts to be applied
+    RichterLookAndFeel::setDefaultLookAndFeel(&customLookAndFeel);
 
     // make tempo sync buttons draggable
     TempoNumerLFO1Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
@@ -1454,12 +1457,10 @@ BEGIN_JUCER_METADATA
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="LFO 1 Tempo Sync Button" id="95825bc0b3290b8b" memberName="TempoSyncLFO1Btn"
               virtualName="" explicitFocusOrder="0" pos="70 96 56 16" tooltip="Tempo sync LFO frequency"
-              buttonText="Tempo Sync" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="LFO 2 Tempo Sync Button" id="3a20b52dc2308f55" memberName="TempoSyncLFO2Btn"
               virtualName="" explicitFocusOrder="0" pos="358 96 56 16" tooltip="Tempo sync LFO frequency"
-              buttonText="Tempo Sync" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="LFO 1 Tempo Numer Slider" id="ae3b2cb5fc40f879" memberName="TempoNumerLFO1Sld"
           virtualName="" explicitFocusOrder="0" pos="70 128 56 16" textboxbkgd="ffc8c8c8"
           textboxoutline="808080" min="1.0" max="4.0" int="1.0" style="IncDecButtons"
@@ -1545,8 +1546,7 @@ BEGIN_JUCER_METADATA
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="MOD 1 Tempo Sync Button" id="b43affdb8ac7bb90" memberName="TempoSyncMOD1Btn"
               virtualName="" explicitFocusOrder="0" pos="70 224 56 16" tooltip="Tempo sync LFO frequency"
-              buttonText="Tempo Sync" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 1 Tempo Numer Slider" id="6c49dac77f3e6f4b" memberName="TempoNumerMOD1Sld"
           virtualName="" explicitFocusOrder="0" pos="70 256 56 16" textboxbkgd="ffc8c8c8"
           textboxoutline="808080" min="1.0" max="4.0" int="1.0" style="IncDecButtons"
@@ -1607,8 +1607,7 @@ BEGIN_JUCER_METADATA
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="MOD 2 Tempo Sync Button" id="bfc616fbcdb92b04" memberName="TempoSyncMOD2Btn"
               virtualName="" explicitFocusOrder="0" pos="358 224 56 16" tooltip="Tempo sync LFO frequency"
-              buttonText="Tempo Sync" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 2 Tempo Numer Slider" id="2bcaaa8e6b75d2b9" memberName="TempoNumerMOD2Sld"
           virtualName="" explicitFocusOrder="0" pos="358 256 56 16" textboxbkgd="ffc8c8c8"
           textboxoutline="9808080" min="1.0" max="4.0" int="1.0" style="IncDecButtons"

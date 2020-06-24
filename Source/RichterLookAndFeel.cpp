@@ -30,6 +30,10 @@ RichterLookAndFeel::RichterLookAndFeel() :  CoreLookAndFeel(),
                                             MOD2On(false) {
     setColour(PopupMenu::highlightedBackgroundColourId, darkColour);
     setColour(PopupMenu::backgroundColourId, lightColour);
+
+    _regularFont = Font(Typeface::createSystemTypefaceFor(BinaryData::MontserratRegular_ttf,
+                                                          BinaryData::MontserratRegular_ttfSize));
+    jassert(_regularFont.getTypefaceName().isNotEmpty());
 }
 
 // Used as an interface between the LFO bypass buttons and drawGroupComponentOutline
@@ -54,7 +58,7 @@ void RichterLookAndFeel::drawGroupComponentOutline(Graphics& g,
     Path p;
     PathStrokeType pStroke(1);
     Colour* outlineColour {&lightColour};
-    
+
     // find which LFO this group is for and find if the lfo is active
     if (title == GROUP_LFO1) {
         if (LFO1On) {
@@ -73,10 +77,14 @@ void RichterLookAndFeel::drawGroupComponentOutline(Graphics& g,
             outlineColour = &highlightColour;
         }
     }
-    
+
     const int indent {5};
     p.addRoundedRectangle(0 + indent, 0 + indent, groupComponent.getWidth() - 2 * indent, groupComponent.getHeight() - 2 * indent, 10);
-    
+
     g.setColour(*outlineColour);
     g.strokePath(p, pStroke);
+}
+
+Typeface::Ptr RichterLookAndFeel::getTypefaceForFont(const Font& /*font*/) {
+    return _regularFont.getTypeface();
 }
