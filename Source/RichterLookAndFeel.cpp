@@ -23,8 +23,7 @@
 
 #include "RichterLookAndFeel.h"
 
-RichterLookAndFeel::RichterLookAndFeel() :  CoreLookAndFeel(),
-                                            LFO1On(false),
+RichterLookAndFeel::RichterLookAndFeel() :  LFO1On(false),
                                             LFO2On(false),
                                             MOD1On(false),
                                             MOD2On(false) {
