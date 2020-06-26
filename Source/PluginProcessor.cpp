@@ -62,7 +62,7 @@ RichterAudioProcessor::RichterAudioProcessor()
     mRichter.setStereo(STEREO_DEFAULT);
     mRichter.setOutputGain(OUTPUTGAIN.defaultValue);
 
-    UIUpdateFlag = true;
+    _UIUpdateFlag = true;
 
 }
 
@@ -963,37 +963,10 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
         setParameter(tempoSyncMOD2, getParameter(tempoSyncMOD2));
 
 
-        UIUpdateFlag = true;
+        _UIUpdateFlag = true;
     }
 }
 
-String RichterAudioProcessor::floatVectorToString(const std::vector<float>& fData) const {
-    String result {""};
-
-    if (fData.size() < 1) {
-        return result;
-    }
-
-    for (int iii {0}; iii < (fData.size() - 1); iii++) {
-        result << String(fData[iii])<<",";
-    }
-
-    result << String(fData[fData.size() - 1]);
-
-    return result;
-}
-
-int RichterAudioProcessor::stringToFloatVector(const String sFloatCSV, std::vector<float>& fData, int maxNumFloat) const {
-    StringArray tokenizer;
-    int tokenCount {tokenizer.addTokens(sFloatCSV, ",","")};
-    int resultCount {(maxNumFloat <= tokenCount) ? maxNumFloat : tokenCount};
-
-    for (int iii {0}; iii < resultCount; iii++) {
-        fData.push_back(tokenizer[iii].getFloatValue());
-    }
-
-    return ((tokenCount <= maxNumFloat) ? resultCount : -1);
-}
 //==============================================================================
 // This creates new instances of the plugin..
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()

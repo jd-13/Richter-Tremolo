@@ -20,10 +20,12 @@
 #pragma once
 
 //[Headers]     -- You can add your own extra header files here --
-#include "JuceHeader.h"
 #include "PluginProcessor.h"
-#include "RichterLookAndFeel.h"
+#include "JuceHeader.h"
 #include "CoreJUCEPlugin/CoreProcessorEditor.h"
+#include "RichterLFOCache.h"
+#include "RichterLFOMeter.h"
+#include "RichterLookAndFeel.h"
 //[/Headers]
 
 
@@ -67,6 +69,7 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     RichterLookAndFeel customLookAndFeel;
     RichterTempoButtonLookAndFeel tempoLookAndFeel;
+    Colour _highlightColour;
     //[/UserVariables]
 
     //==============================================================================
@@ -135,6 +138,10 @@ private:
     std::unique_ptr<Label> OutputGainLbl;
     std::unique_ptr<Label> MODLFO1Lbl;
     std::unique_ptr<Label> MODLFO2Lbl;
+    std::unique_ptr<RichterLFOMeter> MeterLFO1;
+    std::unique_ptr<RichterLFOMeter> MeterLFO2;
+    std::unique_ptr<RichterLFOMeter> MeterMOD1;
+    std::unique_ptr<RichterLFOMeter> MeterMOD2;
 
 
     //==============================================================================

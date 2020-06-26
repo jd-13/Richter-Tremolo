@@ -15,8 +15,6 @@
               enableIAA="0" pluginFormats="buildVST,buildVST3,buildAU">
   <MAINGROUP id="RDijmB" name="Richter">
     <GROUP id="{E02DA306-B025-C26B-704D-83B247C7AC13}" name="Graphics">
-      <FILE id="e8UWm7" name="Montserrat-Bold.ttf" compile="0" resource="1"
-            file="Source/Graphics/Montserrat-Bold.ttf"/>
       <FILE id="kUjChD" name="Montserrat-Regular.ttf" compile="0" resource="1"
             file="Source/Graphics/Montserrat-Regular.ttf"/>
       <FILE id="x8IczZ" name="Richter Background.png" compile="0" resource="1"
@@ -24,6 +22,12 @@
     </GROUP>
     <GROUP id="{1E6DDB0B-2F62-396D-F124-847431C0083E}" name="Source">
       <GROUP id="{339A74FE-7A1E-F680-D32D-26B3FA25ED67}" name="GUI">
+        <FILE id="zbtSeQ" name="RichterLFOCache.h" compile="0" resource="0"
+              file="Source/RichterLFOCache.h"/>
+        <FILE id="xWK9Wt" name="RichterLFOMeter.cpp" compile="1" resource="0"
+              file="Source/RichterLFOMeter.cpp"/>
+        <FILE id="XXQscB" name="RichterLFOMeter.h" compile="0" resource="0"
+              file="Source/RichterLFOMeter.h"/>
         <FILE id="a0w3TF" name="RichterLookAndFeel.cpp" compile="1" resource="0"
               file="Source/RichterLookAndFeel.cpp"/>
         <FILE id="pxEMCU" name="RichterLookAndFeel.h" compile="0" resource="0"

@@ -11,16 +11,18 @@
 #ifndef PLUGINPROCESSOR_H_INCLUDED
 #define PLUGINPROCESSOR_H_INCLUDED
 
-#include "../JuceLibraryCode/JuceHeader.h"
-#include "Richter.h"
-#include "ParameterData.h"
 #include <memory>
+#include "../JuceLibraryCode/JuceHeader.h"
+#include "CoreJUCEPlugin/CoreAudioProcessor.h"
+#include "ParameterData.h"
+#include "Richter.h"
+
 
 
 //==============================================================================
 /**
 */
-class RichterAudioProcessor  : public AudioProcessor
+class RichterAudioProcessor  : public WECore::JUCEPlugin::CoreAudioProcessor
 {
 public:
     //==============================================================================
@@ -70,6 +72,8 @@ public:
     //==============================================================================
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
+
+    const RichterLFOCache& getLFOCache() { return mRichter.getLFOCache(); }
 
     enum Parameters {
         bypassSwitchLFO1 = 0,
@@ -121,25 +125,9 @@ public:
         totalNumParams
     };
 
-    bool NeedsUIUpdate() {
-        return UIUpdateFlag;
-    }
-
-    void RequestUIUpdate() {
-        UIUpdateFlag = true;
-    }
-
-    void ClearUIUpdate() {
-        UIUpdateFlag = false;
-    }
-
 private:
     Richter mRichter;
-    bool UIUpdateFlag;
 
-    String floatVectorToString(const std::vector<float>& fData) const;
-
-    int stringToFloatVector(const String sFloatCSV, std::vector<float>& fData, int maxNumFloat) const;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RichterAudioProcessor)
 };

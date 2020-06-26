@@ -24,9 +24,10 @@
 #ifndef RICHTER_H_INCLUDED
 #define RICHTER_H_INCLUDED
 
-#include "RichterLFO/RichterLFOPair.h"
-#include "ParameterData.h"
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "ParameterData.h"
+#include "RichterLFOCache.h"
+#include "RichterLFO/RichterLFOPair.h"
 
 class Richter {
 public:
@@ -77,14 +78,17 @@ public:
 
     void setOutputGain(float val) { outputGain = OUTPUTGAIN.BoundsCheck(val); }
 
+    const RichterLFOCache& getLFOCache() { return _lfoCache; }
+
 
 
 private:
     float   outputGain;
-
     enum    { sampleLimit = (int) 10E6 };
-
     bool    isStereo;
+    RichterLFOCache _lfoCache;
+
+    void _updateLFOCache();
 
 };
 

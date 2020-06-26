@@ -23,53 +23,62 @@
 
 #include "Richter.h"
 
-Richter::Richter() :    LFOPair1(), LFOPair2(),
-                        isStereo(STEREO_DEFAULT) {
+Richter::Richter() : isStereo(STEREO_DEFAULT) {
 }
 
 Richter::~Richter() {}
 
 void Richter::ClockProcess1in1out(float *inSample) {
-    
-    double tremoloGain { LFOPair1.calcGainInLoop()
-                         * LFOPair2.calcGainInLoop()};
-    
+
+    _updateLFOCache();
+
+    double tremoloGain { _lfoCache.lfo1 * _lfoCache.lfo2};
+
     *inSample = *inSample * tremoloGain * outputGain;
 }
 
 void Richter::ClockProcess1in2out(float *inLeftSample, float *inRightSample) {
-    
+
+    _updateLFOCache();
+
     if (isStereo) {
         *inRightSample =    *inLeftSample
-                            * LFOPair2.calcGainInLoop()
+                            * _lfoCache.lfo2
                             * outputGain;
         *inLeftSample =     *inLeftSample
-                            * LFOPair1.calcGainInLoop()
+                            * _lfoCache.lfo1
                             * outputGain;
     } else {
-        double tremoloGain { LFOPair1.calcGainInLoop()
-                             * LFOPair2.calcGainInLoop()};
-        
+        double tremoloGain { _lfoCache.lfo1 * _lfoCache.lfo2};
+
         *inLeftSample = *inLeftSample * tremoloGain * outputGain;
         *inRightSample = *inRightSample * tremoloGain * outputGain;
     }
 }
 
 void Richter::ClockProcess2in2out(float* inLeftSample, float* inRightSample) {
-    
+
+    _updateLFOCache();
+
     if (isStereo) {
         *inLeftSample =     *inLeftSample
-                            * LFOPair1.calcGainInLoop()
+                            * _lfoCache.lfo1
                             * outputGain;
-        
+
         *inRightSample =    *inRightSample
-                            * LFOPair2.calcGainInLoop()
+                            * _lfoCache.lfo2
                             * outputGain;
     } else {
-        double tremoloGain {LFOPair1.calcGainInLoop()
-                            * LFOPair2.calcGainInLoop()};
-        
+        double tremoloGain {_lfoCache.lfo1 * _lfoCache.lfo2};
+
         *inLeftSample = *inLeftSample * tremoloGain * outputGain;
         *inRightSample = *inRightSample * tremoloGain * outputGain;
     }
+}
+
+void Richter::_updateLFOCache() {
+    _lfoCache.lfo1 = LFOPair1.calcGainInLoop();
+    _lfoCache.lfo2 = LFOPair2.calcGainInLoop();
+    _lfoCache.mod1 = LFOPair1.getMod();
+    _lfoCache.mod2 = LFOPair2.getMod();
 }
