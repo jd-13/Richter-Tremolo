@@ -575,7 +575,7 @@ const String RichterAudioProcessor::getParameterName (int index)
             return OUTPUTGAIN_STR;
 
         default:
-            return String::empty;
+            return String();
     }
 }
 
@@ -724,7 +724,7 @@ const String RichterAudioProcessor::getParameterText (int index)
             return String(OUTPUTGAIN.InteralToNormalised(mRichter.getOutputGain()));
 
         default:
-            return String::empty;
+            return String();
 
     }
 }
