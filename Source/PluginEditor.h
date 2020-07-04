@@ -23,6 +23,7 @@
 #include "PluginProcessor.h"
 #include "JuceHeader.h"
 #include "CoreJUCEPlugin/CoreProcessorEditor.h"
+#include "CoreJUCEPlugin/LabelReadoutSlider.h"
 #include "RichterLFOCache.h"
 #include "RichterLFOMeter.h"
 #include "RichterLookAndFeel.h"
@@ -70,26 +71,30 @@ private:
     RichterLookAndFeel customLookAndFeel;
     RichterTempoButtonLookAndFeel tempoLookAndFeel;
     Colour _highlightColour;
+
+    void _enableDoubleClickToDefault();
+    void _startSliderReadouts();
+    void _stopSliderReadouts();
     //[/UserVariables]
 
     //==============================================================================
     std::unique_ptr<GroupComponent> LFO1Group;
-    std::unique_ptr<Slider> DepthLFO1Sld;
-    std::unique_ptr<Slider> FreqLFO1Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> DepthLFO1Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> FreqLFO1Sld;
     std::unique_ptr<ComboBox> WaveLFO1Cmb;
-    std::unique_ptr<Slider> DepthModLFO1Sld;
-    std::unique_ptr<Slider> FreqModLFO1Sld;
-    std::unique_ptr<Slider> OutputGainSld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> DepthModLFO1Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> FreqModLFO1Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<float>> OutputGainSld;
     std::unique_ptr<TextButton> BypassLFO1Btn;
     std::unique_ptr<Label> FreqLFO1Lbl;
     std::unique_ptr<Label> DepthLFO1Lbl;
     std::unique_ptr<Label> WaveLFO1Lbl;
     std::unique_ptr<GroupComponent> LFO2Group;
-    std::unique_ptr<Slider> DepthLFO2Sld;
-    std::unique_ptr<Slider> FreqLFO2Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> DepthLFO2Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> FreqLFO2Sld;
     std::unique_ptr<ComboBox> WaveLFO2Cmb;
-    std::unique_ptr<Slider> DepthModLFO2Sld;
-    std::unique_ptr<Slider> FreqModLFO2Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> DepthModLFO2Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> FreqModLFO2Sld;
     std::unique_ptr<TextButton> BypassLFO2Btn;
     std::unique_ptr<Label> FreqLFO2Lbl;
     std::unique_ptr<Label> DepthLFO2Lbl;
@@ -102,13 +107,13 @@ private:
     std::unique_ptr<Slider> TempoDenomLFO2Sld;
     std::unique_ptr<TextButton> PhaseSyncLFO1Btn;
     std::unique_ptr<TextButton> PhaseSyncLFO2Btn;
-    std::unique_ptr<Slider> PhaseLFO1Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> PhaseLFO1Sld;
     std::unique_ptr<Label> PhaseLFO1Lbl;
-    std::unique_ptr<Slider> PhaseLFO2Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> PhaseLFO2Sld;
     std::unique_ptr<Label> PhaseLFO2Lbl;
     std::unique_ptr<GroupComponent> MOD1Group;
-    std::unique_ptr<Slider> DepthMOD1Sld;
-    std::unique_ptr<Slider> FreqMOD1Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> DepthMOD1Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> FreqMOD1Sld;
     std::unique_ptr<ComboBox> WaveMOD1Cmb;
     std::unique_ptr<TextButton> BypassMOD1Btn;
     std::unique_ptr<Label> FreqMOD1Lbl;
@@ -118,11 +123,11 @@ private:
     std::unique_ptr<Slider> TempoNumerMOD1Sld;
     std::unique_ptr<Slider> TempoDenomMOD1Sld;
     std::unique_ptr<TextButton> PhaseSyncMOD1Btn;
-    std::unique_ptr<Slider> PhaseMOD1Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> PhaseMOD1Sld;
     std::unique_ptr<Label> PhaseMOD1Lbl;
     std::unique_ptr<GroupComponent> MOD2Group;
-    std::unique_ptr<Slider> DepthMOD2Sld;
-    std::unique_ptr<Slider> FreqMOD2Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> DepthMOD2Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> FreqMOD2Sld;
     std::unique_ptr<ComboBox> WaveMOD2Cmb;
     std::unique_ptr<TextButton> BypassMOD2Btn;
     std::unique_ptr<Label> FreqMOD2Lbl;
@@ -132,7 +137,7 @@ private:
     std::unique_ptr<Slider> TempoNumerMOD2Sld;
     std::unique_ptr<Slider> TempoDenomMOD2Sld;
     std::unique_ptr<TextButton> PhaseSyncMOD2Btn;
-    std::unique_ptr<Slider> PhaseMOD2Sld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> PhaseMOD2Sld;
     std::unique_ptr<Label> PhaseMOD2Lbl;
     std::unique_ptr<TextButton> StereoBtn;
     std::unique_ptr<Label> OutputGainLbl;

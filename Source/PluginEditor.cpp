@@ -40,7 +40,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     LFO1Group->setBounds (48, 72, 288, 128);
 
-    DepthLFO1Sld.reset (new Slider ("LFO 1 Depth Slider"));
+    DepthLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Depth Slider"));
     addAndMakeVisible (DepthLFO1Sld.get());
     DepthLFO1Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthLFO1Sld->setRange (0, 1, 0.01);
@@ -51,7 +51,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     DepthLFO1Sld->setBounds (128, 120, 32, 24);
 
-    FreqLFO1Sld.reset (new Slider ("LFO 1 Freq Slider"));
+    FreqLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Freq Slider"));
     addAndMakeVisible (FreqLFO1Sld.get());
     FreqLFO1Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqLFO1Sld->setRange (0, 1, 0.01);
@@ -76,7 +76,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     WaveLFO1Cmb->setBounds (232, 128, 80, 24);
 
-    DepthModLFO1Sld.reset (new Slider ("LFO 1 Depth Mod Slider"));
+    DepthModLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Depth Mod Slider"));
     addAndMakeVisible (DepthModLFO1Sld.get());
     DepthModLFO1Sld->setTooltip (TRANS("Amount of depth modulation from MOD 1"));
     DepthModLFO1Sld->setRange (0, 1, 0.01);
@@ -87,7 +87,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     DepthModLFO1Sld->setBounds (136, 168, 16, 16);
 
-    FreqModLFO1Sld.reset (new Slider ("LFO 1 Freq Mod Slider"));
+    FreqModLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Freq Mod Slider"));
     addAndMakeVisible (FreqModLFO1Sld.get());
     FreqModLFO1Sld->setTooltip (TRANS("Amount of rate modulation from MOD 1"));
     FreqModLFO1Sld->setRange (0, 1, 0.01);
@@ -98,7 +98,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqModLFO1Sld->setBounds (80, 168, 16, 16);
 
-    OutputGainSld.reset (new Slider ("Output Gain Slider"));
+    OutputGainSld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<float> ("Output Gain Slider"));
     addAndMakeVisible (OutputGainSld.get());
     OutputGainSld->setTooltip (TRANS("Output gain"));
     OutputGainSld->setRange (0, 1, 0.01);
@@ -158,7 +158,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     LFO2Group->setBounds (340, 72, 288, 128);
 
-    DepthLFO2Sld.reset (new Slider ("LFO 2 Depth Slider"));
+    DepthLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Depth Slider"));
     addAndMakeVisible (DepthLFO2Sld.get());
     DepthLFO2Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthLFO2Sld->setRange (0, 1, 0.01);
@@ -169,7 +169,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     DepthLFO2Sld->setBounds (428, 120, 32, 24);
 
-    FreqLFO2Sld.reset (new Slider ("LFO 2 Freq Slider"));
+    FreqLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Freq Slider"));
     addAndMakeVisible (FreqLFO2Sld.get());
     FreqLFO2Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqLFO2Sld->setRange (0, 1, 0.01);
@@ -194,7 +194,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     WaveLFO2Cmb->setBounds (532, 128, 80, 24);
 
-    DepthModLFO2Sld.reset (new Slider ("LFO 2 Depth Mod Slider"));
+    DepthModLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Depth Mod Slider"));
     addAndMakeVisible (DepthModLFO2Sld.get());
     DepthModLFO2Sld->setTooltip (TRANS("Amount of depth modulation from MOD 1"));
     DepthModLFO2Sld->setRange (0, 1, 0.01);
@@ -205,7 +205,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     DepthModLFO2Sld->setBounds (432, 168, 16, 16);
 
-    FreqModLFO2Sld.reset (new Slider ("LFO 2 Freq Mod Slider"));
+    FreqModLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Freq Mod Slider"));
     addAndMakeVisible (FreqModLFO2Sld.get());
     FreqModLFO2Sld->setTooltip (TRANS("Amount of rate modulation from MOD 2"));
     FreqModLFO2Sld->setRange (0, 1, 0.01);
@@ -336,7 +336,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     PhaseSyncLFO2Btn->setBounds (476, 96, 56, 16);
 
-    PhaseLFO1Sld.reset (new Slider ("LFO 1 Phase Slider"));
+    PhaseLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Phase Slider"));
     addAndMakeVisible (PhaseLFO1Sld.get());
     PhaseLFO1Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
     PhaseLFO1Sld->setRange (0, 1, 0.01);
@@ -360,7 +360,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     PhaseLFO1Lbl->setBounds (176, 144, 46, 24);
 
-    PhaseLFO2Sld.reset (new Slider ("LFO 2 Phase Slider"));
+    PhaseLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Phase Slider"));
     addAndMakeVisible (PhaseLFO2Sld.get());
     PhaseLFO2Sld->setTooltip (TRANS("Changes the phase of the LFO by up to 360 degrees"));
     PhaseLFO2Sld->setRange (0, 1, 0.01);
@@ -389,7 +389,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     MOD1Group->setBounds (48, 200, 288, 128);
 
-    DepthMOD1Sld.reset (new Slider ("MOD 1 Depth Slider"));
+    DepthMOD1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 1 Depth Slider"));
     addAndMakeVisible (DepthMOD1Sld.get());
     DepthMOD1Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthMOD1Sld->setRange (0, 1, 0.01);
@@ -400,7 +400,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     DepthMOD1Sld->setBounds (128, 248, 32, 24);
 
-    FreqMOD1Sld.reset (new Slider ("MOD 1 Freq Slider"));
+    FreqMOD1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 1 Freq Slider"));
     addAndMakeVisible (FreqMOD1Sld.get());
     FreqMOD1Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqMOD1Sld->setRange (0, 1, 0.01);
@@ -507,7 +507,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     PhaseSyncMOD1Btn->setBounds (176, 224, 56, 16);
 
-    PhaseMOD1Sld.reset (new Slider ("MOD 1 Phase Slider"));
+    PhaseMOD1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 1 Phase Slider"));
     addAndMakeVisible (PhaseMOD1Sld.get());
     PhaseMOD1Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
     PhaseMOD1Sld->setRange (0, 1, 0.01);
@@ -536,7 +536,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     MOD2Group->setBounds (340, 200, 288, 128);
 
-    DepthMOD2Sld.reset (new Slider ("MOD 2 Depth Slider"));
+    DepthMOD2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 2 Depth Slider"));
     addAndMakeVisible (DepthMOD2Sld.get());
     DepthMOD2Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthMOD2Sld->setRange (0, 1, 0.01);
@@ -547,7 +547,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     DepthMOD2Sld->setBounds (428, 248, 32, 24);
 
-    FreqMOD2Sld.reset (new Slider ("MOD 2 Freq Slider"));
+    FreqMOD2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 2 Freq Slider"));
     addAndMakeVisible (FreqMOD2Sld.get());
     FreqMOD2Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqMOD2Sld->setRange (0, 1, 0.01);
@@ -654,7 +654,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     PhaseSyncMOD2Btn->setBounds (476, 224, 56, 16);
 
-    PhaseMOD2Sld.reset (new Slider ("MOD 2 Phase Slider"));
+    PhaseMOD2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 2 Phase Slider"));
     addAndMakeVisible (PhaseMOD2Sld.get());
     PhaseMOD2Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
     PhaseMOD2Sld->setRange (0, 1, 0.01);
@@ -698,7 +698,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     OutputGainLbl->setBounds (448, 48, 88, 24);
 
     MODLFO1Lbl.reset (new Label ("MOD LFO1 Label",
-                                 TRANS("- MOD -")));
+                                 TRANS("MOD")));
     addAndMakeVisible (MODLFO1Lbl.get());
     MODLFO1Lbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
     MODLFO1Lbl->setJustificationType (Justification::centredLeft);
@@ -710,7 +710,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     MODLFO1Lbl->setBounds (94, 164, 94, 24);
 
     MODLFO2Lbl.reset (new Label ("MOD LFO2 Label",
-                                 TRANS("- MOD -")));
+                                 TRANS("MOD")));
     addAndMakeVisible (MODLFO2Lbl.get());
     MODLFO2Lbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
     MODLFO2Lbl->setJustificationType (Justification::centredLeft);
@@ -799,36 +799,16 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     RichterAudioProcessor* ourProcessor {getProcessor()};
     StereoBtn->setEnabled(ourProcessor->getNumOutputChannels() == 2);
 
-    // set double click to default for sliders
-    FreqLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    FreqModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.InteralToNormalised(WECore::Richter::Parameters::FREQMOD.defaultValue));
-    DepthLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    DepthModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.InteralToNormalised(WECore::Richter::Parameters::DEPTHMOD.defaultValue));
-    PhaseLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+    _enableDoubleClickToDefault();
 
-    FreqLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    FreqModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.InteralToNormalised(WECore::Richter::Parameters::FREQMOD.defaultValue));
-    DepthLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    DepthModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.InteralToNormalised(WECore::Richter::Parameters::DEPTHMOD.defaultValue));
-    PhaseLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
-
-    FreqMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    DepthMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    PhaseMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
-
-    FreqMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    DepthMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    PhaseMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
-
-    OutputGainSld->setDoubleClickReturnValue(true, OUTPUTGAIN.InteralToNormalised(OUTPUTGAIN.defaultValue));
-
-
+    _startSliderReadouts();
     //[/Constructor]
 }
 
 RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
+    _stopSliderReadouts();
     //[/Destructor_pre]
 
     LFO1Group = nullptr;
@@ -1317,7 +1297,6 @@ void RichterAudioProcessorEditor::timerCallback()
             TempoNumerLFO1Sld->setVisible(true);
             TempoDenomLFO1Sld->setVisible(true);
 
-            MODLFO1Lbl->setText("- MOD", dontSendNotification);
             MODLFO1Lbl->setJustificationType(Justification::right);
         } else {
             FreqLFO1Sld->setVisible(true);
@@ -1326,7 +1305,6 @@ void RichterAudioProcessorEditor::timerCallback()
             TempoNumerLFO1Sld->setVisible(false);
             TempoDenomLFO1Sld->setVisible(false);
 
-            MODLFO1Lbl->setText("- MOD -", dontSendNotification);
             MODLFO1Lbl->setJustificationType(Justification::left);
         }
 
@@ -1337,7 +1315,6 @@ void RichterAudioProcessorEditor::timerCallback()
             TempoNumerLFO2Sld->setVisible(true);
             TempoDenomLFO2Sld->setVisible(true);
 
-            MODLFO2Lbl->setText("- MOD", dontSendNotification);
             MODLFO2Lbl->setJustificationType(Justification::right);
         } else {
             FreqLFO2Sld->setVisible(true);
@@ -1346,7 +1323,6 @@ void RichterAudioProcessorEditor::timerCallback()
             TempoNumerLFO2Sld->setVisible(false);
             TempoDenomLFO2Sld->setVisible(false);
 
-            MODLFO2Lbl->setText("- MOD -", dontSendNotification);
             MODLFO2Lbl->setJustificationType(Justification::left);
         }
 
@@ -1385,9 +1361,79 @@ void RichterAudioProcessorEditor::timerCallback()
         updateMeter(MeterLFO2.get(), lfoCache.lfo2);
         updateMeter(MeterMOD1.get(), lfoCache.mod1);
         updateMeter(MeterMOD2.get(), lfoCache.mod2);
-
-
     }
+}
+
+void RichterAudioProcessorEditor::_enableDoubleClickToDefault() {
+    FreqLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
+    FreqModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.InteralToNormalised(WECore::Richter::Parameters::FREQMOD.defaultValue));
+    DepthLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
+    DepthModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.InteralToNormalised(WECore::Richter::Parameters::DEPTHMOD.defaultValue));
+    PhaseLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+
+    FreqLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
+    FreqModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.InteralToNormalised(WECore::Richter::Parameters::FREQMOD.defaultValue));
+    DepthLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
+    DepthModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.InteralToNormalised(WECore::Richter::Parameters::DEPTHMOD.defaultValue));
+    PhaseLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+
+    FreqMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
+    DepthMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
+    PhaseMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+
+    FreqMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
+    DepthMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
+    PhaseMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+
+    OutputGainSld->setDoubleClickReturnValue(true, OUTPUTGAIN.InteralToNormalised(OUTPUTGAIN.defaultValue));
+}
+
+void RichterAudioProcessorEditor::_startSliderReadouts() {
+    FreqLFO1Sld->start(FreqLFO1Lbl.get(), FreqLFO1Lbl->getText(), &WECore::Richter::Parameters::FREQ);
+    FreqModLFO1Sld->start(MODLFO1Lbl.get(), MODLFO1Lbl->getText(), &WECore::Richter::Parameters::FREQMOD);
+    DepthLFO1Sld->start(DepthLFO1Lbl.get(), DepthLFO1Lbl->getText(), &WECore::Richter::Parameters::DEPTH);
+    DepthModLFO1Sld->start(MODLFO1Lbl.get(), MODLFO1Lbl->getText(), &WECore::Richter::Parameters::DEPTHMOD);
+    PhaseLFO1Sld->start(PhaseLFO1Lbl.get(), PhaseLFO1Lbl->getText(), &WECore::Richter::Parameters::PHASE);
+
+    FreqLFO2Sld->start(FreqLFO2Lbl.get(), FreqLFO2Lbl->getText(), &WECore::Richter::Parameters::FREQ);
+    FreqModLFO2Sld->start(MODLFO2Lbl.get(), MODLFO2Lbl->getText(), &WECore::Richter::Parameters::FREQMOD);
+    DepthLFO2Sld->start(DepthLFO2Lbl.get(), DepthLFO2Lbl->getText(), &WECore::Richter::Parameters::DEPTH);
+    DepthModLFO2Sld->start(MODLFO2Lbl.get(), MODLFO2Lbl->getText(), &WECore::Richter::Parameters::DEPTHMOD);
+    PhaseLFO2Sld->start(PhaseLFO2Lbl.get(), PhaseLFO2Lbl->getText(), &WECore::Richter::Parameters::PHASE);
+
+    FreqMOD1Sld->start(FreqMOD1Lbl.get(), FreqMOD1Lbl->getText(), &WECore::Richter::Parameters::FREQ);
+    DepthMOD1Sld->start(DepthMOD1Lbl.get(), DepthMOD1Lbl->getText(), &WECore::Richter::Parameters::DEPTH);
+    PhaseMOD1Sld->start(PhaseMOD1Lbl.get(), PhaseMOD1Lbl->getText(), &WECore::Richter::Parameters::PHASE);
+
+    FreqMOD2Sld->start(FreqMOD2Lbl.get(), FreqMOD2Lbl->getText(), &WECore::Richter::Parameters::FREQ);
+    DepthMOD2Sld->start(DepthMOD2Lbl.get(), DepthMOD2Lbl->getText(), &WECore::Richter::Parameters::DEPTH);
+    PhaseMOD2Sld->start(PhaseMOD2Lbl.get(), PhaseMOD2Lbl->getText(), &WECore::Richter::Parameters::PHASE);
+
+    OutputGainSld->start(OutputGainLbl.get(), OutputGainLbl->getText(), &OUTPUTGAIN);
+}
+
+void RichterAudioProcessorEditor::_stopSliderReadouts() {
+    FreqLFO1Sld->stop();
+    FreqModLFO1Sld->stop();
+    DepthLFO1Sld->stop();
+    DepthModLFO1Sld->stop();
+    PhaseLFO1Sld->stop();
+
+    FreqLFO2Sld->stop();
+    FreqModLFO2Sld->stop();
+    DepthLFO2Sld->stop();
+    DepthModLFO2Sld->stop();
+    PhaseLFO2Sld->stop();
+
+    FreqMOD1Sld->stop();
+    DepthMOD1Sld->stop();
+    PhaseMOD1Sld->stop();
+
+    FreqMOD2Sld->stop();
+    DepthMOD2Sld->stop();
+    PhaseMOD2Sld->stop();
+
+    OutputGainSld->stop();
 }
 //[/MiscUserCode]
 
@@ -1411,12 +1457,12 @@ BEGIN_JUCER_METADATA
                   virtualName="" explicitFocusOrder="0" pos="48 72 288 128" textcol="ff000000"
                   title="LFO1"/>
   <SLIDER name="LFO 1 Depth Slider" id="98ad3308f709f25c" memberName="DepthLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="128 120 32 24" tooltip="Depth of the LFO"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="128 120 32 24" tooltip="Depth of the LFO"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 1 Freq Slider" id="94530d5c05e4a382" memberName="FreqLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="72 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="72 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1425,17 +1471,17 @@ BEGIN_JUCER_METADATA
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 1 Depth Mod Slider" id="9a3f86cb168e586e" memberName="DepthModLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="136 168 16 16" tooltip="Amount of depth modulation from MOD 1"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="136 168 16 16" tooltip="Amount of depth modulation from MOD 1"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 1 Freq Mod Slider" id="b0488ea613d92dcf" memberName="FreqModLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="80 168 16 16" tooltip="Amount of rate modulation from MOD 1"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="80 168 16 16" tooltip="Amount of rate modulation from MOD 1"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="Output Gain Slider" id="65acc0b358aa2541" memberName="OutputGainSld"
-          virtualName="" explicitFocusOrder="0" pos="56 48 392 24" tooltip="Output gain"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<float>" explicitFocusOrder="0" pos="56 48 392 24" tooltip="Output gain"
           min="0.0" max="1.0" int="0.01000000000000000021" style="LinearHorizontal"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1460,12 +1506,12 @@ BEGIN_JUCER_METADATA
   <GROUPCOMPONENT name="LFO 2 Group" id="35e8ad61c86b603a" memberName="LFO2Group"
                   virtualName="" explicitFocusOrder="0" pos="340 72 288 128" title="LFO2"/>
   <SLIDER name="LFO 2 Depth Slider" id="2596adc2e61cd58e" memberName="DepthLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="428 120 32 24" tooltip="Depth of the LFO"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="428 120 32 24" tooltip="Depth of the LFO"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Freq Slider" id="f5dbcdc53c502e69" memberName="FreqLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="372 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="372 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1474,12 +1520,12 @@ BEGIN_JUCER_METADATA
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 2 Depth Mod Slider" id="4a524c9e1974186c" memberName="DepthModLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="432 168 16 16" tooltip="Amount of depth modulation from MOD 1"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="432 168 16 16" tooltip="Amount of depth modulation from MOD 1"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Freq Mod Slider" id="e49bd74bef8aaca1" memberName="FreqModLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="376 168 16 16" tooltip="Amount of rate modulation from MOD 2"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="376 168 16 16" tooltip="Amount of rate modulation from MOD 2"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1536,7 +1582,7 @@ BEGIN_JUCER_METADATA
               buttonText="Phase Sync" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
   <SLIDER name="LFO 1 Phase Slider" id="1fa393dc85f550ee" memberName="PhaseLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="184 120 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="184 120 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
           thumbcol="ffbdffbb" rotarysliderfill="7f00ff03" min="0.0" max="1.0"
           int="0.01000000000000000021" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
@@ -1547,7 +1593,7 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <SLIDER name="LFO 2 Phase Slider" id="df30ce6c91b8975b" memberName="PhaseLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="484 120 32 24" tooltip="Changes the phase of the LFO by up to 360 degrees"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="484 120 32 24" tooltip="Changes the phase of the LFO by up to 360 degrees"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1559,12 +1605,12 @@ BEGIN_JUCER_METADATA
   <GROUPCOMPONENT name="MOD 1 Group" id="a2c7412d0fb46a58" memberName="MOD1Group"
                   virtualName="" explicitFocusOrder="0" pos="48 200 288 128" title="MOD1"/>
   <SLIDER name="MOD 1 Depth Slider" id="499f6451911662cc" memberName="DepthMOD1Sld"
-          virtualName="" explicitFocusOrder="0" pos="128 248 32 24" tooltip="Depth of the LFO"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="128 248 32 24" tooltip="Depth of the LFO"
           rotarysliderfill="7f00ff0d" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 1 Freq Slider" id="1d9800ca18cf5bba" memberName="FreqMOD1Sld"
-          virtualName="" explicitFocusOrder="0" pos="72 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="72 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1608,7 +1654,7 @@ BEGIN_JUCER_METADATA
               buttonText="Phase Sync" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
   <SLIDER name="MOD 1 Phase Slider" id="3f1ef3d10c303bac" memberName="PhaseMOD1Sld"
-          virtualName="" explicitFocusOrder="0" pos="184 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="184 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1620,12 +1666,12 @@ BEGIN_JUCER_METADATA
   <GROUPCOMPONENT name="MOD 2 Group" id="384e0ba59bb5f2ff" memberName="MOD2Group"
                   virtualName="" explicitFocusOrder="0" pos="340 200 288 128" title="MOD2"/>
   <SLIDER name="MOD 2 Depth Slider" id="8c1762ee0dd0d28a" memberName="DepthMOD2Sld"
-          virtualName="" explicitFocusOrder="0" pos="428 248 32 24" tooltip="Depth of the LFO"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="428 248 32 24" tooltip="Depth of the LFO"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 2 Freq Slider" id="362166b8c676eba4" memberName="FreqMOD2Sld"
-          virtualName="" explicitFocusOrder="0" pos="372 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="372 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1669,7 +1715,7 @@ BEGIN_JUCER_METADATA
               buttonText="Phase Sync" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
   <SLIDER name="MOD 2 Phase Slider" id="54fd5481a5970106" memberName="PhaseMOD2Sld"
-          virtualName="" explicitFocusOrder="0" pos="484 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="484 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1688,12 +1734,12 @@ BEGIN_JUCER_METADATA
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <LABEL name="MOD LFO1 Label" id="486fb1a75ad5862e" memberName="MODLFO1Lbl"
          virtualName="" explicitFocusOrder="0" pos="94 164 94 24" textCol="ffc8c8c8"
-         edTextCol="ff000000" edBkgCol="0" labelText="- MOD -" editableSingleClick="0"
+         edTextCol="ff000000" edBkgCol="0" labelText="MOD" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <LABEL name="MOD LFO2 Label" id="b1a4c6d32abd91a5" memberName="MODLFO2Lbl"
          virtualName="" explicitFocusOrder="0" pos="394 164 94 24" textCol="ffc8c8c8"
-         edTextCol="ff000000" edBkgCol="0" labelText="- MOD -" editableSingleClick="0"
+         edTextCol="ff000000" edBkgCol="0" labelText="MOD" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <GENERICCOMPONENT name="LFO 1 Meter" id="2f1bc98394348a09" memberName="MeterLFO1"
