@@ -75,6 +75,7 @@ private:
     void _enableDoubleClickToDefault();
     void _startSliderReadouts();
     void _stopSliderReadouts();
+    void _updateTempoToggles();
     //[/UserVariables]
 
     //==============================================================================
@@ -141,12 +142,14 @@ private:
     std::unique_ptr<Label> PhaseMOD2Lbl;
     std::unique_ptr<TextButton> StereoBtn;
     std::unique_ptr<Label> OutputGainLbl;
-    std::unique_ptr<Label> MODLFO1Lbl;
-    std::unique_ptr<Label> MODLFO2Lbl;
+    std::unique_ptr<Label> MODLFO1LeftLbl;
+    std::unique_ptr<Label> MODLFO2LeftLbl;
     std::unique_ptr<RichterLFOMeter> MeterLFO1;
     std::unique_ptr<RichterLFOMeter> MeterLFO2;
     std::unique_ptr<RichterLFOMeter> MeterMOD1;
     std::unique_ptr<RichterLFOMeter> MeterMOD2;
+    std::unique_ptr<Label> MODLFO1RightLbl;
+    std::unique_ptr<Label> MODLFO2RightLbl;
 
 
     //==============================================================================

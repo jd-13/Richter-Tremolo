@@ -120,25 +120,25 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                   TRANS("Rate")));
     addAndMakeVisible (FreqLFO1Lbl.get());
     FreqLFO1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    FreqLFO1Lbl->setJustificationType (Justification::centredLeft);
+    FreqLFO1Lbl->setJustificationType (Justification::centred);
     FreqLFO1Lbl->setEditable (false, false, false);
     FreqLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
     FreqLFO1Lbl->setColour (TextEditor::textColourId, Colours::black);
     FreqLFO1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    FreqLFO1Lbl->setBounds (70, 144, 40, 24);
+    FreqLFO1Lbl->setBounds (68, 144, 40, 24);
 
     DepthLFO1Lbl.reset (new Label ("LFO 1 Depth Label",
                                    TRANS("Depth")));
     addAndMakeVisible (DepthLFO1Lbl.get());
     DepthLFO1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    DepthLFO1Lbl->setJustificationType (Justification::centredLeft);
+    DepthLFO1Lbl->setJustificationType (Justification::centred);
     DepthLFO1Lbl->setEditable (false, false, false);
     DepthLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
     DepthLFO1Lbl->setColour (TextEditor::textColourId, Colours::black);
     DepthLFO1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    DepthLFO1Lbl->setBounds (122, 144, 46, 24);
+    DepthLFO1Lbl->setBounds (121, 144, 46, 24);
 
     WaveLFO1Lbl.reset (new Label ("LFO 1 Wave Label",
                                   TRANS("Wave\n")));
@@ -203,7 +203,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthModLFO2Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
     DepthModLFO2Sld->addListener (this);
 
-    DepthModLFO2Sld->setBounds (432, 168, 16, 16);
+    DepthModLFO2Sld->setBounds (438, 168, 16, 16);
 
     FreqModLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Freq Mod Slider"));
     addAndMakeVisible (FreqModLFO2Sld.get());
@@ -214,7 +214,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqModLFO2Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
     FreqModLFO2Sld->addListener (this);
 
-    FreqModLFO2Sld->setBounds (376, 168, 16, 16);
+    FreqModLFO2Sld->setBounds (380, 168, 16, 16);
 
     BypassLFO2Btn.reset (new TextButton ("LFO 2 Bypass Button"));
     addAndMakeVisible (BypassLFO2Btn.get());
@@ -228,25 +228,25 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                   TRANS("Rate")));
     addAndMakeVisible (FreqLFO2Lbl.get());
     FreqLFO2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    FreqLFO2Lbl->setJustificationType (Justification::centredLeft);
+    FreqLFO2Lbl->setJustificationType (Justification::centred);
     FreqLFO2Lbl->setEditable (false, false, false);
     FreqLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
     FreqLFO2Lbl->setColour (TextEditor::textColourId, Colours::black);
     FreqLFO2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    FreqLFO2Lbl->setBounds (370, 144, 40, 24);
+    FreqLFO2Lbl->setBounds (368, 144, 40, 24);
 
     DepthLFO2Lbl.reset (new Label ("LFO 2 Depth Label",
                                    TRANS("Depth")));
     addAndMakeVisible (DepthLFO2Lbl.get());
     DepthLFO2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    DepthLFO2Lbl->setJustificationType (Justification::centredLeft);
+    DepthLFO2Lbl->setJustificationType (Justification::centred);
     DepthLFO2Lbl->setEditable (false, false, false);
     DepthLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
     DepthLFO2Lbl->setColour (TextEditor::textColourId, Colours::black);
     DepthLFO2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    DepthLFO2Lbl->setBounds (422, 144, 46, 24);
+    DepthLFO2Lbl->setBounds (421, 144, 46, 24);
 
     WaveLFO2Lbl.reset (new Label ("LFO 2 Wave Label",
                                   TRANS("Wave\n")));
@@ -323,7 +323,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseSyncLFO1Btn.reset (new TextButton ("LFO 1 Phase Sync Button"));
     addAndMakeVisible (PhaseSyncLFO1Btn.get());
     PhaseSyncLFO1Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
-    PhaseSyncLFO1Btn->setButtonText (TRANS("Phase Sync"));
+    PhaseSyncLFO1Btn->setButtonText (TRANS("Phase"));
     PhaseSyncLFO1Btn->addListener (this);
 
     PhaseSyncLFO1Btn->setBounds (176, 96, 56, 16);
@@ -331,7 +331,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseSyncLFO2Btn.reset (new TextButton ("LFO 2 Phase Sync Button"));
     addAndMakeVisible (PhaseSyncLFO2Btn.get());
     PhaseSyncLFO2Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
-    PhaseSyncLFO2Btn->setButtonText (TRANS("Phase Sync"));
+    PhaseSyncLFO2Btn->setButtonText (TRANS("Phase"));
     PhaseSyncLFO2Btn->addListener (this);
 
     PhaseSyncLFO2Btn->setBounds (476, 96, 56, 16);
@@ -352,13 +352,13 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                    TRANS("Phase")));
     addAndMakeVisible (PhaseLFO1Lbl.get());
     PhaseLFO1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    PhaseLFO1Lbl->setJustificationType (Justification::centredLeft);
+    PhaseLFO1Lbl->setJustificationType (Justification::centred);
     PhaseLFO1Lbl->setEditable (false, false, false);
     PhaseLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
     PhaseLFO1Lbl->setColour (TextEditor::textColourId, Colours::black);
     PhaseLFO1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    PhaseLFO1Lbl->setBounds (176, 144, 46, 24);
+    PhaseLFO1Lbl->setBounds (177, 144, 46, 24);
 
     PhaseLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Phase Slider"));
     addAndMakeVisible (PhaseLFO2Sld.get());
@@ -375,13 +375,13 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                    TRANS("Phase")));
     addAndMakeVisible (PhaseLFO2Lbl.get());
     PhaseLFO2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    PhaseLFO2Lbl->setJustificationType (Justification::centredLeft);
+    PhaseLFO2Lbl->setJustificationType (Justification::centred);
     PhaseLFO2Lbl->setEditable (false, false, false);
     PhaseLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
     PhaseLFO2Lbl->setColour (TextEditor::textColourId, Colours::black);
     PhaseLFO2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    PhaseLFO2Lbl->setBounds (476, 144, 46, 24);
+    PhaseLFO2Lbl->setBounds (477, 144, 46, 24);
 
     MOD1Group.reset (new GroupComponent ("MOD 1 Group",
                                          TRANS("MOD1")));
@@ -437,25 +437,25 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                   TRANS("Rate")));
     addAndMakeVisible (FreqMOD1Lbl.get());
     FreqMOD1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    FreqMOD1Lbl->setJustificationType (Justification::centredLeft);
+    FreqMOD1Lbl->setJustificationType (Justification::centred);
     FreqMOD1Lbl->setEditable (false, false, false);
     FreqMOD1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
     FreqMOD1Lbl->setColour (TextEditor::textColourId, Colours::black);
     FreqMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    FreqMOD1Lbl->setBounds (70, 272, 40, 24);
+    FreqMOD1Lbl->setBounds (68, 272, 40, 24);
 
     DepthMOD1Lbl.reset (new Label ("MOD 1 Depth Label",
                                    TRANS("Depth")));
     addAndMakeVisible (DepthMOD1Lbl.get());
     DepthMOD1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    DepthMOD1Lbl->setJustificationType (Justification::centredLeft);
+    DepthMOD1Lbl->setJustificationType (Justification::centred);
     DepthMOD1Lbl->setEditable (false, false, false);
     DepthMOD1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
     DepthMOD1Lbl->setColour (TextEditor::textColourId, Colours::black);
     DepthMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    DepthMOD1Lbl->setBounds (122, 272, 46, 24);
+    DepthMOD1Lbl->setBounds (121, 272, 46, 24);
 
     WaveMOD1Lbl.reset (new Label ("MOD 1 Wave Label",
                                   TRANS("Wave\n")));
@@ -502,7 +502,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseSyncMOD1Btn.reset (new TextButton ("MOD 1 Phase Sync Button"));
     addAndMakeVisible (PhaseSyncMOD1Btn.get());
     PhaseSyncMOD1Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
-    PhaseSyncMOD1Btn->setButtonText (TRANS("Phase Sync"));
+    PhaseSyncMOD1Btn->setButtonText (TRANS("Phase"));
     PhaseSyncMOD1Btn->addListener (this);
 
     PhaseSyncMOD1Btn->setBounds (176, 224, 56, 16);
@@ -522,13 +522,13 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                    TRANS("Phase")));
     addAndMakeVisible (PhaseMOD1Lbl.get());
     PhaseMOD1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    PhaseMOD1Lbl->setJustificationType (Justification::centredLeft);
+    PhaseMOD1Lbl->setJustificationType (Justification::centred);
     PhaseMOD1Lbl->setEditable (false, false, false);
     PhaseMOD1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
     PhaseMOD1Lbl->setColour (TextEditor::textColourId, Colours::black);
     PhaseMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    PhaseMOD1Lbl->setBounds (176, 272, 46, 24);
+    PhaseMOD1Lbl->setBounds (177, 272, 46, 24);
 
     MOD2Group.reset (new GroupComponent ("MOD 2 Group",
                                          TRANS("MOD2")));
@@ -584,13 +584,13 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                   TRANS("Rate")));
     addAndMakeVisible (FreqMOD2Lbl.get());
     FreqMOD2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    FreqMOD2Lbl->setJustificationType (Justification::centredLeft);
+    FreqMOD2Lbl->setJustificationType (Justification::centred);
     FreqMOD2Lbl->setEditable (false, false, false);
     FreqMOD2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
     FreqMOD2Lbl->setColour (TextEditor::textColourId, Colours::black);
     FreqMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    FreqMOD2Lbl->setBounds (370, 272, 40, 24);
+    FreqMOD2Lbl->setBounds (368, 272, 40, 24);
 
     DepthMOD2Lbl.reset (new Label ("MOD 2 Depth Label",
                                    TRANS("Depth")));
@@ -602,7 +602,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthMOD2Lbl->setColour (TextEditor::textColourId, Colours::black);
     DepthMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    DepthMOD2Lbl->setBounds (422, 272, 46, 24);
+    DepthMOD2Lbl->setBounds (421, 272, 46, 24);
 
     WaveMOD2Lbl.reset (new Label ("MOD 2 Wave Label",
                                   TRANS("Wave\n")));
@@ -649,7 +649,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseSyncMOD2Btn.reset (new TextButton ("MOD 2 Phase Sync Button"));
     addAndMakeVisible (PhaseSyncMOD2Btn.get());
     PhaseSyncMOD2Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
-    PhaseSyncMOD2Btn->setButtonText (TRANS("Phase Sync"));
+    PhaseSyncMOD2Btn->setButtonText (TRANS("Phase"));
     PhaseSyncMOD2Btn->addListener (this);
 
     PhaseSyncMOD2Btn->setBounds (476, 224, 56, 16);
@@ -675,7 +675,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseMOD2Lbl->setColour (TextEditor::textColourId, Colours::black);
     PhaseMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    PhaseMOD2Lbl->setBounds (476, 272, 46, 24);
+    PhaseMOD2Lbl->setBounds (477, 272, 46, 24);
 
     StereoBtn.reset (new TextButton ("Stereo Button"));
     addAndMakeVisible (StereoBtn.get());
@@ -697,29 +697,29 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     OutputGainLbl->setBounds (448, 48, 88, 24);
 
-    MODLFO1Lbl.reset (new Label ("MOD LFO1 Label",
-                                 TRANS("MOD")));
-    addAndMakeVisible (MODLFO1Lbl.get());
-    MODLFO1Lbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
-    MODLFO1Lbl->setJustificationType (Justification::centredLeft);
-    MODLFO1Lbl->setEditable (false, false, false);
-    MODLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    MODLFO1Lbl->setColour (TextEditor::textColourId, Colours::black);
-    MODLFO1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    MODLFO1LeftLbl.reset (new Label ("MOD LFO1 Left Label",
+                                     TRANS("- MOD -")));
+    addAndMakeVisible (MODLFO1LeftLbl.get());
+    MODLFO1LeftLbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
+    MODLFO1LeftLbl->setJustificationType (Justification::centred);
+    MODLFO1LeftLbl->setEditable (false, false, false);
+    MODLFO1LeftLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
+    MODLFO1LeftLbl->setColour (TextEditor::textColourId, Colours::black);
+    MODLFO1LeftLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    MODLFO1Lbl->setBounds (94, 164, 94, 24);
+    MODLFO1LeftLbl->setBounds (97, 164, 38, 24);
 
-    MODLFO2Lbl.reset (new Label ("MOD LFO2 Label",
-                                 TRANS("MOD")));
-    addAndMakeVisible (MODLFO2Lbl.get());
-    MODLFO2Lbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
-    MODLFO2Lbl->setJustificationType (Justification::centredLeft);
-    MODLFO2Lbl->setEditable (false, false, false);
-    MODLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    MODLFO2Lbl->setColour (TextEditor::textColourId, Colours::black);
-    MODLFO2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    MODLFO2LeftLbl.reset (new Label ("MOD LFO2 Left Label",
+                                     TRANS("- MOD -")));
+    addAndMakeVisible (MODLFO2LeftLbl.get());
+    MODLFO2LeftLbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
+    MODLFO2LeftLbl->setJustificationType (Justification::centred);
+    MODLFO2LeftLbl->setEditable (false, false, false);
+    MODLFO2LeftLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
+    MODLFO2LeftLbl->setColour (TextEditor::textColourId, Colours::black);
+    MODLFO2LeftLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    MODLFO2Lbl->setBounds (394, 164, 94, 24);
+    MODLFO2LeftLbl->setBounds (399, 164, 38, 24);
 
     MeterLFO1.reset (new RichterLFOMeter (false));
     addAndMakeVisible (MeterLFO1.get());
@@ -744,6 +744,30 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     MeterMOD2->setName ("MOD 2 Meter");
 
     MeterMOD2->setBounds (350, 218, 4, 96);
+
+    MODLFO1RightLbl.reset (new Label ("MOD LFO1 Right Label",
+                                      TRANS("- MOD")));
+    addAndMakeVisible (MODLFO1RightLbl.get());
+    MODLFO1RightLbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
+    MODLFO1RightLbl->setJustificationType (Justification::centred);
+    MODLFO1RightLbl->setEditable (false, false, false);
+    MODLFO1RightLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
+    MODLFO1RightLbl->setColour (TextEditor::textColourId, Colours::black);
+    MODLFO1RightLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    MODLFO1RightLbl->setBounds (153, 164, 38, 24);
+
+    MODLFO2RightLbl.reset (new Label ("MOD LFO2 Right Label",
+                                      TRANS("- MOD")));
+    addAndMakeVisible (MODLFO2RightLbl.get());
+    MODLFO2RightLbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
+    MODLFO2RightLbl->setJustificationType (Justification::centred);
+    MODLFO2RightLbl->setEditable (false, false, false);
+    MODLFO2RightLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
+    MODLFO2RightLbl->setColour (TextEditor::textColourId, Colours::black);
+    MODLFO2RightLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    MODLFO2RightLbl->setBounds (455, 164, 38, 24);
 
 
     //[UserPreSize]
@@ -790,10 +814,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerMOD2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
     TempoDenomMOD2Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
-
-    // make sure some labels whose regions overlap dials are sent to back
-    MODLFO1Lbl->toBack();
-    MODLFO2Lbl->toBack();
 
     // check if stereo mode should be available
     RichterAudioProcessor* ourProcessor {getProcessor()};
@@ -874,12 +894,14 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     PhaseMOD2Lbl = nullptr;
     StereoBtn = nullptr;
     OutputGainLbl = nullptr;
-    MODLFO1Lbl = nullptr;
-    MODLFO2Lbl = nullptr;
+    MODLFO1LeftLbl = nullptr;
+    MODLFO2LeftLbl = nullptr;
     MeterLFO1 = nullptr;
     MeterLFO2 = nullptr;
     MeterMOD1 = nullptr;
     MeterMOD2 = nullptr;
+    MODLFO1RightLbl = nullptr;
+    MODLFO2RightLbl = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -1289,66 +1311,7 @@ void RichterAudioProcessorEditor::timerCallback()
         PhaseMOD1Sld->setEnabled(PhaseSyncMOD1Btn->getToggleState());
         PhaseMOD2Sld->setEnabled(PhaseSyncMOD2Btn->getToggleState());
 
-        // Toggle visibility for rate controls and move MOD labels depending on tempo sync
-        if (TempoSyncLFO1Btn->getToggleState()) {
-            FreqLFO1Sld->setVisible(false);
-            FreqModLFO1Sld->setVisible(false);
-            FreqLFO1Lbl->setVisible(false);
-            TempoNumerLFO1Sld->setVisible(true);
-            TempoDenomLFO1Sld->setVisible(true);
-
-            MODLFO1Lbl->setJustificationType(Justification::right);
-        } else {
-            FreqLFO1Sld->setVisible(true);
-            FreqModLFO1Sld->setVisible(true);
-            FreqLFO1Lbl->setVisible(true);
-            TempoNumerLFO1Sld->setVisible(false);
-            TempoDenomLFO1Sld->setVisible(false);
-
-            MODLFO1Lbl->setJustificationType(Justification::left);
-        }
-
-        if (TempoSyncLFO2Btn->getToggleState()) {
-            FreqLFO2Sld->setVisible(false);
-            FreqModLFO2Sld->setVisible(false);
-            FreqLFO2Lbl->setVisible(false);
-            TempoNumerLFO2Sld->setVisible(true);
-            TempoDenomLFO2Sld->setVisible(true);
-
-            MODLFO2Lbl->setJustificationType(Justification::right);
-        } else {
-            FreqLFO2Sld->setVisible(true);
-            FreqModLFO2Sld->setVisible(true);
-            FreqLFO2Lbl->setVisible(true);
-            TempoNumerLFO2Sld->setVisible(false);
-            TempoDenomLFO2Sld->setVisible(false);
-
-            MODLFO2Lbl->setJustificationType(Justification::left);
-        }
-
-        if (TempoSyncMOD1Btn->getToggleState()) {
-            FreqMOD1Sld->setVisible(false);
-            FreqMOD1Lbl->setVisible(false);
-            TempoNumerMOD1Sld->setVisible(true);
-            TempoDenomMOD1Sld->setVisible(true);
-        } else {
-            FreqMOD1Sld->setVisible(true);
-            FreqMOD1Lbl->setVisible(true);
-            TempoNumerMOD1Sld->setVisible(false);
-            TempoDenomMOD1Sld->setVisible(false);
-        }
-
-        if (TempoSyncMOD2Btn->getToggleState()) {
-            FreqMOD2Sld->setVisible(false);
-            FreqMOD2Lbl->setVisible(false);
-            TempoNumerMOD2Sld->setVisible(true);
-            TempoDenomMOD2Sld->setVisible(true);
-        } else {
-            FreqMOD2Sld->setVisible(true);
-            FreqMOD2Lbl->setVisible(true);
-            TempoNumerMOD2Sld->setVisible(false);
-            TempoDenomMOD2Sld->setVisible(false);
-        }
+        _updateTempoToggles();
 
         // Update meters
         const RichterLFOCache& lfoCache = ourProcessor->getLFOCache();
@@ -1389,16 +1352,16 @@ void RichterAudioProcessorEditor::_enableDoubleClickToDefault() {
 }
 
 void RichterAudioProcessorEditor::_startSliderReadouts() {
+    // DepthModLFO1Sld is configured in _updateTempoToggles
     FreqLFO1Sld->start(FreqLFO1Lbl.get(), FreqLFO1Lbl->getText(), &WECore::Richter::Parameters::FREQ);
-    FreqModLFO1Sld->start(MODLFO1Lbl.get(), MODLFO1Lbl->getText(), &WECore::Richter::Parameters::FREQMOD);
+    FreqModLFO1Sld->start(MODLFO1LeftLbl.get(), MODLFO1LeftLbl->getText(), &WECore::Richter::Parameters::FREQMOD);
     DepthLFO1Sld->start(DepthLFO1Lbl.get(), DepthLFO1Lbl->getText(), &WECore::Richter::Parameters::DEPTH);
-    DepthModLFO1Sld->start(MODLFO1Lbl.get(), MODLFO1Lbl->getText(), &WECore::Richter::Parameters::DEPTHMOD);
     PhaseLFO1Sld->start(PhaseLFO1Lbl.get(), PhaseLFO1Lbl->getText(), &WECore::Richter::Parameters::PHASE);
 
+    // DepthModLFO2Sld is configured in _updateTempoToggles
     FreqLFO2Sld->start(FreqLFO2Lbl.get(), FreqLFO2Lbl->getText(), &WECore::Richter::Parameters::FREQ);
-    FreqModLFO2Sld->start(MODLFO2Lbl.get(), MODLFO2Lbl->getText(), &WECore::Richter::Parameters::FREQMOD);
+    FreqModLFO2Sld->start(MODLFO2LeftLbl.get(), MODLFO2LeftLbl->getText(), &WECore::Richter::Parameters::FREQMOD);
     DepthLFO2Sld->start(DepthLFO2Lbl.get(), DepthLFO2Lbl->getText(), &WECore::Richter::Parameters::DEPTH);
-    DepthModLFO2Sld->start(MODLFO2Lbl.get(), MODLFO2Lbl->getText(), &WECore::Richter::Parameters::DEPTHMOD);
     PhaseLFO2Sld->start(PhaseLFO2Lbl.get(), PhaseLFO2Lbl->getText(), &WECore::Richter::Parameters::PHASE);
 
     FreqMOD1Sld->start(FreqMOD1Lbl.get(), FreqMOD1Lbl->getText(), &WECore::Richter::Parameters::FREQ);
@@ -1435,6 +1398,122 @@ void RichterAudioProcessorEditor::_stopSliderReadouts() {
 
     OutputGainSld->stop();
 }
+
+void RichterAudioProcessorEditor::_updateTempoToggles() {
+
+    // Initialise these to the opposite of the real value to force them to be updated the first time
+    // around
+    static bool tempoSyncLFO1 {!TempoSyncLFO1Btn->getToggleState()};
+    static bool tempoSyncLFO2 {!TempoSyncLFO2Btn->getToggleState()};
+    static bool tempoSyncMOD1 {!TempoSyncMOD1Btn->getToggleState()};
+    static bool tempoSyncMOD2 {!TempoSyncMOD2Btn->getToggleState()};
+
+
+    // Toggle visibility for rate controls and move MOD labels depending on tempo sync
+    auto updateTempoButton = [](bool toggleState,
+                                Slider* freqSld,
+                                WECore::JUCEPlugin::LabelReadoutSlider<double>* freqModSld,
+                                Label* freqLbl,
+                                WECore::JUCEPlugin::LabelReadoutSlider<double>* depthModSld,
+                                Slider* tempoNumerSld,
+                                Slider* tempoDenomSld,
+                                Label* modLeftLabel,
+                                Label* modRightLabel) {
+
+        if (toggleState) {
+            freqSld->setVisible(false);
+            freqLbl->setVisible(false);
+            tempoNumerSld->setVisible(true);
+            tempoDenomSld->setVisible(true);
+
+            if (freqModSld != nullptr) {
+                freqModSld->setVisible(false);
+            }
+
+            if (modLeftLabel != nullptr) {
+                modLeftLabel->setVisible(false);
+                modRightLabel->setVisible(true);
+                depthModSld->start(modRightLabel, modRightLabel->getText(), &WECore::Richter::Parameters::FREQMOD);
+            }
+
+        } else {
+            freqSld->setVisible(true);
+            freqLbl->setVisible(true);
+            tempoNumerSld->setVisible(false);
+            tempoDenomSld->setVisible(false);
+
+            if (freqModSld != nullptr) {
+                freqModSld->setVisible(true);
+            }
+
+            if (modLeftLabel != nullptr) {
+                modLeftLabel->setVisible(true);
+                modRightLabel->setVisible(false);
+                depthModSld->start(modLeftLabel, modLeftLabel->getText(), &WECore::Richter::Parameters::FREQMOD);
+            }
+        }
+
+    };
+
+    // Check if the toggle state has changed since it was last cache and update if needed
+    if (TempoSyncLFO1Btn->getToggleState() != tempoSyncLFO1) {
+        tempoSyncLFO1 = TempoSyncLFO1Btn->getToggleState();
+
+        updateTempoButton(tempoSyncLFO1,
+                          FreqLFO1Sld.get(),
+                          FreqModLFO1Sld.get(),
+                          FreqLFO1Lbl.get(),
+                          DepthModLFO1Sld.get(),
+                          TempoNumerLFO1Sld.get(),
+                          TempoDenomLFO1Sld.get(),
+                          MODLFO1LeftLbl.get(),
+                          MODLFO1RightLbl.get());
+    }
+
+    if (TempoSyncLFO2Btn->getToggleState() != tempoSyncLFO2) {
+        tempoSyncLFO2 = TempoSyncLFO2Btn->getToggleState();
+
+        updateTempoButton(tempoSyncLFO2,
+                          FreqLFO2Sld.get(),
+                          FreqModLFO2Sld.get(),
+                          FreqLFO2Lbl.get(),
+                          DepthModLFO2Sld.get(),
+                          TempoNumerLFO2Sld.get(),
+                          TempoDenomLFO2Sld.get(),
+                          MODLFO2LeftLbl.get(),
+                          MODLFO2RightLbl.get());
+    }
+
+    if (TempoSyncMOD1Btn->getToggleState() != tempoSyncMOD1) {
+        tempoSyncMOD1 = TempoSyncMOD1Btn->getToggleState();
+
+        updateTempoButton(tempoSyncMOD1,
+                          FreqMOD1Sld.get(),
+                          nullptr,
+                          FreqMOD1Lbl.get(),
+                          nullptr,
+                          TempoNumerMOD1Sld.get(),
+                          TempoDenomMOD1Sld.get(),
+                          nullptr,
+                          nullptr);
+    }
+
+    if (TempoSyncMOD2Btn->getToggleState() != tempoSyncMOD2) {
+        tempoSyncMOD2 = TempoSyncMOD2Btn->getToggleState();
+
+        updateTempoButton(tempoSyncMOD2,
+                          FreqMOD2Sld.get(),
+                          nullptr,
+                          FreqMOD2Lbl.get(),
+                          nullptr,
+                          TempoNumerMOD2Sld.get(),
+                          TempoDenomMOD2Sld.get(),
+                          nullptr,
+                          nullptr);
+    }
+
+
+}
 //[/MiscUserCode]
 
 
@@ -1457,12 +1536,14 @@ BEGIN_JUCER_METADATA
                   virtualName="" explicitFocusOrder="0" pos="48 72 288 128" textcol="ff000000"
                   title="LFO1"/>
   <SLIDER name="LFO 1 Depth Slider" id="98ad3308f709f25c" memberName="DepthLFO1Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="128 120 32 24" tooltip="Depth of the LFO"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="128 120 32 24" tooltip="Depth of the LFO"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 1 Freq Slider" id="94530d5c05e4a382" memberName="FreqLFO1Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="72 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="72 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1471,17 +1552,20 @@ BEGIN_JUCER_METADATA
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 1 Depth Mod Slider" id="9a3f86cb168e586e" memberName="DepthModLFO1Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="136 168 16 16" tooltip="Amount of depth modulation from MOD 1"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="136 168 16 16" tooltip="Amount of depth modulation from MOD 1"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 1 Freq Mod Slider" id="b0488ea613d92dcf" memberName="FreqModLFO1Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="80 168 16 16" tooltip="Amount of rate modulation from MOD 1"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="80 168 16 16" tooltip="Amount of rate modulation from MOD 1"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="Output Gain Slider" id="65acc0b358aa2541" memberName="OutputGainSld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<float>" explicitFocusOrder="0" pos="56 48 392 24" tooltip="Output gain"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;float&gt;"
+          explicitFocusOrder="0" pos="56 48 392 24" tooltip="Output gain"
           min="0.0" max="1.0" int="0.01000000000000000021" style="LinearHorizontal"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1489,15 +1573,15 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="256 88 56 24" tooltip="Bypass button for LFO 1. LFO 1 operates directly on sound."
               buttonText="LFO 1" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="LFO 1 Freq Label" id="29836e1fe4622869" memberName="FreqLFO1Lbl"
-         virtualName="" explicitFocusOrder="0" pos="70 144 40 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="68 144 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="LFO 1 Depth Label" id="fa48be8976dad123" memberName="DepthLFO1Lbl"
-         virtualName="" explicitFocusOrder="0" pos="122 144 46 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="121 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="LFO 1 Wave Label" id="75dbcd5f6a0cc700" memberName="WaveLFO1Lbl"
          virtualName="" explicitFocusOrder="0" pos="248 160 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0"
@@ -1506,12 +1590,14 @@ BEGIN_JUCER_METADATA
   <GROUPCOMPONENT name="LFO 2 Group" id="35e8ad61c86b603a" memberName="LFO2Group"
                   virtualName="" explicitFocusOrder="0" pos="340 72 288 128" title="LFO2"/>
   <SLIDER name="LFO 2 Depth Slider" id="2596adc2e61cd58e" memberName="DepthLFO2Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="428 120 32 24" tooltip="Depth of the LFO"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="428 120 32 24" tooltip="Depth of the LFO"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Freq Slider" id="f5dbcdc53c502e69" memberName="FreqLFO2Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="372 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="372 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1520,12 +1606,14 @@ BEGIN_JUCER_METADATA
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 2 Depth Mod Slider" id="4a524c9e1974186c" memberName="DepthModLFO2Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="432 168 16 16" tooltip="Amount of depth modulation from MOD 1"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="438 168 16 16" tooltip="Amount of depth modulation from MOD 1"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Freq Mod Slider" id="e49bd74bef8aaca1" memberName="FreqModLFO2Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="376 168 16 16" tooltip="Amount of rate modulation from MOD 2"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="380 168 16 16" tooltip="Amount of rate modulation from MOD 2"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1533,15 +1621,15 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="556 88 56 24" tooltip="Bypass button for LFO 2. LFO 2 operates directly on sound."
               buttonText="LFO 2" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="LFO 2 Freq Label" id="5463cd286934c4bc" memberName="FreqLFO2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="370 144 40 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="368 144 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="LFO 2 Depth Label" id="39dd59a998ec443" memberName="DepthLFO2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="422 144 46 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="421 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="LFO 2 Wave Label" id="e01fc09efde6d339" memberName="WaveLFO2Lbl"
          virtualName="" explicitFocusOrder="0" pos="548 160 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0"
@@ -1575,42 +1663,44 @@ BEGIN_JUCER_METADATA
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <TEXTBUTTON name="LFO 1 Phase Sync Button" id="1df73348199bbe85" memberName="PhaseSyncLFO1Btn"
               virtualName="" explicitFocusOrder="0" pos="176 96 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
-              buttonText="Phase Sync" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="LFO 2 Phase Sync Button" id="6956f3f885f5801d" memberName="PhaseSyncLFO2Btn"
               virtualName="" explicitFocusOrder="0" pos="476 96 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
-              buttonText="Phase Sync" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="LFO 1 Phase Slider" id="1fa393dc85f550ee" memberName="PhaseLFO1Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="184 120 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="184 120 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
           thumbcol="ffbdffbb" rotarysliderfill="7f00ff03" min="0.0" max="1.0"
           int="0.01000000000000000021" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="1"/>
   <LABEL name="LFO 1 Phase Label" id="e8d899c4a3a19f8" memberName="PhaseLFO1Lbl"
-         virtualName="" explicitFocusOrder="0" pos="176 144 46 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="177 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <SLIDER name="LFO 2 Phase Slider" id="df30ce6c91b8975b" memberName="PhaseLFO2Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="484 120 32 24" tooltip="Changes the phase of the LFO by up to 360 degrees"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="484 120 32 24" tooltip="Changes the phase of the LFO by up to 360 degrees"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <LABEL name="LFO 2 Phase Label" id="5fd532cc21a16f51" memberName="PhaseLFO2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="476 144 46 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="477 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <GROUPCOMPONENT name="MOD 1 Group" id="a2c7412d0fb46a58" memberName="MOD1Group"
                   virtualName="" explicitFocusOrder="0" pos="48 200 288 128" title="MOD1"/>
   <SLIDER name="MOD 1 Depth Slider" id="499f6451911662cc" memberName="DepthMOD1Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="128 248 32 24" tooltip="Depth of the LFO"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="128 248 32 24" tooltip="Depth of the LFO"
           rotarysliderfill="7f00ff0d" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 1 Freq Slider" id="1d9800ca18cf5bba" memberName="FreqMOD1Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="72 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="72 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1622,15 +1712,15 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="256 216 56 24" tooltip="Bypass button for MOD 1. MOD 1 modulates the rate and depth of LFO 1."
               buttonText="MOD 1" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="MOD 1 Freq Label" id="dabfca26c640fd58" memberName="FreqMOD1Lbl"
-         virtualName="" explicitFocusOrder="0" pos="70 272 40 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="68 272 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="MOD 1 Depth Label" id="77092a4a55225c68" memberName="DepthMOD1Lbl"
-         virtualName="" explicitFocusOrder="0" pos="122 272 46 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="121 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="MOD 1 Wave Label" id="7eb50c1a44463588" memberName="WaveMOD1Lbl"
          virtualName="" explicitFocusOrder="0" pos="248 288 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0"
@@ -1651,27 +1741,29 @@ BEGIN_JUCER_METADATA
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <TEXTBUTTON name="MOD 1 Phase Sync Button" id="4509e154e4918174" memberName="PhaseSyncMOD1Btn"
               virtualName="" explicitFocusOrder="0" pos="176 224 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
-              buttonText="Phase Sync" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 1 Phase Slider" id="3f1ef3d10c303bac" memberName="PhaseMOD1Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="184 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="184 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <LABEL name="MOD 1 Phase Label" id="af1abf98d305cb5c" memberName="PhaseMOD1Lbl"
-         virtualName="" explicitFocusOrder="0" pos="176 272 46 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="177 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <GROUPCOMPONENT name="MOD 2 Group" id="384e0ba59bb5f2ff" memberName="MOD2Group"
                   virtualName="" explicitFocusOrder="0" pos="340 200 288 128" title="MOD2"/>
   <SLIDER name="MOD 2 Depth Slider" id="8c1762ee0dd0d28a" memberName="DepthMOD2Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="428 248 32 24" tooltip="Depth of the LFO"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="428 248 32 24" tooltip="Depth of the LFO"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 2 Freq Slider" id="362166b8c676eba4" memberName="FreqMOD2Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="372 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="372 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1683,12 +1775,12 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="556 216 56 24" tooltip="Bypass button for MOD 2. MOD 2 modulates the rate and depth of LFO 2."
               buttonText="MOD 2" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="MOD 2 Freq Label" id="f37a78a0ec1cab07" memberName="FreqMOD2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="370 272 40 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="368 272 40 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Rate" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="MOD 2 Depth Label" id="c19bf3a6d5ab63f9" memberName="DepthMOD2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="422 272 46 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="421 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
@@ -1712,15 +1804,15 @@ BEGIN_JUCER_METADATA
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <TEXTBUTTON name="MOD 2 Phase Sync Button" id="7b0a4004498f92b3" memberName="PhaseSyncMOD2Btn"
               virtualName="" explicitFocusOrder="0" pos="476 224 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
-              buttonText="Phase Sync" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 2 Phase Slider" id="54fd5481a5970106" memberName="PhaseMOD2Sld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider<double>" explicitFocusOrder="0" pos="484 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
+          explicitFocusOrder="0" pos="484 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
           style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
           textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <LABEL name="MOD 2 Phase Label" id="d3b9d517ecdfe1bc" memberName="PhaseMOD2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="476 272 46 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="477 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
@@ -1732,16 +1824,16 @@ BEGIN_JUCER_METADATA
          edTextCol="ff000000" edBkgCol="0" labelText="Output Gain" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
-  <LABEL name="MOD LFO1 Label" id="486fb1a75ad5862e" memberName="MODLFO1Lbl"
-         virtualName="" explicitFocusOrder="0" pos="94 164 94 24" textCol="ffc8c8c8"
-         edTextCol="ff000000" edBkgCol="0" labelText="MOD" editableSingleClick="0"
+  <LABEL name="MOD LFO1 Left Label" id="486fb1a75ad5862e" memberName="MODLFO1LeftLbl"
+         virtualName="" explicitFocusOrder="0" pos="97 164 38 24" textCol="ffc8c8c8"
+         edTextCol="ff000000" edBkgCol="0" labelText="- MOD -" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="33"/>
-  <LABEL name="MOD LFO2 Label" id="b1a4c6d32abd91a5" memberName="MODLFO2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="394 164 94 24" textCol="ffc8c8c8"
-         edTextCol="ff000000" edBkgCol="0" labelText="MOD" editableSingleClick="0"
+         fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="36"/>
+  <LABEL name="MOD LFO2 Left Label" id="b1a4c6d32abd91a5" memberName="MODLFO2LeftLbl"
+         virtualName="" explicitFocusOrder="0" pos="399 164 38 24" textCol="ffc8c8c8"
+         edTextCol="ff000000" edBkgCol="0" labelText="- MOD -" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <GENERICCOMPONENT name="LFO 1 Meter" id="2f1bc98394348a09" memberName="MeterLFO1"
                     virtualName="" explicitFocusOrder="0" pos="322 90 4 96" class="RichterLFOMeter"
                     params="false"/>
@@ -1754,6 +1846,16 @@ BEGIN_JUCER_METADATA
   <GENERICCOMPONENT name="MOD 2 Meter" id="3dca6948277dd87e" memberName="MeterMOD2"
                     virtualName="" explicitFocusOrder="0" pos="350 218 4 96" class="RichterLFOMeter"
                     params="true"/>
+  <LABEL name="MOD LFO1 Right Label" id="1c4c09a386c3c562" memberName="MODLFO1RightLbl"
+         virtualName="" explicitFocusOrder="0" pos="153 164 38 24" textCol="ffc8c8c8"
+         edTextCol="ff000000" edBkgCol="0" labelText="- MOD" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="36"/>
+  <LABEL name="MOD LFO2 Right Label" id="7de3f2db4c2a8590" memberName="MODLFO2RightLbl"
+         virtualName="" explicitFocusOrder="0" pos="455 164 38 24" textCol="ffc8c8c8"
+         edTextCol="ff000000" edBkgCol="0" labelText="- MOD" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="36"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
