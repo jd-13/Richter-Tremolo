@@ -7,12 +7,12 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.4.1
+  Created with Projucer version: 6.0.1
 
   ------------------------------------------------------------------------------
 
   The Projucer is part of the JUCE library.
-  Copyright (c) 2017 - ROLI Ltd.
+  Copyright (c) 2020 - Raw Material Software Limited.
 
   ==============================================================================
 */
@@ -33,10 +33,10 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
-    LFO1Group.reset (new GroupComponent ("LFO 1 Group",
-                                         TRANS("LFO1")));
+    LFO1Group.reset (new juce::GroupComponent ("LFO 1 Group",
+                                               TRANS("LFO1")));
     addAndMakeVisible (LFO1Group.get());
-    LFO1Group->setColour (GroupComponent::textColourId, Colours::black);
+    LFO1Group->setColour (juce::GroupComponent::textColourId, juce::Colours::black);
 
     LFO1Group->setBounds (48, 72, 288, 128);
 
@@ -44,9 +44,9 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (DepthLFO1Sld.get());
     DepthLFO1Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthLFO1Sld->setRange (0, 1, 0.01);
-    DepthLFO1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    DepthLFO1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    DepthLFO1Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    DepthLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    DepthLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    DepthLFO1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     DepthLFO1Sld->addListener (this);
 
     DepthLFO1Sld->setBounds (128, 120, 32, 24);
@@ -55,19 +55,19 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (FreqLFO1Sld.get());
     FreqLFO1Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqLFO1Sld->setRange (0, 1, 0.01);
-    FreqLFO1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    FreqLFO1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    FreqLFO1Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    FreqLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    FreqLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    FreqLFO1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqLFO1Sld->addListener (this);
 
     FreqLFO1Sld->setBounds (72, 120, 32, 24);
 
-    WaveLFO1Cmb.reset (new ComboBox ("LFO 1 Wave"));
+    WaveLFO1Cmb.reset (new juce::ComboBox ("LFO 1 Wave"));
     addAndMakeVisible (WaveLFO1Cmb.get());
     WaveLFO1Cmb->setTooltip (TRANS("LFO wave shape"));
     WaveLFO1Cmb->setEditableText (false);
-    WaveLFO1Cmb->setJustificationType (Justification::centredLeft);
-    WaveLFO1Cmb->setTextWhenNothingSelected (String());
+    WaveLFO1Cmb->setJustificationType (juce::Justification::centredLeft);
+    WaveLFO1Cmb->setTextWhenNothingSelected (juce::String());
     WaveLFO1Cmb->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
     WaveLFO1Cmb->addItem (TRANS("Sine"), 1);
     WaveLFO1Cmb->addItem (TRANS("Square"), 2);
@@ -80,9 +80,9 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (DepthModLFO1Sld.get());
     DepthModLFO1Sld->setTooltip (TRANS("Amount of depth modulation from MOD 1"));
     DepthModLFO1Sld->setRange (0, 1, 0.01);
-    DepthModLFO1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    DepthModLFO1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    DepthModLFO1Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    DepthModLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    DepthModLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    DepthModLFO1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     DepthModLFO1Sld->addListener (this);
 
     DepthModLFO1Sld->setBounds (136, 168, 16, 16);
@@ -91,9 +91,9 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (FreqModLFO1Sld.get());
     FreqModLFO1Sld->setTooltip (TRANS("Amount of rate modulation from MOD 1"));
     FreqModLFO1Sld->setRange (0, 1, 0.01);
-    FreqModLFO1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    FreqModLFO1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    FreqModLFO1Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    FreqModLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    FreqModLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    FreqModLFO1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqModLFO1Sld->addListener (this);
 
     FreqModLFO1Sld->setBounds (80, 168, 16, 16);
@@ -102,13 +102,13 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (OutputGainSld.get());
     OutputGainSld->setTooltip (TRANS("Output gain"));
     OutputGainSld->setRange (0, 1, 0.01);
-    OutputGainSld->setSliderStyle (Slider::LinearHorizontal);
-    OutputGainSld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
+    OutputGainSld->setSliderStyle (juce::Slider::LinearHorizontal);
+    OutputGainSld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
     OutputGainSld->addListener (this);
 
     OutputGainSld->setBounds (56, 48, 392, 24);
 
-    BypassLFO1Btn.reset (new TextButton ("LFO 1 Bypass Button"));
+    BypassLFO1Btn.reset (new juce::TextButton ("LFO 1 Bypass Button"));
     addAndMakeVisible (BypassLFO1Btn.get());
     BypassLFO1Btn->setTooltip (TRANS("Bypass button for LFO 1. LFO 1 operates directly on sound."));
     BypassLFO1Btn->setButtonText (TRANS("LFO 1"));
@@ -116,44 +116,44 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     BypassLFO1Btn->setBounds (256, 88, 56, 24);
 
-    FreqLFO1Lbl.reset (new Label ("LFO 1 Freq Label",
-                                  TRANS("Rate")));
+    FreqLFO1Lbl.reset (new juce::Label ("LFO 1 Freq Label",
+                                        TRANS("Rate")));
     addAndMakeVisible (FreqLFO1Lbl.get());
-    FreqLFO1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    FreqLFO1Lbl->setJustificationType (Justification::centred);
+    FreqLFO1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    FreqLFO1Lbl->setJustificationType (juce::Justification::centred);
     FreqLFO1Lbl->setEditable (false, false, false);
-    FreqLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    FreqLFO1Lbl->setColour (TextEditor::textColourId, Colours::black);
-    FreqLFO1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    FreqLFO1Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    FreqLFO1Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    FreqLFO1Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     FreqLFO1Lbl->setBounds (68, 144, 40, 24);
 
-    DepthLFO1Lbl.reset (new Label ("LFO 1 Depth Label",
-                                   TRANS("Depth")));
+    DepthLFO1Lbl.reset (new juce::Label ("LFO 1 Depth Label",
+                                         TRANS("Depth")));
     addAndMakeVisible (DepthLFO1Lbl.get());
-    DepthLFO1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    DepthLFO1Lbl->setJustificationType (Justification::centred);
+    DepthLFO1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    DepthLFO1Lbl->setJustificationType (juce::Justification::centred);
     DepthLFO1Lbl->setEditable (false, false, false);
-    DepthLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    DepthLFO1Lbl->setColour (TextEditor::textColourId, Colours::black);
-    DepthLFO1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    DepthLFO1Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    DepthLFO1Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    DepthLFO1Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     DepthLFO1Lbl->setBounds (121, 144, 46, 24);
 
-    WaveLFO1Lbl.reset (new Label ("LFO 1 Wave Label",
-                                  TRANS("Wave\n")));
+    WaveLFO1Lbl.reset (new juce::Label ("LFO 1 Wave Label",
+                                        TRANS("Wave\n")));
     addAndMakeVisible (WaveLFO1Lbl.get());
-    WaveLFO1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    WaveLFO1Lbl->setJustificationType (Justification::centredLeft);
+    WaveLFO1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    WaveLFO1Lbl->setJustificationType (juce::Justification::centredLeft);
     WaveLFO1Lbl->setEditable (false, false, false);
-    WaveLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    WaveLFO1Lbl->setColour (TextEditor::textColourId, Colours::black);
-    WaveLFO1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    WaveLFO1Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    WaveLFO1Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    WaveLFO1Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     WaveLFO1Lbl->setBounds (248, 160, 46, 24);
 
-    LFO2Group.reset (new GroupComponent ("LFO 2 Group",
-                                         TRANS("LFO2")));
+    LFO2Group.reset (new juce::GroupComponent ("LFO 2 Group",
+                                               TRANS("LFO2")));
     addAndMakeVisible (LFO2Group.get());
 
     LFO2Group->setBounds (340, 72, 288, 128);
@@ -162,9 +162,9 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (DepthLFO2Sld.get());
     DepthLFO2Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthLFO2Sld->setRange (0, 1, 0.01);
-    DepthLFO2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    DepthLFO2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    DepthLFO2Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    DepthLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    DepthLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    DepthLFO2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     DepthLFO2Sld->addListener (this);
 
     DepthLFO2Sld->setBounds (428, 120, 32, 24);
@@ -173,19 +173,19 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (FreqLFO2Sld.get());
     FreqLFO2Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqLFO2Sld->setRange (0, 1, 0.01);
-    FreqLFO2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    FreqLFO2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    FreqLFO2Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    FreqLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    FreqLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    FreqLFO2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqLFO2Sld->addListener (this);
 
     FreqLFO2Sld->setBounds (372, 120, 32, 24);
 
-    WaveLFO2Cmb.reset (new ComboBox ("LFO 2 Wave"));
+    WaveLFO2Cmb.reset (new juce::ComboBox ("LFO 2 Wave"));
     addAndMakeVisible (WaveLFO2Cmb.get());
     WaveLFO2Cmb->setTooltip (TRANS("LFO wave shape"));
     WaveLFO2Cmb->setEditableText (false);
-    WaveLFO2Cmb->setJustificationType (Justification::centredLeft);
-    WaveLFO2Cmb->setTextWhenNothingSelected (String());
+    WaveLFO2Cmb->setJustificationType (juce::Justification::centredLeft);
+    WaveLFO2Cmb->setTextWhenNothingSelected (juce::String());
     WaveLFO2Cmb->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
     WaveLFO2Cmb->addItem (TRANS("Sine"), 1);
     WaveLFO2Cmb->addItem (TRANS("Square"), 2);
@@ -198,9 +198,9 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (DepthModLFO2Sld.get());
     DepthModLFO2Sld->setTooltip (TRANS("Amount of depth modulation from MOD 1"));
     DepthModLFO2Sld->setRange (0, 1, 0.01);
-    DepthModLFO2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    DepthModLFO2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    DepthModLFO2Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    DepthModLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    DepthModLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    DepthModLFO2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     DepthModLFO2Sld->addListener (this);
 
     DepthModLFO2Sld->setBounds (438, 168, 16, 16);
@@ -209,14 +209,14 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (FreqModLFO2Sld.get());
     FreqModLFO2Sld->setTooltip (TRANS("Amount of rate modulation from MOD 2"));
     FreqModLFO2Sld->setRange (0, 1, 0.01);
-    FreqModLFO2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    FreqModLFO2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    FreqModLFO2Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    FreqModLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    FreqModLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    FreqModLFO2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqModLFO2Sld->addListener (this);
 
     FreqModLFO2Sld->setBounds (380, 168, 16, 16);
 
-    BypassLFO2Btn.reset (new TextButton ("LFO 2 Bypass Button"));
+    BypassLFO2Btn.reset (new juce::TextButton ("LFO 2 Bypass Button"));
     addAndMakeVisible (BypassLFO2Btn.get());
     BypassLFO2Btn->setTooltip (TRANS("Bypass button for LFO 2. LFO 2 operates directly on sound."));
     BypassLFO2Btn->setButtonText (TRANS("LFO 2"));
@@ -224,43 +224,43 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     BypassLFO2Btn->setBounds (556, 88, 56, 24);
 
-    FreqLFO2Lbl.reset (new Label ("LFO 2 Freq Label",
-                                  TRANS("Rate")));
+    FreqLFO2Lbl.reset (new juce::Label ("LFO 2 Freq Label",
+                                        TRANS("Rate")));
     addAndMakeVisible (FreqLFO2Lbl.get());
-    FreqLFO2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    FreqLFO2Lbl->setJustificationType (Justification::centred);
+    FreqLFO2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    FreqLFO2Lbl->setJustificationType (juce::Justification::centred);
     FreqLFO2Lbl->setEditable (false, false, false);
-    FreqLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    FreqLFO2Lbl->setColour (TextEditor::textColourId, Colours::black);
-    FreqLFO2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    FreqLFO2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    FreqLFO2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    FreqLFO2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     FreqLFO2Lbl->setBounds (368, 144, 40, 24);
 
-    DepthLFO2Lbl.reset (new Label ("LFO 2 Depth Label",
-                                   TRANS("Depth")));
+    DepthLFO2Lbl.reset (new juce::Label ("LFO 2 Depth Label",
+                                         TRANS("Depth")));
     addAndMakeVisible (DepthLFO2Lbl.get());
-    DepthLFO2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    DepthLFO2Lbl->setJustificationType (Justification::centred);
+    DepthLFO2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    DepthLFO2Lbl->setJustificationType (juce::Justification::centred);
     DepthLFO2Lbl->setEditable (false, false, false);
-    DepthLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    DepthLFO2Lbl->setColour (TextEditor::textColourId, Colours::black);
-    DepthLFO2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    DepthLFO2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    DepthLFO2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    DepthLFO2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     DepthLFO2Lbl->setBounds (421, 144, 46, 24);
 
-    WaveLFO2Lbl.reset (new Label ("LFO 2 Wave Label",
-                                  TRANS("Wave\n")));
+    WaveLFO2Lbl.reset (new juce::Label ("LFO 2 Wave Label",
+                                        TRANS("Wave\n")));
     addAndMakeVisible (WaveLFO2Lbl.get());
-    WaveLFO2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    WaveLFO2Lbl->setJustificationType (Justification::centredLeft);
+    WaveLFO2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    WaveLFO2Lbl->setJustificationType (juce::Justification::centredLeft);
     WaveLFO2Lbl->setEditable (false, false, false);
-    WaveLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    WaveLFO2Lbl->setColour (TextEditor::textColourId, Colours::black);
-    WaveLFO2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    WaveLFO2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    WaveLFO2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    WaveLFO2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     WaveLFO2Lbl->setBounds (548, 160, 46, 24);
 
-    TempoSyncLFO1Btn.reset (new TextButton ("LFO 1 Tempo Sync Button"));
+    TempoSyncLFO1Btn.reset (new juce::TextButton ("LFO 1 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncLFO1Btn.get());
     TempoSyncLFO1Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
     TempoSyncLFO1Btn->setButtonText (TRANS("Tempo"));
@@ -268,7 +268,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoSyncLFO1Btn->setBounds (64, 96, 56, 16);
 
-    TempoSyncLFO2Btn.reset (new TextButton ("LFO 2 Tempo Sync Button"));
+    TempoSyncLFO2Btn.reset (new juce::TextButton ("LFO 2 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncLFO2Btn.get());
     TempoSyncLFO2Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
     TempoSyncLFO2Btn->setButtonText (TRANS("Tempo"));
@@ -276,51 +276,51 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoSyncLFO2Btn->setBounds (364, 96, 56, 16);
 
-    TempoNumerLFO1Sld.reset (new Slider ("LFO 1 Tempo Numer Slider"));
+    TempoNumerLFO1Sld.reset (new juce::Slider ("LFO 1 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerLFO1Sld.get());
     TempoNumerLFO1Sld->setRange (1, 4, 1);
-    TempoNumerLFO1Sld->setSliderStyle (Slider::IncDecButtons);
-    TempoNumerLFO1Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
-    TempoNumerLFO1Sld->setColour (Slider::textBoxBackgroundColourId, Colour (0xffc8c8c8));
-    TempoNumerLFO1Sld->setColour (Slider::textBoxOutlineColourId, Colour (0x00808080));
+    TempoNumerLFO1Sld->setSliderStyle (juce::Slider::IncDecButtons);
+    TempoNumerLFO1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
+    TempoNumerLFO1Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
+    TempoNumerLFO1Sld->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00808080));
     TempoNumerLFO1Sld->addListener (this);
 
     TempoNumerLFO1Sld->setBounds (64, 128, 56, 16);
 
-    TempoDenomLFO1Sld.reset (new Slider ("LFO 1 Tempo Denom Slider"));
+    TempoDenomLFO1Sld.reset (new juce::Slider ("LFO 1 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomLFO1Sld.get());
     TempoDenomLFO1Sld->setRange (1, 32, 1);
-    TempoDenomLFO1Sld->setSliderStyle (Slider::IncDecButtons);
-    TempoDenomLFO1Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
-    TempoDenomLFO1Sld->setColour (Slider::textBoxBackgroundColourId, Colour (0xffc8c8c8));
-    TempoDenomLFO1Sld->setColour (Slider::textBoxOutlineColourId, Colour (0x00808080));
+    TempoDenomLFO1Sld->setSliderStyle (juce::Slider::IncDecButtons);
+    TempoDenomLFO1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
+    TempoDenomLFO1Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
+    TempoDenomLFO1Sld->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00808080));
     TempoDenomLFO1Sld->addListener (this);
 
     TempoDenomLFO1Sld->setBounds (64, 160, 56, 16);
 
-    TempoNumerLFO2Sld.reset (new Slider ("LFO 2 Tempo Numer Slider"));
+    TempoNumerLFO2Sld.reset (new juce::Slider ("LFO 2 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerLFO2Sld.get());
     TempoNumerLFO2Sld->setRange (1, 4, 1);
-    TempoNumerLFO2Sld->setSliderStyle (Slider::IncDecButtons);
-    TempoNumerLFO2Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
-    TempoNumerLFO2Sld->setColour (Slider::textBoxBackgroundColourId, Colour (0xffc8c8c8));
-    TempoNumerLFO2Sld->setColour (Slider::textBoxOutlineColourId, Colour (0x00808080));
+    TempoNumerLFO2Sld->setSliderStyle (juce::Slider::IncDecButtons);
+    TempoNumerLFO2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
+    TempoNumerLFO2Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
+    TempoNumerLFO2Sld->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00808080));
     TempoNumerLFO2Sld->addListener (this);
 
     TempoNumerLFO2Sld->setBounds (364, 128, 56, 16);
 
-    TempoDenomLFO2Sld.reset (new Slider ("LFO 2 Tempo Denom Slider"));
+    TempoDenomLFO2Sld.reset (new juce::Slider ("LFO 2 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomLFO2Sld.get());
     TempoDenomLFO2Sld->setRange (1, 32, 1);
-    TempoDenomLFO2Sld->setSliderStyle (Slider::IncDecButtons);
-    TempoDenomLFO2Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
-    TempoDenomLFO2Sld->setColour (Slider::textBoxBackgroundColourId, Colour (0xffc8c8c8));
-    TempoDenomLFO2Sld->setColour (Slider::textBoxOutlineColourId, Colour (0x00808080));
+    TempoDenomLFO2Sld->setSliderStyle (juce::Slider::IncDecButtons);
+    TempoDenomLFO2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
+    TempoDenomLFO2Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
+    TempoDenomLFO2Sld->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00808080));
     TempoDenomLFO2Sld->addListener (this);
 
     TempoDenomLFO2Sld->setBounds (364, 160, 56, 16);
 
-    PhaseSyncLFO1Btn.reset (new TextButton ("LFO 1 Phase Sync Button"));
+    PhaseSyncLFO1Btn.reset (new juce::TextButton ("LFO 1 Phase Sync Button"));
     addAndMakeVisible (PhaseSyncLFO1Btn.get());
     PhaseSyncLFO1Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
     PhaseSyncLFO1Btn->setButtonText (TRANS("Phase"));
@@ -328,7 +328,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     PhaseSyncLFO1Btn->setBounds (176, 96, 56, 16);
 
-    PhaseSyncLFO2Btn.reset (new TextButton ("LFO 2 Phase Sync Button"));
+    PhaseSyncLFO2Btn.reset (new juce::TextButton ("LFO 2 Phase Sync Button"));
     addAndMakeVisible (PhaseSyncLFO2Btn.get());
     PhaseSyncLFO2Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
     PhaseSyncLFO2Btn->setButtonText (TRANS("Phase"));
@@ -340,23 +340,23 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (PhaseLFO1Sld.get());
     PhaseLFO1Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
     PhaseLFO1Sld->setRange (0, 1, 0.01);
-    PhaseLFO1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    PhaseLFO1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    PhaseLFO1Sld->setColour (Slider::thumbColourId, Colour (0xffbdffbb));
-    PhaseLFO1Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    PhaseLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    PhaseLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    PhaseLFO1Sld->setColour (juce::Slider::thumbColourId, juce::Colour (0xffbdffbb));
+    PhaseLFO1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     PhaseLFO1Sld->addListener (this);
 
     PhaseLFO1Sld->setBounds (184, 120, 32, 24);
 
-    PhaseLFO1Lbl.reset (new Label ("LFO 1 Phase Label",
-                                   TRANS("Phase")));
+    PhaseLFO1Lbl.reset (new juce::Label ("LFO 1 Phase Label",
+                                         TRANS("Phase")));
     addAndMakeVisible (PhaseLFO1Lbl.get());
-    PhaseLFO1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    PhaseLFO1Lbl->setJustificationType (Justification::centred);
+    PhaseLFO1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    PhaseLFO1Lbl->setJustificationType (juce::Justification::centred);
     PhaseLFO1Lbl->setEditable (false, false, false);
-    PhaseLFO1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    PhaseLFO1Lbl->setColour (TextEditor::textColourId, Colours::black);
-    PhaseLFO1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    PhaseLFO1Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    PhaseLFO1Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    PhaseLFO1Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     PhaseLFO1Lbl->setBounds (177, 144, 46, 24);
 
@@ -364,27 +364,27 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (PhaseLFO2Sld.get());
     PhaseLFO2Sld->setTooltip (TRANS("Changes the phase of the LFO by up to 360 degrees"));
     PhaseLFO2Sld->setRange (0, 1, 0.01);
-    PhaseLFO2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    PhaseLFO2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    PhaseLFO2Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    PhaseLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    PhaseLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    PhaseLFO2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     PhaseLFO2Sld->addListener (this);
 
     PhaseLFO2Sld->setBounds (484, 120, 32, 24);
 
-    PhaseLFO2Lbl.reset (new Label ("LFO 2 Phase Label",
-                                   TRANS("Phase")));
+    PhaseLFO2Lbl.reset (new juce::Label ("LFO 2 Phase Label",
+                                         TRANS("Phase")));
     addAndMakeVisible (PhaseLFO2Lbl.get());
-    PhaseLFO2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    PhaseLFO2Lbl->setJustificationType (Justification::centred);
+    PhaseLFO2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    PhaseLFO2Lbl->setJustificationType (juce::Justification::centred);
     PhaseLFO2Lbl->setEditable (false, false, false);
-    PhaseLFO2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    PhaseLFO2Lbl->setColour (TextEditor::textColourId, Colours::black);
-    PhaseLFO2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    PhaseLFO2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    PhaseLFO2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    PhaseLFO2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     PhaseLFO2Lbl->setBounds (477, 144, 46, 24);
 
-    MOD1Group.reset (new GroupComponent ("MOD 1 Group",
-                                         TRANS("MOD1")));
+    MOD1Group.reset (new juce::GroupComponent ("MOD 1 Group",
+                                               TRANS("MOD1")));
     addAndMakeVisible (MOD1Group.get());
 
     MOD1Group->setBounds (48, 200, 288, 128);
@@ -393,9 +393,9 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (DepthMOD1Sld.get());
     DepthMOD1Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthMOD1Sld->setRange (0, 1, 0.01);
-    DepthMOD1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    DepthMOD1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    DepthMOD1Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff0d));
+    DepthMOD1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    DepthMOD1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    DepthMOD1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff0d));
     DepthMOD1Sld->addListener (this);
 
     DepthMOD1Sld->setBounds (128, 248, 32, 24);
@@ -404,19 +404,19 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (FreqMOD1Sld.get());
     FreqMOD1Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqMOD1Sld->setRange (0, 1, 0.01);
-    FreqMOD1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    FreqMOD1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    FreqMOD1Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    FreqMOD1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    FreqMOD1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    FreqMOD1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqMOD1Sld->addListener (this);
 
     FreqMOD1Sld->setBounds (72, 248, 32, 24);
 
-    WaveMOD1Cmb.reset (new ComboBox ("MOD 1 Wave"));
+    WaveMOD1Cmb.reset (new juce::ComboBox ("MOD 1 Wave"));
     addAndMakeVisible (WaveMOD1Cmb.get());
     WaveMOD1Cmb->setTooltip (TRANS("LFO wave shape"));
     WaveMOD1Cmb->setEditableText (false);
-    WaveMOD1Cmb->setJustificationType (Justification::centredLeft);
-    WaveMOD1Cmb->setTextWhenNothingSelected (String());
+    WaveMOD1Cmb->setJustificationType (juce::Justification::centredLeft);
+    WaveMOD1Cmb->setTextWhenNothingSelected (juce::String());
     WaveMOD1Cmb->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
     WaveMOD1Cmb->addItem (TRANS("Sine"), 1);
     WaveMOD1Cmb->addItem (TRANS("Square"), 2);
@@ -425,7 +425,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     WaveMOD1Cmb->setBounds (232, 256, 80, 24);
 
-    BypassMOD1Btn.reset (new TextButton ("MOD 1 Bypass Button"));
+    BypassMOD1Btn.reset (new juce::TextButton ("MOD 1 Bypass Button"));
     addAndMakeVisible (BypassMOD1Btn.get());
     BypassMOD1Btn->setTooltip (TRANS("Bypass button for MOD 1. MOD 1 modulates the rate and depth of LFO 1."));
     BypassMOD1Btn->setButtonText (TRANS("MOD 1"));
@@ -433,43 +433,43 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     BypassMOD1Btn->setBounds (256, 216, 56, 24);
 
-    FreqMOD1Lbl.reset (new Label ("MOD 1 Freq Label",
-                                  TRANS("Rate")));
+    FreqMOD1Lbl.reset (new juce::Label ("MOD 1 Freq Label",
+                                        TRANS("Rate")));
     addAndMakeVisible (FreqMOD1Lbl.get());
-    FreqMOD1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    FreqMOD1Lbl->setJustificationType (Justification::centred);
+    FreqMOD1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    FreqMOD1Lbl->setJustificationType (juce::Justification::centred);
     FreqMOD1Lbl->setEditable (false, false, false);
-    FreqMOD1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    FreqMOD1Lbl->setColour (TextEditor::textColourId, Colours::black);
-    FreqMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    FreqMOD1Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    FreqMOD1Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    FreqMOD1Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     FreqMOD1Lbl->setBounds (68, 272, 40, 24);
 
-    DepthMOD1Lbl.reset (new Label ("MOD 1 Depth Label",
-                                   TRANS("Depth")));
+    DepthMOD1Lbl.reset (new juce::Label ("MOD 1 Depth Label",
+                                         TRANS("Depth")));
     addAndMakeVisible (DepthMOD1Lbl.get());
-    DepthMOD1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    DepthMOD1Lbl->setJustificationType (Justification::centred);
+    DepthMOD1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    DepthMOD1Lbl->setJustificationType (juce::Justification::centred);
     DepthMOD1Lbl->setEditable (false, false, false);
-    DepthMOD1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    DepthMOD1Lbl->setColour (TextEditor::textColourId, Colours::black);
-    DepthMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    DepthMOD1Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    DepthMOD1Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    DepthMOD1Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     DepthMOD1Lbl->setBounds (121, 272, 46, 24);
 
-    WaveMOD1Lbl.reset (new Label ("MOD 1 Wave Label",
-                                  TRANS("Wave\n")));
+    WaveMOD1Lbl.reset (new juce::Label ("MOD 1 Wave Label",
+                                        TRANS("Wave\n")));
     addAndMakeVisible (WaveMOD1Lbl.get());
-    WaveMOD1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    WaveMOD1Lbl->setJustificationType (Justification::centredLeft);
+    WaveMOD1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    WaveMOD1Lbl->setJustificationType (juce::Justification::centredLeft);
     WaveMOD1Lbl->setEditable (false, false, false);
-    WaveMOD1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    WaveMOD1Lbl->setColour (TextEditor::textColourId, Colours::black);
-    WaveMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    WaveMOD1Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    WaveMOD1Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    WaveMOD1Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     WaveMOD1Lbl->setBounds (248, 288, 46, 24);
 
-    TempoSyncMOD1Btn.reset (new TextButton ("MOD 1 Tempo Sync Button"));
+    TempoSyncMOD1Btn.reset (new juce::TextButton ("MOD 1 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncMOD1Btn.get());
     TempoSyncMOD1Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
     TempoSyncMOD1Btn->setButtonText (TRANS("Tempo"));
@@ -477,29 +477,29 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoSyncMOD1Btn->setBounds (64, 224, 56, 16);
 
-    TempoNumerMOD1Sld.reset (new Slider ("MOD 1 Tempo Numer Slider"));
+    TempoNumerMOD1Sld.reset (new juce::Slider ("MOD 1 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerMOD1Sld.get());
     TempoNumerMOD1Sld->setRange (1, 4, 1);
-    TempoNumerMOD1Sld->setSliderStyle (Slider::IncDecButtons);
-    TempoNumerMOD1Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
-    TempoNumerMOD1Sld->setColour (Slider::textBoxBackgroundColourId, Colour (0xffc8c8c8));
-    TempoNumerMOD1Sld->setColour (Slider::textBoxOutlineColourId, Colour (0x00808080));
+    TempoNumerMOD1Sld->setSliderStyle (juce::Slider::IncDecButtons);
+    TempoNumerMOD1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
+    TempoNumerMOD1Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
+    TempoNumerMOD1Sld->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00808080));
     TempoNumerMOD1Sld->addListener (this);
 
     TempoNumerMOD1Sld->setBounds (64, 256, 56, 16);
 
-    TempoDenomMOD1Sld.reset (new Slider ("MOD 1 Tempo Denom Slider"));
+    TempoDenomMOD1Sld.reset (new juce::Slider ("MOD 1 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomMOD1Sld.get());
     TempoDenomMOD1Sld->setRange (1, 32, 1);
-    TempoDenomMOD1Sld->setSliderStyle (Slider::IncDecButtons);
-    TempoDenomMOD1Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
-    TempoDenomMOD1Sld->setColour (Slider::textBoxBackgroundColourId, Colour (0xffc8c8c8));
-    TempoDenomMOD1Sld->setColour (Slider::textBoxOutlineColourId, Colour (0x00808080));
+    TempoDenomMOD1Sld->setSliderStyle (juce::Slider::IncDecButtons);
+    TempoDenomMOD1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
+    TempoDenomMOD1Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
+    TempoDenomMOD1Sld->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00808080));
     TempoDenomMOD1Sld->addListener (this);
 
     TempoDenomMOD1Sld->setBounds (64, 288, 56, 16);
 
-    PhaseSyncMOD1Btn.reset (new TextButton ("MOD 1 Phase Sync Button"));
+    PhaseSyncMOD1Btn.reset (new juce::TextButton ("MOD 1 Phase Sync Button"));
     addAndMakeVisible (PhaseSyncMOD1Btn.get());
     PhaseSyncMOD1Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
     PhaseSyncMOD1Btn->setButtonText (TRANS("Phase"));
@@ -511,27 +511,27 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (PhaseMOD1Sld.get());
     PhaseMOD1Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
     PhaseMOD1Sld->setRange (0, 1, 0.01);
-    PhaseMOD1Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    PhaseMOD1Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    PhaseMOD1Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    PhaseMOD1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    PhaseMOD1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    PhaseMOD1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     PhaseMOD1Sld->addListener (this);
 
     PhaseMOD1Sld->setBounds (184, 248, 32, 24);
 
-    PhaseMOD1Lbl.reset (new Label ("MOD 1 Phase Label",
-                                   TRANS("Phase")));
+    PhaseMOD1Lbl.reset (new juce::Label ("MOD 1 Phase Label",
+                                         TRANS("Phase")));
     addAndMakeVisible (PhaseMOD1Lbl.get());
-    PhaseMOD1Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    PhaseMOD1Lbl->setJustificationType (Justification::centred);
+    PhaseMOD1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    PhaseMOD1Lbl->setJustificationType (juce::Justification::centred);
     PhaseMOD1Lbl->setEditable (false, false, false);
-    PhaseMOD1Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    PhaseMOD1Lbl->setColour (TextEditor::textColourId, Colours::black);
-    PhaseMOD1Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    PhaseMOD1Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    PhaseMOD1Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    PhaseMOD1Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     PhaseMOD1Lbl->setBounds (177, 272, 46, 24);
 
-    MOD2Group.reset (new GroupComponent ("MOD 2 Group",
-                                         TRANS("MOD2")));
+    MOD2Group.reset (new juce::GroupComponent ("MOD 2 Group",
+                                               TRANS("MOD2")));
     addAndMakeVisible (MOD2Group.get());
 
     MOD2Group->setBounds (340, 200, 288, 128);
@@ -540,9 +540,9 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (DepthMOD2Sld.get());
     DepthMOD2Sld->setTooltip (TRANS("Depth of the LFO"));
     DepthMOD2Sld->setRange (0, 1, 0.01);
-    DepthMOD2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    DepthMOD2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    DepthMOD2Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    DepthMOD2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    DepthMOD2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    DepthMOD2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     DepthMOD2Sld->addListener (this);
 
     DepthMOD2Sld->setBounds (428, 248, 32, 24);
@@ -551,19 +551,19 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (FreqMOD2Sld.get());
     FreqMOD2Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
     FreqMOD2Sld->setRange (0, 1, 0.01);
-    FreqMOD2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    FreqMOD2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    FreqMOD2Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    FreqMOD2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    FreqMOD2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    FreqMOD2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqMOD2Sld->addListener (this);
 
     FreqMOD2Sld->setBounds (372, 248, 32, 24);
 
-    WaveMOD2Cmb.reset (new ComboBox ("MOD 2 Wave"));
+    WaveMOD2Cmb.reset (new juce::ComboBox ("MOD 2 Wave"));
     addAndMakeVisible (WaveMOD2Cmb.get());
     WaveMOD2Cmb->setTooltip (TRANS("LFO wave shape"));
     WaveMOD2Cmb->setEditableText (false);
-    WaveMOD2Cmb->setJustificationType (Justification::centredLeft);
-    WaveMOD2Cmb->setTextWhenNothingSelected (String());
+    WaveMOD2Cmb->setJustificationType (juce::Justification::centredLeft);
+    WaveMOD2Cmb->setTextWhenNothingSelected (juce::String());
     WaveMOD2Cmb->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
     WaveMOD2Cmb->addItem (TRANS("Sine"), 1);
     WaveMOD2Cmb->addItem (TRANS("Square"), 2);
@@ -572,7 +572,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     WaveMOD2Cmb->setBounds (532, 256, 80, 24);
 
-    BypassMOD2Btn.reset (new TextButton ("MOD 2 Bypass Button"));
+    BypassMOD2Btn.reset (new juce::TextButton ("MOD 2 Bypass Button"));
     addAndMakeVisible (BypassMOD2Btn.get());
     BypassMOD2Btn->setTooltip (TRANS("Bypass button for MOD 2. MOD 2 modulates the rate and depth of LFO 2."));
     BypassMOD2Btn->setButtonText (TRANS("MOD 2"));
@@ -580,43 +580,43 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     BypassMOD2Btn->setBounds (556, 216, 56, 24);
 
-    FreqMOD2Lbl.reset (new Label ("MOD 2 Freq Label",
-                                  TRANS("Rate")));
+    FreqMOD2Lbl.reset (new juce::Label ("MOD 2 Freq Label",
+                                        TRANS("Rate")));
     addAndMakeVisible (FreqMOD2Lbl.get());
-    FreqMOD2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    FreqMOD2Lbl->setJustificationType (Justification::centred);
+    FreqMOD2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    FreqMOD2Lbl->setJustificationType (juce::Justification::centred);
     FreqMOD2Lbl->setEditable (false, false, false);
-    FreqMOD2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    FreqMOD2Lbl->setColour (TextEditor::textColourId, Colours::black);
-    FreqMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    FreqMOD2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    FreqMOD2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    FreqMOD2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     FreqMOD2Lbl->setBounds (368, 272, 40, 24);
 
-    DepthMOD2Lbl.reset (new Label ("MOD 2 Depth Label",
-                                   TRANS("Depth")));
+    DepthMOD2Lbl.reset (new juce::Label ("MOD 2 Depth Label",
+                                         TRANS("Depth")));
     addAndMakeVisible (DepthMOD2Lbl.get());
-    DepthMOD2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    DepthMOD2Lbl->setJustificationType (Justification::centredLeft);
+    DepthMOD2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    DepthMOD2Lbl->setJustificationType (juce::Justification::centredLeft);
     DepthMOD2Lbl->setEditable (false, false, false);
-    DepthMOD2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    DepthMOD2Lbl->setColour (TextEditor::textColourId, Colours::black);
-    DepthMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    DepthMOD2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    DepthMOD2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    DepthMOD2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     DepthMOD2Lbl->setBounds (421, 272, 46, 24);
 
-    WaveMOD2Lbl.reset (new Label ("MOD 2 Wave Label",
-                                  TRANS("Wave\n")));
+    WaveMOD2Lbl.reset (new juce::Label ("MOD 2 Wave Label",
+                                        TRANS("Wave\n")));
     addAndMakeVisible (WaveMOD2Lbl.get());
-    WaveMOD2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    WaveMOD2Lbl->setJustificationType (Justification::centredLeft);
+    WaveMOD2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    WaveMOD2Lbl->setJustificationType (juce::Justification::centredLeft);
     WaveMOD2Lbl->setEditable (false, false, false);
-    WaveMOD2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    WaveMOD2Lbl->setColour (TextEditor::textColourId, Colours::black);
-    WaveMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    WaveMOD2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    WaveMOD2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    WaveMOD2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     WaveMOD2Lbl->setBounds (548, 288, 46, 24);
 
-    TempoSyncMOD2Btn.reset (new TextButton ("MOD 2 Tempo Sync Button"));
+    TempoSyncMOD2Btn.reset (new juce::TextButton ("MOD 2 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncMOD2Btn.get());
     TempoSyncMOD2Btn->setTooltip (TRANS("Tempo sync LFO frequency"));
     TempoSyncMOD2Btn->setButtonText (TRANS("Tempo"));
@@ -624,29 +624,29 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoSyncMOD2Btn->setBounds (364, 224, 56, 16);
 
-    TempoNumerMOD2Sld.reset (new Slider ("MOD 2 Tempo Numer Slider"));
+    TempoNumerMOD2Sld.reset (new juce::Slider ("MOD 2 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerMOD2Sld.get());
     TempoNumerMOD2Sld->setRange (1, 4, 1);
-    TempoNumerMOD2Sld->setSliderStyle (Slider::IncDecButtons);
-    TempoNumerMOD2Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
-    TempoNumerMOD2Sld->setColour (Slider::textBoxBackgroundColourId, Colour (0xffc8c8c8));
-    TempoNumerMOD2Sld->setColour (Slider::textBoxOutlineColourId, Colour (0x09808080));
+    TempoNumerMOD2Sld->setSliderStyle (juce::Slider::IncDecButtons);
+    TempoNumerMOD2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
+    TempoNumerMOD2Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
+    TempoNumerMOD2Sld->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x09808080));
     TempoNumerMOD2Sld->addListener (this);
 
     TempoNumerMOD2Sld->setBounds (364, 256, 56, 16);
 
-    TempoDenomMOD2Sld.reset (new Slider ("MOD 2 Tempo Denom Slider"));
+    TempoDenomMOD2Sld.reset (new juce::Slider ("MOD 2 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomMOD2Sld.get());
     TempoDenomMOD2Sld->setRange (1, 32, 1);
-    TempoDenomMOD2Sld->setSliderStyle (Slider::IncDecButtons);
-    TempoDenomMOD2Sld->setTextBoxStyle (Slider::TextBoxLeft, false, 40, 20);
-    TempoDenomMOD2Sld->setColour (Slider::textBoxBackgroundColourId, Colour (0xffc8c8c8));
-    TempoDenomMOD2Sld->setColour (Slider::textBoxOutlineColourId, Colour (0x00808080));
+    TempoDenomMOD2Sld->setSliderStyle (juce::Slider::IncDecButtons);
+    TempoDenomMOD2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
+    TempoDenomMOD2Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
+    TempoDenomMOD2Sld->setColour (juce::Slider::textBoxOutlineColourId, juce::Colour (0x00808080));
     TempoDenomMOD2Sld->addListener (this);
 
     TempoDenomMOD2Sld->setBounds (364, 288, 56, 16);
 
-    PhaseSyncMOD2Btn.reset (new TextButton ("MOD 2 Phase Sync Button"));
+    PhaseSyncMOD2Btn.reset (new juce::TextButton ("MOD 2 Phase Sync Button"));
     addAndMakeVisible (PhaseSyncMOD2Btn.get());
     PhaseSyncMOD2Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
     PhaseSyncMOD2Btn->setButtonText (TRANS("Phase"));
@@ -658,26 +658,26 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     addAndMakeVisible (PhaseMOD2Sld.get());
     PhaseMOD2Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
     PhaseMOD2Sld->setRange (0, 1, 0.01);
-    PhaseMOD2Sld->setSliderStyle (Slider::RotaryVerticalDrag);
-    PhaseMOD2Sld->setTextBoxStyle (Slider::NoTextBox, false, 80, 20);
-    PhaseMOD2Sld->setColour (Slider::rotarySliderFillColourId, Colour (0x7f00ff03));
+    PhaseMOD2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
+    PhaseMOD2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
+    PhaseMOD2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     PhaseMOD2Sld->addListener (this);
 
     PhaseMOD2Sld->setBounds (484, 248, 32, 24);
 
-    PhaseMOD2Lbl.reset (new Label ("MOD 2 Phase Label",
-                                   TRANS("Phase")));
+    PhaseMOD2Lbl.reset (new juce::Label ("MOD 2 Phase Label",
+                                         TRANS("Phase")));
     addAndMakeVisible (PhaseMOD2Lbl.get());
-    PhaseMOD2Lbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    PhaseMOD2Lbl->setJustificationType (Justification::centredLeft);
+    PhaseMOD2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    PhaseMOD2Lbl->setJustificationType (juce::Justification::centredLeft);
     PhaseMOD2Lbl->setEditable (false, false, false);
-    PhaseMOD2Lbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    PhaseMOD2Lbl->setColour (TextEditor::textColourId, Colours::black);
-    PhaseMOD2Lbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    PhaseMOD2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    PhaseMOD2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    PhaseMOD2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     PhaseMOD2Lbl->setBounds (477, 272, 46, 24);
 
-    StereoBtn.reset (new TextButton ("Stereo Button"));
+    StereoBtn.reset (new juce::TextButton ("Stereo Button"));
     addAndMakeVisible (StereoBtn.get());
     StereoBtn->setTooltip (TRANS("Enables LFO 1 and LFO 2 to operate on the left and right channels independently"));
     StereoBtn->setButtonText (TRANS("Stereo"));
@@ -685,39 +685,39 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     StereoBtn->setBounds (542, 48, 72, 24);
 
-    OutputGainLbl.reset (new Label ("Output Gain Label",
-                                    TRANS("Output Gain")));
+    OutputGainLbl.reset (new juce::Label ("Output Gain Label",
+                                          TRANS("Output Gain")));
     addAndMakeVisible (OutputGainLbl.get());
-    OutputGainLbl->setFont (Font (15.0f, Font::plain).withTypefaceStyle ("Regular"));
-    OutputGainLbl->setJustificationType (Justification::centredLeft);
+    OutputGainLbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    OutputGainLbl->setJustificationType (juce::Justification::centredLeft);
     OutputGainLbl->setEditable (false, false, false);
-    OutputGainLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    OutputGainLbl->setColour (TextEditor::textColourId, Colours::black);
-    OutputGainLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    OutputGainLbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    OutputGainLbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    OutputGainLbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     OutputGainLbl->setBounds (448, 48, 88, 24);
 
-    MODLFO1LeftLbl.reset (new Label ("MOD LFO1 Left Label",
-                                     TRANS("- MOD -")));
+    MODLFO1LeftLbl.reset (new juce::Label ("MOD LFO1 Left Label",
+                                           TRANS("- MOD -")));
     addAndMakeVisible (MODLFO1LeftLbl.get());
-    MODLFO1LeftLbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
-    MODLFO1LeftLbl->setJustificationType (Justification::centred);
+    MODLFO1LeftLbl->setFont (juce::Font (10.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    MODLFO1LeftLbl->setJustificationType (juce::Justification::centred);
     MODLFO1LeftLbl->setEditable (false, false, false);
-    MODLFO1LeftLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    MODLFO1LeftLbl->setColour (TextEditor::textColourId, Colours::black);
-    MODLFO1LeftLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    MODLFO1LeftLbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    MODLFO1LeftLbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    MODLFO1LeftLbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     MODLFO1LeftLbl->setBounds (97, 164, 38, 24);
 
-    MODLFO2LeftLbl.reset (new Label ("MOD LFO2 Left Label",
-                                     TRANS("- MOD -")));
+    MODLFO2LeftLbl.reset (new juce::Label ("MOD LFO2 Left Label",
+                                           TRANS("- MOD -")));
     addAndMakeVisible (MODLFO2LeftLbl.get());
-    MODLFO2LeftLbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
-    MODLFO2LeftLbl->setJustificationType (Justification::centred);
+    MODLFO2LeftLbl->setFont (juce::Font (10.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    MODLFO2LeftLbl->setJustificationType (juce::Justification::centred);
     MODLFO2LeftLbl->setEditable (false, false, false);
-    MODLFO2LeftLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    MODLFO2LeftLbl->setColour (TextEditor::textColourId, Colours::black);
-    MODLFO2LeftLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    MODLFO2LeftLbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    MODLFO2LeftLbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    MODLFO2LeftLbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     MODLFO2LeftLbl->setBounds (399, 164, 38, 24);
 
@@ -745,27 +745,27 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     MeterMOD2->setBounds (350, 218, 4, 96);
 
-    MODLFO1RightLbl.reset (new Label ("MOD LFO1 Right Label",
-                                      TRANS("- MOD")));
+    MODLFO1RightLbl.reset (new juce::Label ("MOD LFO1 Right Label",
+                                            TRANS("- MOD")));
     addAndMakeVisible (MODLFO1RightLbl.get());
-    MODLFO1RightLbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
-    MODLFO1RightLbl->setJustificationType (Justification::centred);
+    MODLFO1RightLbl->setFont (juce::Font (10.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    MODLFO1RightLbl->setJustificationType (juce::Justification::centred);
     MODLFO1RightLbl->setEditable (false, false, false);
-    MODLFO1RightLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    MODLFO1RightLbl->setColour (TextEditor::textColourId, Colours::black);
-    MODLFO1RightLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    MODLFO1RightLbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    MODLFO1RightLbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    MODLFO1RightLbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     MODLFO1RightLbl->setBounds (153, 164, 38, 24);
 
-    MODLFO2RightLbl.reset (new Label ("MOD LFO2 Right Label",
-                                      TRANS("- MOD")));
+    MODLFO2RightLbl.reset (new juce::Label ("MOD LFO2 Right Label",
+                                            TRANS("- MOD")));
     addAndMakeVisible (MODLFO2RightLbl.get());
-    MODLFO2RightLbl->setFont (Font (10.0f, Font::plain).withTypefaceStyle ("Regular"));
-    MODLFO2RightLbl->setJustificationType (Justification::centred);
+    MODLFO2RightLbl->setFont (juce::Font (10.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
+    MODLFO2RightLbl->setJustificationType (juce::Justification::centred);
     MODLFO2RightLbl->setEditable (false, false, false);
-    MODLFO2RightLbl->setColour (Label::textColourId, Colour (0xffc8c8c8));
-    MODLFO2RightLbl->setColour (TextEditor::textColourId, Colours::black);
-    MODLFO2RightLbl->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    MODLFO2RightLbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
+    MODLFO2RightLbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
+    MODLFO2RightLbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     MODLFO2RightLbl->setBounds (455, 164, 38, 24);
 
@@ -910,12 +910,12 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
 }
 
 //==============================================================================
-void RichterAudioProcessorEditor::paint (Graphics& g)
+void RichterAudioProcessorEditor::paint (juce::Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colours::white);
+    g.fillAll (juce::Colours::white);
 
     //[UserPaint] Add your own custom painting code here..
     Image bg {ImageCache::getFromMemory(BinaryData::Richter_Background_png, BinaryData::Richter_Background_pngSize)};
@@ -932,7 +932,7 @@ void RichterAudioProcessorEditor::resized()
     //[/UserResized]
 }
 
-void RichterAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMoved)
+void RichterAudioProcessorEditor::sliderValueChanged (juce::Slider* sliderThatWasMoved)
 {
     //[UsersliderValueChanged_Pre]
     RichterAudioProcessor* ourProcessor {getProcessor()};
@@ -1093,7 +1093,7 @@ void RichterAudioProcessorEditor::sliderValueChanged (Slider* sliderThatWasMoved
     //[/UsersliderValueChanged_Post]
 }
 
-void RichterAudioProcessorEditor::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
+void RichterAudioProcessorEditor::comboBoxChanged (juce::ComboBox* comboBoxThatHasChanged)
 {
     //[UsercomboBoxChanged_Pre]
     RichterAudioProcessor* ourProcessor {getProcessor()};
@@ -1128,7 +1128,7 @@ void RichterAudioProcessorEditor::comboBoxChanged (ComboBox* comboBoxThatHasChan
     //[/UsercomboBoxChanged_Post]
 }
 
-void RichterAudioProcessorEditor::buttonClicked (Button* buttonThatWasClicked)
+void RichterAudioProcessorEditor::buttonClicked (juce::Button* buttonThatWasClicked)
 {
     //[UserbuttonClicked_Pre]
     RichterAudioProcessor* ourProcessor {getProcessor()};
@@ -1529,7 +1529,7 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="RichterAudioProcessorEditor"
                  componentName="" parentClasses="public WECore::JUCEPlugin::CoreProcessorEditor, public Timer"
                  constructorParams="RichterAudioProcessor&amp; ownerFilter" variableInitialisers="CoreProcessorEditor(ownerFilter), _highlightColour(0x7f00ff03)"
-                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.33"
+                 snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="675" initialHeight="340">
   <BACKGROUND backgroundColour="ffffffff"/>
   <GROUPCOMPONENT name="LFO 1 Group" id="2a8643bc712454bf" memberName="LFO1Group"
@@ -1538,15 +1538,15 @@ BEGIN_JUCER_METADATA
   <SLIDER name="LFO 1 Depth Slider" id="98ad3308f709f25c" memberName="DepthLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="128 120 32 24" tooltip="Depth of the LFO"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 1 Freq Slider" id="94530d5c05e4a382" memberName="FreqLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="72 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="LFO 1 Wave" id="6343a9cc42a2eda5" memberName="WaveLFO1Cmb"
             virtualName="" explicitFocusOrder="0" pos="232 128 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
@@ -1554,21 +1554,21 @@ BEGIN_JUCER_METADATA
   <SLIDER name="LFO 1 Depth Mod Slider" id="9a3f86cb168e586e" memberName="DepthModLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="136 168 16 16" tooltip="Amount of depth modulation from MOD 1"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 1 Freq Mod Slider" id="b0488ea613d92dcf" memberName="FreqModLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="80 168 16 16" tooltip="Amount of rate modulation from MOD 1"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="Output Gain Slider" id="65acc0b358aa2541" memberName="OutputGainSld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;float&gt;"
           explicitFocusOrder="0" pos="56 48 392 24" tooltip="Output gain"
-          min="0.0" max="1.0" int="0.01000000000000000021" style="LinearHorizontal"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="LinearHorizontal" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <TEXTBUTTON name="LFO 1 Bypass Button" id="27660ce1c9366ec3" memberName="BypassLFO1Btn"
               virtualName="" explicitFocusOrder="0" pos="256 88 56 24" tooltip="Bypass button for LFO 1. LFO 1 operates directly on sound."
               buttonText="LFO 1" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -1592,15 +1592,15 @@ BEGIN_JUCER_METADATA
   <SLIDER name="LFO 2 Depth Slider" id="2596adc2e61cd58e" memberName="DepthLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="428 120 32 24" tooltip="Depth of the LFO"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Freq Slider" id="f5dbcdc53c502e69" memberName="FreqLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="372 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="LFO 2 Wave" id="b76d5189aafe8e3f" memberName="WaveLFO2Cmb"
             virtualName="" explicitFocusOrder="0" pos="532 128 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
@@ -1608,15 +1608,15 @@ BEGIN_JUCER_METADATA
   <SLIDER name="LFO 2 Depth Mod Slider" id="4a524c9e1974186c" memberName="DepthModLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="438 168 16 16" tooltip="Amount of depth modulation from MOD 1"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Freq Mod Slider" id="e49bd74bef8aaca1" memberName="FreqModLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="380 168 16 16" tooltip="Amount of rate modulation from MOD 2"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <TEXTBUTTON name="LFO 2 Bypass Button" id="74a3a05dda891f9c" memberName="BypassLFO2Btn"
               virtualName="" explicitFocusOrder="0" pos="556 88 56 24" tooltip="Bypass button for LFO 2. LFO 2 operates directly on sound."
               buttonText="LFO 2" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -1671,7 +1671,7 @@ BEGIN_JUCER_METADATA
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="184 120 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
           thumbcol="ffbdffbb" rotarysliderfill="7f00ff03" min="0.0" max="1.0"
-          int="0.01000000000000000021" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="1"/>
   <LABEL name="LFO 1 Phase Label" id="e8d899c4a3a19f8" memberName="PhaseLFO1Lbl"
@@ -1682,9 +1682,9 @@ BEGIN_JUCER_METADATA
   <SLIDER name="LFO 2 Phase Slider" id="df30ce6c91b8975b" memberName="PhaseLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="484 120 32 24" tooltip="Changes the phase of the LFO by up to 360 degrees"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <LABEL name="LFO 2 Phase Label" id="5fd532cc21a16f51" memberName="PhaseLFO2Lbl"
          virtualName="" explicitFocusOrder="0" pos="477 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
@@ -1695,15 +1695,15 @@ BEGIN_JUCER_METADATA
   <SLIDER name="MOD 1 Depth Slider" id="499f6451911662cc" memberName="DepthMOD1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="128 248 32 24" tooltip="Depth of the LFO"
-          rotarysliderfill="7f00ff0d" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff0d" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 1 Freq Slider" id="1d9800ca18cf5bba" memberName="FreqMOD1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="72 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="MOD 1 Wave" id="370e5062e67cf738" memberName="WaveMOD1Cmb"
             virtualName="" explicitFocusOrder="0" pos="232 256 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
@@ -1745,9 +1745,9 @@ BEGIN_JUCER_METADATA
   <SLIDER name="MOD 1 Phase Slider" id="3f1ef3d10c303bac" memberName="PhaseMOD1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="184 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <LABEL name="MOD 1 Phase Label" id="af1abf98d305cb5c" memberName="PhaseMOD1Lbl"
          virtualName="" explicitFocusOrder="0" pos="177 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
@@ -1758,15 +1758,15 @@ BEGIN_JUCER_METADATA
   <SLIDER name="MOD 2 Depth Slider" id="8c1762ee0dd0d28a" memberName="DepthMOD2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="428 248 32 24" tooltip="Depth of the LFO"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 2 Freq Slider" id="362166b8c676eba4" memberName="FreqMOD2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="372 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="MOD 2 Wave" id="c85d4543a533be92" memberName="WaveMOD2Cmb"
             virtualName="" explicitFocusOrder="0" pos="532 256 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
@@ -1808,9 +1808,9 @@ BEGIN_JUCER_METADATA
   <SLIDER name="MOD 2 Phase Slider" id="54fd5481a5970106" memberName="PhaseMOD2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="484 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01000000000000000021"
-          style="RotaryVerticalDrag" textBoxPos="NoTextBox" textBoxEditable="1"
-          textBoxWidth="80" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <LABEL name="MOD 2 Phase Label" id="d3b9d517ecdfe1bc" memberName="PhaseMOD2Lbl"
          virtualName="" explicitFocusOrder="0" pos="477 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
@@ -1865,3 +1865,4 @@ END_JUCER_METADATA
 
 //[EndFile] You can add extra defines here...
 //[/EndFile]
+
