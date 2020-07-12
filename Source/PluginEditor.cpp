@@ -822,6 +822,8 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     _enableDoubleClickToDefault();
 
     _startSliderReadouts();
+
+    _updateTempoToggles(true);
     //[/Constructor]
 }
 
@@ -1311,7 +1313,7 @@ void RichterAudioProcessorEditor::timerCallback()
         PhaseMOD1Sld->setEnabled(PhaseSyncMOD1Btn->getToggleState());
         PhaseMOD2Sld->setEnabled(PhaseSyncMOD2Btn->getToggleState());
 
-        _updateTempoToggles();
+        _updateTempoToggles(false);
 
         // Update meters
         const RichterLFOCache& lfoCache = ourProcessor->getLFOCache();
@@ -1399,14 +1401,12 @@ void RichterAudioProcessorEditor::_stopSliderReadouts() {
     OutputGainSld->stop();
 }
 
-void RichterAudioProcessorEditor::_updateTempoToggles() {
+void RichterAudioProcessorEditor::_updateTempoToggles(bool forceUpdate) {
 
-    // Initialise these to the opposite of the real value to force them to be updated the first time
-    // around
-    static bool tempoSyncLFO1 {!TempoSyncLFO1Btn->getToggleState()};
-    static bool tempoSyncLFO2 {!TempoSyncLFO2Btn->getToggleState()};
-    static bool tempoSyncMOD1 {!TempoSyncMOD1Btn->getToggleState()};
-    static bool tempoSyncMOD2 {!TempoSyncMOD2Btn->getToggleState()};
+    static bool tempoSyncLFO1 {TempoSyncLFO1Btn->getToggleState()};
+    static bool tempoSyncLFO2 {TempoSyncLFO2Btn->getToggleState()};
+    static bool tempoSyncMOD1 {TempoSyncMOD1Btn->getToggleState()};
+    static bool tempoSyncMOD2 {TempoSyncMOD2Btn->getToggleState()};
 
 
     // Toggle visibility for rate controls and move MOD labels depending on tempo sync
@@ -1456,7 +1456,7 @@ void RichterAudioProcessorEditor::_updateTempoToggles() {
     };
 
     // Check if the toggle state has changed since it was last cache and update if needed
-    if (TempoSyncLFO1Btn->getToggleState() != tempoSyncLFO1) {
+    if (forceUpdate || TempoSyncLFO1Btn->getToggleState() != tempoSyncLFO1) {
         tempoSyncLFO1 = TempoSyncLFO1Btn->getToggleState();
 
         updateTempoButton(tempoSyncLFO1,
@@ -1470,7 +1470,7 @@ void RichterAudioProcessorEditor::_updateTempoToggles() {
                           MODLFO1RightLbl.get());
     }
 
-    if (TempoSyncLFO2Btn->getToggleState() != tempoSyncLFO2) {
+    if (forceUpdate || TempoSyncLFO2Btn->getToggleState() != tempoSyncLFO2) {
         tempoSyncLFO2 = TempoSyncLFO2Btn->getToggleState();
 
         updateTempoButton(tempoSyncLFO2,
@@ -1484,7 +1484,7 @@ void RichterAudioProcessorEditor::_updateTempoToggles() {
                           MODLFO2RightLbl.get());
     }
 
-    if (TempoSyncMOD1Btn->getToggleState() != tempoSyncMOD1) {
+    if (forceUpdate || TempoSyncMOD1Btn->getToggleState() != tempoSyncMOD1) {
         tempoSyncMOD1 = TempoSyncMOD1Btn->getToggleState();
 
         updateTempoButton(tempoSyncMOD1,
@@ -1498,7 +1498,7 @@ void RichterAudioProcessorEditor::_updateTempoToggles() {
                           nullptr);
     }
 
-    if (TempoSyncMOD2Btn->getToggleState() != tempoSyncMOD2) {
+    if (forceUpdate || TempoSyncMOD2Btn->getToggleState() != tempoSyncMOD2) {
         tempoSyncMOD2 = TempoSyncMOD2Btn->getToggleState();
 
         updateTempoButton(tempoSyncMOD2,
@@ -1511,8 +1511,6 @@ void RichterAudioProcessorEditor::_updateTempoToggles() {
                           nullptr,
                           nullptr);
     }
-
-
 }
 //[/MiscUserCode]
 
