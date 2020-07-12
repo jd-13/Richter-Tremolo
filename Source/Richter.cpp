@@ -23,7 +23,7 @@
 
 #include "Richter.h"
 
-Richter::Richter() : isStereo(STEREO_DEFAULT) {
+Richter::Richter() : outputGain(OUTPUTGAIN.defaultValue), isStereo(STEREO_DEFAULT) {
 }
 
 Richter::~Richter() {}

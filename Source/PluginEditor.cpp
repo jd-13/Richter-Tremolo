@@ -1137,79 +1137,79 @@ void RichterAudioProcessorEditor::buttonClicked (juce::Button* buttonThatWasClic
     if (buttonThatWasClicked == BypassLFO1Btn.get())
     {
         //[UserButtonCode_BypassLFO1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchLFO1, static_cast<float>(BypassLFO1Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchLFO1, static_cast<float>(!BypassLFO1Btn->getToggleState()));
         //[/UserButtonCode_BypassLFO1Btn]
     }
     else if (buttonThatWasClicked == BypassLFO2Btn.get())
     {
         //[UserButtonCode_BypassLFO2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchLFO2, static_cast<float>(BypassLFO2Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchLFO2, static_cast<float>(!BypassLFO2Btn->getToggleState()));
         //[/UserButtonCode_BypassLFO2Btn]
     }
     else if (buttonThatWasClicked == TempoSyncLFO1Btn.get())
     {
         //[UserButtonCode_TempoSyncLFO1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncLFO1, static_cast<float>(TempoSyncLFO1Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncLFO1, static_cast<float>(!TempoSyncLFO1Btn->getToggleState()));
         //[/UserButtonCode_TempoSyncLFO1Btn]
     }
     else if (buttonThatWasClicked == TempoSyncLFO2Btn.get())
     {
         //[UserButtonCode_TempoSyncLFO2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncLFO2, static_cast<float>(TempoSyncLFO2Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncLFO2, static_cast<float>(!TempoSyncLFO2Btn->getToggleState()));
         //[/UserButtonCode_TempoSyncLFO2Btn]
     }
     else if (buttonThatWasClicked == PhaseSyncLFO1Btn.get())
     {
         //[UserButtonCode_PhaseSyncLFO1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncLFO1, static_cast<float>(PhaseSyncLFO1Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncLFO1, static_cast<float>(!PhaseSyncLFO1Btn->getToggleState()));
         //[/UserButtonCode_PhaseSyncLFO1Btn]
     }
     else if (buttonThatWasClicked == PhaseSyncLFO2Btn.get())
     {
         //[UserButtonCode_PhaseSyncLFO2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncLFO2, static_cast<float>(PhaseSyncLFO2Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncLFO2, static_cast<float>(!PhaseSyncLFO2Btn->getToggleState()));
         //[/UserButtonCode_PhaseSyncLFO2Btn]
     }
     else if (buttonThatWasClicked == BypassMOD1Btn.get())
     {
         //[UserButtonCode_BypassMOD1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchMOD1, static_cast<float>(BypassMOD1Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchMOD1, static_cast<float>(!BypassMOD1Btn->getToggleState()));
         //[/UserButtonCode_BypassMOD1Btn]
     }
     else if (buttonThatWasClicked == TempoSyncMOD1Btn.get())
     {
         //[UserButtonCode_TempoSyncMOD1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncMOD1, static_cast<float>(TempoSyncMOD1Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncMOD1, static_cast<float>(!TempoSyncMOD1Btn->getToggleState()));
         //[/UserButtonCode_TempoSyncMOD1Btn]
     }
     else if (buttonThatWasClicked == PhaseSyncMOD1Btn.get())
     {
         //[UserButtonCode_PhaseSyncMOD1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncMOD1, static_cast<float>(PhaseSyncMOD1Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncMOD1, static_cast<float>(!PhaseSyncMOD1Btn->getToggleState()));
         //[/UserButtonCode_PhaseSyncMOD1Btn]
     }
     else if (buttonThatWasClicked == BypassMOD2Btn.get())
     {
         //[UserButtonCode_BypassMOD2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchMOD2, static_cast<float>(BypassMOD2Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchMOD2, static_cast<float>(!BypassMOD2Btn->getToggleState()));
         //[/UserButtonCode_BypassMOD2Btn]
     }
     else if (buttonThatWasClicked == TempoSyncMOD2Btn.get())
     {
         //[UserButtonCode_TempoSyncMOD2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncMOD2, static_cast<float>(TempoSyncMOD2Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncMOD2, static_cast<float>(!TempoSyncMOD2Btn->getToggleState()));
         //[/UserButtonCode_TempoSyncMOD2Btn]
     }
     else if (buttonThatWasClicked == PhaseSyncMOD2Btn.get())
     {
         //[UserButtonCode_PhaseSyncMOD2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncMOD2, static_cast<float>(PhaseSyncMOD2Btn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncMOD2, static_cast<float>(!PhaseSyncMOD2Btn->getToggleState()));
         //[/UserButtonCode_PhaseSyncMOD2Btn]
     }
     else if (buttonThatWasClicked == StereoBtn.get())
     {
         //[UserButtonCode_StereoBtn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::stereo, static_cast<float>(StereoBtn->getToggleState()));
+        ourProcessor->setParameter(RichterAudioProcessor::stereo, static_cast<float>(!StereoBtn->getToggleState()));
         //[/UserButtonCode_StereoBtn]
     }
 

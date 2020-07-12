@@ -15,55 +15,11 @@
 //==============================================================================
 RichterAudioProcessor::RichterAudioProcessor()
 {
-    mRichter.LFOPair1.LFO.setBypassSwitch(WECore::Richter::Parameters::LFOSWITCH_DEFAULT);
-    mRichter.LFOPair1.LFO.setPhaseSyncSwitch(WECore::Richter::Parameters::PHASESYNC_DEFAULT);
-    mRichter.LFOPair1.LFO.setTempoSyncSwitch(WECore::Richter::Parameters::TEMPOSYNC_DEFAULT);
-    mRichter.LFOPair1.LFO.setWave(WECore::Richter::Parameters::WAVE.defaultValue);
-    mRichter.LFOPair1.LFO.setDepth(WECore::Richter::Parameters::DEPTH.defaultValue);
-    mRichter.LFOPair1.LFO.setDepthMod(WECore::Richter::Parameters::DEPTHMOD.defaultValue);
-    mRichter.LFOPair1.LFO.setFreq(WECore::Richter::Parameters::FREQ.defaultValue);
-    mRichter.LFOPair1.LFO.setFreqMod(WECore::Richter::Parameters::FREQMOD.defaultValue);
-    mRichter.LFOPair1.LFO.setManualPhase(WECore::Richter::Parameters::PHASE.defaultValue);
-    mRichter.LFOPair1.LFO.setTempoNumer(WECore::Richter::Parameters::TEMPONUMER.defaultValue);
-    mRichter.LFOPair1.LFO.setTempoDenom(WECore::Richter::Parameters::TEMPODENOM.defaultValue);
+    mRichter.LFOPair1.LFO.setBypassSwitch(WECore::Richter::Parameters::LFOSWITCH_ON);
+    mRichter.LFOPair2.LFO.setBypassSwitch(WECore::Richter::Parameters::LFOSWITCH_ON);
 
-    mRichter.LFOPair2.LFO.setBypassSwitch(WECore::Richter::Parameters::LFOSWITCH_DEFAULT);
-    mRichter.LFOPair2.LFO.setPhaseSyncSwitch(WECore::Richter::Parameters::PHASESYNC_DEFAULT);
-    mRichter.LFOPair2.LFO.setTempoSyncSwitch(WECore::Richter::Parameters::TEMPOSYNC_DEFAULT);
-    mRichter.LFOPair2.LFO.setWave(WECore::Richter::Parameters::WAVE.defaultValue);
-    mRichter.LFOPair2.LFO.setDepth(WECore::Richter::Parameters::DEPTH.defaultValue);
-    mRichter.LFOPair2.LFO.setDepthMod(WECore::Richter::Parameters::DEPTHMOD.defaultValue);
-    mRichter.LFOPair2.LFO.setFreq(WECore::Richter::Parameters::FREQ.defaultValue);
-    mRichter.LFOPair2.LFO.setFreqMod(WECore::Richter::Parameters::FREQMOD.defaultValue);
-    mRichter.LFOPair2.LFO.setManualPhase(WECore::Richter::Parameters::PHASE.defaultValue);
-    mRichter.LFOPair2.LFO.setTempoNumer(WECore::Richter::Parameters::TEMPONUMER.defaultValue);
-    mRichter.LFOPair2.LFO.setTempoDenom(WECore::Richter::Parameters::TEMPODENOM.defaultValue);
-
-    mRichter.LFOPair1.MOD.setBypassSwitch(WECore::Richter::Parameters::LFOSWITCH_DEFAULT);
-    mRichter.LFOPair1.MOD.setPhaseSyncSwitch(WECore::Richter::Parameters::PHASESYNC_DEFAULT);
-    mRichter.LFOPair1.MOD.setTempoSyncSwitch(WECore::Richter::Parameters::TEMPOSYNC_DEFAULT);
-    mRichter.LFOPair1.MOD.setWave(WECore::Richter::Parameters::WAVE.defaultValue);
-    mRichter.LFOPair1.MOD.setDepth(WECore::Richter::Parameters::DEPTH.defaultValue);
-    mRichter.LFOPair1.MOD.setFreq(WECore::Richter::Parameters::FREQ.defaultValue);
-    mRichter.LFOPair1.MOD.setManualPhase(WECore::Richter::Parameters::PHASE.defaultValue);
-    mRichter.LFOPair1.MOD.setTempoNumer(WECore::Richter::Parameters::TEMPONUMER.defaultValue);
-    mRichter.LFOPair1.MOD.setTempoDenom(WECore::Richter::Parameters::TEMPODENOM.defaultValue);
-
-    mRichter.LFOPair2.MOD.setBypassSwitch(WECore::Richter::Parameters::LFOSWITCH_DEFAULT);
-    mRichter.LFOPair2.MOD.setPhaseSyncSwitch(WECore::Richter::Parameters::PHASESYNC_DEFAULT);
-    mRichter.LFOPair2.MOD.setTempoSyncSwitch(WECore::Richter::Parameters::TEMPOSYNC_DEFAULT);
-    mRichter.LFOPair2.MOD.setWave(WECore::Richter::Parameters::WAVE.defaultValue);
-    mRichter.LFOPair2.MOD.setDepth(WECore::Richter::Parameters::DEPTH.defaultValue);
-    mRichter.LFOPair2.MOD.setFreq(WECore::Richter::Parameters::FREQ.defaultValue);
-    mRichter.LFOPair2.MOD.setManualPhase(WECore::Richter::Parameters::PHASE.defaultValue);
-    mRichter.LFOPair2.MOD.setTempoNumer(WECore::Richter::Parameters::TEMPONUMER.defaultValue);
-    mRichter.LFOPair2.MOD.setTempoDenom(WECore::Richter::Parameters::TEMPODENOM.defaultValue);
-
-    mRichter.setStereo(STEREO_DEFAULT);
-    mRichter.setOutputGain(OUTPUTGAIN.defaultValue);
 
     _UIUpdateFlag = true;
-
 }
 
 RichterAudioProcessor::~RichterAudioProcessor()
@@ -240,15 +196,15 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
 {
     switch (index) {
         case bypassSwitchLFO1:
-            mRichter.LFOPair1.LFO.setBypassSwitch(newValue < 0.5);
+            mRichter.LFOPair1.LFO.setBypassSwitch(newValue > 0.5);
             break;
 
         case phaseSyncLFO1:
-            mRichter.LFOPair1.LFO.setPhaseSyncSwitch(newValue < 0.5);
+            mRichter.LFOPair1.LFO.setPhaseSyncSwitch(newValue > 0.5);
             break;
 
         case tempoSyncLFO1:
-            mRichter.LFOPair1.LFO.setTempoSyncSwitch(newValue < 0.5);
+            mRichter.LFOPair1.LFO.setTempoSyncSwitch(newValue > 0.5);
             break;
 
         case waveLFO1:
@@ -288,15 +244,15 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
 
 
         case bypassSwitchLFO2:
-            mRichter.LFOPair2.LFO.setBypassSwitch(newValue < 0.5);
+            mRichter.LFOPair2.LFO.setBypassSwitch(newValue > 0.5);
             break;
 
         case phaseSyncLFO2:
-            mRichter.LFOPair2.LFO.setPhaseSyncSwitch(newValue < 0.5);
+            mRichter.LFOPair2.LFO.setPhaseSyncSwitch(newValue > 0.5);
             break;
 
         case tempoSyncLFO2:
-            mRichter.LFOPair2.LFO.setTempoSyncSwitch(newValue < 0.5);
+            mRichter.LFOPair2.LFO.setTempoSyncSwitch(newValue > 0.5);
             break;
 
         case waveLFO2:
@@ -336,15 +292,15 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
 
 
         case bypassSwitchMOD1:
-            mRichter.LFOPair1.MOD.setBypassSwitch(newValue < 0.5);
+            mRichter.LFOPair1.MOD.setBypassSwitch(newValue > 0.5);
             break;
 
         case phaseSyncMOD1:
-            mRichter.LFOPair1.MOD.setPhaseSyncSwitch(newValue < 0.5);
+            mRichter.LFOPair1.MOD.setPhaseSyncSwitch(newValue > 0.5);
             break;
 
         case tempoSyncMOD1:
-            mRichter.LFOPair1.MOD.setTempoSyncSwitch(newValue < 0.5);
+            mRichter.LFOPair1.MOD.setTempoSyncSwitch(newValue > 0.5);
             break;
 
         case waveMOD1:
@@ -376,15 +332,15 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
 
 
         case bypassSwitchMOD2:
-            mRichter.LFOPair2.MOD.setBypassSwitch(newValue < 0.5);
+            mRichter.LFOPair2.MOD.setBypassSwitch(newValue > 0.5);
             break;
 
         case phaseSyncMOD2:
-            mRichter.LFOPair2.MOD.setPhaseSyncSwitch(newValue < 0.5);
+            mRichter.LFOPair2.MOD.setPhaseSyncSwitch(newValue > 0.5);
             break;
 
         case tempoSyncMOD2:
-            mRichter.LFOPair2.MOD.setTempoSyncSwitch(newValue < 0.5);
+            mRichter.LFOPair2.MOD.setTempoSyncSwitch(newValue > 0.5);
             break;
 
         case waveMOD2:
@@ -414,7 +370,7 @@ void RichterAudioProcessor::setParameter (int index, float newValue)
 
 
         case stereo:
-            mRichter.setStereo(newValue < 0.5);
+            mRichter.setStereo(newValue > 0.5);
             break;
 
         case outputGain:
@@ -942,26 +898,6 @@ void RichterAudioProcessor::setStateInformation (const void* data, int sizeInByt
                 }
             }
         }
-
-        // Slightly hacky fix to prevent inverted button settings on startup
-        setParameter(stereo, getParameter(stereo));
-
-        setParameter(bypassSwitchLFO1, getParameter(bypassSwitchLFO1));
-        setParameter(phaseSyncLFO1, getParameter(phaseSyncLFO1));
-        setParameter(tempoSyncLFO1, getParameter(tempoSyncLFO1));
-
-        setParameter(bypassSwitchLFO2, getParameter(bypassSwitchLFO2));
-        setParameter(phaseSyncLFO2, getParameter(phaseSyncLFO2));
-        setParameter(tempoSyncLFO2, getParameter(tempoSyncLFO2));
-
-        setParameter(bypassSwitchMOD1, getParameter(bypassSwitchMOD1));
-        setParameter(phaseSyncMOD1, getParameter(phaseSyncMOD1));
-        setParameter(tempoSyncMOD1, getParameter(tempoSyncMOD1));
-
-        setParameter(bypassSwitchMOD2, getParameter(bypassSwitchMOD2));
-        setParameter(phaseSyncMOD2, getParameter(phaseSyncMOD2));
-        setParameter(tempoSyncMOD2, getParameter(tempoSyncMOD2));
-
 
         _UIUpdateFlag = true;
     }
