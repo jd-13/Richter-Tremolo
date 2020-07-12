@@ -74,7 +74,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveLFO1Cmb->addItem (TRANS("Saw"), 3);
     WaveLFO1Cmb->addListener (this);
 
-    WaveLFO1Cmb->setBounds (232, 128, 80, 24);
+    WaveLFO1Cmb->setBounds (232, 162, 80, 24);
 
     DepthModLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Depth Mod Slider"));
     addAndMakeVisible (DepthModLFO1Sld.get());
@@ -140,18 +140,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     DepthLFO1Lbl->setBounds (121, 144, 46, 24);
 
-    WaveLFO1Lbl.reset (new juce::Label ("LFO 1 Wave Label",
-                                        TRANS("Wave\n")));
-    addAndMakeVisible (WaveLFO1Lbl.get());
-    WaveLFO1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
-    WaveLFO1Lbl->setJustificationType (juce::Justification::centredLeft);
-    WaveLFO1Lbl->setEditable (false, false, false);
-    WaveLFO1Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
-    WaveLFO1Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
-    WaveLFO1Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
-
-    WaveLFO1Lbl->setBounds (248, 160, 46, 24);
-
     LFO2Group.reset (new juce::GroupComponent ("LFO 2 Group",
                                                TRANS("LFO2")));
     addAndMakeVisible (LFO2Group.get());
@@ -192,7 +180,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveLFO2Cmb->addItem (TRANS("Saw"), 3);
     WaveLFO2Cmb->addListener (this);
 
-    WaveLFO2Cmb->setBounds (532, 128, 80, 24);
+    WaveLFO2Cmb->setBounds (532, 162, 80, 24);
 
     DepthModLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Depth Mod Slider"));
     addAndMakeVisible (DepthModLFO2Sld.get());
@@ -247,18 +235,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthLFO2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     DepthLFO2Lbl->setBounds (421, 144, 46, 24);
-
-    WaveLFO2Lbl.reset (new juce::Label ("LFO 2 Wave Label",
-                                        TRANS("Wave\n")));
-    addAndMakeVisible (WaveLFO2Lbl.get());
-    WaveLFO2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
-    WaveLFO2Lbl->setJustificationType (juce::Justification::centredLeft);
-    WaveLFO2Lbl->setEditable (false, false, false);
-    WaveLFO2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
-    WaveLFO2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
-    WaveLFO2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
-
-    WaveLFO2Lbl->setBounds (548, 160, 46, 24);
 
     TempoSyncLFO1Btn.reset (new juce::TextButton ("LFO 1 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncLFO1Btn.get());
@@ -423,7 +399,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveMOD1Cmb->addItem (TRANS("Saw"), 3);
     WaveMOD1Cmb->addListener (this);
 
-    WaveMOD1Cmb->setBounds (232, 256, 80, 24);
+    WaveMOD1Cmb->setBounds (232, 290, 80, 24);
 
     BypassMOD1Btn.reset (new juce::TextButton ("MOD 1 Bypass Button"));
     addAndMakeVisible (BypassMOD1Btn.get());
@@ -456,18 +432,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthMOD1Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     DepthMOD1Lbl->setBounds (121, 272, 46, 24);
-
-    WaveMOD1Lbl.reset (new juce::Label ("MOD 1 Wave Label",
-                                        TRANS("Wave\n")));
-    addAndMakeVisible (WaveMOD1Lbl.get());
-    WaveMOD1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
-    WaveMOD1Lbl->setJustificationType (juce::Justification::centredLeft);
-    WaveMOD1Lbl->setEditable (false, false, false);
-    WaveMOD1Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
-    WaveMOD1Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
-    WaveMOD1Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
-
-    WaveMOD1Lbl->setBounds (248, 288, 46, 24);
 
     TempoSyncMOD1Btn.reset (new juce::TextButton ("MOD 1 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncMOD1Btn.get());
@@ -570,7 +534,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveMOD2Cmb->addItem (TRANS("Saw"), 3);
     WaveMOD2Cmb->addListener (this);
 
-    WaveMOD2Cmb->setBounds (532, 256, 80, 24);
+    WaveMOD2Cmb->setBounds (532, 290, 80, 24);
 
     BypassMOD2Btn.reset (new juce::TextButton ("MOD 2 Bypass Button"));
     addAndMakeVisible (BypassMOD2Btn.get());
@@ -603,18 +567,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthMOD2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
     DepthMOD2Lbl->setBounds (421, 272, 46, 24);
-
-    WaveMOD2Lbl.reset (new juce::Label ("MOD 2 Wave Label",
-                                        TRANS("Wave\n")));
-    addAndMakeVisible (WaveMOD2Lbl.get());
-    WaveMOD2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
-    WaveMOD2Lbl->setJustificationType (juce::Justification::centredLeft);
-    WaveMOD2Lbl->setEditable (false, false, false);
-    WaveMOD2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
-    WaveMOD2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
-    WaveMOD2Lbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
-
-    WaveMOD2Lbl->setBounds (548, 288, 46, 24);
 
     TempoSyncMOD2Btn.reset (new juce::TextButton ("MOD 2 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncMOD2Btn.get());
@@ -669,7 +621,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                          TRANS("Phase")));
     addAndMakeVisible (PhaseMOD2Lbl.get());
     PhaseMOD2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
-    PhaseMOD2Lbl->setJustificationType (juce::Justification::centredLeft);
+    PhaseMOD2Lbl->setJustificationType (juce::Justification::centred);
     PhaseMOD2Lbl->setEditable (false, false, false);
     PhaseMOD2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
     PhaseMOD2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
@@ -795,6 +747,8 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     TempoNumerMOD2Sld->setLookAndFeel(&tempoLookAndFeel);
     TempoDenomMOD2Sld->setLookAndFeel(&tempoLookAndFeel);
 
+    customLookAndFeel.setColour(ComboBox::ColourIds::textColourId, Colour(0xffc8c8c8));
+
     // This is needed for the fonts to be applied
     RichterLookAndFeel::setDefaultLookAndFeel(&customLookAndFeel);
 
@@ -843,7 +797,6 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     BypassLFO1Btn = nullptr;
     FreqLFO1Lbl = nullptr;
     DepthLFO1Lbl = nullptr;
-    WaveLFO1Lbl = nullptr;
     LFO2Group = nullptr;
     DepthLFO2Sld = nullptr;
     FreqLFO2Sld = nullptr;
@@ -853,7 +806,6 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     BypassLFO2Btn = nullptr;
     FreqLFO2Lbl = nullptr;
     DepthLFO2Lbl = nullptr;
-    WaveLFO2Lbl = nullptr;
     TempoSyncLFO1Btn = nullptr;
     TempoSyncLFO2Btn = nullptr;
     TempoNumerLFO1Sld = nullptr;
@@ -873,7 +825,6 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     BypassMOD1Btn = nullptr;
     FreqMOD1Lbl = nullptr;
     DepthMOD1Lbl = nullptr;
-    WaveMOD1Lbl = nullptr;
     TempoSyncMOD1Btn = nullptr;
     TempoNumerMOD1Sld = nullptr;
     TempoDenomMOD1Sld = nullptr;
@@ -887,7 +838,6 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     BypassMOD2Btn = nullptr;
     FreqMOD2Lbl = nullptr;
     DepthMOD2Lbl = nullptr;
-    WaveMOD2Lbl = nullptr;
     TempoSyncMOD2Btn = nullptr;
     TempoNumerMOD2Sld = nullptr;
     TempoDenomMOD2Sld = nullptr;
@@ -1546,7 +1496,7 @@ BEGIN_JUCER_METADATA
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="LFO 1 Wave" id="6343a9cc42a2eda5" memberName="WaveLFO1Cmb"
-            virtualName="" explicitFocusOrder="0" pos="232 128 80 24" tooltip="LFO wave shape"
+            virtualName="" explicitFocusOrder="0" pos="232 162 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 1 Depth Mod Slider" id="9a3f86cb168e586e" memberName="DepthModLFO1Sld"
@@ -1580,11 +1530,6 @@ BEGIN_JUCER_METADATA
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
-  <LABEL name="LFO 1 Wave Label" id="75dbcd5f6a0cc700" memberName="WaveLFO1Lbl"
-         virtualName="" explicitFocusOrder="0" pos="248 160 46 24" textCol="ffc8c8c8"
-         edTextCol="ff000000" edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <GROUPCOMPONENT name="LFO 2 Group" id="35e8ad61c86b603a" memberName="LFO2Group"
                   virtualName="" explicitFocusOrder="0" pos="340 72 288 128" title="LFO2"/>
   <SLIDER name="LFO 2 Depth Slider" id="2596adc2e61cd58e" memberName="DepthLFO2Sld"
@@ -1600,7 +1545,7 @@ BEGIN_JUCER_METADATA
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="LFO 2 Wave" id="b76d5189aafe8e3f" memberName="WaveLFO2Cmb"
-            virtualName="" explicitFocusOrder="0" pos="532 128 80 24" tooltip="LFO wave shape"
+            virtualName="" explicitFocusOrder="0" pos="532 162 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 2 Depth Mod Slider" id="4a524c9e1974186c" memberName="DepthModLFO2Sld"
@@ -1628,11 +1573,6 @@ BEGIN_JUCER_METADATA
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
-  <LABEL name="LFO 2 Wave Label" id="e01fc09efde6d339" memberName="WaveLFO2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="548 160 46 24" textCol="ffc8c8c8"
-         edTextCol="ff000000" edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="LFO 1 Tempo Sync Button" id="95825bc0b3290b8b" memberName="TempoSyncLFO1Btn"
               virtualName="" explicitFocusOrder="0" pos="64 96 56 16" tooltip="Tempo sync LFO frequency"
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -1703,7 +1643,7 @@ BEGIN_JUCER_METADATA
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="MOD 1 Wave" id="370e5062e67cf738" memberName="WaveMOD1Cmb"
-            virtualName="" explicitFocusOrder="0" pos="232 256 80 24" tooltip="LFO wave shape"
+            virtualName="" explicitFocusOrder="0" pos="232 290 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <TEXTBUTTON name="MOD 1 Bypass Button" id="cd667ff923e74db5" memberName="BypassMOD1Btn"
@@ -1719,11 +1659,6 @@ BEGIN_JUCER_METADATA
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
-  <LABEL name="MOD 1 Wave Label" id="7eb50c1a44463588" memberName="WaveMOD1Lbl"
-         virtualName="" explicitFocusOrder="0" pos="248 288 46 24" textCol="ffc8c8c8"
-         edTextCol="ff000000" edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="MOD 1 Tempo Sync Button" id="b43affdb8ac7bb90" memberName="TempoSyncMOD1Btn"
               virtualName="" explicitFocusOrder="0" pos="64 224 56 16" tooltip="Tempo sync LFO frequency"
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -1766,7 +1701,7 @@ BEGIN_JUCER_METADATA
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="MOD 2 Wave" id="c85d4543a533be92" memberName="WaveMOD2Cmb"
-            virtualName="" explicitFocusOrder="0" pos="532 256 80 24" tooltip="LFO wave shape"
+            virtualName="" explicitFocusOrder="0" pos="532 290 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
             textWhenNoItems="(no choices)"/>
   <TEXTBUTTON name="MOD 2 Bypass Button" id="7773dc0327675392" memberName="BypassMOD2Btn"
@@ -1780,11 +1715,6 @@ BEGIN_JUCER_METADATA
   <LABEL name="MOD 2 Depth Label" id="c19bf3a6d5ab63f9" memberName="DepthMOD2Lbl"
          virtualName="" explicitFocusOrder="0" pos="421 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
-  <LABEL name="MOD 2 Wave Label" id="1bdb7eca9ab250c8" memberName="WaveMOD2Lbl"
-         virtualName="" explicitFocusOrder="0" pos="548 288 46 24" textCol="ffc8c8c8"
-         edTextCol="ff000000" edBkgCol="0" labelText="Wave&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="MOD 2 Tempo Sync Button" id="bfc616fbcdb92b04" memberName="TempoSyncMOD2Btn"
@@ -1813,7 +1743,7 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="477 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <TEXTBUTTON name="Stereo Button" id="91683bb4fa1cc3c7" memberName="StereoBtn"
               virtualName="" explicitFocusOrder="0" pos="542 48 72 24" tooltip="Enables LFO 1 and LFO 2 to operate on the left and right channels independently"
               buttonText="Stereo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>

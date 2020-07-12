@@ -89,7 +89,6 @@ private:
     std::unique_ptr<juce::TextButton> BypassLFO1Btn;
     std::unique_ptr<juce::Label> FreqLFO1Lbl;
     std::unique_ptr<juce::Label> DepthLFO1Lbl;
-    std::unique_ptr<juce::Label> WaveLFO1Lbl;
     std::unique_ptr<juce::GroupComponent> LFO2Group;
     std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> DepthLFO2Sld;
     std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> FreqLFO2Sld;
@@ -99,7 +98,6 @@ private:
     std::unique_ptr<juce::TextButton> BypassLFO2Btn;
     std::unique_ptr<juce::Label> FreqLFO2Lbl;
     std::unique_ptr<juce::Label> DepthLFO2Lbl;
-    std::unique_ptr<juce::Label> WaveLFO2Lbl;
     std::unique_ptr<juce::TextButton> TempoSyncLFO1Btn;
     std::unique_ptr<juce::TextButton> TempoSyncLFO2Btn;
     std::unique_ptr<juce::Slider> TempoNumerLFO1Sld;
@@ -119,7 +117,6 @@ private:
     std::unique_ptr<juce::TextButton> BypassMOD1Btn;
     std::unique_ptr<juce::Label> FreqMOD1Lbl;
     std::unique_ptr<juce::Label> DepthMOD1Lbl;
-    std::unique_ptr<juce::Label> WaveMOD1Lbl;
     std::unique_ptr<juce::TextButton> TempoSyncMOD1Btn;
     std::unique_ptr<juce::Slider> TempoNumerMOD1Sld;
     std::unique_ptr<juce::Slider> TempoDenomMOD1Sld;
@@ -133,7 +130,6 @@ private:
     std::unique_ptr<juce::TextButton> BypassMOD2Btn;
     std::unique_ptr<juce::Label> FreqMOD2Lbl;
     std::unique_ptr<juce::Label> DepthMOD2Lbl;
-    std::unique_ptr<juce::Label> WaveMOD2Lbl;
     std::unique_ptr<juce::TextButton> TempoSyncMOD2Btn;
     std::unique_ptr<juce::Slider> TempoNumerMOD2Sld;
     std::unique_ptr<juce::Slider> TempoDenomMOD2Sld;

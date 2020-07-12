@@ -32,8 +32,12 @@
 #include <memory>
 #include "math.h"
 #include "CoreJUCEPlugin/CoreLookAndFeel.h"
+#include "CoreJUCEPlugin/LookAndFeelMixins/LookAndFeelMixins.h"
 
-class RichterLookAndFeel : public WECore::JUCEPlugin::CoreLookAndFeel {
+namespace LFM = WECore::LookAndFeelMixins;
+typedef LFM::PopupMenuV2<LFM::ComboBoxV2<WECore::JUCEPlugin::CoreLookAndFeel>> BaseLookAndFeel;
+
+class RichterLookAndFeel : public BaseLookAndFeel {
 public:
     RichterLookAndFeel();
     virtual ~RichterLookAndFeel() {}
