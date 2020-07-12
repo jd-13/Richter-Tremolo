@@ -326,7 +326,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseSyncLFO1Btn->setButtonText (TRANS("Phase"));
     PhaseSyncLFO1Btn->addListener (this);
 
-    PhaseSyncLFO1Btn->setBounds (176, 96, 56, 16);
+    PhaseSyncLFO1Btn->setBounds (172, 96, 56, 16);
 
     PhaseSyncLFO2Btn.reset (new juce::TextButton ("LFO 2 Phase Sync Button"));
     addAndMakeVisible (PhaseSyncLFO2Btn.get());
@@ -334,7 +334,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseSyncLFO2Btn->setButtonText (TRANS("Phase"));
     PhaseSyncLFO2Btn->addListener (this);
 
-    PhaseSyncLFO2Btn->setBounds (476, 96, 56, 16);
+    PhaseSyncLFO2Btn->setBounds (472, 96, 56, 16);
 
     PhaseLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Phase Slider"));
     addAndMakeVisible (PhaseLFO1Sld.get());
@@ -505,7 +505,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseSyncMOD1Btn->setButtonText (TRANS("Phase"));
     PhaseSyncMOD1Btn->addListener (this);
 
-    PhaseSyncMOD1Btn->setBounds (176, 224, 56, 16);
+    PhaseSyncMOD1Btn->setBounds (172, 224, 56, 16);
 
     PhaseMOD1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 1 Phase Slider"));
     addAndMakeVisible (PhaseMOD1Sld.get());
@@ -652,7 +652,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseSyncMOD2Btn->setButtonText (TRANS("Phase"));
     PhaseSyncMOD2Btn->addListener (this);
 
-    PhaseSyncMOD2Btn->setBounds (476, 224, 56, 16);
+    PhaseSyncMOD2Btn->setBounds (472, 224, 56, 16);
 
     PhaseMOD2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 2 Phase Slider"));
     addAndMakeVisible (PhaseMOD2Sld.get());
@@ -1356,21 +1356,21 @@ void RichterAudioProcessorEditor::_startSliderReadouts() {
     FreqLFO1Sld->start(FreqLFO1Lbl.get(), FreqLFO1Lbl->getText(), &WECore::Richter::Parameters::FREQ);
     FreqModLFO1Sld->start(MODLFO1LeftLbl.get(), MODLFO1LeftLbl->getText(), &WECore::Richter::Parameters::FREQMOD);
     DepthLFO1Sld->start(DepthLFO1Lbl.get(), DepthLFO1Lbl->getText(), &WECore::Richter::Parameters::DEPTH);
-    PhaseLFO1Sld->start(PhaseLFO1Lbl.get(), PhaseLFO1Lbl->getText(), &WECore::Richter::Parameters::PHASE);
+    PhaseLFO1Sld->start(PhaseLFO1Lbl.get(), PhaseLFO1Lbl->getText(), &PHASE_DISPLAY);
 
     // DepthModLFO2Sld is configured in _updateTempoToggles
     FreqLFO2Sld->start(FreqLFO2Lbl.get(), FreqLFO2Lbl->getText(), &WECore::Richter::Parameters::FREQ);
     FreqModLFO2Sld->start(MODLFO2LeftLbl.get(), MODLFO2LeftLbl->getText(), &WECore::Richter::Parameters::FREQMOD);
     DepthLFO2Sld->start(DepthLFO2Lbl.get(), DepthLFO2Lbl->getText(), &WECore::Richter::Parameters::DEPTH);
-    PhaseLFO2Sld->start(PhaseLFO2Lbl.get(), PhaseLFO2Lbl->getText(), &WECore::Richter::Parameters::PHASE);
+    PhaseLFO2Sld->start(PhaseLFO2Lbl.get(), PhaseLFO2Lbl->getText(), &PHASE_DISPLAY);
 
     FreqMOD1Sld->start(FreqMOD1Lbl.get(), FreqMOD1Lbl->getText(), &WECore::Richter::Parameters::FREQ);
     DepthMOD1Sld->start(DepthMOD1Lbl.get(), DepthMOD1Lbl->getText(), &WECore::Richter::Parameters::DEPTH);
-    PhaseMOD1Sld->start(PhaseMOD1Lbl.get(), PhaseMOD1Lbl->getText(), &WECore::Richter::Parameters::PHASE);
+    PhaseMOD1Sld->start(PhaseMOD1Lbl.get(), PhaseMOD1Lbl->getText(), &PHASE_DISPLAY);
 
     FreqMOD2Sld->start(FreqMOD2Lbl.get(), FreqMOD2Lbl->getText(), &WECore::Richter::Parameters::FREQ);
     DepthMOD2Sld->start(DepthMOD2Lbl.get(), DepthMOD2Lbl->getText(), &WECore::Richter::Parameters::DEPTH);
-    PhaseMOD2Sld->start(PhaseMOD2Lbl.get(), PhaseMOD2Lbl->getText(), &WECore::Richter::Parameters::PHASE);
+    PhaseMOD2Sld->start(PhaseMOD2Lbl.get(), PhaseMOD2Lbl->getText(), &PHASE_DISPLAY);
 
     OutputGainSld->start(OutputGainLbl.get(), OutputGainLbl->getText(), &OUTPUTGAIN);
 }
@@ -1662,10 +1662,10 @@ BEGIN_JUCER_METADATA
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <TEXTBUTTON name="LFO 1 Phase Sync Button" id="1df73348199bbe85" memberName="PhaseSyncLFO1Btn"
-              virtualName="" explicitFocusOrder="0" pos="176 96 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
+              virtualName="" explicitFocusOrder="0" pos="172 96 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
               buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="LFO 2 Phase Sync Button" id="6956f3f885f5801d" memberName="PhaseSyncLFO2Btn"
-              virtualName="" explicitFocusOrder="0" pos="476 96 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
+              virtualName="" explicitFocusOrder="0" pos="472 96 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
               buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="LFO 1 Phase Slider" id="1fa393dc85f550ee" memberName="PhaseLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
@@ -1740,7 +1740,7 @@ BEGIN_JUCER_METADATA
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <TEXTBUTTON name="MOD 1 Phase Sync Button" id="4509e154e4918174" memberName="PhaseSyncMOD1Btn"
-              virtualName="" explicitFocusOrder="0" pos="176 224 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
+              virtualName="" explicitFocusOrder="0" pos="172 224 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
               buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 1 Phase Slider" id="3f1ef3d10c303bac" memberName="PhaseMOD1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
@@ -1803,7 +1803,7 @@ BEGIN_JUCER_METADATA
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <TEXTBUTTON name="MOD 2 Phase Sync Button" id="7b0a4004498f92b3" memberName="PhaseSyncMOD2Btn"
-              virtualName="" explicitFocusOrder="0" pos="476 224 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
+              virtualName="" explicitFocusOrder="0" pos="472 224 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
               buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 2 Phase Slider" id="54fd5481a5970106" memberName="PhaseMOD2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
