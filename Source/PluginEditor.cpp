@@ -1267,15 +1267,21 @@ void RichterAudioProcessorEditor::timerCallback()
 
         // Update meters
         const RichterLFOCache& lfoCache = ourProcessor->getLFOCache();
-        auto updateMeter = [](RichterLFOMeter* meter, float value) {
-            meter->setMeterValue(value);
+        auto updateMeter = [](RichterLFOMeter* meter, bool isBypassed, float value) {
+            if (isBypassed) {
+                meter->setVisible(false);
+             } else {
+                meter->setMeterValue(value);
+                meter->setVisible(true);
+             }
+
             meter->repaint();
         };
 
-        updateMeter(MeterLFO1.get(), lfoCache.lfo1);
-        updateMeter(MeterLFO2.get(), lfoCache.lfo2);
-        updateMeter(MeterMOD1.get(), lfoCache.mod1);
-        updateMeter(MeterMOD2.get(), lfoCache.mod2);
+        updateMeter(MeterLFO1.get(), !BypassLFO1Btn->getToggleState(), lfoCache.lfo1);
+        updateMeter(MeterLFO2.get(), !BypassLFO2Btn->getToggleState(), lfoCache.lfo2);
+        updateMeter(MeterMOD1.get(), !BypassMOD1Btn->getToggleState(), lfoCache.mod1);
+        updateMeter(MeterMOD2.get(), !BypassMOD2Btn->getToggleState(), lfoCache.mod2);
     }
 }
 
