@@ -721,6 +721,30 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     MODLFO2RightLbl->setBounds (455, 164, 38, 24);
 
+    WaveViewLFO1.reset (new RichterWaveViewer());
+    addAndMakeVisible (WaveViewLFO1.get());
+    WaveViewLFO1->setName ("LFO1 Wave View");
+
+    WaveViewLFO1->setBounds (232, 122, 80, 31);
+
+    WaveViewMOD1.reset (new RichterWaveViewer());
+    addAndMakeVisible (WaveViewMOD1.get());
+    WaveViewMOD1->setName ("MOD1 Wave View");
+
+    WaveViewMOD1->setBounds (232, 250, 80, 31);
+
+    WaveViewLFO2.reset (new RichterWaveViewer());
+    addAndMakeVisible (WaveViewLFO2.get());
+    WaveViewLFO2->setName ("LFO2 Wave View");
+
+    WaveViewLFO2->setBounds (532, 122, 80, 31);
+
+    WaveViewMOD2.reset (new RichterWaveViewer());
+    addAndMakeVisible (WaveViewMOD2.get());
+    WaveViewMOD2->setName ("MOD2 Wave View");
+
+    WaveViewMOD2->setBounds (532, 250, 80, 31);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -756,6 +780,9 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     customLookAndFeel.setColour(RichterLFOMeter::ColourIds::mainColourId,
                                 _highlightColour);
 
+    customLookAndFeel.setColour(RichterWaveViewer::ColourIds::highlightColourId,
+                                _highlightColour);
+
     // make tempo sync buttons draggable
     TempoNumerLFO1Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
     TempoDenomLFO1Sld->setIncDecButtonsMode(Slider::incDecButtonsDraggable_Vertical);
@@ -785,6 +812,11 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
     _stopSliderReadouts();
+
+    WaveViewLFO1->stop();
+    WaveViewLFO2->stop();
+    WaveViewMOD1->stop();
+    WaveViewMOD2->stop();
     //[/Destructor_pre]
 
     LFO1Group = nullptr;
@@ -854,6 +886,10 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     MeterMOD2 = nullptr;
     MODLFO1RightLbl = nullptr;
     MODLFO2RightLbl = nullptr;
+    WaveViewLFO1 = nullptr;
+    WaveViewMOD1 = nullptr;
+    WaveViewLFO2 = nullptr;
+    WaveViewMOD2 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -1282,6 +1318,24 @@ void RichterAudioProcessorEditor::timerCallback()
         updateMeter(MeterLFO2.get(), !BypassLFO2Btn->getToggleState(), lfoCache.lfo2);
         updateMeter(MeterMOD1.get(), !BypassMOD1Btn->getToggleState(), lfoCache.mod1);
         updateMeter(MeterMOD2.get(), !BypassMOD2Btn->getToggleState(), lfoCache.mod2);
+
+        // Update wave viewers
+        auto updateWaveView = [](RichterWaveViewer* viewer, float waveValue) {
+            if (waveValue < 1.5) {
+                viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSine());
+            } else if (waveValue < 2.5) {
+                viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSquare());
+            } else {
+                viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSaw());
+            }
+
+            viewer->repaint();
+        };
+
+        updateWaveView(WaveViewLFO1.get(), ourProcessor->getParameter(RichterAudioProcessor::waveLFO1));
+        updateWaveView(WaveViewLFO2.get(), ourProcessor->getParameter(RichterAudioProcessor::waveLFO2));
+        updateWaveView(WaveViewMOD1.get(), ourProcessor->getParameter(RichterAudioProcessor::waveMOD1));
+        updateWaveView(WaveViewMOD2.get(), ourProcessor->getParameter(RichterAudioProcessor::waveMOD2));
     }
 }
 
@@ -1790,6 +1844,18 @@ BEGIN_JUCER_METADATA
          edTextCol="ff000000" edBkgCol="0" labelText="- MOD" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="36"/>
+  <GENERICCOMPONENT name="LFO1 Wave View" id="8e833400767b9409" memberName="WaveViewLFO1"
+                    virtualName="RichterWaveViewer" explicitFocusOrder="0" pos="232 122 80 31"
+                    class="juce::Component" params=""/>
+  <GENERICCOMPONENT name="MOD1 Wave View" id="ef58fdbd23b908cc" memberName="WaveViewMOD1"
+                    virtualName="RichterWaveViewer" explicitFocusOrder="0" pos="232 250 80 31"
+                    class="juce::Component" params=""/>
+  <GENERICCOMPONENT name="LFO2 Wave View" id="c866f93947a7f155" memberName="WaveViewLFO2"
+                    virtualName="RichterWaveViewer" explicitFocusOrder="0" pos="532 122 80 31"
+                    class="juce::Component" params=""/>
+  <GENERICCOMPONENT name="MOD2 Wave View" id="3c0e47dfa5180365" memberName="WaveViewMOD2"
+                    virtualName="RichterWaveViewer" explicitFocusOrder="0" pos="532 250 80 31"
+                    class="juce::Component" params=""/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
