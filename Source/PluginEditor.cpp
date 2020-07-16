@@ -721,25 +721,25 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     MODLFO2RightLbl->setBounds (455, 164, 38, 24);
 
-    WaveViewLFO1.reset (new RichterWaveViewer());
+    WaveViewLFO1.reset (new WECore::Richter::WaveViewer());
     addAndMakeVisible (WaveViewLFO1.get());
     WaveViewLFO1->setName ("LFO1 Wave View");
 
     WaveViewLFO1->setBounds (232, 122, 80, 31);
 
-    WaveViewMOD1.reset (new RichterWaveViewer());
+    WaveViewMOD1.reset (new WECore::Richter::WaveViewer());
     addAndMakeVisible (WaveViewMOD1.get());
     WaveViewMOD1->setName ("MOD1 Wave View");
 
     WaveViewMOD1->setBounds (232, 250, 80, 31);
 
-    WaveViewLFO2.reset (new RichterWaveViewer());
+    WaveViewLFO2.reset (new WECore::Richter::WaveViewer());
     addAndMakeVisible (WaveViewLFO2.get());
     WaveViewLFO2->setName ("LFO2 Wave View");
 
     WaveViewLFO2->setBounds (532, 122, 80, 31);
 
-    WaveViewMOD2.reset (new RichterWaveViewer());
+    WaveViewMOD2.reset (new WECore::Richter::WaveViewer());
     addAndMakeVisible (WaveViewMOD2.get());
     WaveViewMOD2->setName ("MOD2 Wave View");
 
@@ -780,7 +780,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     customLookAndFeel.setColour(RichterLFOMeter::ColourIds::mainColourId,
                                 _highlightColour);
 
-    customLookAndFeel.setColour(RichterWaveViewer::ColourIds::highlightColourId,
+    customLookAndFeel.setColour(WECore::Richter::WaveViewer::ColourIds::highlightColourId,
                                 _highlightColour);
 
     // make tempo sync buttons draggable
@@ -1320,7 +1320,7 @@ void RichterAudioProcessorEditor::timerCallback()
         updateMeter(MeterMOD2.get(), !BypassMOD2Btn->getToggleState(), lfoCache.mod2);
 
         // Update wave viewers
-        auto updateWaveView = [](RichterWaveViewer* viewer, float waveValue) {
+        auto updateWaveView = [](WECore::Richter::WaveViewer* viewer, float waveValue) {
             if (waveValue < 1.5) {
                 viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSine());
             } else if (waveValue < 2.5) {
@@ -1845,17 +1845,17 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <GENERICCOMPONENT name="LFO1 Wave View" id="8e833400767b9409" memberName="WaveViewLFO1"
-                    virtualName="RichterWaveViewer" explicitFocusOrder="0" pos="232 122 80 31"
-                    class="juce::Component" params=""/>
+                    virtualName="WECore::Richter::WaveViewer" explicitFocusOrder="0"
+                    pos="232 122 80 31" class="juce::Component" params=""/>
   <GENERICCOMPONENT name="MOD1 Wave View" id="ef58fdbd23b908cc" memberName="WaveViewMOD1"
-                    virtualName="RichterWaveViewer" explicitFocusOrder="0" pos="232 250 80 31"
-                    class="juce::Component" params=""/>
+                    virtualName="WECore::Richter::WaveViewer" explicitFocusOrder="0"
+                    pos="232 250 80 31" class="juce::Component" params=""/>
   <GENERICCOMPONENT name="LFO2 Wave View" id="c866f93947a7f155" memberName="WaveViewLFO2"
-                    virtualName="RichterWaveViewer" explicitFocusOrder="0" pos="532 122 80 31"
-                    class="juce::Component" params=""/>
+                    virtualName="WECore::Richter::WaveViewer" explicitFocusOrder="0"
+                    pos="532 122 80 31" class="juce::Component" params=""/>
   <GENERICCOMPONENT name="MOD2 Wave View" id="3c0e47dfa5180365" memberName="WaveViewMOD2"
-                    virtualName="RichterWaveViewer" explicitFocusOrder="0" pos="532 250 80 31"
-                    class="juce::Component" params=""/>
+                    virtualName="WECore::Richter::WaveViewer" explicitFocusOrder="0"
+                    pos="532 250 80 31" class="juce::Component" params=""/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

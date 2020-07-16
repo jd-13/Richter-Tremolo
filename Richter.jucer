@@ -22,10 +22,6 @@
     </GROUP>
     <GROUP id="{1E6DDB0B-2F62-396D-F124-847431C0083E}" name="Source">
       <GROUP id="{339A74FE-7A1E-F680-D32D-26B3FA25ED67}" name="GUI">
-        <FILE id="HJfZNP" name="RichterWaveViewer.cpp" compile="1" resource="0"
-              file="Source/RichterWaveViewer.cpp"/>
-        <FILE id="Fnsth0" name="RichterWaveViewer.h" compile="0" resource="0"
-              file="Source/RichterWaveViewer.h"/>
         <FILE id="zbtSeQ" name="RichterLFOCache.h" compile="0" resource="0"
               file="Source/RichterLFOCache.h"/>
         <FILE id="xWK9Wt" name="RichterLFOMeter.cpp" compile="1" resource="0"

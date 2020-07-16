@@ -27,7 +27,7 @@
 #include "RichterLFOCache.h"
 #include "RichterLFOMeter.h"
 #include "RichterLookAndFeel.h"
-#include "RichterWaveViewer.h"
+#include "RichterLFO/UI/RichterWaveViewer.h"
 //[/Headers]
 
 
@@ -147,10 +147,10 @@ private:
     std::unique_ptr<RichterLFOMeter> MeterMOD2;
     std::unique_ptr<juce::Label> MODLFO1RightLbl;
     std::unique_ptr<juce::Label> MODLFO2RightLbl;
-    std::unique_ptr<RichterWaveViewer> WaveViewLFO1;
-    std::unique_ptr<RichterWaveViewer> WaveViewMOD1;
-    std::unique_ptr<RichterWaveViewer> WaveViewLFO2;
-    std::unique_ptr<RichterWaveViewer> WaveViewMOD2;
+    std::unique_ptr<WECore::Richter::WaveViewer> WaveViewLFO1;
+    std::unique_ptr<WECore::Richter::WaveViewer> WaveViewMOD1;
+    std::unique_ptr<WECore::Richter::WaveViewer> WaveViewLFO2;
+    std::unique_ptr<WECore::Richter::WaveViewer> WaveViewMOD2;
 
 
     //==============================================================================
