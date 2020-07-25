@@ -15,11 +15,58 @@
 //==============================================================================
 RichterAudioProcessor::RichterAudioProcessor()
 {
-    mRichter.LFOPair1.LFO.setBypassSwitch(WECore::Richter::Parameters::LFOSWITCH_ON);
-    mRichter.LFOPair2.LFO.setBypassSwitch(WECore::Richter::Parameters::LFOSWITCH_ON);
+    namespace RP = WECore::Richter::Parameters;
 
+    // Set defaults
+    mRichter.LFOPair1.LFO.setBypassSwitch(RP::LFOSWITCH_ON);
+    mRichter.LFOPair2.LFO.setBypassSwitch(RP::LFOSWITCH_ON);
 
-    _UIUpdateFlag = true;
+    registerParameter(bypassSwitchLFO1, SWITCHLFO1_STR, RP::LFOSWITCH_ON, [&](bool val) { setBypassSwitchLFO1(val); });
+    registerParameter(phaseSyncLFO1, PHASELFO1_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setPhaseSyncLFO1(val); });
+    registerParameter(tempoSyncLFO1, TEMPOSYNCLFO1_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setTempoSyncLFO1(val); });
+    registerParameter(waveLFO1, WAVELFO1_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setWaveLFO1(val); });
+    registerParameter(depthLFO1, DEPTHLFO1_STR, RP::DEPTH.defaultValue, [&](float val) { setDepthLFO1(val); });
+    registerParameter(depthModLFO1, DEPTHMODLFO1_STR, RP::DEPTHMOD.defaultValue, [&](float val) { setDepthModLFO1(val); });
+    registerParameter(freqLFO1, FREQLFO1_STR, RP::FREQ.defaultValue, [&](float val) { setFreqLFO1(val); });
+    registerParameter(freqModLFO1, FREQMODLFO1_STR, RP::FREQMOD.defaultValue, [&](float val) { setFreqModLFO1(val); });
+    registerParameter(phaseLFO1, PHASELFO1_STR, RP::PHASE.defaultValue, [&](float val) { setPhaseLFO1(val); });
+    registerParameter(tempoNumerLFO1, TEMPONUMERLFO1_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setTempoNumerLFO1(val); });
+    registerParameter(tempoDenomLFO1, TEMPODENOMLFO1_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setTempoDenomLFO1(val); });
+
+    registerParameter(bypassSwitchLFO2, SWITCHLFO2_STR, RP::LFOSWITCH_ON, [&](bool val) { setBypassSwitchLFO2(val); });
+    registerParameter(phaseSyncLFO2, PHASELFO2_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setPhaseSyncLFO2(val); });
+    registerParameter(tempoSyncLFO2, TEMPOSYNCLFO2_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setTempoSyncLFO2(val); });
+    registerParameter(waveLFO2, WAVELFO2_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setWaveLFO2(val); });
+    registerParameter(depthLFO2, DEPTHLFO2_STR, RP::DEPTH.defaultValue, [&](float val) { setDepthLFO2(val); });
+    registerParameter(depthModLFO2, DEPTHMODLFO2_STR, RP::DEPTHMOD.defaultValue, [&](float val) { setDepthModLFO2(val); });
+    registerParameter(freqLFO2, FREQLFO2_STR, RP::FREQ.defaultValue, [&](float val) { setFreqLFO2(val); });
+    registerParameter(freqModLFO2, FREQMODLFO2_STR, RP::FREQMOD.defaultValue, [&](float val) { setFreqModLFO2(val); });
+    registerParameter(phaseLFO2, PHASELFO2_STR, RP::PHASE.defaultValue, [&](float val) { setPhaseLFO2(val); });
+    registerParameter(tempoNumerLFO2, TEMPONUMERLFO2_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setTempoNumerLFO2(val); });
+    registerParameter(tempoDenomLFO2, TEMPODENOMLFO2_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setTempoDenomLFO2(val); });
+
+    registerParameter(bypassSwitchMOD1, SWITCHMOD1_STR, RP::LFOSWITCH_DEFAULT, [&](bool val) { setBypassSwitchMOD1(val); });
+    registerParameter(phaseSyncMOD1, PHASEMOD1_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setPhaseSyncMOD1(val); });
+    registerParameter(tempoSyncMOD1, TEMPOSYNCMOD1_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setTempoSyncMOD1(val); });
+    registerParameter(waveMOD1, WAVEMOD1_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setWaveMOD1(val); });
+    registerParameter(depthMOD1, DEPTHMOD1_STR, RP::DEPTH.defaultValue, [&](float val) { setDepthMOD1(val); });
+    registerParameter(freqMOD1, FREQMOD1_STR, RP::FREQ.defaultValue, [&](float val) { setFreqMOD1(val); });
+    registerParameter(phaseMOD1, PHASEMOD1_STR, RP::PHASE.defaultValue, [&](float val) { setPhaseMOD1(val); });
+    registerParameter(tempoNumerMOD1, TEMPONUMERMOD1_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setTempoNumerMOD1(val); });
+    registerParameter(tempoDenomMOD1, TEMPODENOMMOD1_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setTempoDenomMOD1(val); });
+
+    registerParameter(bypassSwitchMOD2, SWITCHMOD2_STR, RP::LFOSWITCH_DEFAULT, [&](bool val) { setBypassSwitchMOD2(val); });
+    registerParameter(phaseSyncMOD2, PHASEMOD2_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setPhaseSyncMOD2(val); });
+    registerParameter(tempoSyncMOD2, TEMPOSYNCMOD2_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setTempoSyncMOD2(val); });
+    registerParameter(waveMOD2, WAVEMOD2_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setWaveMOD2(val); });
+    registerParameter(depthMOD2, DEPTHMOD2_STR, RP::DEPTH.defaultValue, [&](float val) { setDepthMOD2(val); });
+    registerParameter(freqMOD2, FREQMOD2_STR, RP::FREQ.defaultValue, [&](float val) { setFreqMOD2(val); });
+    registerParameter(phaseMOD2, PHASEMOD2_STR, RP::PHASE.defaultValue, [&](float val) { setPhaseMOD2(val); });
+    registerParameter(tempoNumerMOD2, TEMPONUMERMOD2_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setTempoNumerMOD2(val); });
+    registerParameter(tempoDenomMOD2, TEMPODENOMMOD2_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setTempoDenomMOD2(val); });
+
+    registerParameter(stereo, STEREO_STR, STEREO_DEFAULT, [&](bool val) { setStereo(val); });
+    registerParameter(outputGain, OUTPUTGAIN_STR, OUTPUTGAIN.defaultValue, [&](float val) { setOutputGain(val); });
 }
 
 RichterAudioProcessor::~RichterAudioProcessor()
@@ -30,686 +77,6 @@ RichterAudioProcessor::~RichterAudioProcessor()
 const String RichterAudioProcessor::getName() const
 {
     return JucePlugin_Name;
-}
-
-int RichterAudioProcessor::getNumParameters()
-{
-    return totalNumParams;
-}
-
-float RichterAudioProcessor::getParameter (int index)
-{
-    switch (index) {
-        case bypassSwitchLFO1:
-            return mRichter.LFOPair1.LFO.getBypassSwitch();
-
-        case phaseSyncLFO1:
-            return mRichter.LFOPair1.LFO.getPhaseSyncSwitch();
-
-        case tempoSyncLFO1:
-            return mRichter.LFOPair1.LFO.getTempoSyncSwitch();
-
-        case waveLFO1:
-            return mRichter.LFOPair1.LFO.getWave();
-
-        case depthLFO1:
-            return WECore::Richter::Parameters::DEPTH.InteralToNormalised(mRichter.LFOPair1.LFO.getRawDepth());
-
-        case depthModLFO1:
-            return WECore::Richter::Parameters::DEPTHMOD.InteralToNormalised(mRichter.LFOPair1.LFO.getDepthMod());
-
-        case freqLFO1:
-            return WECore::Richter::Parameters::FREQ.InteralToNormalised(mRichter.LFOPair1.LFO.getRawFreq());
-
-        case freqModLFO1:
-            return WECore::Richter::Parameters::FREQMOD.InteralToNormalised(mRichter.LFOPair1.LFO.getFreqMod());
-
-        case phaseLFO1:
-            return WECore::Richter::Parameters::PHASE.InteralToNormalised(mRichter.LFOPair1.LFO.getManualPhase());
-
-        case tempoNumerLFO1:
-            return mRichter.LFOPair1.LFO.getTempoNumer();
-
-        case tempoDenomLFO1:
-            return mRichter.LFOPair1.LFO.getTempoDenom();
-
-
-
-
-
-        case bypassSwitchLFO2:
-            return mRichter.LFOPair2.LFO.getBypassSwitch();
-
-        case phaseSyncLFO2:
-            return mRichter.LFOPair2.LFO.getPhaseSyncSwitch();
-
-        case tempoSyncLFO2:
-            return mRichter.LFOPair2.LFO.getTempoSyncSwitch();
-
-        case waveLFO2:
-            return mRichter.LFOPair2.LFO.getWave();
-
-        case depthLFO2:
-            return WECore::Richter::Parameters::DEPTH.InteralToNormalised(mRichter.LFOPair2.LFO.getRawDepth());
-
-        case depthModLFO2:
-            return WECore::Richter::Parameters::DEPTHMOD.InteralToNormalised(mRichter.LFOPair2.LFO.getDepthMod());
-
-        case freqLFO2:
-            return WECore::Richter::Parameters::FREQ.InteralToNormalised(mRichter.LFOPair2.LFO.getRawFreq());
-
-        case freqModLFO2:
-            return WECore::Richter::Parameters::FREQMOD.InteralToNormalised(mRichter.LFOPair2.LFO.getFreqMod());
-
-        case phaseLFO2:
-            return WECore::Richter::Parameters::PHASE.InteralToNormalised(mRichter.LFOPair2.LFO.getManualPhase());
-
-        case tempoNumerLFO2:
-            return mRichter.LFOPair2.LFO.getTempoNumer();
-
-        case tempoDenomLFO2:
-            return mRichter.LFOPair2.LFO.getTempoDenom();
-
-
-
-
-
-
-        case bypassSwitchMOD1:
-            return mRichter.LFOPair1.MOD.getBypassSwitch();
-
-        case phaseSyncMOD1:
-            return mRichter.LFOPair1.MOD.getPhaseSyncSwitch();
-
-        case tempoSyncMOD1:
-            return mRichter.LFOPair1.MOD.getTempoSyncSwitch();
-
-        case waveMOD1:
-            return mRichter.LFOPair1.MOD.getWave();
-
-        case depthMOD1:
-            return WECore::Richter::Parameters::DEPTH.InteralToNormalised(mRichter.LFOPair1.MOD.getDepth());
-
-        case freqMOD1:
-            return WECore::Richter::Parameters::FREQ.InteralToNormalised(mRichter.LFOPair1.MOD.getFreq());
-
-        case phaseMOD1:
-            return WECore::Richter::Parameters::PHASE.InteralToNormalised(mRichter.LFOPair1.MOD.getManualPhase());
-
-        case tempoNumerMOD1:
-            return mRichter.LFOPair1.MOD.getTempoNumer();
-
-        case tempoDenomMOD1:
-            return mRichter.LFOPair1.MOD.getTempoDenom();
-
-
-
-
-
-
-
-        case bypassSwitchMOD2:
-            return mRichter.LFOPair2.MOD.getBypassSwitch();
-
-        case phaseSyncMOD2:
-            return mRichter.LFOPair2.MOD.getPhaseSyncSwitch();
-
-        case tempoSyncMOD2:
-            return mRichter.LFOPair2.MOD.getTempoSyncSwitch();
-
-        case waveMOD2:
-            return mRichter.LFOPair2.MOD.getWave();
-
-        case depthMOD2:
-            return WECore::Richter::Parameters::DEPTH.InteralToNormalised(mRichter.LFOPair2.MOD.getDepth());
-
-        case freqMOD2:
-            return WECore::Richter::Parameters::FREQ.InteralToNormalised(mRichter.LFOPair2.MOD.getFreq());
-
-        case phaseMOD2:
-            return WECore::Richter::Parameters::PHASE.InteralToNormalised(mRichter.LFOPair2.MOD.getManualPhase());
-
-        case tempoNumerMOD2:
-            return mRichter.LFOPair2.MOD.getTempoNumer();
-
-        case tempoDenomMOD2:
-            return mRichter.LFOPair2.MOD.getTempoDenom();
-
-
-
-        case stereo:
-            return mRichter.getStereo();
-
-        case outputGain:
-            return OUTPUTGAIN.InteralToNormalised(mRichter.getOutputGain());
-
-
-
-        default:
-            return 0.0f;
-
-    }
-
-}
-
-void RichterAudioProcessor::setParameter (int index, float newValue)
-{
-    switch (index) {
-        case bypassSwitchLFO1:
-            mRichter.LFOPair1.LFO.setBypassSwitch(newValue > 0.5);
-            break;
-
-        case phaseSyncLFO1:
-            mRichter.LFOPair1.LFO.setPhaseSyncSwitch(newValue > 0.5);
-            break;
-
-        case tempoSyncLFO1:
-            mRichter.LFOPair1.LFO.setTempoSyncSwitch(newValue > 0.5);
-            break;
-
-        case waveLFO1:
-            mRichter.LFOPair1.LFO.setWave(round(newValue));
-            break;
-
-        case depthLFO1:
-            mRichter.LFOPair1.LFO.setRawDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInteral(newValue));
-            break;
-
-        case depthModLFO1:
-            mRichter.LFOPair1.LFO.setDepthMod(WECore::Richter::Parameters::DEPTHMOD.NormalisedToInteral(newValue));
-            break;
-
-        case freqLFO1:
-            mRichter.LFOPair1.LFO.setRawFreq(WECore::Richter::Parameters::FREQ.NormalisedToInteral(newValue));
-            break;
-
-        case freqModLFO1:
-            mRichter.LFOPair1.LFO.setFreqMod(WECore::Richter::Parameters::FREQMOD.NormalisedToInteral(newValue));
-            break;
-
-        case phaseLFO1:
-            mRichter.LFOPair1.LFO.setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInteral(newValue));
-            break;
-
-        case tempoNumerLFO1:
-            mRichter.LFOPair1.LFO.setTempoNumer(newValue);
-            break;
-
-        case tempoDenomLFO1:
-            mRichter.LFOPair1.LFO.setTempoDenom(newValue);
-            break;
-
-
-
-
-
-        case bypassSwitchLFO2:
-            mRichter.LFOPair2.LFO.setBypassSwitch(newValue > 0.5);
-            break;
-
-        case phaseSyncLFO2:
-            mRichter.LFOPair2.LFO.setPhaseSyncSwitch(newValue > 0.5);
-            break;
-
-        case tempoSyncLFO2:
-            mRichter.LFOPair2.LFO.setTempoSyncSwitch(newValue > 0.5);
-            break;
-
-        case waveLFO2:
-            mRichter.LFOPair2.LFO.setWave(round(newValue));
-            break;
-
-        case depthLFO2:
-            mRichter.LFOPair2.LFO.setRawDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInteral(newValue));
-            break;
-
-        case depthModLFO2:
-            mRichter.LFOPair2.LFO.setDepthMod(WECore::Richter::Parameters::DEPTHMOD.NormalisedToInteral(newValue));
-            break;
-
-        case freqLFO2:
-            mRichter.LFOPair2.LFO.setRawFreq(WECore::Richter::Parameters::FREQ.NormalisedToInteral(newValue));
-            break;
-
-        case freqModLFO2:
-            mRichter.LFOPair2.LFO.setFreqMod(WECore::Richter::Parameters::FREQMOD.NormalisedToInteral(newValue));
-            break;
-
-        case phaseLFO2:
-            mRichter.LFOPair2.LFO.setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInteral(newValue));
-            break;
-
-        case tempoNumerLFO2:
-            mRichter.LFOPair2.LFO.setTempoNumer(newValue);
-            break;
-
-        case tempoDenomLFO2:
-            mRichter.LFOPair2.LFO.setTempoDenom(newValue);
-            break;
-
-
-
-
-
-        case bypassSwitchMOD1:
-            mRichter.LFOPair1.MOD.setBypassSwitch(newValue > 0.5);
-            break;
-
-        case phaseSyncMOD1:
-            mRichter.LFOPair1.MOD.setPhaseSyncSwitch(newValue > 0.5);
-            break;
-
-        case tempoSyncMOD1:
-            mRichter.LFOPair1.MOD.setTempoSyncSwitch(newValue > 0.5);
-            break;
-
-        case waveMOD1:
-            mRichter.LFOPair1.MOD.setWave(round(newValue));
-            break;
-
-        case depthMOD1:
-            mRichter.LFOPair1.MOD.setDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInteral(newValue));
-            break;
-
-        case freqMOD1:
-            mRichter.LFOPair1.MOD.setFreq(WECore::Richter::Parameters::FREQ.NormalisedToInteral(newValue));
-            break;
-
-        case phaseMOD1:
-            mRichter.LFOPair1.MOD.setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInteral(newValue));
-            break;
-
-        case tempoNumerMOD1:
-            mRichter.LFOPair1.MOD.setTempoNumer(newValue);
-            break;
-
-        case tempoDenomMOD1:
-            mRichter.LFOPair1.MOD.setTempoDenom(newValue);
-            break;
-
-
-
-
-
-        case bypassSwitchMOD2:
-            mRichter.LFOPair2.MOD.setBypassSwitch(newValue > 0.5);
-            break;
-
-        case phaseSyncMOD2:
-            mRichter.LFOPair2.MOD.setPhaseSyncSwitch(newValue > 0.5);
-            break;
-
-        case tempoSyncMOD2:
-            mRichter.LFOPair2.MOD.setTempoSyncSwitch(newValue > 0.5);
-            break;
-
-        case waveMOD2:
-            mRichter.LFOPair2.MOD.setWave(round(newValue));
-            break;
-
-        case depthMOD2:
-            mRichter.LFOPair2.MOD.setDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInteral(newValue));
-            break;
-
-        case freqMOD2:
-            mRichter.LFOPair2.MOD.setFreq(WECore::Richter::Parameters::FREQ.NormalisedToInteral(newValue));
-            break;
-
-        case phaseMOD2:
-            mRichter.LFOPair2.MOD.setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInteral(newValue));
-            break;
-
-        case tempoNumerMOD2:
-            mRichter.LFOPair2.MOD.setTempoNumer(newValue);
-            break;
-
-        case tempoDenomMOD2:
-            mRichter.LFOPair2.MOD.setTempoDenom(newValue);
-            break;
-
-
-
-        case stereo:
-            mRichter.setStereo(newValue > 0.5);
-            break;
-
-        case outputGain:
-            mRichter.setOutputGain(OUTPUTGAIN.NormalisedToInteral(newValue));
-            break;
-
-
-        default:
-            break;
-
-
-    }
-
-}
-
-const String RichterAudioProcessor::getParameterName (int index)
-{
-    switch (index) {
-        case bypassSwitchLFO1:
-            return SWITCHLFO1_STR;
-
-        case phaseSyncLFO1:
-            return PHASESYNCLFO1_STR;
-
-        case tempoSyncLFO1:
-            return TEMPOSYNCLFO1_STR;
-
-        case waveLFO1:
-            return WAVELFO1_STR;
-
-        case depthLFO1:
-            return DEPTHLFO1_STR;
-
-        case depthModLFO1:
-            return DEPTHMODLFO1_STR;
-
-        case freqLFO1:
-            return FREQLFO1_STR;
-
-        case freqModLFO1:
-            return FREQMODLFO1_STR;
-
-        case phaseLFO1:
-            return PHASELFO1_STR;
-
-        case tempoNumerLFO1:
-            return TEMPONUMERLFO1_STR;
-
-        case tempoDenomLFO1:
-            return TEMPODENOMLFO1_STR;
-
-
-
-
-        case bypassSwitchLFO2:
-            return SWITCHLFO2_STR;
-
-        case phaseSyncLFO2:
-            return PHASESYNCLFO2_STR;
-
-        case tempoSyncLFO2:
-            return TEMPOSYNCLFO2_STR;
-
-        case waveLFO2:
-            return WAVELFO2_STR;
-
-        case depthLFO2:
-            return DEPTHLFO2_STR;
-
-        case depthModLFO2:
-            return DEPTHMODLFO2_STR;
-
-        case freqLFO2:
-            return FREQLFO2_STR;
-
-        case freqModLFO2:
-            return FREQMODLFO2_STR;
-
-        case phaseLFO2:
-            return PHASELFO2_STR;
-
-        case tempoNumerLFO2:
-            return TEMPONUMERLFO2_STR;
-
-        case tempoDenomLFO2:
-            return TEMPODENOMLFO2_STR;
-
-
-
-
-
-        case bypassSwitchMOD1:
-            return SWITCHMOD1_STR;
-
-        case phaseSyncMOD1:
-            return PHASESYNCMOD1_STR;
-
-        case tempoSyncMOD1:
-            return TEMPOSYNCMOD1_STR;
-
-        case waveMOD1:
-            return WAVEMOD1_STR;
-
-        case depthMOD1:
-            return DEPTHMOD1_STR;
-
-        case freqMOD1:
-            return FREQMOD1_STR;
-
-        case phaseMOD1:
-            return PHASEMOD1_STR;
-
-        case tempoNumerMOD1:
-            return TEMPONUMERMOD1_STR;
-
-        case tempoDenomMOD1:
-            return TEMPODENOMMOD1_STR;
-
-
-
-
-
-        case bypassSwitchMOD2:
-            return SWITCHMOD2_STR;
-
-        case phaseSyncMOD2:
-            return PHASESYNCMOD2_STR;
-
-        case tempoSyncMOD2:
-            return TEMPOSYNCMOD2_STR;
-
-        case waveMOD2:
-            return WAVEMOD2_STR;
-
-        case depthMOD2:
-            return DEPTHMOD2_STR;
-
-        case freqMOD2:
-            return FREQMOD2_STR;
-
-        case phaseMOD2:
-            return PHASEMOD2_STR;
-
-        case tempoNumerMOD2:
-            return TEMPONUMERMOD2_STR;
-
-        case tempoDenomMOD2:
-            return TEMPODENOMMOD2_STR;
-
-
-
-
-        case stereo:
-            return STEREO_STR;
-
-
-        case outputGain:
-            return OUTPUTGAIN_STR;
-
-        default:
-            return String();
-    }
-}
-
-const String RichterAudioProcessor::getParameterText (int index)
-{
-    switch (index) {
-        case bypassSwitchLFO1:
-            return String(static_cast<int>(mRichter.LFOPair1.LFO.getBypassSwitch()));
-
-        case phaseSyncLFO1:
-            return String(static_cast<int>(mRichter.LFOPair1.LFO.getPhaseSyncSwitch()));
-
-        case tempoSyncLFO1:
-            return String(static_cast<int>(mRichter.LFOPair1.LFO.getTempoSyncSwitch()));
-
-        case waveLFO1:
-            return String(mRichter.LFOPair1.LFO.getWave());
-
-        case depthLFO1:
-            return String(WECore::Richter::Parameters::DEPTH.InteralToNormalised(mRichter.LFOPair1.LFO.getDepth()));
-
-        case depthModLFO1:
-            return String(WECore::Richter::Parameters::DEPTHMOD.InteralToNormalised(mRichter.LFOPair1.LFO.getDepthMod()));
-
-        case freqLFO1:
-            return String(WECore::Richter::Parameters::FREQ.InteralToNormalised(mRichter.LFOPair1.LFO.getFreq()));
-
-        case freqModLFO1:
-            return String(WECore::Richter::Parameters::FREQMOD.InteralToNormalised(mRichter.LFOPair1.LFO.getFreqMod()));
-
-        case phaseLFO1:
-            return String(WECore::Richter::Parameters::PHASE.InteralToNormalised(mRichter.LFOPair1.LFO.getManualPhase()));
-
-        case tempoNumerLFO1:
-            return String(mRichter.LFOPair1.LFO.getTempoNumer());
-
-        case tempoDenomLFO1:
-            return String(mRichter.LFOPair1.LFO.getTempoDenom());
-
-
-
-
-
-        case bypassSwitchLFO2:
-            return String(static_cast<int>(mRichter.LFOPair2.LFO.getBypassSwitch()));
-
-        case phaseSyncLFO2:
-            return String(static_cast<int>(mRichter.LFOPair2.LFO.getPhaseSyncSwitch()));
-
-        case tempoSyncLFO2:
-            return String(static_cast<int>(mRichter.LFOPair2.LFO.getTempoSyncSwitch()));
-
-        case waveLFO2:
-            return String(mRichter.LFOPair2.LFO.getWave());
-
-        case depthLFO2:
-            return String(WECore::Richter::Parameters::DEPTH.InteralToNormalised(mRichter.LFOPair2.LFO.getDepth()));
-
-        case depthModLFO2:
-            return String(WECore::Richter::Parameters::DEPTHMOD.InteralToNormalised(mRichter.LFOPair2.LFO.getDepthMod()));
-
-        case freqLFO2:
-            return String(WECore::Richter::Parameters::FREQ.InteralToNormalised(mRichter.LFOPair2.LFO.getFreq()));
-
-        case freqModLFO2:
-            return String(WECore::Richter::Parameters::FREQMOD.InteralToNormalised(mRichter.LFOPair2.LFO.getFreqMod()));
-
-        case phaseLFO2:
-            return String(WECore::Richter::Parameters::PHASE.InteralToNormalised(mRichter.LFOPair2.LFO.getManualPhase()));
-
-        case tempoNumerLFO2:
-            return String(mRichter.LFOPair2.LFO.getTempoNumer());
-
-        case tempoDenomLFO2:
-            return String(mRichter.LFOPair2.LFO.getTempoDenom());
-
-
-
-
-
-        case bypassSwitchMOD1:
-            return String(static_cast<int>(mRichter.LFOPair1.MOD.getBypassSwitch()));
-
-        case phaseSyncMOD1:
-            return String(static_cast<int>(mRichter.LFOPair1.MOD.getPhaseSyncSwitch()));
-
-        case tempoSyncMOD1:
-            return String(static_cast<int>(mRichter.LFOPair1.MOD.getTempoSyncSwitch()));
-
-        case waveMOD1:
-            return String(mRichter.LFOPair1.MOD.getWave());
-
-        case depthMOD1:
-            return String(WECore::Richter::Parameters::DEPTH.InteralToNormalised(mRichter.LFOPair1.MOD.getDepth()));
-
-        case freqMOD1:
-            return String(WECore::Richter::Parameters::FREQ.InteralToNormalised(mRichter.LFOPair1.MOD.getFreq()));
-
-        case phaseMOD1:
-            return String(WECore::Richter::Parameters::PHASE.InteralToNormalised(mRichter.LFOPair1.MOD.getManualPhase()));
-
-        case tempoNumerMOD1:
-            return String(mRichter.LFOPair1.MOD.getTempoNumer());
-
-        case tempoDenomMOD1:
-            return String(mRichter.LFOPair1.MOD.getTempoDenom());
-
-
-
-
-
-        case bypassSwitchMOD2:
-            return String(static_cast<int>(mRichter.LFOPair2.MOD.getBypassSwitch()));
-
-        case phaseSyncMOD2:
-            return String(static_cast<int>(mRichter.LFOPair2.MOD.getPhaseSyncSwitch()));
-
-        case tempoSyncMOD2:
-            return String(static_cast<int>(mRichter.LFOPair2.MOD.getTempoSyncSwitch()));
-
-        case waveMOD2:
-            return String(mRichter.LFOPair2.MOD.getWave());
-
-        case depthMOD2:
-            return String(WECore::Richter::Parameters::DEPTH.InteralToNormalised(mRichter.LFOPair2.MOD.getDepth()));
-
-        case freqMOD2:
-            return String(WECore::Richter::Parameters::FREQ.InteralToNormalised(mRichter.LFOPair2.MOD.getFreq()));
-
-        case phaseMOD2:
-            return String(WECore::Richter::Parameters::PHASE.InteralToNormalised(mRichter.LFOPair2.MOD.getManualPhase()));
-
-        case tempoNumerMOD2:
-            return String(mRichter.LFOPair2.MOD.getTempoNumer());
-
-        case tempoDenomMOD2:
-            return String(mRichter.LFOPair2.MOD.getTempoDenom());
-
-
-
-
-        case stereo:
-            return String(mRichter.getStereo());
-
-        case outputGain:
-            return String(OUTPUTGAIN.InteralToNormalised(mRichter.getOutputGain()));
-
-        default:
-            return String();
-
-    }
-}
-
-
-bool RichterAudioProcessor::isParameterAutomatable(int parameterIndex) const {
-    switch (parameterIndex) {
-        case bypassSwitchLFO1:
-        case bypassSwitchLFO2:
-        case bypassSwitchMOD1:
-        case bypassSwitchMOD2:
-        case tempoSyncLFO1:
-        case tempoSyncLFO2:
-        case tempoSyncMOD1:
-        case tempoSyncMOD2:
-        case phaseSyncLFO1:
-        case phaseSyncLFO2:
-        case phaseSyncMOD1:
-        case phaseSyncMOD2:
-        case waveLFO1:
-        case waveLFO2:
-        case waveMOD1:
-        case waveMOD2:
-        case stereo:
-            return false;
-
-        default:
-            return true;
-    }
 }
 
 const String RichterAudioProcessor::getInputChannelName (int channelIndex) const
@@ -863,44 +230,214 @@ AudioProcessorEditor* RichterAudioProcessor::createEditor()
 }
 
 //==============================================================================
-void RichterAudioProcessor::getStateInformation (MemoryBlock& destData)
-{
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
-    std::vector<float> userParams;
-    for (int iii {0}; iii < totalNumParams; iii++) {
-        userParams.push_back(getParameter(iii));
-    }
-
-    XmlElement root("Root");
-    XmlElement *el = root.createNewChildElement("AllUserParam");
-
-    el->addTextElement(String(floatVectorToString(userParams)));
-    copyXmlToBinary(root, destData);
+void RichterAudioProcessor::setBypassSwitchLFO1(bool val) {
+    mRichter.LFOPair1.LFO.setBypassSwitch(val);
+    bypassSwitchLFO1->setValueNotifyingHost(val);
 }
 
-void RichterAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
-{
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
-    std::unique_ptr<XmlElement> pRoot(getXmlFromBinary(data, sizeInBytes));
-    std::vector<float> tmpUserParam;
+void RichterAudioProcessor::setPhaseSyncLFO1(bool val) {
+    mRichter.LFOPair1.LFO.setPhaseSyncSwitch(val);
+    phaseSyncLFO1->setValueNotifyingHost(val);
+}
 
-    if (pRoot != NULL) {
-        forEachXmlChildElement((*pRoot), pChild) {
-            if (pChild->hasTagName("AllUserParam")) {
-                String sFloatCSV = pChild->getAllSubText();
-                if (stringToFloatVector(sFloatCSV, tmpUserParam, totalNumParams) == totalNumParams) {
-                    for (int iii {0}; iii < totalNumParams; iii++) {
-                        setParameter(iii, tmpUserParam[iii]);
-                    }
-                }
-            }
-        }
+void RichterAudioProcessor::setTempoSyncLFO1(bool val) {
+    mRichter.LFOPair1.LFO.setTempoSyncSwitch(val);
+    tempoSyncLFO1->setValueNotifyingHost(val);
+}
 
-        _UIUpdateFlag = true;
-    }
+void RichterAudioProcessor::setWaveLFO1(int val) {
+    mRichter.LFOPair1.LFO.setWave(val);
+    waveLFO1->setValueNotifyingHost(waveLFO1->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setDepthLFO1(float val) {
+    mRichter.LFOPair1.LFO.setRawDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
+    depthLFO1->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setDepthModLFO1(float val) {
+    mRichter.LFOPair1.LFO.setDepthMod(WECore::Richter::Parameters::DEPTHMOD.NormalisedToInternal(val));
+    depthModLFO1->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setFreqLFO1(float val) {
+    mRichter.LFOPair1.LFO.setRawFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
+    freqLFO1->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setFreqModLFO1(float val) {
+    mRichter.LFOPair1.LFO.setFreqMod(WECore::Richter::Parameters::FREQMOD.NormalisedToInternal(val));
+    freqModLFO1->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setPhaseLFO1(float val) {
+    mRichter.LFOPair1.LFO.setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInternal(val));
+    phaseLFO1->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setTempoNumerLFO1(int val) {
+    mRichter.LFOPair1.LFO.setTempoNumer(val);
+    tempoNumerLFO1->setValueNotifyingHost(tempoNumerLFO1->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setTempoDenomLFO1(int val) {
+    mRichter.LFOPair1.LFO.setTempoDenom(val);
+    tempoDenomLFO1->setValueNotifyingHost(tempoDenomLFO1->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setBypassSwitchLFO2(bool val) {
+    mRichter.LFOPair2.LFO.setBypassSwitch(val);
+    bypassSwitchLFO2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setPhaseSyncLFO2(bool val) {
+    mRichter.LFOPair2.LFO.setPhaseSyncSwitch(val);
+    phaseSyncLFO2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setTempoSyncLFO2(bool val) {
+    mRichter.LFOPair2.LFO.setTempoSyncSwitch(val);
+    tempoSyncLFO2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setWaveLFO2(int val) {
+    mRichter.LFOPair2.LFO.setWave(val);
+    waveLFO2->setValueNotifyingHost(waveLFO2->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setDepthLFO2(float val) {
+    mRichter.LFOPair2.LFO.setRawDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
+    depthLFO2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setDepthModLFO2(float val) {
+    mRichter.LFOPair2.LFO.setDepthMod(WECore::Richter::Parameters::DEPTHMOD.NormalisedToInternal(val));
+    depthModLFO2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setFreqLFO2(float val) {
+    mRichter.LFOPair2.LFO.setRawFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
+    freqLFO2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setFreqModLFO2(float val) {
+    mRichter.LFOPair2.LFO.setFreqMod(WECore::Richter::Parameters::FREQMOD.NormalisedToInternal(val));
+    freqModLFO2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setPhaseLFO2(float val) {
+    mRichter.LFOPair2.LFO.setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInternal(val));
+    phaseLFO2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setTempoNumerLFO2(int val) {
+    mRichter.LFOPair2.LFO.setTempoNumer(val);
+    tempoNumerLFO2->setValueNotifyingHost(tempoNumerLFO2->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setTempoDenomLFO2(int val) {
+    mRichter.LFOPair2.LFO.setTempoDenom(val);
+    tempoDenomLFO2->setValueNotifyingHost(tempoDenomLFO2->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setBypassSwitchMOD1(bool val) {
+    mRichter.LFOPair1.MOD.setBypassSwitch(val);
+    bypassSwitchMOD1->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setPhaseSyncMOD1(bool val) {
+    mRichter.LFOPair1.MOD.setPhaseSyncSwitch(val);
+    phaseSyncMOD1->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setTempoSyncMOD1(bool val) {
+    mRichter.LFOPair1.MOD.setTempoSyncSwitch(val);
+    tempoSyncMOD1->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setWaveMOD1(int val) {
+    mRichter.LFOPair1.MOD.setWave(val);
+    waveMOD1->setValueNotifyingHost(waveMOD1->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setDepthMOD1(float val) {
+    mRichter.LFOPair1.MOD.setDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
+    depthMOD1->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setFreqMOD1(float val) {
+    mRichter.LFOPair1.MOD.setFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
+    freqMOD1->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setPhaseMOD1(float val) {
+    mRichter.LFOPair1.MOD.setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInternal(val));
+    phaseMOD1->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setTempoNumerMOD1(int val) {
+    mRichter.LFOPair1.MOD.setTempoNumer(val);
+    tempoNumerMOD1->setValueNotifyingHost(tempoNumerMOD1->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setTempoDenomMOD1(int val) {
+    mRichter.LFOPair1.MOD.setTempoDenom(val);
+    tempoDenomMOD1->setValueNotifyingHost(tempoDenomMOD1->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setBypassSwitchMOD2(bool val) {
+    mRichter.LFOPair2.MOD.setBypassSwitch(val);
+    bypassSwitchMOD2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setPhaseSyncMOD2(bool val) {
+    mRichter.LFOPair2.MOD.setPhaseSyncSwitch(val);
+    phaseSyncMOD2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setTempoSyncMOD2(bool val) {
+    mRichter.LFOPair2.MOD.setTempoSyncSwitch(val);
+    tempoSyncMOD2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setWaveMOD2(int val) {
+    mRichter.LFOPair2.MOD.setWave(val);
+    waveMOD2->setValueNotifyingHost(waveMOD2->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setDepthMOD2(float val) {
+    mRichter.LFOPair2.MOD.setDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
+    depthMOD2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setFreqMOD2(float val) {
+    mRichter.LFOPair2.MOD.setFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
+    freqMOD2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setPhaseMOD2(float val) {
+    mRichter.LFOPair2.MOD.setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInternal(val));
+    phaseMOD2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setTempoNumerMOD2(int val) {
+    mRichter.LFOPair2.MOD.setTempoNumer(val);
+    tempoNumerMOD2->setValueNotifyingHost(tempoNumerMOD2->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setTempoDenomMOD2(int val) {
+    mRichter.LFOPair2.MOD.setTempoDenom(val);
+    tempoDenomMOD2->setValueNotifyingHost(tempoDenomMOD2->getNormalisableRange().convertTo0to1(val));
+}
+
+void RichterAudioProcessor::setStereo(bool val) {
+    mRichter.setStereo(val);
+    stereo->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setOutputGain(float val) {
+    mRichter.setOutputGain(OUTPUTGAIN.NormalisedToInternal(val));
+    outputGain->setValueNotifyingHost(val);
 }
 
 //==============================================================================

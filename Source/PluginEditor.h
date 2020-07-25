@@ -53,10 +53,12 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    void timerCallback();
+    void timerCallback() override;
     RichterAudioProcessor* getProcessor() const {
         return static_cast<RichterAudioProcessor*>(getAudioProcessor());
     }
+    void sliderDragStarted(Slider* slider) override;
+    void sliderDragEnded(Slider* slider) override;
     //[/UserMethods]
 
     void paint (juce::Graphics& g) override;
@@ -73,6 +75,7 @@ private:
     RichterTempoButtonLookAndFeel tempoLookAndFeel;
     Colour _highlightColour;
 
+    virtual void _onParameterUpdate() override;
     void _enableDoubleClickToDefault();
     void _startSliderReadouts();
     void _stopSliderReadouts();

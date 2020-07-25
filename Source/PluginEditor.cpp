@@ -805,6 +805,9 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     _startSliderReadouts();
 
     _updateTempoToggles(true);
+
+    // Call this manually once to make sure the UI reflects the parameters' states correctly
+    _onParameterUpdate();
     //[/Constructor]
 }
 
@@ -929,151 +932,151 @@ void RichterAudioProcessorEditor::sliderValueChanged (juce::Slider* sliderThatWa
     if (sliderThatWasMoved == DepthLFO1Sld.get())
     {
         //[UserSliderCode_DepthLFO1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::depthLFO1, static_cast<float>(DepthLFO1Sld->getValue()));
+        ourProcessor->setDepthLFO1(DepthLFO1Sld->getValue());
         //[/UserSliderCode_DepthLFO1Sld]
     }
     else if (sliderThatWasMoved == FreqLFO1Sld.get())
     {
         //[UserSliderCode_FreqLFO1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::freqLFO1, static_cast<float>(FreqLFO1Sld->getValue()));
+        ourProcessor->setFreqLFO1(FreqLFO1Sld->getValue());
         //[/UserSliderCode_FreqLFO1Sld]
     }
     else if (sliderThatWasMoved == DepthModLFO1Sld.get())
     {
         //[UserSliderCode_DepthModLFO1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::depthModLFO1, static_cast<float>(DepthModLFO1Sld->getValue()));
+        ourProcessor->setDepthModLFO1(DepthModLFO1Sld->getValue());
         //[/UserSliderCode_DepthModLFO1Sld]
     }
     else if (sliderThatWasMoved == FreqModLFO1Sld.get())
     {
         //[UserSliderCode_FreqModLFO1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::freqModLFO1, static_cast<float>(FreqModLFO1Sld->getValue()));
+        ourProcessor->setFreqModLFO1(FreqModLFO1Sld->getValue());
         //[/UserSliderCode_FreqModLFO1Sld]
     }
     else if (sliderThatWasMoved == OutputGainSld.get())
     {
         //[UserSliderCode_OutputGainSld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::outputGain, static_cast<float>(OutputGainSld->getValue()));
+        ourProcessor->setOutputGain(OutputGainSld->getValue());
         //[/UserSliderCode_OutputGainSld]
     }
     else if (sliderThatWasMoved == DepthLFO2Sld.get())
     {
         //[UserSliderCode_DepthLFO2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::depthLFO2, static_cast<float>(DepthLFO2Sld->getValue()));
+        ourProcessor->setDepthLFO2(DepthLFO2Sld->getValue());
         //[/UserSliderCode_DepthLFO2Sld]
     }
     else if (sliderThatWasMoved == FreqLFO2Sld.get())
     {
         //[UserSliderCode_FreqLFO2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::freqLFO2, static_cast<float>(FreqLFO2Sld->getValue()));
+        ourProcessor->setFreqLFO2(FreqLFO2Sld->getValue());
         //[/UserSliderCode_FreqLFO2Sld]
     }
     else if (sliderThatWasMoved == DepthModLFO2Sld.get())
     {
         //[UserSliderCode_DepthModLFO2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::depthModLFO2, static_cast<float>(DepthModLFO2Sld->getValue()));
+        ourProcessor->setDepthModLFO2(DepthModLFO2Sld->getValue());
         //[/UserSliderCode_DepthModLFO2Sld]
     }
     else if (sliderThatWasMoved == FreqModLFO2Sld.get())
     {
         //[UserSliderCode_FreqModLFO2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::freqModLFO2, static_cast<float>(FreqModLFO2Sld->getValue()));
+        ourProcessor->setFreqModLFO2(FreqModLFO2Sld->getValue());
         //[/UserSliderCode_FreqModLFO2Sld]
     }
     else if (sliderThatWasMoved == TempoNumerLFO1Sld.get())
     {
         //[UserSliderCode_TempoNumerLFO1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoNumerLFO1, static_cast<float>(TempoNumerLFO1Sld->getValue()));
+        ourProcessor->setTempoNumerLFO1(TempoNumerLFO1Sld->getValue());
         //[/UserSliderCode_TempoNumerLFO1Sld]
     }
     else if (sliderThatWasMoved == TempoDenomLFO1Sld.get())
     {
         //[UserSliderCode_TempoDenomLFO1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoDenomLFO1, static_cast<float>(TempoDenomLFO1Sld->getValue()));
+        ourProcessor->setTempoDenomLFO1(TempoDenomLFO1Sld->getValue());
         //[/UserSliderCode_TempoDenomLFO1Sld]
     }
     else if (sliderThatWasMoved == TempoNumerLFO2Sld.get())
     {
         //[UserSliderCode_TempoNumerLFO2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoNumerLFO2, static_cast<float>(TempoNumerLFO2Sld->getValue()));
+        ourProcessor->setTempoNumerLFO2(TempoNumerLFO2Sld->getValue());
         //[/UserSliderCode_TempoNumerLFO2Sld]
     }
     else if (sliderThatWasMoved == TempoDenomLFO2Sld.get())
     {
         //[UserSliderCode_TempoDenomLFO2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoDenomLFO2, static_cast<float>(TempoDenomLFO2Sld->getValue()));
+        ourProcessor->setTempoDenomLFO2(TempoDenomLFO2Sld->getValue());
         //[/UserSliderCode_TempoDenomLFO2Sld]
     }
     else if (sliderThatWasMoved == PhaseLFO1Sld.get())
     {
         //[UserSliderCode_PhaseLFO1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseLFO1, static_cast<float>(PhaseLFO1Sld->getValue()));
+        ourProcessor->setPhaseLFO1(PhaseLFO1Sld->getValue());
         //[/UserSliderCode_PhaseLFO1Sld]
     }
     else if (sliderThatWasMoved == PhaseLFO2Sld.get())
     {
         //[UserSliderCode_PhaseLFO2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseLFO2, static_cast<float>(PhaseLFO2Sld->getValue()));
+        ourProcessor->setPhaseLFO2(PhaseLFO2Sld->getValue());
         //[/UserSliderCode_PhaseLFO2Sld]
     }
     else if (sliderThatWasMoved == DepthMOD1Sld.get())
     {
         //[UserSliderCode_DepthMOD1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::depthMOD1, static_cast<float>(DepthMOD1Sld->getValue()));
+        ourProcessor->setDepthMOD1(DepthMOD1Sld->getValue());
         //[/UserSliderCode_DepthMOD1Sld]
     }
     else if (sliderThatWasMoved == FreqMOD1Sld.get())
     {
         //[UserSliderCode_FreqMOD1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::freqMOD1, static_cast<float>(FreqMOD1Sld->getValue()));
+        ourProcessor->setFreqMOD1(FreqMOD1Sld->getValue());
         //[/UserSliderCode_FreqMOD1Sld]
     }
     else if (sliderThatWasMoved == TempoNumerMOD1Sld.get())
     {
         //[UserSliderCode_TempoNumerMOD1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoNumerMOD1, static_cast<float>(TempoNumerMOD1Sld->getValue()));
+        ourProcessor->setTempoNumerMOD1(TempoNumerMOD1Sld->getValue());
         //[/UserSliderCode_TempoNumerMOD1Sld]
     }
     else if (sliderThatWasMoved == TempoDenomMOD1Sld.get())
     {
         //[UserSliderCode_TempoDenomMOD1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoDenomMOD1, static_cast<float>(TempoDenomMOD1Sld->getValue()));
+        ourProcessor->setTempoDenomMOD1(TempoDenomMOD1Sld->getValue());
         //[/UserSliderCode_TempoDenomMOD1Sld]
     }
     else if (sliderThatWasMoved == PhaseMOD1Sld.get())
     {
         //[UserSliderCode_PhaseMOD1Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseMOD1, static_cast<float>(PhaseMOD1Sld->getValue()));
+        ourProcessor->setPhaseMOD1(PhaseMOD1Sld->getValue());
         //[/UserSliderCode_PhaseMOD1Sld]
     }
     else if (sliderThatWasMoved == DepthMOD2Sld.get())
     {
         //[UserSliderCode_DepthMOD2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::depthMOD2, static_cast<float>(DepthMOD2Sld->getValue()));
+        ourProcessor->setDepthMOD2(DepthMOD2Sld->getValue());
         //[/UserSliderCode_DepthMOD2Sld]
     }
     else if (sliderThatWasMoved == FreqMOD2Sld.get())
     {
         //[UserSliderCode_FreqMOD2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::freqMOD2, static_cast<float>(FreqMOD2Sld->getValue()));
+        ourProcessor->setFreqMOD2(FreqMOD2Sld->getValue());
         //[/UserSliderCode_FreqMOD2Sld]
     }
     else if (sliderThatWasMoved == TempoNumerMOD2Sld.get())
     {
         //[UserSliderCode_TempoNumerMOD2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoNumerMOD2, static_cast<float>(TempoNumerMOD2Sld->getValue()));
+        ourProcessor->setTempoNumerMOD2(TempoNumerMOD2Sld->getValue());
         //[/UserSliderCode_TempoNumerMOD2Sld]
     }
     else if (sliderThatWasMoved == TempoDenomMOD2Sld.get())
     {
         //[UserSliderCode_TempoDenomMOD2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoDenomMOD2, static_cast<float>(TempoDenomMOD2Sld->getValue()));
+        ourProcessor->setTempoDenomMOD2(TempoDenomMOD2Sld->getValue());
         //[/UserSliderCode_TempoDenomMOD2Sld]
     }
     else if (sliderThatWasMoved == PhaseMOD2Sld.get())
     {
         //[UserSliderCode_PhaseMOD2Sld] -- add your slider handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseMOD2, static_cast<float>(PhaseMOD2Sld->getValue()));
+        ourProcessor->setPhaseMOD2(PhaseMOD2Sld->getValue());
         //[/UserSliderCode_PhaseMOD2Sld]
     }
 
@@ -1090,25 +1093,25 @@ void RichterAudioProcessorEditor::comboBoxChanged (juce::ComboBox* comboBoxThatH
     if (comboBoxThatHasChanged == WaveLFO1Cmb.get())
     {
         //[UserComboBoxCode_WaveLFO1Cmb] -- add your combo box handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::waveLFO1, static_cast<float>(WaveLFO1Cmb->getSelectedId()));
+        ourProcessor->setWaveLFO1(WaveLFO1Cmb->getSelectedId());
         //[/UserComboBoxCode_WaveLFO1Cmb]
     }
     else if (comboBoxThatHasChanged == WaveLFO2Cmb.get())
     {
         //[UserComboBoxCode_WaveLFO2Cmb] -- add your combo box handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::waveLFO2, static_cast<float>(WaveLFO2Cmb->getSelectedId()));
+        ourProcessor->setWaveLFO2(WaveLFO2Cmb->getSelectedId());
         //[/UserComboBoxCode_WaveLFO2Cmb]
     }
     else if (comboBoxThatHasChanged == WaveMOD1Cmb.get())
     {
         //[UserComboBoxCode_WaveMOD1Cmb] -- add your combo box handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::waveMOD1, static_cast<float>(WaveMOD1Cmb->getSelectedId()));
+        ourProcessor->setWaveMOD1(WaveMOD1Cmb->getSelectedId());
         //[/UserComboBoxCode_WaveMOD1Cmb]
     }
     else if (comboBoxThatHasChanged == WaveMOD2Cmb.get())
     {
         //[UserComboBoxCode_WaveMOD2Cmb] -- add your combo box handling code here..
-        ourProcessor->setParameter(RichterAudioProcessor::waveMOD2, static_cast<float>(WaveMOD2Cmb->getSelectedId()));
+        ourProcessor->setWaveMOD2(WaveMOD2Cmb->getSelectedId());
         //[/UserComboBoxCode_WaveMOD2Cmb]
     }
 
@@ -1125,79 +1128,79 @@ void RichterAudioProcessorEditor::buttonClicked (juce::Button* buttonThatWasClic
     if (buttonThatWasClicked == BypassLFO1Btn.get())
     {
         //[UserButtonCode_BypassLFO1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchLFO1, static_cast<float>(!BypassLFO1Btn->getToggleState()));
+        ourProcessor->setBypassSwitchLFO1(!BypassLFO1Btn->getToggleState());
         //[/UserButtonCode_BypassLFO1Btn]
     }
     else if (buttonThatWasClicked == BypassLFO2Btn.get())
     {
         //[UserButtonCode_BypassLFO2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchLFO2, static_cast<float>(!BypassLFO2Btn->getToggleState()));
+        ourProcessor->setBypassSwitchLFO2(!BypassLFO2Btn->getToggleState());
         //[/UserButtonCode_BypassLFO2Btn]
     }
     else if (buttonThatWasClicked == TempoSyncLFO1Btn.get())
     {
         //[UserButtonCode_TempoSyncLFO1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncLFO1, static_cast<float>(!TempoSyncLFO1Btn->getToggleState()));
+        ourProcessor->setTempoSyncLFO1(!TempoSyncLFO1Btn->getToggleState());
         //[/UserButtonCode_TempoSyncLFO1Btn]
     }
     else if (buttonThatWasClicked == TempoSyncLFO2Btn.get())
     {
         //[UserButtonCode_TempoSyncLFO2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncLFO2, static_cast<float>(!TempoSyncLFO2Btn->getToggleState()));
+        ourProcessor->setTempoSyncLFO2(!TempoSyncLFO2Btn->getToggleState());
         //[/UserButtonCode_TempoSyncLFO2Btn]
     }
     else if (buttonThatWasClicked == PhaseSyncLFO1Btn.get())
     {
         //[UserButtonCode_PhaseSyncLFO1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncLFO1, static_cast<float>(!PhaseSyncLFO1Btn->getToggleState()));
+        ourProcessor->setPhaseSyncLFO1(!PhaseSyncLFO1Btn->getToggleState());
         //[/UserButtonCode_PhaseSyncLFO1Btn]
     }
     else if (buttonThatWasClicked == PhaseSyncLFO2Btn.get())
     {
         //[UserButtonCode_PhaseSyncLFO2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncLFO2, static_cast<float>(!PhaseSyncLFO2Btn->getToggleState()));
+        ourProcessor->setPhaseSyncLFO2(!PhaseSyncLFO2Btn->getToggleState());
         //[/UserButtonCode_PhaseSyncLFO2Btn]
     }
     else if (buttonThatWasClicked == BypassMOD1Btn.get())
     {
         //[UserButtonCode_BypassMOD1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchMOD1, static_cast<float>(!BypassMOD1Btn->getToggleState()));
+        ourProcessor->setBypassSwitchMOD1(!BypassMOD1Btn->getToggleState());
         //[/UserButtonCode_BypassMOD1Btn]
     }
     else if (buttonThatWasClicked == TempoSyncMOD1Btn.get())
     {
         //[UserButtonCode_TempoSyncMOD1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncMOD1, static_cast<float>(!TempoSyncMOD1Btn->getToggleState()));
+        ourProcessor->setTempoSyncMOD1(!TempoSyncMOD1Btn->getToggleState());
         //[/UserButtonCode_TempoSyncMOD1Btn]
     }
     else if (buttonThatWasClicked == PhaseSyncMOD1Btn.get())
     {
         //[UserButtonCode_PhaseSyncMOD1Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncMOD1, static_cast<float>(!PhaseSyncMOD1Btn->getToggleState()));
+        ourProcessor->setPhaseSyncMOD1(!PhaseSyncMOD1Btn->getToggleState());
         //[/UserButtonCode_PhaseSyncMOD1Btn]
     }
     else if (buttonThatWasClicked == BypassMOD2Btn.get())
     {
         //[UserButtonCode_BypassMOD2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::bypassSwitchMOD2, static_cast<float>(!BypassMOD2Btn->getToggleState()));
+        ourProcessor->setBypassSwitchMOD2(!BypassMOD2Btn->getToggleState());
         //[/UserButtonCode_BypassMOD2Btn]
     }
     else if (buttonThatWasClicked == TempoSyncMOD2Btn.get())
     {
         //[UserButtonCode_TempoSyncMOD2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::tempoSyncMOD2, static_cast<float>(!TempoSyncMOD2Btn->getToggleState()));
+        ourProcessor->setTempoSyncMOD2(!TempoSyncMOD2Btn->getToggleState());
         //[/UserButtonCode_TempoSyncMOD2Btn]
     }
     else if (buttonThatWasClicked == PhaseSyncMOD2Btn.get())
     {
         //[UserButtonCode_PhaseSyncMOD2Btn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::phaseSyncMOD2, static_cast<float>(!PhaseSyncMOD2Btn->getToggleState()));
+        ourProcessor->setPhaseSyncMOD2(!PhaseSyncMOD2Btn->getToggleState());
         //[/UserButtonCode_PhaseSyncMOD2Btn]
     }
     else if (buttonThatWasClicked == StereoBtn.get())
     {
         //[UserButtonCode_StereoBtn] -- add your button handler code here..
-        ourProcessor->setParameter(RichterAudioProcessor::stereo, static_cast<float>(!StereoBtn->getToggleState()));
+        ourProcessor->setStereo(!StereoBtn->getToggleState());
         //[/UserButtonCode_StereoBtn]
     }
 
@@ -1208,159 +1211,283 @@ void RichterAudioProcessorEditor::buttonClicked (juce::Button* buttonThatWasClic
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
-void RichterAudioProcessorEditor::timerCallback()
-{
+void RichterAudioProcessorEditor::sliderDragStarted(Slider* slider) {
     RichterAudioProcessor* ourProcessor {getProcessor()};
 
-    if (ourProcessor->needsUIUpdate()) {
-        // LFO 1
-        BypassLFO1Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::bypassSwitchLFO1), dontSendNotification);
-        PhaseSyncLFO1Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::phaseSyncLFO1), dontSendNotification);
-        TempoSyncLFO1Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::tempoSyncLFO1), dontSendNotification);
-        WaveLFO1Cmb->setSelectedId(ourProcessor->getParameter(RichterAudioProcessor::waveLFO1), dontSendNotification);
-        DepthLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::depthLFO1), dontSendNotification);
-        DepthModLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::depthModLFO1), dontSendNotification);
-        FreqLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::freqLFO1), dontSendNotification);
-        FreqModLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::freqModLFO1), dontSendNotification);
-        PhaseLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::phaseLFO1), dontSendNotification);
-        TempoNumerLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoNumerLFO1), dontSendNotification);
-        TempoDenomLFO1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoDenomLFO1), dontSendNotification);
+    if (slider == DepthLFO1Sld.get()) {
+        ourProcessor->depthLFO1->beginChangeGesture();
+    } else if (slider == DepthModLFO1Sld.get()) {
+        ourProcessor->depthModLFO1->beginChangeGesture();
+    } else if (slider == FreqLFO1Sld.get()) {
+        ourProcessor->freqLFO1->beginChangeGesture();
+    } else if (slider == FreqModLFO1Sld.get()) {
+        ourProcessor->freqModLFO1->beginChangeGesture();
+    } else if (slider == PhaseLFO1Sld.get()) {
+        ourProcessor->phaseLFO1->beginChangeGesture();
+    } else if (slider == TempoNumerLFO1Sld.get()) {
+        ourProcessor->tempoNumerLFO1->beginChangeGesture();
+    } else if (slider == TempoDenomLFO1Sld.get()) {
+        ourProcessor->tempoDenomLFO1->beginChangeGesture();
+    }
 
+    else if (slider == DepthLFO2Sld.get()) {
+        ourProcessor->depthLFO2->beginChangeGesture();
+    } else if (slider == DepthModLFO2Sld.get()) {
+        ourProcessor->depthModLFO2->beginChangeGesture();
+    } else if (slider == FreqLFO2Sld.get()) {
+        ourProcessor->freqLFO2->beginChangeGesture();
+    } else if (slider == FreqModLFO2Sld.get()) {
+        ourProcessor->freqModLFO2->beginChangeGesture();
+    } else if (slider == PhaseLFO2Sld.get()) {
+        ourProcessor->phaseLFO2->beginChangeGesture();
+    } else if (slider == TempoNumerLFO2Sld.get()) {
+        ourProcessor->tempoNumerLFO2->beginChangeGesture();
+    } else if (slider == TempoDenomLFO2Sld.get()) {
+        ourProcessor->tempoDenomLFO2->beginChangeGesture();
+    }
 
-        // LFO 2
-        BypassLFO2Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::bypassSwitchLFO2), dontSendNotification);
-        PhaseSyncLFO2Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::phaseSyncLFO2), dontSendNotification);
-        TempoSyncLFO2Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::tempoSyncLFO2), dontSendNotification);
-        WaveLFO2Cmb->setSelectedId(ourProcessor->getParameter(RichterAudioProcessor::waveLFO2), dontSendNotification);
-        DepthLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::depthLFO2), dontSendNotification);
-        DepthModLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::depthModLFO2), dontSendNotification);
-        FreqLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::freqLFO2), dontSendNotification);
-        FreqModLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::freqModLFO2), dontSendNotification);
-        PhaseLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::phaseLFO2), dontSendNotification);
-        TempoNumerLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoNumerLFO2), dontSendNotification);
-        TempoDenomLFO2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoDenomLFO2), dontSendNotification);
+    else if (slider == DepthMOD1Sld.get()) {
+        ourProcessor->depthMOD1->beginChangeGesture();
+    } else if (slider == FreqMOD1Sld.get()) {
+        ourProcessor->freqMOD1->beginChangeGesture();
+    } else if (slider == PhaseMOD1Sld.get()) {
+        ourProcessor->phaseMOD1->beginChangeGesture();
+    } else if (slider == TempoNumerMOD1Sld.get()) {
+        ourProcessor->tempoNumerMOD1->beginChangeGesture();
+    } else if (slider == TempoDenomMOD1Sld.get()) {
+        ourProcessor->tempoDenomMOD1->beginChangeGesture();
+    }
 
+    else if (slider == DepthMOD2Sld.get()) {
+        ourProcessor->depthMOD2->beginChangeGesture();
+    } else if (slider == FreqMOD2Sld.get()) {
+        ourProcessor->freqMOD2->beginChangeGesture();
+    } else if (slider == PhaseMOD2Sld.get()) {
+        ourProcessor->phaseMOD2->beginChangeGesture();
+    } else if (slider == TempoNumerMOD2Sld.get()) {
+        ourProcessor->tempoNumerMOD2->beginChangeGesture();
+    } else if (slider == TempoDenomMOD2Sld.get()) {
+        ourProcessor->tempoDenomMOD2->beginChangeGesture();
+    }
 
-        // MOD 1
-        BypassMOD1Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::bypassSwitchMOD1), dontSendNotification);
-        PhaseSyncMOD1Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::phaseSyncMOD1), dontSendNotification);
-        TempoSyncMOD1Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::tempoSyncMOD1), dontSendNotification);
-        WaveMOD1Cmb->setSelectedId(ourProcessor->getParameter(RichterAudioProcessor::waveMOD1), dontSendNotification);
-        DepthMOD1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::depthMOD1), dontSendNotification);
-        FreqMOD1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::freqMOD1), dontSendNotification);
-        PhaseMOD1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::phaseMOD1), dontSendNotification);
-        TempoNumerMOD1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoNumerMOD1), dontSendNotification);
-        TempoDenomMOD1Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoDenomMOD1), dontSendNotification);
-
-
-        // MOD2
-        BypassMOD2Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::bypassSwitchMOD2), dontSendNotification);
-        PhaseSyncMOD2Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::phaseSyncMOD2), dontSendNotification);
-        TempoSyncMOD2Btn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::tempoSyncMOD2), dontSendNotification);
-        WaveMOD2Cmb->setSelectedId(ourProcessor->getParameter(RichterAudioProcessor::waveMOD2), dontSendNotification);
-        DepthMOD2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::depthMOD2), dontSendNotification);
-        FreqMOD2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::freqMOD2), dontSendNotification);
-        PhaseMOD2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::phaseMOD2), dontSendNotification);
-        TempoNumerMOD2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoNumerMOD2), dontSendNotification);
-        TempoDenomMOD2Sld->setValue(ourProcessor->getParameter(RichterAudioProcessor::tempoDenomMOD2), dontSendNotification);
-
-
-
-        StereoBtn->setToggleState(ourProcessor->getParameter(RichterAudioProcessor::stereo), dontSendNotification);
-        OutputGainSld->setValue(ourProcessor->getParameter(RichterAudioProcessor::outputGain), dontSendNotification);
-
-
-        // Change LFO names if stereo
-        if (StereoBtn->getToggleState()) {
-            BypassLFO1Btn->setButtonText("LFO L");
-            BypassLFO2Btn->setButtonText("LFO R");
-            BypassMOD1Btn->setButtonText("MOD L");
-            BypassMOD2Btn->setButtonText("MOD R");
-        } else {
-            BypassLFO1Btn->setButtonText("LFO 1");
-            BypassLFO2Btn->setButtonText("LFO 2");
-            BypassMOD1Btn->setButtonText("MOD 1");
-            BypassMOD2Btn->setButtonText("MOD 2");
-        }
-
-        // Change outline colour based on whether LFO is active
-        customLookAndFeel.updateLFOState(GROUP_LFO1, BypassLFO1Btn->getToggleState());
-        customLookAndFeel.updateLFOState(GROUP_LFO2, BypassLFO2Btn->getToggleState());
-        customLookAndFeel.updateLFOState(GROUP_MOD1, BypassMOD1Btn->getToggleState());
-        customLookAndFeel.updateLFOState(GROUP_MOD2, BypassMOD2Btn->getToggleState());
-        LFO1Group->repaint();
-        LFO2Group->repaint();
-        MOD1Group->repaint();
-        MOD2Group->repaint();
-
-        // Activate/Deactivale phase control depending on phase sync
-        PhaseLFO1Sld->setEnabled(PhaseSyncLFO1Btn->getToggleState());
-        PhaseLFO2Sld->setEnabled(PhaseSyncLFO2Btn->getToggleState());
-        PhaseMOD1Sld->setEnabled(PhaseSyncMOD1Btn->getToggleState());
-        PhaseMOD2Sld->setEnabled(PhaseSyncMOD2Btn->getToggleState());
-
-        _updateTempoToggles(false);
-
-        // Update meters
-        const RichterLFOCache& lfoCache = ourProcessor->getLFOCache();
-        auto updateMeter = [](RichterLFOMeter* meter, bool isBypassed, float value) {
-            if (isBypassed) {
-                meter->setVisible(false);
-             } else {
-                meter->setMeterValue(value);
-                meter->setVisible(true);
-             }
-
-            meter->repaint();
-        };
-
-        updateMeter(MeterLFO1.get(), !BypassLFO1Btn->getToggleState(), lfoCache.lfo1);
-        updateMeter(MeterLFO2.get(), !BypassLFO2Btn->getToggleState(), lfoCache.lfo2);
-        updateMeter(MeterMOD1.get(), !BypassMOD1Btn->getToggleState(), lfoCache.mod1);
-        updateMeter(MeterMOD2.get(), !BypassMOD2Btn->getToggleState(), lfoCache.mod2);
-
-        // Update wave viewers
-        auto updateWaveView = [](WECore::Richter::WaveViewer* viewer, float waveValue) {
-            if (waveValue < 1.5) {
-                viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSine());
-            } else if (waveValue < 2.5) {
-                viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSquare());
-            } else {
-                viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSaw());
-            }
-
-            viewer->repaint();
-        };
-
-        updateWaveView(WaveViewLFO1.get(), ourProcessor->getParameter(RichterAudioProcessor::waveLFO1));
-        updateWaveView(WaveViewLFO2.get(), ourProcessor->getParameter(RichterAudioProcessor::waveLFO2));
-        updateWaveView(WaveViewMOD1.get(), ourProcessor->getParameter(RichterAudioProcessor::waveMOD1));
-        updateWaveView(WaveViewMOD2.get(), ourProcessor->getParameter(RichterAudioProcessor::waveMOD2));
+    else if (slider == OutputGainSld.get()) {
+        ourProcessor->outputGain->beginChangeGesture();
     }
 }
 
+void RichterAudioProcessorEditor::sliderDragEnded(Slider* slider) {
+    RichterAudioProcessor* ourProcessor {getProcessor()};
+
+    if (slider == DepthLFO1Sld.get()) {
+        ourProcessor->depthLFO1->endChangeGesture();
+    } else if (slider == DepthModLFO1Sld.get()) {
+        ourProcessor->depthModLFO1->endChangeGesture();
+    } else if (slider == FreqLFO1Sld.get()) {
+        ourProcessor->freqLFO1->endChangeGesture();
+    } else if (slider == FreqModLFO1Sld.get()) {
+        ourProcessor->freqModLFO1->endChangeGesture();
+    } else if (slider == PhaseLFO1Sld.get()) {
+        ourProcessor->phaseLFO1->endChangeGesture();
+    } else if (slider == TempoNumerLFO1Sld.get()) {
+        ourProcessor->tempoNumerLFO1->endChangeGesture();
+    } else if (slider == TempoDenomLFO1Sld.get()) {
+        ourProcessor->tempoDenomLFO1->endChangeGesture();
+    }
+
+    else if (slider == DepthLFO2Sld.get()) {
+        ourProcessor->depthLFO2->endChangeGesture();
+    } else if (slider == DepthModLFO2Sld.get()) {
+        ourProcessor->depthModLFO2->endChangeGesture();
+    } else if (slider == FreqLFO2Sld.get()) {
+        ourProcessor->freqLFO2->endChangeGesture();
+    } else if (slider == FreqModLFO2Sld.get()) {
+        ourProcessor->freqModLFO2->endChangeGesture();
+    } else if (slider == PhaseLFO2Sld.get()) {
+        ourProcessor->phaseLFO2->endChangeGesture();
+    } else if (slider == TempoNumerLFO2Sld.get()) {
+        ourProcessor->tempoNumerLFO2->endChangeGesture();
+    } else if (slider == TempoDenomLFO2Sld.get()) {
+        ourProcessor->tempoDenomLFO2->endChangeGesture();
+    }
+
+    else if (slider == DepthMOD1Sld.get()) {
+        ourProcessor->depthMOD1->endChangeGesture();
+    } else if (slider == FreqMOD1Sld.get()) {
+        ourProcessor->freqMOD1->endChangeGesture();
+    } else if (slider == PhaseMOD1Sld.get()) {
+        ourProcessor->phaseMOD1->endChangeGesture();
+    } else if (slider == TempoNumerMOD1Sld.get()) {
+        ourProcessor->tempoNumerMOD1->endChangeGesture();
+    } else if (slider == TempoDenomMOD1Sld.get()) {
+        ourProcessor->tempoDenomMOD1->endChangeGesture();
+    }
+
+    else if (slider == DepthMOD2Sld.get()) {
+        ourProcessor->depthMOD2->endChangeGesture();
+    } else if (slider == FreqMOD2Sld.get()) {
+        ourProcessor->freqMOD2->endChangeGesture();
+    } else if (slider == PhaseMOD2Sld.get()) {
+        ourProcessor->phaseMOD2->endChangeGesture();
+    } else if (slider == TempoNumerMOD2Sld.get()) {
+        ourProcessor->tempoNumerMOD2->endChangeGesture();
+    } else if (slider == TempoDenomMOD2Sld.get()) {
+        ourProcessor->tempoDenomMOD2->endChangeGesture();
+    }
+
+    else if (slider == OutputGainSld.get()) {
+        ourProcessor->outputGain->endChangeGesture();
+    }
+}
+
+void RichterAudioProcessorEditor::timerCallback() {
+    RichterAudioProcessor* ourProcessor {getProcessor()};
+
+    // Update meters
+    const RichterLFOCache& lfoCache = ourProcessor->getLFOCache();
+    auto updateMeter = [](RichterLFOMeter* meter, bool isBypassed, float value) {
+        if (isBypassed) {
+            meter->setVisible(false);
+            } else {
+            meter->setMeterValue(value);
+            meter->setVisible(true);
+            }
+
+        meter->repaint();
+    };
+
+    updateMeter(MeterLFO1.get(), !BypassLFO1Btn->getToggleState(), lfoCache.lfo1);
+    updateMeter(MeterLFO2.get(), !BypassLFO2Btn->getToggleState(), lfoCache.lfo2);
+    updateMeter(MeterMOD1.get(), !BypassMOD1Btn->getToggleState(), lfoCache.mod1);
+    updateMeter(MeterMOD2.get(), !BypassMOD2Btn->getToggleState(), lfoCache.mod2);
+}
+
+void RichterAudioProcessorEditor::_onParameterUpdate() {
+    RichterAudioProcessor* ourProcessor {getProcessor()};
+
+    // LFO 1
+    BypassLFO1Btn->setToggleState(ourProcessor->bypassSwitchLFO1->get(), dontSendNotification);
+    PhaseSyncLFO1Btn->setToggleState(ourProcessor->phaseSyncLFO1->get(), dontSendNotification);
+    TempoSyncLFO1Btn->setToggleState(ourProcessor->tempoSyncLFO1->get(), dontSendNotification);
+    WaveLFO1Cmb->setSelectedId(ourProcessor->waveLFO1->get(), dontSendNotification);
+    DepthLFO1Sld->setValue(ourProcessor->depthLFO1->get(), dontSendNotification);
+    DepthModLFO1Sld->setValue(ourProcessor->depthModLFO1->get(), dontSendNotification);
+    FreqLFO1Sld->setValue(ourProcessor->freqLFO1->get(), dontSendNotification);
+    FreqModLFO1Sld->setValue(ourProcessor->freqModLFO1->get(), dontSendNotification);
+    PhaseLFO1Sld->setValue(ourProcessor->phaseLFO1->get(), dontSendNotification);
+    TempoNumerLFO1Sld->setValue(ourProcessor->tempoNumerLFO1->get(), dontSendNotification);
+    TempoDenomLFO1Sld->setValue(ourProcessor->tempoDenomLFO1->get(), dontSendNotification);
+
+    // LFO 2
+    BypassLFO2Btn->setToggleState(ourProcessor->bypassSwitchLFO2->get(), dontSendNotification);
+    PhaseSyncLFO2Btn->setToggleState(ourProcessor->phaseSyncLFO2->get(), dontSendNotification);
+    TempoSyncLFO2Btn->setToggleState(ourProcessor->tempoSyncLFO2->get(), dontSendNotification);
+    WaveLFO2Cmb->setSelectedId(ourProcessor->waveLFO2->get(), dontSendNotification);
+    DepthLFO2Sld->setValue(ourProcessor->depthLFO2->get(), dontSendNotification);
+    DepthModLFO2Sld->setValue(ourProcessor->depthModLFO2->get(), dontSendNotification);
+    FreqLFO2Sld->setValue(ourProcessor->freqLFO2->get(), dontSendNotification);
+    FreqModLFO2Sld->setValue(ourProcessor->freqModLFO2->get(), dontSendNotification);
+    PhaseLFO2Sld->setValue(ourProcessor->phaseLFO2->get(), dontSendNotification);
+    TempoNumerLFO2Sld->setValue(ourProcessor->tempoNumerLFO2->get(), dontSendNotification);
+    TempoDenomLFO2Sld->setValue(ourProcessor->tempoDenomLFO2->get(), dontSendNotification);
+
+    // MOD 1
+    BypassMOD1Btn->setToggleState(ourProcessor->bypassSwitchMOD1->get(), dontSendNotification);
+    PhaseSyncMOD1Btn->setToggleState(ourProcessor->phaseSyncMOD1->get(), dontSendNotification);
+    TempoSyncMOD1Btn->setToggleState(ourProcessor->tempoSyncMOD1->get(), dontSendNotification);
+    WaveMOD1Cmb->setSelectedId(ourProcessor->waveMOD1->get(), dontSendNotification);
+    DepthMOD1Sld->setValue(ourProcessor->depthMOD1->get(), dontSendNotification);
+    FreqMOD1Sld->setValue(ourProcessor->freqMOD1->get(), dontSendNotification);
+    PhaseMOD1Sld->setValue(ourProcessor->phaseMOD1->get(), dontSendNotification);
+    TempoNumerMOD1Sld->setValue(ourProcessor->tempoNumerMOD1->get(), dontSendNotification);
+    TempoDenomMOD1Sld->setValue(ourProcessor->tempoDenomMOD1->get(), dontSendNotification);
+
+    // MOD2
+    BypassMOD2Btn->setToggleState(ourProcessor->bypassSwitchMOD2->get(), dontSendNotification);
+    PhaseSyncMOD2Btn->setToggleState(ourProcessor->phaseSyncMOD2->get(), dontSendNotification);
+    TempoSyncMOD2Btn->setToggleState(ourProcessor->tempoSyncMOD2->get(), dontSendNotification);
+    WaveMOD2Cmb->setSelectedId(ourProcessor->waveMOD2->get(), dontSendNotification);
+    DepthMOD2Sld->setValue(ourProcessor->depthMOD2->get(), dontSendNotification);
+    FreqMOD2Sld->setValue(ourProcessor->freqMOD2->get(), dontSendNotification);
+    PhaseMOD2Sld->setValue(ourProcessor->phaseMOD2->get(), dontSendNotification);
+    TempoNumerMOD2Sld->setValue(ourProcessor->tempoNumerMOD2->get(), dontSendNotification);
+    TempoDenomMOD2Sld->setValue(ourProcessor->tempoDenomMOD2->get(), dontSendNotification);
+
+
+    StereoBtn->setToggleState(ourProcessor->stereo->get(), dontSendNotification);
+    OutputGainSld->setValue(ourProcessor->outputGain->get(), dontSendNotification);
+
+    // Change LFO names if stereo
+    if (StereoBtn->getToggleState()) {
+        BypassLFO1Btn->setButtonText("LFO L");
+        BypassLFO2Btn->setButtonText("LFO R");
+        BypassMOD1Btn->setButtonText("MOD L");
+        BypassMOD2Btn->setButtonText("MOD R");
+    } else {
+        BypassLFO1Btn->setButtonText("LFO 1");
+        BypassLFO2Btn->setButtonText("LFO 2");
+        BypassMOD1Btn->setButtonText("MOD 1");
+        BypassMOD2Btn->setButtonText("MOD 2");
+    }
+
+    // Change outline colour based on whether LFO is active
+    customLookAndFeel.updateLFOState(GROUP_LFO1, BypassLFO1Btn->getToggleState());
+    customLookAndFeel.updateLFOState(GROUP_LFO2, BypassLFO2Btn->getToggleState());
+    customLookAndFeel.updateLFOState(GROUP_MOD1, BypassMOD1Btn->getToggleState());
+    customLookAndFeel.updateLFOState(GROUP_MOD2, BypassMOD2Btn->getToggleState());
+    LFO1Group->repaint();
+    LFO2Group->repaint();
+    MOD1Group->repaint();
+    MOD2Group->repaint();
+
+    // Activate/Deactivale phase control depending on phase sync
+    PhaseLFO1Sld->setEnabled(PhaseSyncLFO1Btn->getToggleState());
+    PhaseLFO2Sld->setEnabled(PhaseSyncLFO2Btn->getToggleState());
+    PhaseMOD1Sld->setEnabled(PhaseSyncMOD1Btn->getToggleState());
+    PhaseMOD2Sld->setEnabled(PhaseSyncMOD2Btn->getToggleState());
+
+    _updateTempoToggles(false);
+
+    // Update wave viewers
+    auto updateWaveView = [](WECore::Richter::WaveViewer* viewer, float waveValue) {
+        if (waveValue < 1.5) {
+            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSine());
+        } else if (waveValue < 2.5) {
+            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSquare());
+        } else {
+            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSaw());
+        }
+
+        viewer->repaint();
+    };
+
+    updateWaveView(WaveViewLFO1.get(), ourProcessor->waveLFO1->get());
+    updateWaveView(WaveViewLFO2.get(), ourProcessor->waveLFO2->get());
+    updateWaveView(WaveViewMOD1.get(), ourProcessor->waveMOD1->get());
+    updateWaveView(WaveViewMOD2.get(), ourProcessor->waveMOD2->get());
+}
+
 void RichterAudioProcessorEditor::_enableDoubleClickToDefault() {
-    FreqLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    FreqModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.InteralToNormalised(WECore::Richter::Parameters::FREQMOD.defaultValue));
-    DepthLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    DepthModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.InteralToNormalised(WECore::Richter::Parameters::DEPTHMOD.defaultValue));
-    PhaseLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+    FreqLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InternalToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
+    FreqModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.InternalToNormalised(WECore::Richter::Parameters::FREQMOD.defaultValue));
+    DepthLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InternalToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
+    DepthModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.InternalToNormalised(WECore::Richter::Parameters::DEPTHMOD.defaultValue));
+    PhaseLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InternalToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
 
-    FreqLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    FreqModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.InteralToNormalised(WECore::Richter::Parameters::FREQMOD.defaultValue));
-    DepthLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    DepthModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.InteralToNormalised(WECore::Richter::Parameters::DEPTHMOD.defaultValue));
-    PhaseLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+    FreqLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InternalToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
+    FreqModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.InternalToNormalised(WECore::Richter::Parameters::FREQMOD.defaultValue));
+    DepthLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InternalToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
+    DepthModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.InternalToNormalised(WECore::Richter::Parameters::DEPTHMOD.defaultValue));
+    PhaseLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InternalToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
 
-    FreqMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    DepthMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    PhaseMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+    FreqMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InternalToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
+    DepthMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InternalToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
+    PhaseMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InternalToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
 
-    FreqMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InteralToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    DepthMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InteralToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    PhaseMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InteralToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+    FreqMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InternalToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
+    DepthMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InternalToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
+    PhaseMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InternalToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
 
-    OutputGainSld->setDoubleClickReturnValue(true, OUTPUTGAIN.InteralToNormalised(OUTPUTGAIN.defaultValue));
+    OutputGainSld->setDoubleClickReturnValue(true, OUTPUTGAIN.InternalToNormalised(OUTPUTGAIN.defaultValue));
 }
 
 void RichterAudioProcessorEditor::_startSliderReadouts() {
