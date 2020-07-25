@@ -51,7 +51,7 @@
       <CONFIGURATIONS>
         <CONFIGURATION name="Debug" osxArchitecture="64BitIntel" isDebug="0" optimisation="3"
                        targetName="Richter" cppLibType="" cppLanguageStandard="" linkTimeOptimisation="1"
-                       headerPath="../../../WECore/Source/WECore"/>
+                       headerPath="../../../WECore/WECore"/>
         <CONFIGURATION name="Release" isDebug="0" optimisation="3" targetName="Richter"
                        cppLanguageStandard="" cppLibType=""/>
       </CONFIGURATIONS>
