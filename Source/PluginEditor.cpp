@@ -753,7 +753,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
 
     //[Constructor] You can add your own custom stuff here..
-    startTimer(20);
+    startTimer(40);
 
     _assignLookAndFeelToAllChildren(customLookAndFeel);
     customLookAndFeel.setHighlightColour(Colour(0, 250, 0));
