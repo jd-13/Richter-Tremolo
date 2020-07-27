@@ -28,7 +28,7 @@
 
 //==============================================================================
 RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor& ownerFilter)
-    : CoreProcessorEditor(ownerFilter), _highlightColour(0x7f00ff03)
+    : CoreProcessorEditor(ownerFilter), _highlightColour(0, 250, 0)
 {
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
@@ -756,8 +756,8 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     startTimer(40);
 
     _assignLookAndFeelToAllChildren(customLookAndFeel);
-    customLookAndFeel.setHighlightColour(Colour(0, 250, 0));
-    tempoLookAndFeel.setHighlightColour(Colour(0, 250, 0));
+    customLookAndFeel.setHighlightColour(_highlightColour);
+    tempoLookAndFeel.setHighlightColour(_highlightColour);
 
     TempoNumerLFO1Sld->setLookAndFeel(&tempoLookAndFeel);
     TempoDenomLFO1Sld->setLookAndFeel(&tempoLookAndFeel);
@@ -1663,7 +1663,7 @@ BEGIN_JUCER_METADATA
 
 <JUCER_COMPONENT documentType="Component" className="RichterAudioProcessorEditor"
                  componentName="" parentClasses="public WECore::JUCEPlugin::CoreProcessorEditor, public Timer"
-                 constructorParams="RichterAudioProcessor&amp; ownerFilter" variableInitialisers="CoreProcessorEditor(ownerFilter), _highlightColour(0x7f00ff03)"
+                 constructorParams="RichterAudioProcessor&amp; ownerFilter" variableInitialisers="CoreProcessorEditor(ownerFilter), _highlightColour(0, 250, 0)"
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="675" initialHeight="340">
   <BACKGROUND backgroundColour="ffffffff"/>
