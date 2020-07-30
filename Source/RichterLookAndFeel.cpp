@@ -1,5 +1,5 @@
 /*
- *  File:       CustomLookAndFeel.cpp
+ *  File:       RichterLookAndFeel.cpp
  *
  *  Version:    2.0.0
  *

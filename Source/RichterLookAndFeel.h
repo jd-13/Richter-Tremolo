@@ -1,5 +1,5 @@
 /*
- *  File:       CustomLookAndFeel.h
+ *  File:       RichterLookAndFeel.h
  *
  *  Version:    2.0.0
  *
