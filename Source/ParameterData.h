@@ -28,7 +28,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "General/ParameterDefinition.h"
 
-const ParameterDefinition::RangedParameter<float> OUTPUTGAIN(0, 2, 1);
+const ParameterDefinition::RangedParameter<double> OUTPUTGAIN(0, 2, 1);
 
 // This exists to provide the conversion for the decimal readout
 const ParameterDefinition::RangedParameter<double> PHASE_DISPLAY(0, 360, 0);

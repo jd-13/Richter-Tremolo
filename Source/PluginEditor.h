@@ -89,7 +89,7 @@ private:
     std::unique_ptr<juce::ComboBox> WaveLFO1Cmb;
     std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> DepthModLFO1Sld;
     std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> FreqModLFO1Sld;
-    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<float>> OutputGainSld;
+    std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> OutputGainSld;
     std::unique_ptr<juce::TextButton> BypassLFO1Btn;
     std::unique_ptr<juce::Label> FreqLFO1Lbl;
     std::unique_ptr<juce::Label> DepthLFO1Lbl;

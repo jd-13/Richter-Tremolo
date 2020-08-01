@@ -98,7 +98,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqModLFO1Sld->setBounds (80, 168, 16, 16);
 
-    OutputGainSld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<float> ("Output Gain Slider"));
+    OutputGainSld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("Output Gain Slider"));
     addAndMakeVisible (OutputGainSld.get());
     OutputGainSld->setTooltip (TRANS("Output gain"));
     OutputGainSld->setRange (0, 1, 0.01);
@@ -1699,7 +1699,7 @@ BEGIN_JUCER_METADATA
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="Output Gain Slider" id="65acc0b358aa2541" memberName="OutputGainSld"
-          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;float&gt;"
+          virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="56 48 392 24" tooltip="Output gain"
           min="0.0" max="1.0" int="0.01" style="LinearHorizontal" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"

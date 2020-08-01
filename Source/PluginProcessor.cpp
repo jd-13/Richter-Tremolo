@@ -25,11 +25,11 @@ RichterAudioProcessor::RichterAudioProcessor()
     registerParameter(phaseSyncLFO1, PHASELFO1_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setPhaseSyncLFO1(val); });
     registerParameter(tempoSyncLFO1, TEMPOSYNCLFO1_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setTempoSyncLFO1(val); });
     registerParameter(waveLFO1, WAVELFO1_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setWaveLFO1(val); });
-    registerParameter(depthLFO1, DEPTHLFO1_STR, RP::DEPTH.defaultValue, [&](float val) { setDepthLFO1(val); });
-    registerParameter(depthModLFO1, DEPTHMODLFO1_STR, RP::DEPTHMOD.defaultValue, [&](float val) { setDepthModLFO1(val); });
-    registerParameter(freqLFO1, FREQLFO1_STR, RP::FREQ.defaultValue, [&](float val) { setFreqLFO1(val); });
-    registerParameter(freqModLFO1, FREQMODLFO1_STR, RP::FREQMOD.defaultValue, [&](float val) { setFreqModLFO1(val); });
-    registerParameter(phaseLFO1, PHASELFO1_STR, RP::PHASE.defaultValue, [&](float val) { setPhaseLFO1(val); });
+    registerParameter(depthLFO1, DEPTHLFO1_STR, &RP::DEPTH, RP::DEPTH.defaultValue, [&](float val) { setDepthLFO1(val); });
+    registerParameter(depthModLFO1, DEPTHMODLFO1_STR, &RP::DEPTHMOD, RP::DEPTHMOD.defaultValue, [&](float val) { setDepthModLFO1(val); });
+    registerParameter(freqLFO1, FREQLFO1_STR, &RP::FREQ, RP::FREQ.defaultValue, [&](float val) { setFreqLFO1(val); });
+    registerParameter(freqModLFO1, FREQMODLFO1_STR, &RP::FREQMOD, RP::FREQMOD.defaultValue, [&](float val) { setFreqModLFO1(val); });
+    registerParameter(phaseLFO1, PHASELFO1_STR, &RP::PHASE, RP::PHASE.defaultValue, [&](float val) { setPhaseLFO1(val); });
     registerParameter(tempoNumerLFO1, TEMPONUMERLFO1_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setTempoNumerLFO1(val); });
     registerParameter(tempoDenomLFO1, TEMPODENOMLFO1_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setTempoDenomLFO1(val); });
 
@@ -37,11 +37,11 @@ RichterAudioProcessor::RichterAudioProcessor()
     registerParameter(phaseSyncLFO2, PHASELFO2_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setPhaseSyncLFO2(val); });
     registerParameter(tempoSyncLFO2, TEMPOSYNCLFO2_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setTempoSyncLFO2(val); });
     registerParameter(waveLFO2, WAVELFO2_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setWaveLFO2(val); });
-    registerParameter(depthLFO2, DEPTHLFO2_STR, RP::DEPTH.defaultValue, [&](float val) { setDepthLFO2(val); });
-    registerParameter(depthModLFO2, DEPTHMODLFO2_STR, RP::DEPTHMOD.defaultValue, [&](float val) { setDepthModLFO2(val); });
-    registerParameter(freqLFO2, FREQLFO2_STR, RP::FREQ.defaultValue, [&](float val) { setFreqLFO2(val); });
-    registerParameter(freqModLFO2, FREQMODLFO2_STR, RP::FREQMOD.defaultValue, [&](float val) { setFreqModLFO2(val); });
-    registerParameter(phaseLFO2, PHASELFO2_STR, RP::PHASE.defaultValue, [&](float val) { setPhaseLFO2(val); });
+    registerParameter(depthLFO2, DEPTHLFO2_STR, &RP::DEPTH, RP::DEPTH.defaultValue, [&](float val) { setDepthLFO2(val); });
+    registerParameter(depthModLFO2, DEPTHMODLFO2_STR, &RP::DEPTHMOD, RP::DEPTHMOD.defaultValue, [&](float val) { setDepthModLFO2(val); });
+    registerParameter(freqLFO2, FREQLFO2_STR, &RP::FREQ, RP::FREQ.defaultValue, [&](float val) { setFreqLFO2(val); });
+    registerParameter(freqModLFO2, FREQMODLFO2_STR, &RP::FREQMOD, RP::FREQMOD.defaultValue, [&](float val) { setFreqModLFO2(val); });
+    registerParameter(phaseLFO2, PHASELFO2_STR, &RP::PHASE, RP::PHASE.defaultValue, [&](float val) { setPhaseLFO2(val); });
     registerParameter(tempoNumerLFO2, TEMPONUMERLFO2_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setTempoNumerLFO2(val); });
     registerParameter(tempoDenomLFO2, TEMPODENOMLFO2_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setTempoDenomLFO2(val); });
 
@@ -49,9 +49,9 @@ RichterAudioProcessor::RichterAudioProcessor()
     registerParameter(phaseSyncMOD1, PHASEMOD1_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setPhaseSyncMOD1(val); });
     registerParameter(tempoSyncMOD1, TEMPOSYNCMOD1_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setTempoSyncMOD1(val); });
     registerParameter(waveMOD1, WAVEMOD1_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setWaveMOD1(val); });
-    registerParameter(depthMOD1, DEPTHMOD1_STR, RP::DEPTH.defaultValue, [&](float val) { setDepthMOD1(val); });
-    registerParameter(freqMOD1, FREQMOD1_STR, RP::FREQ.defaultValue, [&](float val) { setFreqMOD1(val); });
-    registerParameter(phaseMOD1, PHASEMOD1_STR, RP::PHASE.defaultValue, [&](float val) { setPhaseMOD1(val); });
+    registerParameter(depthMOD1, DEPTHMOD1_STR, &RP::DEPTH, RP::DEPTH.defaultValue, [&](float val) { setDepthMOD1(val); });
+    registerParameter(freqMOD1, FREQMOD1_STR, &RP::FREQ, RP::FREQ.defaultValue, [&](float val) { setFreqMOD1(val); });
+    registerParameter(phaseMOD1, PHASEMOD1_STR, &RP::PHASE, RP::PHASE.defaultValue, [&](float val) { setPhaseMOD1(val); });
     registerParameter(tempoNumerMOD1, TEMPONUMERMOD1_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setTempoNumerMOD1(val); });
     registerParameter(tempoDenomMOD1, TEMPODENOMMOD1_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setTempoDenomMOD1(val); });
 
@@ -59,14 +59,14 @@ RichterAudioProcessor::RichterAudioProcessor()
     registerParameter(phaseSyncMOD2, PHASEMOD2_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setPhaseSyncMOD2(val); });
     registerParameter(tempoSyncMOD2, TEMPOSYNCMOD2_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setTempoSyncMOD2(val); });
     registerParameter(waveMOD2, WAVEMOD2_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setWaveMOD2(val); });
-    registerParameter(depthMOD2, DEPTHMOD2_STR, RP::DEPTH.defaultValue, [&](float val) { setDepthMOD2(val); });
-    registerParameter(freqMOD2, FREQMOD2_STR, RP::FREQ.defaultValue, [&](float val) { setFreqMOD2(val); });
-    registerParameter(phaseMOD2, PHASEMOD2_STR, RP::PHASE.defaultValue, [&](float val) { setPhaseMOD2(val); });
+    registerParameter(depthMOD2, DEPTHMOD2_STR, &RP::DEPTH, RP::DEPTH.defaultValue, [&](float val) { setDepthMOD2(val); });
+    registerParameter(freqMOD2, FREQMOD2_STR, &RP::FREQ, RP::FREQ.defaultValue, [&](float val) { setFreqMOD2(val); });
+    registerParameter(phaseMOD2, PHASEMOD2_STR, &RP::PHASE, RP::PHASE.defaultValue, [&](float val) { setPhaseMOD2(val); });
     registerParameter(tempoNumerMOD2, TEMPONUMERMOD2_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setTempoNumerMOD2(val); });
     registerParameter(tempoDenomMOD2, TEMPODENOMMOD2_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setTempoDenomMOD2(val); });
 
     registerParameter(stereo, STEREO_STR, STEREO_DEFAULT, [&](bool val) { setStereo(val); });
-    registerParameter(outputGain, OUTPUTGAIN_STR, OUTPUTGAIN.defaultValue, [&](float val) { setOutputGain(val); });
+    registerParameter(outputGain, OUTPUTGAIN_STR, &OUTPUTGAIN, OUTPUTGAIN.defaultValue, [&](float val) { setOutputGain(val); });
 }
 
 RichterAudioProcessor::~RichterAudioProcessor()
