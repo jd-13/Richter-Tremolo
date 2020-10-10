@@ -1,3 +1,7 @@
+[![CI Main](https://github.com/jd-13/Richter-Tremolo/workflows/CI%20Main/badge.svg)](https://github.com/jd-13/Richter-Tremolo/actions?query=workflow%3A%22CI+Main%22)
+![](https://img.shields.io/badge/C%2B%2B-17-informational)
+![](https://img.shields.io/badge/license-GPLv3-informational)
+
 # Richter-Tremolo
 Richter is a VST and Audio Unit tremolo plugin built using JUCE, featuring four tempo sync-able LFOs, two of which modulate the signal directly, whilst the other two modulate the previous two LFOs
 
