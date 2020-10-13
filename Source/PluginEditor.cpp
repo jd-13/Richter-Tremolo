@@ -254,7 +254,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerLFO1Sld.reset (new juce::Slider ("LFO 1 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerLFO1Sld.get());
-    TempoNumerLFO1Sld->setRange (1, 4, 1);
+    TempoNumerLFO1Sld->setRange (1, 16, 1);
     TempoNumerLFO1Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerLFO1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
     TempoNumerLFO1Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
@@ -276,7 +276,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerLFO2Sld.reset (new juce::Slider ("LFO 2 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerLFO2Sld.get());
-    TempoNumerLFO2Sld->setRange (1, 4, 1);
+    TempoNumerLFO2Sld->setRange (1, 16, 1);
     TempoNumerLFO2Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerLFO2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
     TempoNumerLFO2Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
@@ -443,7 +443,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerMOD1Sld.reset (new juce::Slider ("MOD 1 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerMOD1Sld.get());
-    TempoNumerMOD1Sld->setRange (1, 4, 1);
+    TempoNumerMOD1Sld->setRange (1, 16, 1);
     TempoNumerMOD1Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerMOD1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
     TempoNumerMOD1Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
@@ -578,7 +578,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerMOD2Sld.reset (new juce::Slider ("MOD 2 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerMOD2Sld.get());
-    TempoNumerMOD2Sld->setRange (1, 4, 1);
+    TempoNumerMOD2Sld->setRange (1, 16, 1);
     TempoNumerMOD2Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerMOD2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
     TempoNumerMOD2Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
@@ -1768,7 +1768,7 @@ BEGIN_JUCER_METADATA
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="LFO 1 Tempo Numer Slider" id="ae3b2cb5fc40f879" memberName="TempoNumerLFO1Sld"
           virtualName="" explicitFocusOrder="0" pos="64 128 56 16" textboxbkgd="ffc8c8c8"
-          textboxoutline="808080" min="1.0" max="4.0" int="1.0" style="IncDecButtons"
+          textboxoutline="808080" min="1.0" max="16.0" int="1.0" style="IncDecButtons"
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 1 Tempo Denom Slider" id="79fb8b0e645e1976" memberName="TempoDenomLFO1Sld"
@@ -1778,7 +1778,7 @@ BEGIN_JUCER_METADATA
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Tempo Numer Slider" id="7ef07d530a2439f7" memberName="TempoNumerLFO2Sld"
           virtualName="" explicitFocusOrder="0" pos="364 128 56 16" textboxbkgd="ffc8c8c8"
-          textboxoutline="808080" min="1.0" max="4.0" int="1.0" style="IncDecButtons"
+          textboxoutline="808080" min="1.0" max="16.0" int="1.0" style="IncDecButtons"
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Tempo Denom Slider" id="684fae94c6ad39f8" memberName="TempoDenomLFO2Sld"
@@ -1851,7 +1851,7 @@ BEGIN_JUCER_METADATA
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 1 Tempo Numer Slider" id="6c49dac77f3e6f4b" memberName="TempoNumerMOD1Sld"
           virtualName="" explicitFocusOrder="0" pos="64 256 56 16" textboxbkgd="ffc8c8c8"
-          textboxoutline="808080" min="1.0" max="4.0" int="1.0" style="IncDecButtons"
+          textboxoutline="808080" min="1.0" max="16.0" int="1.0" style="IncDecButtons"
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 1 Tempo Denom Slider" id="a116d9c60bf4c7b5" memberName="TempoDenomMOD1Sld"
@@ -1909,7 +1909,7 @@ BEGIN_JUCER_METADATA
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 2 Tempo Numer Slider" id="2bcaaa8e6b75d2b9" memberName="TempoNumerMOD2Sld"
           virtualName="" explicitFocusOrder="0" pos="364 256 56 16" textboxbkgd="ffc8c8c8"
-          textboxoutline="9808080" min="1.0" max="4.0" int="1.0" style="IncDecButtons"
+          textboxoutline="9808080" min="1.0" max="16.0" int="1.0" style="IncDecButtons"
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 2 Tempo Denom Slider" id="255bbe43957852ba" memberName="TempoDenomMOD2Sld"
