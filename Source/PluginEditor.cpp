@@ -72,6 +72,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveLFO1Cmb->addItem (TRANS("Sine"), 1);
     WaveLFO1Cmb->addItem (TRANS("Square"), 2);
     WaveLFO1Cmb->addItem (TRANS("Saw"), 3);
+    WaveLFO1Cmb->addItem (TRANS("SC Comp"), 4);
     WaveLFO1Cmb->addListener (this);
 
     WaveLFO1Cmb->setBounds (232, 162, 80, 24);
@@ -178,6 +179,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveLFO2Cmb->addItem (TRANS("Sine"), 1);
     WaveLFO2Cmb->addItem (TRANS("Square"), 2);
     WaveLFO2Cmb->addItem (TRANS("Saw"), 3);
+    WaveLFO2Cmb->addItem (TRANS("SC Comp"), 4);
     WaveLFO2Cmb->addListener (this);
 
     WaveLFO2Cmb->setBounds (532, 162, 80, 24);
@@ -397,6 +399,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveMOD1Cmb->addItem (TRANS("Sine"), 1);
     WaveMOD1Cmb->addItem (TRANS("Square"), 2);
     WaveMOD1Cmb->addItem (TRANS("Saw"), 3);
+    WaveMOD1Cmb->addItem (TRANS("SC Comp"), 4);
     WaveMOD1Cmb->addListener (this);
 
     WaveMOD1Cmb->setBounds (232, 290, 80, 24);
@@ -532,6 +535,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     WaveMOD2Cmb->addItem (TRANS("Sine"), 1);
     WaveMOD2Cmb->addItem (TRANS("Square"), 2);
     WaveMOD2Cmb->addItem (TRANS("Saw"), 3);
+    WaveMOD2Cmb->addItem (TRANS("SC Comp"), 4);
     WaveMOD2Cmb->addListener (this);
 
     WaveMOD2Cmb->setBounds (532, 290, 80, 24);
@@ -1347,10 +1351,10 @@ void RichterAudioProcessorEditor::timerCallback() {
     auto updateMeter = [](RichterLFOMeter* meter, bool isBypassed, float value) {
         if (isBypassed) {
             meter->setVisible(false);
-            } else {
+        } else {
             meter->setMeterValue(value);
             meter->setVisible(true);
-            }
+        }
 
         meter->repaint();
     };
@@ -1453,8 +1457,10 @@ void RichterAudioProcessorEditor::_onParameterUpdate() {
             viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSine());
         } else if (waveValue < 2.5) {
             viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSquare());
-        } else {
+        } else if (waveValue < 3.5) {
             viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSaw());
+        } else {
+            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSidechain());
         }
 
         viewer->repaint();
@@ -1684,8 +1690,8 @@ BEGIN_JUCER_METADATA
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="LFO 1 Wave" id="6343a9cc42a2eda5" memberName="WaveLFO1Cmb"
             virtualName="" explicitFocusOrder="0" pos="232 162 80 24" tooltip="LFO wave shape"
-            editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
-            textWhenNoItems="(no choices)"/>
+            editable="0" layout="33" items="Sine&#10;Square&#10;Saw&#10;SC Comp"
+            textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 1 Depth Mod Slider" id="9a3f86cb168e586e" memberName="DepthModLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="136 168 16 16" tooltip="Amount of depth modulation from MOD 1"
@@ -1733,8 +1739,8 @@ BEGIN_JUCER_METADATA
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="LFO 2 Wave" id="b76d5189aafe8e3f" memberName="WaveLFO2Cmb"
             virtualName="" explicitFocusOrder="0" pos="532 162 80 24" tooltip="LFO wave shape"
-            editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
-            textWhenNoItems="(no choices)"/>
+            editable="0" layout="33" items="Sine&#10;Square&#10;Saw&#10;SC Comp"
+            textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 2 Depth Mod Slider" id="4a524c9e1974186c" memberName="DepthModLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="438 168 16 16" tooltip="Amount of depth modulation from MOD 1"
@@ -1831,8 +1837,8 @@ BEGIN_JUCER_METADATA
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="MOD 1 Wave" id="370e5062e67cf738" memberName="WaveMOD1Cmb"
             virtualName="" explicitFocusOrder="0" pos="232 290 80 24" tooltip="LFO wave shape"
-            editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
-            textWhenNoItems="(no choices)"/>
+            editable="0" layout="33" items="Sine&#10;Square&#10;Saw&#10;SC Comp"
+            textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <TEXTBUTTON name="MOD 1 Bypass Button" id="cd667ff923e74db5" memberName="BypassMOD1Btn"
               virtualName="" explicitFocusOrder="0" pos="256 216 56 24" tooltip="Bypass button for MOD 1. MOD 1 modulates the rate and depth of LFO 1."
               buttonText="MOD 1" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -1889,8 +1895,8 @@ BEGIN_JUCER_METADATA
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <COMBOBOX name="MOD 2 Wave" id="c85d4543a533be92" memberName="WaveMOD2Cmb"
             virtualName="" explicitFocusOrder="0" pos="532 290 80 24" tooltip="LFO wave shape"
-            editable="0" layout="33" items="Sine&#10;Square&#10;Saw" textWhenNonSelected=""
-            textWhenNoItems="(no choices)"/>
+            editable="0" layout="33" items="Sine&#10;Square&#10;Saw&#10;SC Comp"
+            textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <TEXTBUTTON name="MOD 2 Bypass Button" id="7773dc0327675392" memberName="BypassMOD2Btn"
               virtualName="" explicitFocusOrder="0" pos="556 216 56 24" tooltip="Bypass button for MOD 2. MOD 2 modulates the rate and depth of LFO 2."
               buttonText="MOD 2" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
