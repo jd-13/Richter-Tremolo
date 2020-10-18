@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  Build clang:
+  BuildClang:
     runs-on: ubuntu-latest
     container: jackd13/audioplugins:clang10
 
@@ -15,12 +15,12 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - name: Run build
+      - name: RunBuild
         run: Scripts/CIBuild.sh
-      - name: Run pluginval
+      - name: RunPluginval
         run: Scripts/CIPluginval.sh
 
-  Build gcc:
+  BuildGCC:
     runs-on: ubuntu-latest
     container: jackd13/audioplugins:gcc7
 
@@ -28,7 +28,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: true
-      - name: Run build
+      - name: RunBuild
         run: Scripts/CIBuild.sh
-      - name: Run pluginval
+      - name: RunPluginval
         run: Scripts/CIPluginval.sh
