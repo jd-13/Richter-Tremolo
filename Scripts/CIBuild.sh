@@ -30,7 +30,7 @@ cat << EOF >> $SCRIPT_DIR/disabled-tests.txt
 Basic bus
 EOF
 
-$PLUGINVAL --validate $SCRIPT_DIR/../Builds/LinuxMakefile/Richter.so \
+$PLUGINVAL --validate $SCRIPT_DIR/../Builds/LinuxMakefile/build/Richter.vst3 \
            --strictness-level 10 \
            --skip-gui-tests \
            --disabled-tests $SCRIPT_DIR/disabled-tests.txt
