@@ -193,7 +193,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthModLFO2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     DepthModLFO2Sld->addListener (this);
 
-    DepthModLFO2Sld->setBounds (438, 168, 16, 16);
+    DepthModLFO2Sld->setBounds (436, 168, 16, 16);
 
     FreqModLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Freq Mod Slider"));
     addAndMakeVisible (FreqModLFO2Sld.get());
@@ -675,7 +675,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     MODLFO2LeftLbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
     MODLFO2LeftLbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
-    MODLFO2LeftLbl->setBounds (399, 164, 38, 24);
+    MODLFO2LeftLbl->setBounds (397, 164, 38, 24);
 
     MeterLFO1.reset (new RichterLFOMeter (false));
     addAndMakeVisible (MeterLFO1.get());
@@ -723,7 +723,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     MODLFO2RightLbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
     MODLFO2RightLbl->setColour (juce::TextEditor::backgroundColourId, juce::Colour (0x00000000));
 
-    MODLFO2RightLbl->setBounds (455, 164, 38, 24);
+    MODLFO2RightLbl->setBounds (453, 164, 38, 24);
 
     WaveViewLFO1.reset (new WECore::Richter::WaveViewer());
     addAndMakeVisible (WaveViewLFO1.get());
@@ -1743,7 +1743,7 @@ BEGIN_JUCER_METADATA
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <SLIDER name="LFO 2 Depth Mod Slider" id="4a524c9e1974186c" memberName="DepthModLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
-          explicitFocusOrder="0" pos="438 168 16 16" tooltip="Amount of depth modulation from MOD 1"
+          explicitFocusOrder="0" pos="436 168 16 16" tooltip="Amount of depth modulation from MOD 1"
           rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
           textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
@@ -1951,7 +1951,7 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="MOD LFO2 Left Label" id="b1a4c6d32abd91a5" memberName="MODLFO2LeftLbl"
-         virtualName="" explicitFocusOrder="0" pos="399 164 38 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="397 164 38 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="- MOD -" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="36"/>
@@ -1973,7 +1973,7 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="MOD LFO2 Right Label" id="7de3f2db4c2a8590" memberName="MODLFO2RightLbl"
-         virtualName="" explicitFocusOrder="0" pos="455 164 38 24" textCol="ffc8c8c8"
+         virtualName="" explicitFocusOrder="0" pos="453 164 38 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="- MOD" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="10.0" kerning="0.0" bold="0" italic="0" justification="36"/>
