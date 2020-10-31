@@ -67,6 +67,12 @@ RichterAudioProcessor::RichterAudioProcessor()
 
     registerParameter(stereo, STEREO_STR, STEREO_DEFAULT, [&](bool val) { setStereo(val); });
     registerParameter(outputGain, OUTPUTGAIN_STR, &OUTPUTGAIN, OUTPUTGAIN.defaultValue, [&](float val) { setOutputGain(val); });
+
+    // New parameters must be registered last to maintain backwards compatibility during setStateInformation
+    registerParameter(invertLFO1, INVERTLFO1_STR, RP::INVERT_DEFAULT, [&](bool val) { setInvertLFO1(val); });
+    registerParameter(invertLFO2, INVERTLFO2_STR, RP::INVERT_DEFAULT, [&](bool val) { setInvertLFO2(val); });
+    registerParameter(invertMOD1, INVERTMOD1_STR, RP::INVERT_DEFAULT, [&](bool val) { setInvertMOD1(val); });
+    registerParameter(invertMOD2, INVERTMOD2_STR, RP::INVERT_DEFAULT, [&](bool val) { setInvertMOD2(val); });
 }
 
 RichterAudioProcessor::~RichterAudioProcessor()
@@ -245,6 +251,11 @@ void RichterAudioProcessor::setTempoSyncLFO1(bool val) {
     tempoSyncLFO1->setValueNotifyingHost(val);
 }
 
+void RichterAudioProcessor::setInvertLFO1(bool val) {
+    mRichter.LFOPair1.LFO.setInvertSwitch(val);
+    invertLFO1->setValueNotifyingHost(val);
+}
+
 void RichterAudioProcessor::setWaveLFO1(int val) {
     mRichter.LFOPair1.LFO.setWave(val);
     waveLFO1->setValueNotifyingHost(waveLFO1->getNormalisableRange().convertTo0to1(val));
@@ -298,6 +309,11 @@ void RichterAudioProcessor::setPhaseSyncLFO2(bool val) {
 void RichterAudioProcessor::setTempoSyncLFO2(bool val) {
     mRichter.LFOPair2.LFO.setTempoSyncSwitch(val);
     tempoSyncLFO2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setInvertLFO2(bool val) {
+    mRichter.LFOPair2.LFO.setInvertSwitch(val);
+    invertLFO2->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setWaveLFO2(int val) {
@@ -355,6 +371,11 @@ void RichterAudioProcessor::setTempoSyncMOD1(bool val) {
     tempoSyncMOD1->setValueNotifyingHost(val);
 }
 
+void RichterAudioProcessor::setInvertMOD1(bool val) {
+    mRichter.LFOPair1.MOD.setInvertSwitch(val);
+    invertMOD1->setValueNotifyingHost(val);
+}
+
 void RichterAudioProcessor::setWaveMOD1(int val) {
     mRichter.LFOPair1.MOD.setWave(val);
     waveMOD1->setValueNotifyingHost(waveMOD1->getNormalisableRange().convertTo0to1(val));
@@ -398,6 +419,11 @@ void RichterAudioProcessor::setPhaseSyncMOD2(bool val) {
 void RichterAudioProcessor::setTempoSyncMOD2(bool val) {
     mRichter.LFOPair2.MOD.setTempoSyncSwitch(val);
     tempoSyncMOD2->setValueNotifyingHost(val);
+}
+
+void RichterAudioProcessor::setInvertMOD2(bool val) {
+    mRichter.LFOPair2.MOD.setInvertSwitch(val);
+    invertMOD2->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setWaveMOD2(int val) {

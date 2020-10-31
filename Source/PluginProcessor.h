@@ -81,6 +81,7 @@ public:
     void setBypassSwitchLFO1(bool val);
     void setPhaseSyncLFO1(bool val);
     void setTempoSyncLFO1(bool val);
+    void setInvertLFO1(bool val);
     void setWaveLFO1(int val);
     void setDepthLFO1(float val);
     void setDepthModLFO1(float val);
@@ -93,6 +94,7 @@ public:
     void setBypassSwitchLFO2(bool val);
     void setPhaseSyncLFO2(bool val);
     void setTempoSyncLFO2(bool val);
+    void setInvertLFO2(bool val);
     void setWaveLFO2(int val);
     void setDepthLFO2(float val);
     void setDepthModLFO2(float val);
@@ -105,6 +107,7 @@ public:
     void setBypassSwitchMOD1(bool val);
     void setPhaseSyncMOD1(bool val);
     void setTempoSyncMOD1(bool val);
+    void setInvertMOD1(bool val);
     void setWaveMOD1(int val);
     void setDepthMOD1(float val);
     void setFreqMOD1(float val);
@@ -115,6 +118,7 @@ public:
     void setBypassSwitchMOD2(bool val);
     void setPhaseSyncMOD2(bool val);
     void setTempoSyncMOD2(bool val);
+    void setInvertMOD2(bool val);
     void setWaveMOD2(int val);
     void setDepthMOD2(float val);
     void setFreqMOD2(float val);
@@ -129,6 +133,7 @@ public:
     AudioParameterBool* bypassSwitchLFO1;
     AudioParameterBool* phaseSyncLFO1;
     AudioParameterBool* tempoSyncLFO1;
+    AudioParameterBool* invertLFO1;
     AudioParameterInt* waveLFO1;
     AudioParameterFloat* depthLFO1;
     AudioParameterFloat* depthModLFO1;
@@ -141,6 +146,7 @@ public:
     AudioParameterBool* bypassSwitchLFO2;
     AudioParameterBool* phaseSyncLFO2;
     AudioParameterBool* tempoSyncLFO2;
+    AudioParameterBool* invertLFO2;
     AudioParameterInt* waveLFO2;
     AudioParameterFloat* depthLFO2;
     AudioParameterFloat* depthModLFO2;
@@ -153,6 +159,7 @@ public:
     AudioParameterBool* bypassSwitchMOD1;
     AudioParameterBool* phaseSyncMOD1;
     AudioParameterBool* tempoSyncMOD1;
+    AudioParameterBool* invertMOD1;
     AudioParameterInt* waveMOD1;
     AudioParameterFloat* depthMOD1;
     AudioParameterFloat* freqMOD1;
@@ -163,6 +170,7 @@ public:
     AudioParameterBool* bypassSwitchMOD2;
     AudioParameterBool* phaseSyncMOD2;
     AudioParameterBool* tempoSyncMOD2;
+    AudioParameterBool* invertMOD2;
     AudioParameterInt* waveMOD2;
     AudioParameterFloat* depthMOD2;
     AudioParameterFloat* freqMOD2;

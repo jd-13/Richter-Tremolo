@@ -154,6 +154,10 @@ private:
     std::unique_ptr<WECore::Richter::WaveViewer> WaveViewMOD1;
     std::unique_ptr<WECore::Richter::WaveViewer> WaveViewLFO2;
     std::unique_ptr<WECore::Richter::WaveViewer> WaveViewMOD2;
+    std::unique_ptr<juce::TextButton> InvertLFO1Btn;
+    std::unique_ptr<juce::TextButton> InvertLFO2Btn;
+    std::unique_ptr<juce::TextButton> InvertMOD1Btn;
+    std::unique_ptr<juce::TextButton> InvertMOD2Btn;
 
 
     //==============================================================================
