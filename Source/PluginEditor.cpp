@@ -1516,24 +1516,48 @@ void RichterAudioProcessorEditor::_onParameterUpdate() {
     _updateTempoToggles(false);
 
     // Update wave viewers
-    auto updateWaveView = [](WECore::Richter::WaveViewer* viewer, float waveValue, bool isInverted) {
+    auto updateWaveView = [](WECore::Richter::WaveViewer* viewer,
+                             float waveValue,
+                             double depth,
+                             int phaseShift,
+                             bool isInverted) {
+
+        const double* wave {nullptr};
+
         if (waveValue < 1.5) {
-            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSine(), isInverted);
+            wave = WECore::Richter::Wavetables::getInstance()->getSine();
         } else if (waveValue < 2.5) {
-            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSquare(), isInverted);
+            wave = WECore::Richter::Wavetables::getInstance()->getSquare();
         } else if (waveValue < 3.5) {
-            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSaw(), isInverted);
+            wave = WECore::Richter::Wavetables::getInstance()->getSaw();
         } else {
-            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSidechain(), isInverted);
+            wave = WECore::Richter::Wavetables::getInstance()->getSidechain();
         }
 
+        viewer->setWave(wave, depth, phaseShift, isInverted);
         viewer->repaint();
     };
 
-    updateWaveView(WaveViewLFO1.get(), ourProcessor->waveLFO1->get(), ourProcessor->invertLFO1->get());
-    updateWaveView(WaveViewLFO2.get(), ourProcessor->waveLFO2->get(), ourProcessor->invertLFO2->get());
-    updateWaveView(WaveViewMOD1.get(), ourProcessor->waveMOD1->get(), ourProcessor->invertMOD1->get());
-    updateWaveView(WaveViewMOD2.get(), ourProcessor->waveMOD2->get(), ourProcessor->invertMOD2->get());
+    updateWaveView(WaveViewLFO1.get(),
+                   ourProcessor->waveLFO1->get(),
+                   ourProcessor->depthLFO1->get(),
+                   ourProcessor->phaseSyncLFO1->get() ? WECore::Richter::Parameters::PHASE.NormalisedToInternal(ourProcessor->phaseLFO1->get()) : 0,
+                   ourProcessor->invertLFO1->get());
+    updateWaveView(WaveViewLFO2.get(),
+                   ourProcessor->waveLFO2->get(),
+                   ourProcessor->depthLFO2->get(),
+                   ourProcessor->phaseSyncLFO2->get() ? WECore::Richter::Parameters::PHASE.NormalisedToInternal(ourProcessor->phaseLFO2->get()) : 0,
+                   ourProcessor->invertLFO2->get());
+    updateWaveView(WaveViewMOD1.get(),
+                   ourProcessor->waveMOD1->get(),
+                   ourProcessor->depthMOD1->get(),
+                   ourProcessor->phaseSyncMOD1->get() ? WECore::Richter::Parameters::PHASE.NormalisedToInternal(ourProcessor->phaseMOD1->get()) : 0,
+                   ourProcessor->invertMOD1->get());
+    updateWaveView(WaveViewMOD2.get(),
+                   ourProcessor->waveMOD2->get(),
+                   ourProcessor->depthMOD2->get(),
+                   ourProcessor->phaseSyncMOD2->get() ? WECore::Richter::Parameters::PHASE.NormalisedToInternal(ourProcessor->phaseMOD2->get()) : 0,
+                   ourProcessor->invertMOD2->get());
 }
 
 void RichterAudioProcessorEditor::_enableDoubleClickToDefault() {
