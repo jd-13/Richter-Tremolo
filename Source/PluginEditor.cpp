@@ -1516,24 +1516,24 @@ void RichterAudioProcessorEditor::_onParameterUpdate() {
     _updateTempoToggles(false);
 
     // Update wave viewers
-    auto updateWaveView = [](WECore::Richter::WaveViewer* viewer, float waveValue) {
+    auto updateWaveView = [](WECore::Richter::WaveViewer* viewer, float waveValue, bool isInverted) {
         if (waveValue < 1.5) {
-            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSine());
+            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSine(), isInverted);
         } else if (waveValue < 2.5) {
-            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSquare());
+            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSquare(), isInverted);
         } else if (waveValue < 3.5) {
-            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSaw());
+            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSaw(), isInverted);
         } else {
-            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSidechain());
+            viewer->setWave(WECore::Richter::Wavetables::getInstance()->getSidechain(), isInverted);
         }
 
         viewer->repaint();
     };
 
-    updateWaveView(WaveViewLFO1.get(), ourProcessor->waveLFO1->get());
-    updateWaveView(WaveViewLFO2.get(), ourProcessor->waveLFO2->get());
-    updateWaveView(WaveViewMOD1.get(), ourProcessor->waveMOD1->get());
-    updateWaveView(WaveViewMOD2.get(), ourProcessor->waveMOD2->get());
+    updateWaveView(WaveViewLFO1.get(), ourProcessor->waveLFO1->get(), ourProcessor->invertLFO1->get());
+    updateWaveView(WaveViewLFO2.get(), ourProcessor->waveLFO2->get(), ourProcessor->invertLFO2->get());
+    updateWaveView(WaveViewMOD1.get(), ourProcessor->waveMOD1->get(), ourProcessor->invertMOD1->get());
+    updateWaveView(WaveViewMOD2.get(), ourProcessor->waveMOD2->get(), ourProcessor->invertMOD2->get());
 }
 
 void RichterAudioProcessorEditor::_enableDoubleClickToDefault() {
