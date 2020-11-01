@@ -46,7 +46,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthLFO1Sld->setRange (0, 1, 0.01);
     DepthLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    DepthLFO1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     DepthLFO1Sld->addListener (this);
 
     DepthLFO1Sld->setBounds (128, 120, 32, 24);
@@ -57,7 +56,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqLFO1Sld->setRange (0, 1, 0.01);
     FreqLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    FreqLFO1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqLFO1Sld->addListener (this);
 
     FreqLFO1Sld->setBounds (72, 120, 32, 24);
@@ -83,7 +81,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthModLFO1Sld->setRange (0, 1, 0.01);
     DepthModLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthModLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    DepthModLFO1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     DepthModLFO1Sld->addListener (this);
 
     DepthModLFO1Sld->setBounds (136, 168, 16, 16);
@@ -94,7 +91,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqModLFO1Sld->setRange (0, 1, 0.01);
     FreqModLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqModLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    FreqModLFO1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqModLFO1Sld->addListener (this);
 
     FreqModLFO1Sld->setBounds (80, 168, 16, 16);
@@ -153,7 +149,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthLFO2Sld->setRange (0, 1, 0.01);
     DepthLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    DepthLFO2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     DepthLFO2Sld->addListener (this);
 
     DepthLFO2Sld->setBounds (428, 120, 32, 24);
@@ -164,7 +159,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqLFO2Sld->setRange (0, 1, 0.01);
     FreqLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    FreqLFO2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqLFO2Sld->addListener (this);
 
     FreqLFO2Sld->setBounds (372, 120, 32, 24);
@@ -190,7 +184,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthModLFO2Sld->setRange (0, 1, 0.01);
     DepthModLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthModLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    DepthModLFO2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     DepthModLFO2Sld->addListener (this);
 
     DepthModLFO2Sld->setBounds (436, 168, 16, 16);
@@ -201,7 +194,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqModLFO2Sld->setRange (0, 1, 0.01);
     FreqModLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqModLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    FreqModLFO2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqModLFO2Sld->addListener (this);
 
     FreqModLFO2Sld->setBounds (380, 168, 16, 16);
@@ -321,7 +313,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     PhaseLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
     PhaseLFO1Sld->setColour (juce::Slider::thumbColourId, juce::Colour (0xffbdffbb));
-    PhaseLFO1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     PhaseLFO1Sld->addListener (this);
 
     PhaseLFO1Sld->setBounds (184, 120, 32, 24);
@@ -344,7 +335,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseLFO2Sld->setRange (0, 1, 0.01);
     PhaseLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     PhaseLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    PhaseLFO2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     PhaseLFO2Sld->addListener (this);
 
     PhaseLFO2Sld->setBounds (484, 120, 32, 24);
@@ -373,7 +363,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthMOD1Sld->setRange (0, 1, 0.01);
     DepthMOD1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthMOD1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    DepthMOD1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff0d));
     DepthMOD1Sld->addListener (this);
 
     DepthMOD1Sld->setBounds (128, 248, 32, 24);
@@ -384,7 +373,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqMOD1Sld->setRange (0, 1, 0.01);
     FreqMOD1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqMOD1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    FreqMOD1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqMOD1Sld->addListener (this);
 
     FreqMOD1Sld->setBounds (72, 248, 32, 24);
@@ -480,7 +468,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseMOD1Sld->setRange (0, 1, 0.01);
     PhaseMOD1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     PhaseMOD1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    PhaseMOD1Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     PhaseMOD1Sld->addListener (this);
 
     PhaseMOD1Sld->setBounds (184, 248, 32, 24);
@@ -509,7 +496,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthMOD2Sld->setRange (0, 1, 0.01);
     DepthMOD2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthMOD2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    DepthMOD2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     DepthMOD2Sld->addListener (this);
 
     DepthMOD2Sld->setBounds (428, 248, 32, 24);
@@ -520,7 +506,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqMOD2Sld->setRange (0, 1, 0.01);
     FreqMOD2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqMOD2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    FreqMOD2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     FreqMOD2Sld->addListener (this);
 
     FreqMOD2Sld->setBounds (372, 248, 32, 24);
@@ -616,7 +601,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseMOD2Sld->setRange (0, 1, 0.01);
     PhaseMOD2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     PhaseMOD2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
-    PhaseMOD2Sld->setColour (juce::Slider::rotarySliderFillColourId, juce::Colour (0x7f00ff03));
     PhaseMOD2Sld->addListener (this);
 
     PhaseMOD2Sld->setBounds (484, 248, 32, 24);
@@ -1788,15 +1772,15 @@ BEGIN_JUCER_METADATA
   <SLIDER name="LFO 1 Depth Slider" id="98ad3308f709f25c" memberName="DepthLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="128 120 32 24" tooltip="Depth of the LFO"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <SLIDER name="LFO 1 Freq Slider" id="94530d5c05e4a382" memberName="FreqLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="72 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <COMBOBOX name="LFO 1 Wave" id="6343a9cc42a2eda5" memberName="WaveLFO1Cmb"
             virtualName="" explicitFocusOrder="0" pos="232 162 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw&#10;SC Comp"
@@ -1804,15 +1788,15 @@ BEGIN_JUCER_METADATA
   <SLIDER name="LFO 1 Depth Mod Slider" id="9a3f86cb168e586e" memberName="DepthModLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="136 168 16 16" tooltip="Amount of depth modulation from MOD 1"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <SLIDER name="LFO 1 Freq Mod Slider" id="b0488ea613d92dcf" memberName="FreqModLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="80 168 16 16" tooltip="Amount of rate modulation from MOD 1"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <SLIDER name="Output Gain Slider" id="65acc0b358aa2541" memberName="OutputGainSld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="56 48 392 24" tooltip="Output gain"
@@ -1837,15 +1821,15 @@ BEGIN_JUCER_METADATA
   <SLIDER name="LFO 2 Depth Slider" id="2596adc2e61cd58e" memberName="DepthLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="428 120 32 24" tooltip="Depth of the LFO"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <SLIDER name="LFO 2 Freq Slider" id="f5dbcdc53c502e69" memberName="FreqLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="372 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <COMBOBOX name="LFO 2 Wave" id="b76d5189aafe8e3f" memberName="WaveLFO2Cmb"
             virtualName="" explicitFocusOrder="0" pos="532 162 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw&#10;SC Comp"
@@ -1853,15 +1837,15 @@ BEGIN_JUCER_METADATA
   <SLIDER name="LFO 2 Depth Mod Slider" id="4a524c9e1974186c" memberName="DepthModLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="436 168 16 16" tooltip="Amount of depth modulation from MOD 1"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <SLIDER name="LFO 2 Freq Mod Slider" id="e49bd74bef8aaca1" memberName="FreqModLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="380 168 16 16" tooltip="Amount of rate modulation from MOD 2"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <TEXTBUTTON name="LFO 2 Bypass Button" id="74a3a05dda891f9c" memberName="BypassLFO2Btn"
               virtualName="" explicitFocusOrder="0" pos="556 88 56 24" tooltip="Bypass button for LFO 2. LFO 2 operates directly on sound."
               buttonText="LFO 2" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -1910,10 +1894,9 @@ BEGIN_JUCER_METADATA
   <SLIDER name="LFO 1 Phase Slider" id="1fa393dc85f550ee" memberName="PhaseLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="184 120 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
-          thumbcol="ffbdffbb" rotarysliderfill="7f00ff03" min="0.0" max="1.0"
-          int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
-          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
-          needsCallback="1"/>
+          thumbcol="ffbdffbb" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
+          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
+          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <LABEL name="LFO 1 Phase Label" id="e8d899c4a3a19f8" memberName="PhaseLFO1Lbl"
          virtualName="" explicitFocusOrder="0" pos="177 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
@@ -1922,9 +1905,9 @@ BEGIN_JUCER_METADATA
   <SLIDER name="LFO 2 Phase Slider" id="df30ce6c91b8975b" memberName="PhaseLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="484 120 32 24" tooltip="Changes the phase of the LFO by up to 360 degrees"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <LABEL name="LFO 2 Phase Label" id="5fd532cc21a16f51" memberName="PhaseLFO2Lbl"
          virtualName="" explicitFocusOrder="0" pos="477 144 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
@@ -1935,15 +1918,15 @@ BEGIN_JUCER_METADATA
   <SLIDER name="MOD 1 Depth Slider" id="499f6451911662cc" memberName="DepthMOD1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="128 248 32 24" tooltip="Depth of the LFO"
-          rotarysliderfill="7f00ff0d" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <SLIDER name="MOD 1 Freq Slider" id="1d9800ca18cf5bba" memberName="FreqMOD1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="72 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <COMBOBOX name="MOD 1 Wave" id="370e5062e67cf738" memberName="WaveMOD1Cmb"
             virtualName="" explicitFocusOrder="0" pos="232 290 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw&#10;SC Comp"
@@ -1980,9 +1963,9 @@ BEGIN_JUCER_METADATA
   <SLIDER name="MOD 1 Phase Slider" id="3f1ef3d10c303bac" memberName="PhaseMOD1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="184 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <LABEL name="MOD 1 Phase Label" id="af1abf98d305cb5c" memberName="PhaseMOD1Lbl"
          virtualName="" explicitFocusOrder="0" pos="177 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"
@@ -1993,15 +1976,15 @@ BEGIN_JUCER_METADATA
   <SLIDER name="MOD 2 Depth Slider" id="8c1762ee0dd0d28a" memberName="DepthMOD2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="428 248 32 24" tooltip="Depth of the LFO"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <SLIDER name="MOD 2 Freq Slider" id="362166b8c676eba4" memberName="FreqMOD2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="372 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <COMBOBOX name="MOD 2 Wave" id="c85d4543a533be92" memberName="WaveMOD2Cmb"
             virtualName="" explicitFocusOrder="0" pos="532 290 80 24" tooltip="LFO wave shape"
             editable="0" layout="33" items="Sine&#10;Square&#10;Saw&#10;SC Comp"
@@ -2038,9 +2021,9 @@ BEGIN_JUCER_METADATA
   <SLIDER name="MOD 2 Phase Slider" id="54fd5481a5970106" memberName="PhaseMOD2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="484 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
-          rotarysliderfill="7f00ff03" min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag"
-          textBoxPos="NoTextBox" textBoxEditable="1" textBoxWidth="80"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
+          textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
+          needsCallback="1"/>
   <LABEL name="MOD 2 Phase Label" id="d3b9d517ecdfe1bc" memberName="PhaseMOD2Lbl"
          virtualName="" explicitFocusOrder="0" pos="477 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Phase" editableSingleClick="0"

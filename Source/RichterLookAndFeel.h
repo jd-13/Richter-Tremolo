@@ -35,7 +35,7 @@
 #include "CoreJUCEPlugin/LookAndFeelMixins/LookAndFeelMixins.h"
 
 namespace LFM = WECore::LookAndFeelMixins;
-typedef LFM::PopupMenuV2<LFM::ComboBoxV2<WECore::JUCEPlugin::CoreLookAndFeel>> BaseLookAndFeel;
+typedef LFM::RotarySliderV2<LFM::PopupMenuV2<LFM::ComboBoxV2<WECore::JUCEPlugin::CoreLookAndFeel>>> BaseLookAndFeel;
 
 class RichterLookAndFeel : public BaseLookAndFeel {
 public:
