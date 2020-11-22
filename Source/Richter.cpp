@@ -77,8 +77,13 @@ void Richter::ClockProcess2in2out(float* inLeftSample, float* inRightSample) {
 }
 
 void Richter::_updateLFOCache() {
-    _lfoCache.lfo1 = LFOPair1.calcGainInLoop();
-    _lfoCache.lfo2 = LFOPair2.calcGainInLoop();
-    _lfoCache.mod1 = LFOPair1.getMod();
-    _lfoCache.mod2 = LFOPair2.getMod();
+    // Advance the LFOs
+    LFOPair1.getNextOutput(0);
+    LFOPair2.getNextOutput(0);
+    
+    // Store the values
+    _lfoCache.lfo1 = LFOPair1.getLastOutput();
+    _lfoCache.lfo2 = LFOPair2.getLastOutput();
+    _lfoCache.mod1 = LFOPair1.MOD->getLastOutput();
+    _lfoCache.mod2 = LFOPair2.MOD->getLastOutput();
 }

@@ -357,102 +357,102 @@ void RichterAudioProcessor::setTempoDenomLFO2(int val) {
 }
 
 void RichterAudioProcessor::setBypassSwitchMOD1(bool val) {
-    mRichter.LFOPair1.MOD.setBypassSwitch(val);
+    mRichter.LFOPair1.MOD->setBypassSwitch(val);
     bypassSwitchMOD1->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setPhaseSyncMOD1(bool val) {
-    mRichter.LFOPair1.MOD.setPhaseSyncSwitch(val);
+    mRichter.LFOPair1.MOD->setPhaseSyncSwitch(val);
     phaseSyncMOD1->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setTempoSyncMOD1(bool val) {
-    mRichter.LFOPair1.MOD.setTempoSyncSwitch(val);
+    mRichter.LFOPair1.MOD->setTempoSyncSwitch(val);
     tempoSyncMOD1->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setInvertMOD1(bool val) {
-    mRichter.LFOPair1.MOD.setInvertSwitch(val);
+    mRichter.LFOPair1.MOD->setInvertSwitch(val);
     invertMOD1->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setWaveMOD1(int val) {
-    mRichter.LFOPair1.MOD.setWave(val);
+    mRichter.LFOPair1.MOD->setWave(val);
     waveMOD1->setValueNotifyingHost(waveMOD1->getNormalisableRange().convertTo0to1(val));
 }
 
 void RichterAudioProcessor::setDepthMOD1(float val) {
-    mRichter.LFOPair1.MOD.setDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
+    mRichter.LFOPair1.MOD->setDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
     depthMOD1->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setFreqMOD1(float val) {
-    mRichter.LFOPair1.MOD.setFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
+    mRichter.LFOPair1.MOD->setFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
     freqMOD1->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setPhaseMOD1(float val) {
-    mRichter.LFOPair1.MOD.setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInternal(val));
+    mRichter.LFOPair1.MOD->setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInternal(val));
     phaseMOD1->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setTempoNumerMOD1(int val) {
-    mRichter.LFOPair1.MOD.setTempoNumer(val);
+    mRichter.LFOPair1.MOD->setTempoNumer(val);
     tempoNumerMOD1->setValueNotifyingHost(tempoNumerMOD1->getNormalisableRange().convertTo0to1(val));
 }
 
 void RichterAudioProcessor::setTempoDenomMOD1(int val) {
-    mRichter.LFOPair1.MOD.setTempoDenom(val);
+    mRichter.LFOPair1.MOD->setTempoDenom(val);
     tempoDenomMOD1->setValueNotifyingHost(tempoDenomMOD1->getNormalisableRange().convertTo0to1(val));
 }
 
 void RichterAudioProcessor::setBypassSwitchMOD2(bool val) {
-    mRichter.LFOPair2.MOD.setBypassSwitch(val);
+    mRichter.LFOPair2.MOD->setBypassSwitch(val);
     bypassSwitchMOD2->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setPhaseSyncMOD2(bool val) {
-    mRichter.LFOPair2.MOD.setPhaseSyncSwitch(val);
+    mRichter.LFOPair2.MOD->setPhaseSyncSwitch(val);
     phaseSyncMOD2->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setTempoSyncMOD2(bool val) {
-    mRichter.LFOPair2.MOD.setTempoSyncSwitch(val);
+    mRichter.LFOPair2.MOD->setTempoSyncSwitch(val);
     tempoSyncMOD2->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setInvertMOD2(bool val) {
-    mRichter.LFOPair2.MOD.setInvertSwitch(val);
+    mRichter.LFOPair2.MOD->setInvertSwitch(val);
     invertMOD2->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setWaveMOD2(int val) {
-    mRichter.LFOPair2.MOD.setWave(val);
+    mRichter.LFOPair2.MOD->setWave(val);
     waveMOD2->setValueNotifyingHost(waveMOD2->getNormalisableRange().convertTo0to1(val));
 }
 
 void RichterAudioProcessor::setDepthMOD2(float val) {
-    mRichter.LFOPair2.MOD.setDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
+    mRichter.LFOPair2.MOD->setDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
     depthMOD2->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setFreqMOD2(float val) {
-    mRichter.LFOPair2.MOD.setFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
+    mRichter.LFOPair2.MOD->setFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
     freqMOD2->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setPhaseMOD2(float val) {
-    mRichter.LFOPair2.MOD.setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInternal(val));
+    mRichter.LFOPair2.MOD->setManualPhase(WECore::Richter::Parameters::PHASE.NormalisedToInternal(val));
     phaseMOD2->setValueNotifyingHost(val);
 }
 
 void RichterAudioProcessor::setTempoNumerMOD2(int val) {
-    mRichter.LFOPair2.MOD.setTempoNumer(val);
+    mRichter.LFOPair2.MOD->setTempoNumer(val);
     tempoNumerMOD2->setValueNotifyingHost(tempoNumerMOD2->getNormalisableRange().convertTo0to1(val));
 }
 
 void RichterAudioProcessor::setTempoDenomMOD2(int val) {
-    mRichter.LFOPair2.MOD.setTempoDenom(val);
+    mRichter.LFOPair2.MOD->setTempoDenom(val);
     tempoDenomMOD2->setValueNotifyingHost(tempoDenomMOD2->getNormalisableRange().convertTo0to1(val));
 }
 
