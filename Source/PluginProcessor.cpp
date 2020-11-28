@@ -262,7 +262,7 @@ void RichterAudioProcessor::setWaveLFO1(int val) {
 }
 
 void RichterAudioProcessor::setDepthLFO1(float val) {
-    mRichter.LFOPair1.LFO.setRawDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
+    mRichter.LFOPair1.LFO.setDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
     depthLFO1->setValueNotifyingHost(val);
 }
 
@@ -272,7 +272,7 @@ void RichterAudioProcessor::setDepthModLFO1(float val) {
 }
 
 void RichterAudioProcessor::setFreqLFO1(float val) {
-    mRichter.LFOPair1.LFO.setRawFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
+    mRichter.LFOPair1.LFO.setFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
     freqLFO1->setValueNotifyingHost(val);
 }
 
@@ -322,7 +322,7 @@ void RichterAudioProcessor::setWaveLFO2(int val) {
 }
 
 void RichterAudioProcessor::setDepthLFO2(float val) {
-    mRichter.LFOPair2.LFO.setRawDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
+    mRichter.LFOPair2.LFO.setDepth(WECore::Richter::Parameters::DEPTH.NormalisedToInternal(val));
     depthLFO2->setValueNotifyingHost(val);
 }
 
@@ -332,7 +332,7 @@ void RichterAudioProcessor::setDepthModLFO2(float val) {
 }
 
 void RichterAudioProcessor::setFreqLFO2(float val) {
-    mRichter.LFOPair2.LFO.setRawFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
+    mRichter.LFOPair2.LFO.setFreq(WECore::Richter::Parameters::FREQ.NormalisedToInternal(val));
     freqLFO2->setValueNotifyingHost(val);
 }
 
