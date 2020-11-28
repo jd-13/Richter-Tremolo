@@ -32,8 +32,8 @@ void RichterLFOMeter::paint(Graphics& g) {
     if (_isMod) {
         // Mod oscs output values between -1 and 1
         const float meterMidpoint {static_cast<float>(getHeight()) / 2.0f};
-        const float halfValueHeight {getHeight() * _meterValue};
-        
+        const float halfValueHeight {getHeight() * _meterValue / 2.0f};
+
         if (_meterValue >= 0) {
             YPOS = meterMidpoint - halfValueHeight;
             HEIGHT = halfValueHeight;
@@ -44,11 +44,11 @@ void RichterLFOMeter::paint(Graphics& g) {
     } else {
         // LFO oscs output values between 0 and 1
         const float valueHeight {getHeight() * _meterValue};
-        
+
         YPOS = static_cast<float>(getHeight() - valueHeight);
         HEIGHT = valueHeight;
     }
-    
+
     g.setColour(findColour(mainColourId));
     g.fillRect(XPOS, YPOS, WIDTH, HEIGHT);
 }
