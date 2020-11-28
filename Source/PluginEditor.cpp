@@ -52,7 +52,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Freq Slider"));
     addAndMakeVisible (FreqLFO1Sld.get());
-    FreqLFO1Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
+    FreqLFO1Sld->setTooltip (TRANS("Frequency of the LFO, from 0.5Hz to 20Hz"));
     FreqLFO1Sld->setRange (0, 1, 0.01);
     FreqLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -155,7 +155,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Freq Slider"));
     addAndMakeVisible (FreqLFO2Sld.get());
-    FreqLFO2Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
+    FreqLFO2Sld->setTooltip (TRANS("Frequency of the LFO, from 0.5Hz to 20Hz"));
     FreqLFO2Sld->setRange (0, 1, 0.01);
     FreqLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -369,7 +369,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqMOD1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 1 Freq Slider"));
     addAndMakeVisible (FreqMOD1Sld.get());
-    FreqMOD1Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
+    FreqMOD1Sld->setTooltip (TRANS("Frequency of the LFO, from 0.5Hz to 20Hz"));
     FreqMOD1Sld->setRange (0, 1, 0.01);
     FreqMOD1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqMOD1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -502,7 +502,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqMOD2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 2 Freq Slider"));
     addAndMakeVisible (FreqMOD2Sld.get());
-    FreqMOD2Sld->setTooltip (TRANS("Frequency of the LFO, from 2Hz to 20Hz"));
+    FreqMOD2Sld->setTooltip (TRANS("Frequency of the LFO, from 0.5Hz to 20Hz"));
     FreqMOD2Sld->setRange (0, 1, 0.01);
     FreqMOD2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqMOD2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -1777,7 +1777,7 @@ BEGIN_JUCER_METADATA
           needsCallback="1"/>
   <SLIDER name="LFO 1 Freq Slider" id="94530d5c05e4a382" memberName="FreqLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
-          explicitFocusOrder="0" pos="72 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          explicitFocusOrder="0" pos="72 120 32 24" tooltip="Frequency of the LFO, from 0.5Hz to 20Hz"
           min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="1"/>
@@ -1826,7 +1826,7 @@ BEGIN_JUCER_METADATA
           needsCallback="1"/>
   <SLIDER name="LFO 2 Freq Slider" id="f5dbcdc53c502e69" memberName="FreqLFO2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
-          explicitFocusOrder="0" pos="372 120 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          explicitFocusOrder="0" pos="372 120 32 24" tooltip="Frequency of the LFO, from 0.5Hz to 20Hz"
           min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="1"/>
@@ -1923,7 +1923,7 @@ BEGIN_JUCER_METADATA
           needsCallback="1"/>
   <SLIDER name="MOD 1 Freq Slider" id="1d9800ca18cf5bba" memberName="FreqMOD1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
-          explicitFocusOrder="0" pos="72 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          explicitFocusOrder="0" pos="72 248 32 24" tooltip="Frequency of the LFO, from 0.5Hz to 20Hz"
           min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="1"/>
@@ -1981,7 +1981,7 @@ BEGIN_JUCER_METADATA
           needsCallback="1"/>
   <SLIDER name="MOD 2 Freq Slider" id="362166b8c676eba4" memberName="FreqMOD2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
-          explicitFocusOrder="0" pos="372 248 32 24" tooltip="Frequency of the LFO, from 2Hz to 20Hz"
+          explicitFocusOrder="0" pos="372 248 32 24" tooltip="Frequency of the LFO, from 0.5Hz to 20Hz"
           min="0.0" max="1.0" int="0.01" style="RotaryVerticalDrag" textBoxPos="NoTextBox"
           textBoxEditable="1" textBoxWidth="80" textBoxHeight="20" skewFactor="1.0"
           needsCallback="1"/>
