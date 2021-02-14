@@ -549,7 +549,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
                                          TRANS("Depth")));
     addAndMakeVisible (DepthMOD2Lbl.get());
     DepthMOD2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
-    DepthMOD2Lbl->setJustificationType (juce::Justification::centredLeft);
+    DepthMOD2Lbl->setJustificationType (juce::Justification::centred);
     DepthMOD2Lbl->setEditable (false, false, false);
     DepthMOD2Lbl->setColour (juce::Label::textColourId, juce::Colour (0xffc8c8c8));
     DepthMOD2Lbl->setColour (juce::TextEditor::textColourId, juce::Colours::black);
@@ -2001,7 +2001,7 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="421 272 46 24" textCol="ffc8c8c8"
          edTextCol="ff000000" edBkgCol="0" labelText="Depth" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <TEXTBUTTON name="MOD 2 Tempo Sync Button" id="bfc616fbcdb92b04" memberName="TempoSyncMOD2Btn"
               virtualName="" explicitFocusOrder="0" pos="364 224 56 16" tooltip="Tempo sync LFO frequency"
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
