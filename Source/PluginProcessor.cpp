@@ -166,6 +166,9 @@ void RichterAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBloc
     // initialisation that you need..
     mRichter.LFOPair1.reset();
     mRichter.LFOPair2.reset();
+
+    mRichter.LFOPair1.setSampleRate(getSampleRate());
+    mRichter.LFOPair2.setSampleRate(getSampleRate());
 }
 
 void RichterAudioProcessor::releaseResources()
@@ -197,8 +200,8 @@ void RichterAudioProcessor::processBlock (AudioSampleBuffer& buffer, MidiBuffer&
     juce::AudioPlayHead::CurrentPositionInfo mTempoInfo;
     getPlayHead()->getCurrentPosition(mTempoInfo);
 
-    mRichter.LFOPair1.prepareForNextBuffer(mTempoInfo.bpm, mTempoInfo.timeInSeconds, getSampleRate());
-    mRichter.LFOPair2.prepareForNextBuffer(mTempoInfo.bpm, mTempoInfo.timeInSeconds, getSampleRate());
+    mRichter.LFOPair1.prepareForNextBuffer(mTempoInfo.bpm, mTempoInfo.timeInSeconds);
+    mRichter.LFOPair2.prepareForNextBuffer(mTempoInfo.bpm, mTempoInfo.timeInSeconds);
 
     // This is the place where you'd normally do the guts of your plugin's
     // audio processing...
