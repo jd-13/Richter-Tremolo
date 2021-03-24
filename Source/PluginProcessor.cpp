@@ -471,6 +471,90 @@ void RichterAudioProcessor::setOutputGain(float val) {
     outputGain->setValueNotifyingHost(val);
 }
 
+std::vector<juce::String> RichterAudioProcessor::_provideParamNamesForMigration() {
+    return std::vector<juce::String> {
+        SWITCHLFO1_STR,
+        PHASELFO1_STR,
+        TEMPOSYNCLFO1_STR,
+        WAVELFO1_STR,
+        DEPTHLFO1_STR,
+        DEPTHMODLFO1_STR,
+        FREQLFO1_STR,
+        FREQMODLFO1_STR,
+        PHASELFO1_STR,
+        TEMPONUMERLFO1_STR,
+        TEMPODENOMLFO1_STR,
+
+        SWITCHLFO2_STR,
+        PHASELFO2_STR,
+        TEMPOSYNCLFO2_STR,
+        WAVELFO2_STR,
+        DEPTHLFO2_STR,
+        DEPTHMODLFO2_STR,
+        FREQLFO2_STR,
+        FREQMODLFO2_STR,
+        PHASELFO2_STR,
+        TEMPONUMERLFO2_STR,
+        TEMPODENOMLFO2_STR,
+
+        SWITCHMOD1_STR,
+        PHASEMOD1_STR,
+        TEMPOSYNCMOD1_STR,
+        WAVEMOD1_STR,
+        DEPTHMOD1_STR,
+        FREQMOD1_STR,
+        PHASEMOD1_STR,
+        TEMPONUMERMOD1_STR,
+        TEMPODENOMMOD1_STR,
+
+        SWITCHMOD2_STR,
+        PHASEMOD2_STR,
+        TEMPOSYNCMOD2_STR,
+        WAVEMOD2_STR,
+        DEPTHMOD2_STR,
+        FREQMOD2_STR,
+        PHASEMOD2_STR,
+        TEMPONUMERMOD2_STR,
+        TEMPODENOMMOD2_STR,
+
+        STEREO_STR,
+        OUTPUTGAIN_STR,
+
+        INVERTLFO1_STR,
+        INVERTLFO2_STR,
+        INVERTMOD1_STR,
+        INVERTMOD2_STR,
+    };
+}
+
+void RichterAudioProcessor::_migrateParamValues(std::vector<float>& paramValues) {
+
+    namespace RP = WECore::Richter::Parameters;
+
+    if (paramValues.size() == 46) {
+        paramValues[4] = RP::DEPTH.NormalisedToInternal(paramValues[4]);
+        paramValues[5] = RP::DEPTHMOD.NormalisedToInternal(paramValues[5]);
+        paramValues[6] = RP::FREQ.NormalisedToInternal(paramValues[6]);
+        paramValues[7] = RP::FREQMOD.NormalisedToInternal(paramValues[7]);
+        paramValues[8] = RP::PHASE.NormalisedToInternal(paramValues[8]);
+
+        paramValues[15] = RP::DEPTH.NormalisedToInternal(paramValues[15]);
+        paramValues[16] = RP::DEPTHMOD.NormalisedToInternal(paramValues[16]);
+        paramValues[17] = RP::FREQ.NormalisedToInternal(paramValues[17]);
+        paramValues[18] = RP::FREQMOD.NormalisedToInternal(paramValues[18]);
+        paramValues[19] = RP::PHASE.NormalisedToInternal(paramValues[19]);
+
+        paramValues[26] = RP::DEPTH.NormalisedToInternal(paramValues[26]);
+        paramValues[27] = RP::FREQ.NormalisedToInternal(paramValues[27]);
+        paramValues[28] = RP::PHASE.NormalisedToInternal(paramValues[28]);
+
+        paramValues[35] = RP::DEPTH.NormalisedToInternal(paramValues[35]);
+        paramValues[36] = RP::FREQ.NormalisedToInternal(paramValues[36]);
+        paramValues[37] = RP::PHASE.NormalisedToInternal(paramValues[37]);
+        paramValues[41] = OUTPUTGAIN.NormalisedToInternal(paramValues[41]);
+    }
+}
+
 //==============================================================================
 // This creates new instances of the plugin..
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()

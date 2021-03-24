@@ -184,6 +184,9 @@ public:
 private:
     Richter mRichter;
 
+    std::vector<juce::String> _provideParamNamesForMigration() override;
+    void _migrateParamValues(std::vector<float>& paramValues) override;
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RichterAudioProcessor)
 };
