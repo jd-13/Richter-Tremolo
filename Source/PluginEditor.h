@@ -80,6 +80,7 @@ private:
     void _startSliderReadouts();
     void _stopSliderReadouts();
     void _updateTempoToggles(bool forceUpdate);
+    void _setSliderRanges();
     //[/UserVariables]
 
     //==============================================================================

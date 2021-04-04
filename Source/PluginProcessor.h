@@ -64,72 +64,6 @@ public:
     //==============================================================================
     const RichterLFOCache& getLFOCache() { return mRichter.getLFOCache(); }
 
-    /**
-     * Parameter setters.
-     *
-     * For float parameters a value in the normalised 0 to 1 range is expected.
-     *
-     * For int parameters are used to represent menu items, the integer value in the real range of
-     * the parameter (eg. 0 to 4) is expected.
-     *
-     * For bool parameters they can only be true or false anyway.
-     *
-     * These do not call the ChangeBroadcaster as the UI will already know about these changes since
-     * it is the only one calling these methods.
-     */
-    /** @{ */
-    void setBypassSwitchLFO1(bool val);
-    void setPhaseSyncLFO1(bool val);
-    void setTempoSyncLFO1(bool val);
-    void setInvertLFO1(bool val);
-    void setWaveLFO1(int val);
-    void setDepthLFO1(float val);
-    void setDepthModLFO1(float val);
-    void setFreqLFO1(float val);
-    void setFreqModLFO1(float val);
-    void setPhaseLFO1(float val);
-    void setTempoNumerLFO1(int val);
-    void setTempoDenomLFO1(int val);
-
-    void setBypassSwitchLFO2(bool val);
-    void setPhaseSyncLFO2(bool val);
-    void setTempoSyncLFO2(bool val);
-    void setInvertLFO2(bool val);
-    void setWaveLFO2(int val);
-    void setDepthLFO2(float val);
-    void setDepthModLFO2(float val);
-    void setFreqLFO2(float val);
-    void setFreqModLFO2(float val);
-    void setPhaseLFO2(float val);
-    void setTempoNumerLFO2(int val);
-    void setTempoDenomLFO2(int val);
-
-    void setBypassSwitchMOD1(bool val);
-    void setPhaseSyncMOD1(bool val);
-    void setTempoSyncMOD1(bool val);
-    void setInvertMOD1(bool val);
-    void setWaveMOD1(int val);
-    void setDepthMOD1(float val);
-    void setFreqMOD1(float val);
-    void setPhaseMOD1(float val);
-    void setTempoNumerMOD1(int val);
-    void setTempoDenomMOD1(int val);
-
-    void setBypassSwitchMOD2(bool val);
-    void setPhaseSyncMOD2(bool val);
-    void setTempoSyncMOD2(bool val);
-    void setInvertMOD2(bool val);
-    void setWaveMOD2(int val);
-    void setDepthMOD2(float val);
-    void setFreqMOD2(float val);
-    void setPhaseMOD2(float val);
-    void setTempoNumerMOD2(int val);
-    void setTempoDenomMOD2(int val);
-
-    void setStereo(bool val);
-    void setOutputGain(float val);
-    /** @} */
-
     AudioParameterBool* bypassSwitchLFO1;
     AudioParameterBool* phaseSyncLFO1;
     AudioParameterBool* tempoSyncLFO1;
@@ -186,6 +120,8 @@ private:
 
     std::vector<juce::String> _provideParamNamesForMigration() override;
     void _migrateParamValues(std::vector<float>& paramValues) override;
+
+    void _onParameterUpdate() override;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RichterAudioProcessor)
