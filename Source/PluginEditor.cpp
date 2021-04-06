@@ -936,7 +936,7 @@ void RichterAudioProcessorEditor::paint (juce::Graphics& g)
 
     //[UserPaint] Add your own custom painting code here..
     Image bg {ImageCache::getFromMemory(BinaryData::Richter_Background_png, BinaryData::Richter_Background_pngSize)};
-    g.drawImage(bg, 0, 0, 675, 340, 0, 0, 5 * 675, 5 * 340);
+    g.drawImage(bg, 0, 0, 675, 340, 0, 0, 2 * 675, 2 * 340);
     //[/UserPaint]
 }
 
