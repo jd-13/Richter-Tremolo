@@ -1184,7 +1184,7 @@ void RichterAudioProcessorEditor::buttonClicked (juce::Button* buttonThatWasClic
     else if (buttonThatWasClicked == PhaseSyncLFO2Btn.get())
     {
         //[UserButtonCode_PhaseSyncLFO2Btn] -- add your button handler code here..
-        ourProcessor->setParameterValueInternal(ourProcessor->phaseLFO2, !PhaseSyncLFO2Btn->getToggleState());
+        ourProcessor->setParameterValueInternal(ourProcessor->phaseSyncLFO2, !PhaseSyncLFO2Btn->getToggleState());
         //[/UserButtonCode_PhaseSyncLFO2Btn]
     }
     else if (buttonThatWasClicked == BypassMOD1Btn.get())
@@ -1202,7 +1202,7 @@ void RichterAudioProcessorEditor::buttonClicked (juce::Button* buttonThatWasClic
     else if (buttonThatWasClicked == PhaseSyncMOD1Btn.get())
     {
         //[UserButtonCode_PhaseSyncMOD1Btn] -- add your button handler code here..
-        ourProcessor->setParameterValueInternal(ourProcessor->phaseMOD1, !PhaseSyncMOD1Btn->getToggleState());
+        ourProcessor->setParameterValueInternal(ourProcessor->phaseSyncMOD1, !PhaseSyncMOD1Btn->getToggleState());
         //[/UserButtonCode_PhaseSyncMOD1Btn]
     }
     else if (buttonThatWasClicked == BypassMOD2Btn.get())
@@ -1220,7 +1220,7 @@ void RichterAudioProcessorEditor::buttonClicked (juce::Button* buttonThatWasClic
     else if (buttonThatWasClicked == PhaseSyncMOD2Btn.get())
     {
         //[UserButtonCode_PhaseSyncMOD2Btn] -- add your button handler code here..
-        ourProcessor->setParameterValueInternal(ourProcessor->phaseMOD2, !PhaseSyncMOD2Btn->getToggleState());
+        ourProcessor->setParameterValueInternal(ourProcessor->phaseSyncMOD2, !PhaseSyncMOD2Btn->getToggleState());
         //[/UserButtonCode_PhaseSyncMOD2Btn]
     }
     else if (buttonThatWasClicked == StereoBtn.get())
@@ -1547,27 +1547,27 @@ void RichterAudioProcessorEditor::_onParameterUpdate() {
 }
 
 void RichterAudioProcessorEditor::_enableDoubleClickToDefault() {
-    FreqLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InternalToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    FreqModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.InternalToNormalised(WECore::Richter::Parameters::FREQMOD.defaultValue));
-    DepthLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InternalToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    DepthModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.InternalToNormalised(WECore::Richter::Parameters::DEPTHMOD.defaultValue));
-    PhaseLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InternalToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+    FreqLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.defaultValue);
+    FreqModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.defaultValue);
+    DepthLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.defaultValue);
+    DepthModLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.defaultValue);
+    PhaseLFO1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.defaultValue);
 
-    FreqLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InternalToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    FreqModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.InternalToNormalised(WECore::Richter::Parameters::FREQMOD.defaultValue));
-    DepthLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InternalToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    DepthModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.InternalToNormalised(WECore::Richter::Parameters::DEPTHMOD.defaultValue));
-    PhaseLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InternalToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+    FreqLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.defaultValue);
+    FreqModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQMOD.defaultValue);
+    DepthLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.defaultValue);
+    DepthModLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTHMOD.defaultValue);
+    PhaseLFO2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.defaultValue);
 
-    FreqMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InternalToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    DepthMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InternalToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    PhaseMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InternalToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+    FreqMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.defaultValue);
+    DepthMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.defaultValue);
+    PhaseMOD1Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.defaultValue);
 
-    FreqMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.InternalToNormalised(WECore::Richter::Parameters::FREQ.defaultValue));
-    DepthMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.InternalToNormalised(WECore::Richter::Parameters::DEPTH.defaultValue));
-    PhaseMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.InternalToNormalised(WECore::Richter::Parameters::PHASE.defaultValue));
+    FreqMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::FREQ.defaultValue);
+    DepthMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::DEPTH.defaultValue);
+    PhaseMOD2Sld->setDoubleClickReturnValue(true, WECore::Richter::Parameters::PHASE.defaultValue);
 
-    OutputGainSld->setDoubleClickReturnValue(true, OUTPUTGAIN.InternalToNormalised(OUTPUTGAIN.defaultValue));
+    OutputGainSld->setDoubleClickReturnValue(true, OUTPUTGAIN.defaultValue);
 }
 
 void RichterAudioProcessorEditor::_startSliderReadouts() {
