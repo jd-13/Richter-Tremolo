@@ -23,56 +23,56 @@ RichterAudioProcessor::RichterAudioProcessor()
 
     constexpr float PRECISION {0.01f};
 
-    registerParameter(bypassSwitchLFO1, SWITCHLFO1_STR, RP::LFOSWITCH_ON, [&](bool val) { setParameterValueInternal(bypassSwitchLFO1, val); });
-    registerParameter(phaseSyncLFO1, PHASELFO1_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setParameterValueInternal(phaseSyncLFO1, val); });
-    registerParameter(tempoSyncLFO1, TEMPOSYNCLFO1_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setParameterValueInternal(tempoSyncLFO1, val); });
-    registerParameter(invertLFO1, INVERTLFO1_STR, RP::INVERT_DEFAULT, [&](bool val) { setParameterValueInternal(invertLFO1, val); });
-    registerParameter(waveLFO1, WAVELFO1_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setParameterValueInternal(waveLFO1, val); });
-    registerParameter(depthLFO1, DEPTHLFO1_STR, &RP::DEPTH, RP::DEPTH.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(depthLFO1, val); });
-    registerParameter(depthModLFO1, DEPTHMODLFO1_STR, &RP::DEPTHMOD, RP::DEPTHMOD.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(depthModLFO1, val); });
-    registerParameter(freqLFO1, FREQLFO1_STR, &RP::FREQ, RP::FREQ.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(freqLFO1, val); });
-    registerParameter(freqModLFO1, FREQMODLFO1_STR, &RP::FREQMOD, RP::FREQMOD.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(freqModLFO1, val); });
-    registerParameter(phaseLFO1, PHASELFO1_STR, &RP::PHASE, RP::PHASE.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(phaseLFO1, val); });
-    registerParameter(tempoNumerLFO1, TEMPONUMERLFO1_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setParameterValueInternal(tempoNumerLFO1, val); });
-    registerParameter(tempoDenomLFO1, TEMPODENOMLFO1_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setParameterValueInternal(tempoDenomLFO1, val); });
+    registerParameter(bypassSwitchLFO1, SWITCHLFO1_STR, RP::LFOSWITCH_ON);
+    registerParameter(phaseSyncLFO1, PHASELFO1_STR, RP::PHASESYNC_DEFAULT);
+    registerParameter(tempoSyncLFO1, TEMPOSYNCLFO1_STR, RP::TEMPOSYNC_DEFAULT);
+    registerParameter(invertLFO1, INVERTLFO1_STR, RP::INVERT_DEFAULT);
+    registerParameter(waveLFO1, WAVELFO1_STR, &RP::WAVE, RP::WAVE.defaultValue);
+    registerParameter(depthLFO1, DEPTHLFO1_STR, &RP::DEPTH, RP::DEPTH.defaultValue, PRECISION);
+    registerParameter(depthModLFO1, DEPTHMODLFO1_STR, &RP::DEPTHMOD, RP::DEPTHMOD.defaultValue, PRECISION);
+    registerParameter(freqLFO1, FREQLFO1_STR, &RP::FREQ, RP::FREQ.defaultValue, PRECISION);
+    registerParameter(freqModLFO1, FREQMODLFO1_STR, &RP::FREQMOD, RP::FREQMOD.defaultValue, PRECISION);
+    registerParameter(phaseLFO1, PHASELFO1_STR, &RP::PHASE, RP::PHASE.defaultValue, PRECISION);
+    registerParameter(tempoNumerLFO1, TEMPONUMERLFO1_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue);
+    registerParameter(tempoDenomLFO1, TEMPODENOMLFO1_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue);
 
-    registerParameter(bypassSwitchLFO2, SWITCHLFO2_STR, RP::LFOSWITCH_ON, [&](bool val) { setParameterValueInternal(bypassSwitchLFO2, val); });
-    registerParameter(phaseSyncLFO2, PHASELFO2_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setParameterValueInternal(phaseSyncLFO2, val); });
-    registerParameter(tempoSyncLFO2, TEMPOSYNCLFO2_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setParameterValueInternal(tempoSyncLFO2, val); });
-    registerParameter(invertLFO2, INVERTLFO2_STR, RP::INVERT_DEFAULT, [&](bool val) { setParameterValueInternal(invertLFO2, val); });
-    registerParameter(waveLFO2, WAVELFO2_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setParameterValueInternal(waveLFO2, val); });
-    registerParameter(depthLFO2, DEPTHLFO2_STR, &RP::DEPTH, RP::DEPTH.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(depthLFO2, val); });
-    registerParameter(depthModLFO2, DEPTHMODLFO2_STR, &RP::DEPTHMOD, RP::DEPTHMOD.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(depthModLFO2, val); });
-    registerParameter(freqLFO2, FREQLFO2_STR, &RP::FREQ, RP::FREQ.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(freqLFO2, val); });
-    registerParameter(freqModLFO2, FREQMODLFO2_STR, &RP::FREQMOD, RP::FREQMOD.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(freqModLFO2, val); });
-    registerParameter(phaseLFO2, PHASELFO2_STR, &RP::PHASE, RP::PHASE.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(phaseLFO2, val); });
-    registerParameter(tempoNumerLFO2, TEMPONUMERLFO2_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setParameterValueInternal(tempoNumerLFO2, val); });
-    registerParameter(tempoDenomLFO2, TEMPODENOMLFO2_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setParameterValueInternal(tempoDenomLFO2, val); });
+    registerParameter(bypassSwitchLFO2, SWITCHLFO2_STR, RP::LFOSWITCH_ON);
+    registerParameter(phaseSyncLFO2, PHASELFO2_STR, RP::PHASESYNC_DEFAULT);
+    registerParameter(tempoSyncLFO2, TEMPOSYNCLFO2_STR, RP::TEMPOSYNC_DEFAULT);
+    registerParameter(invertLFO2, INVERTLFO2_STR, RP::INVERT_DEFAULT);
+    registerParameter(waveLFO2, WAVELFO2_STR, &RP::WAVE, RP::WAVE.defaultValue);
+    registerParameter(depthLFO2, DEPTHLFO2_STR, &RP::DEPTH, RP::DEPTH.defaultValue, PRECISION);
+    registerParameter(depthModLFO2, DEPTHMODLFO2_STR, &RP::DEPTHMOD, RP::DEPTHMOD.defaultValue, PRECISION);
+    registerParameter(freqLFO2, FREQLFO2_STR, &RP::FREQ, RP::FREQ.defaultValue, PRECISION);
+    registerParameter(freqModLFO2, FREQMODLFO2_STR, &RP::FREQMOD, RP::FREQMOD.defaultValue, PRECISION);
+    registerParameter(phaseLFO2, PHASELFO2_STR, &RP::PHASE, RP::PHASE.defaultValue, PRECISION);
+    registerParameter(tempoNumerLFO2, TEMPONUMERLFO2_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue);
+    registerParameter(tempoDenomLFO2, TEMPODENOMLFO2_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue);
 
-    registerParameter(bypassSwitchMOD1, SWITCHMOD1_STR, RP::LFOSWITCH_DEFAULT, [&](bool val) { setParameterValueInternal(bypassSwitchMOD1, val); });
-    registerParameter(phaseSyncMOD1, PHASEMOD1_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setParameterValueInternal(phaseSyncMOD1, val); });
-    registerParameter(tempoSyncMOD1, TEMPOSYNCMOD1_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setParameterValueInternal(tempoSyncMOD1, val); });
-    registerParameter(invertMOD1, INVERTMOD1_STR, RP::INVERT_DEFAULT, [&](bool val) { setParameterValueInternal(invertMOD1, val); });
-    registerParameter(waveMOD1, WAVEMOD1_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setParameterValueInternal(waveMOD1, val); });
-    registerParameter(depthMOD1, DEPTHMOD1_STR, &RP::DEPTH, RP::DEPTH.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(depthMOD1, val); });
-    registerParameter(freqMOD1, FREQMOD1_STR, &RP::FREQ, RP::FREQ.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(freqMOD1, val); });
-    registerParameter(phaseMOD1, PHASEMOD1_STR, &RP::PHASE, RP::PHASE.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(phaseMOD1, val); });
-    registerParameter(tempoNumerMOD1, TEMPONUMERMOD1_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setParameterValueInternal(tempoNumerMOD1, val); });
-    registerParameter(tempoDenomMOD1, TEMPODENOMMOD1_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setParameterValueInternal(tempoDenomMOD1, val); });
+    registerParameter(bypassSwitchMOD1, SWITCHMOD1_STR, RP::LFOSWITCH_DEFAULT);
+    registerParameter(phaseSyncMOD1, PHASEMOD1_STR, RP::PHASESYNC_DEFAULT);
+    registerParameter(tempoSyncMOD1, TEMPOSYNCMOD1_STR, RP::TEMPOSYNC_DEFAULT);
+    registerParameter(invertMOD1, INVERTMOD1_STR, RP::INVERT_DEFAULT);
+    registerParameter(waveMOD1, WAVEMOD1_STR, &RP::WAVE, RP::WAVE.defaultValue);
+    registerParameter(depthMOD1, DEPTHMOD1_STR, &RP::DEPTH, RP::DEPTH.defaultValue, PRECISION);
+    registerParameter(freqMOD1, FREQMOD1_STR, &RP::FREQ, RP::FREQ.defaultValue, PRECISION);
+    registerParameter(phaseMOD1, PHASEMOD1_STR, &RP::PHASE, RP::PHASE.defaultValue, PRECISION);
+    registerParameter(tempoNumerMOD1, TEMPONUMERMOD1_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue);
+    registerParameter(tempoDenomMOD1, TEMPODENOMMOD1_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue);
 
-    registerParameter(bypassSwitchMOD2, SWITCHMOD2_STR, RP::LFOSWITCH_DEFAULT, [&](bool val) { setParameterValueInternal(bypassSwitchMOD2, val); });
-    registerParameter(phaseSyncMOD2, PHASEMOD2_STR, RP::PHASESYNC_DEFAULT, [&](bool val) { setParameterValueInternal(phaseSyncMOD2, val); });
-    registerParameter(tempoSyncMOD2, TEMPOSYNCMOD2_STR, RP::TEMPOSYNC_DEFAULT, [&](bool val) { setParameterValueInternal(tempoSyncMOD2, val); });
-    registerParameter(invertMOD2, INVERTMOD2_STR, RP::INVERT_DEFAULT, [&](bool val) { setParameterValueInternal(invertMOD2, val); });
-    registerParameter(waveMOD2, WAVEMOD2_STR, &RP::WAVE, RP::WAVE.defaultValue, [&](int val) { setParameterValueInternal(waveMOD2, val); });
-    registerParameter(depthMOD2, DEPTHMOD2_STR, &RP::DEPTH, RP::DEPTH.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(depthMOD2, val); });
-    registerParameter(freqMOD2, FREQMOD2_STR, &RP::FREQ, RP::FREQ.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(freqMOD2, val); });
-    registerParameter(phaseMOD2, PHASEMOD2_STR, &RP::PHASE, RP::PHASE.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(phaseMOD2, val); });
-    registerParameter(tempoNumerMOD2, TEMPONUMERMOD2_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue, [&](int val) { setParameterValueInternal(tempoNumerMOD2, val); });
-    registerParameter(tempoDenomMOD2, TEMPODENOMMOD2_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue, [&](int val) { setParameterValueInternal(tempoDenomMOD2, val); });
+    registerParameter(bypassSwitchMOD2, SWITCHMOD2_STR, RP::LFOSWITCH_DEFAULT);
+    registerParameter(phaseSyncMOD2, PHASEMOD2_STR, RP::PHASESYNC_DEFAULT);
+    registerParameter(tempoSyncMOD2, TEMPOSYNCMOD2_STR, RP::TEMPOSYNC_DEFAULT);
+    registerParameter(invertMOD2, INVERTMOD2_STR, RP::INVERT_DEFAULT);
+    registerParameter(waveMOD2, WAVEMOD2_STR, &RP::WAVE, RP::WAVE.defaultValue);
+    registerParameter(depthMOD2, DEPTHMOD2_STR, &RP::DEPTH, RP::DEPTH.defaultValue, PRECISION);
+    registerParameter(freqMOD2, FREQMOD2_STR, &RP::FREQ, RP::FREQ.defaultValue, PRECISION);
+    registerParameter(phaseMOD2, PHASEMOD2_STR, &RP::PHASE, RP::PHASE.defaultValue, PRECISION);
+    registerParameter(tempoNumerMOD2, TEMPONUMERMOD2_STR,&RP::TEMPONUMER, RP::TEMPONUMER.defaultValue);
+    registerParameter(tempoDenomMOD2, TEMPODENOMMOD2_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue);
 
-    registerParameter(stereo, STEREO_STR, STEREO_DEFAULT, [&](bool val) { setParameterValueInternal(stereo, val); });
-    registerParameter(outputGain, OUTPUTGAIN_STR, &OUTPUTGAIN, OUTPUTGAIN.defaultValue, PRECISION, [&](float val) { setParameterValueInternal(outputGain, val); });
+    registerParameter(stereo, STEREO_STR, STEREO_DEFAULT);
+    registerParameter(outputGain, OUTPUTGAIN_STR, &OUTPUTGAIN, OUTPUTGAIN.defaultValue, PRECISION);
 }
 
 RichterAudioProcessor::~RichterAudioProcessor()
