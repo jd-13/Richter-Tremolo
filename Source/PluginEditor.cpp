@@ -1505,7 +1505,7 @@ void RichterAudioProcessorEditor::_onParameterUpdate() {
     auto updateWaveView = [](WECore::Richter::WaveViewer* viewer,
                              float waveValue,
                              double depth,
-                             int phaseShift,
+                             double phaseShift,
                              bool isInverted) {
 
         const double* wave {nullptr};
