@@ -1,5 +1,5 @@
 /*
- *  File:       RichterLFOMeter.h
+ *  File:       RichterLFOMeter.cpp
  *
  *  Created:    24/06/2020
  *
