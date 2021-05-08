@@ -1,8 +1,6 @@
 /*
  *  File:       Richter.cpp
  *
- *  Version:    2.0.0
- *
  *  Created:    24/11/2015
  *
  *	This file is part of Richter.
@@ -80,7 +78,7 @@ void Richter::_updateLFOCache() {
     // Advance the LFOs
     LFOPair1.getNextOutput(0);
     LFOPair2.getNextOutput(0);
-    
+
     // Store the values
     _lfoCache.lfo1 = LFOPair1.getLastOutput();
     _lfoCache.lfo2 = LFOPair2.getLastOutput();

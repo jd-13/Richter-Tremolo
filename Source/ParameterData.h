@@ -1,8 +1,6 @@
 /*
  *	File:		ParameterData.h
  *
- *	Version:	2.0.0
- *
  *	Created:	20/10/2015
  *
  *	This file is part of Richter.

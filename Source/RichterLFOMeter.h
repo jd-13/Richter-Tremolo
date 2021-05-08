@@ -1,8 +1,6 @@
 /*
  *  File:       RichterLFOMeter.h
  *
- *  Version:    2.0.0
- *
  *  Created:    24/06/2020
  *
  *	This file is part of Richter.

@@ -1,8 +1,6 @@
 /*
  *  File:       RichterLookAndFeel.h
  *
- *  Version:    2.0.0
- *
  *  Created:    09/01/2016
  *
  *	This file is part of Richter.

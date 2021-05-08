@@ -1,8 +1,6 @@
 /*
  *  File:       Richter.h
  *
- *  Version:    2.0.0
- *
  *  Created:    24/11/2015
  *
  *	This file is part of Richter.
