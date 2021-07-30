@@ -65,7 +65,6 @@ public:
     const RichterLFOCache& getLFOCache() { return mRichter.getLFOCache(); }
 
     AudioParameterBool* bypassSwitchLFO1;
-    AudioParameterBool* phaseSyncLFO1;
     AudioParameterBool* tempoSyncLFO1;
     AudioParameterBool* invertLFO1;
     AudioParameterInt* waveLFO1;
@@ -78,7 +77,6 @@ public:
     AudioParameterInt* tempoDenomLFO1;
 
     AudioParameterBool* bypassSwitchLFO2;
-    AudioParameterBool* phaseSyncLFO2;
     AudioParameterBool* tempoSyncLFO2;
     AudioParameterBool* invertLFO2;
     AudioParameterInt* waveLFO2;
@@ -91,7 +89,6 @@ public:
     AudioParameterInt* tempoDenomLFO2;
 
     AudioParameterBool* bypassSwitchMOD1;
-    AudioParameterBool* phaseSyncMOD1;
     AudioParameterBool* tempoSyncMOD1;
     AudioParameterBool* invertMOD1;
     AudioParameterInt* waveMOD1;
@@ -102,7 +99,6 @@ public:
     AudioParameterInt* tempoDenomMOD1;
 
     AudioParameterBool* bypassSwitchMOD2;
-    AudioParameterBool* phaseSyncMOD2;
     AudioParameterBool* tempoSyncMOD2;
     AudioParameterBool* invertMOD2;
     AudioParameterInt* waveMOD2;

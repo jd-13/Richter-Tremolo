@@ -24,7 +24,6 @@ RichterAudioProcessor::RichterAudioProcessor()
     constexpr float PRECISION {0.01f};
 
     registerParameter(bypassSwitchLFO1, SWITCHLFO1_STR, RP::LFOSWITCH_ON);
-    registerParameter(phaseSyncLFO1, PHASELFO1_STR, RP::PHASESYNC_DEFAULT);
     registerParameter(tempoSyncLFO1, TEMPOSYNCLFO1_STR, RP::TEMPOSYNC_DEFAULT);
     registerParameter(invertLFO1, INVERTLFO1_STR, RP::INVERT_DEFAULT);
     registerParameter(waveLFO1, WAVELFO1_STR, &RP::WAVE, RP::WAVE.defaultValue);
@@ -37,7 +36,6 @@ RichterAudioProcessor::RichterAudioProcessor()
     registerParameter(tempoDenomLFO1, TEMPODENOMLFO1_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue);
 
     registerParameter(bypassSwitchLFO2, SWITCHLFO2_STR, RP::LFOSWITCH_ON);
-    registerParameter(phaseSyncLFO2, PHASELFO2_STR, RP::PHASESYNC_DEFAULT);
     registerParameter(tempoSyncLFO2, TEMPOSYNCLFO2_STR, RP::TEMPOSYNC_DEFAULT);
     registerParameter(invertLFO2, INVERTLFO2_STR, RP::INVERT_DEFAULT);
     registerParameter(waveLFO2, WAVELFO2_STR, &RP::WAVE, RP::WAVE.defaultValue);
@@ -50,7 +48,6 @@ RichterAudioProcessor::RichterAudioProcessor()
     registerParameter(tempoDenomLFO2, TEMPODENOMLFO2_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue);
 
     registerParameter(bypassSwitchMOD1, SWITCHMOD1_STR, RP::LFOSWITCH_DEFAULT);
-    registerParameter(phaseSyncMOD1, PHASEMOD1_STR, RP::PHASESYNC_DEFAULT);
     registerParameter(tempoSyncMOD1, TEMPOSYNCMOD1_STR, RP::TEMPOSYNC_DEFAULT);
     registerParameter(invertMOD1, INVERTMOD1_STR, RP::INVERT_DEFAULT);
     registerParameter(waveMOD1, WAVEMOD1_STR, &RP::WAVE, RP::WAVE.defaultValue);
@@ -61,7 +58,6 @@ RichterAudioProcessor::RichterAudioProcessor()
     registerParameter(tempoDenomMOD1, TEMPODENOMMOD1_STR, &RP::TEMPODENOM, RP::TEMPODENOM.defaultValue);
 
     registerParameter(bypassSwitchMOD2, SWITCHMOD2_STR, RP::LFOSWITCH_DEFAULT);
-    registerParameter(phaseSyncMOD2, PHASEMOD2_STR, RP::PHASESYNC_DEFAULT);
     registerParameter(tempoSyncMOD2, TEMPOSYNCMOD2_STR, RP::TEMPOSYNC_DEFAULT);
     registerParameter(invertMOD2, INVERTMOD2_STR, RP::INVERT_DEFAULT);
     registerParameter(waveMOD2, WAVEMOD2_STR, &RP::WAVE, RP::WAVE.defaultValue);
@@ -242,7 +238,7 @@ AudioProcessorEditor* RichterAudioProcessor::createEditor()
 std::vector<juce::String> RichterAudioProcessor::_provideParamNamesForMigration() {
     return std::vector<juce::String> {
         SWITCHLFO1_STR,
-        PHASELFO1_STR,
+        "REMOVED1",
         TEMPOSYNCLFO1_STR,
         WAVELFO1_STR,
         DEPTHLFO1_STR,
@@ -254,7 +250,7 @@ std::vector<juce::String> RichterAudioProcessor::_provideParamNamesForMigration(
         TEMPODENOMLFO1_STR,
 
         SWITCHLFO2_STR,
-        PHASELFO2_STR,
+        "REMOVED2",
         TEMPOSYNCLFO2_STR,
         WAVELFO2_STR,
         DEPTHLFO2_STR,
@@ -266,7 +262,7 @@ std::vector<juce::String> RichterAudioProcessor::_provideParamNamesForMigration(
         TEMPODENOMLFO2_STR,
 
         SWITCHMOD1_STR,
-        PHASEMOD1_STR,
+        "REMOVED3",
         TEMPOSYNCMOD1_STR,
         WAVEMOD1_STR,
         DEPTHMOD1_STR,
@@ -276,7 +272,7 @@ std::vector<juce::String> RichterAudioProcessor::_provideParamNamesForMigration(
         TEMPODENOMMOD1_STR,
 
         SWITCHMOD2_STR,
-        PHASEMOD2_STR,
+        "REMOVED4",
         TEMPOSYNCMOD2_STR,
         WAVEMOD2_STR,
         DEPTHMOD2_STR,
@@ -325,7 +321,6 @@ void RichterAudioProcessor::_migrateParamValues(std::vector<float>& paramValues)
 
 void RichterAudioProcessor::_onParameterUpdate() {
     mRichter.LFOPair1.LFO.setBypassSwitch(bypassSwitchLFO1->get());
-    mRichter.LFOPair1.LFO.setPhaseSyncSwitch(phaseSyncLFO1->get());
     mRichter.LFOPair1.LFO.setTempoSyncSwitch(tempoSyncLFO1->get());
     mRichter.LFOPair1.LFO.setInvertSwitch(invertLFO1->get());
     mRichter.LFOPair1.LFO.setWave(waveLFO1->get());
@@ -338,7 +333,6 @@ void RichterAudioProcessor::_onParameterUpdate() {
     mRichter.LFOPair1.LFO.setTempoDenom(tempoDenomLFO1->get());
 
     mRichter.LFOPair2.LFO.setBypassSwitch(bypassSwitchLFO2->get());
-    mRichter.LFOPair2.LFO.setPhaseSyncSwitch(phaseSyncLFO2->get());
     mRichter.LFOPair2.LFO.setTempoSyncSwitch(tempoSyncLFO2->get());
     mRichter.LFOPair2.LFO.setInvertSwitch(invertLFO2->get());
     mRichter.LFOPair2.LFO.setWave(waveLFO2->get());
@@ -351,7 +345,6 @@ void RichterAudioProcessor::_onParameterUpdate() {
     mRichter.LFOPair2.LFO.setTempoDenom(tempoDenomLFO2->get());
 
     mRichter.LFOPair1.MOD->setBypassSwitch(bypassSwitchMOD1->get());
-    mRichter.LFOPair1.MOD->setPhaseSyncSwitch(phaseSyncMOD1->get());
     mRichter.LFOPair1.MOD->setTempoSyncSwitch(tempoSyncMOD1->get());
     mRichter.LFOPair1.MOD->setInvertSwitch(invertMOD1->get());
     mRichter.LFOPair1.MOD->setWave(waveMOD1->get());
@@ -362,7 +355,6 @@ void RichterAudioProcessor::_onParameterUpdate() {
     mRichter.LFOPair1.MOD->setTempoDenom(tempoDenomMOD1->get());
 
     mRichter.LFOPair2.MOD->setBypassSwitch(bypassSwitchMOD2->get());
-    mRichter.LFOPair2.MOD->setPhaseSyncSwitch(phaseSyncMOD2->get());
     mRichter.LFOPair2.MOD->setTempoSyncSwitch(tempoSyncMOD2->get());
     mRichter.LFOPair2.MOD->setInvertSwitch(invertMOD2->get());
     mRichter.LFOPair2.MOD->setWave(waveMOD2->get());

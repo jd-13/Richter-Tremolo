@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 6.0.7
+  Created with Projucer version: 6.0.8
 
   ------------------------------------------------------------------------------
 
@@ -109,8 +109,6 @@ private:
     std::unique_ptr<juce::Slider> TempoDenomLFO1Sld;
     std::unique_ptr<juce::Slider> TempoNumerLFO2Sld;
     std::unique_ptr<juce::Slider> TempoDenomLFO2Sld;
-    std::unique_ptr<juce::TextButton> PhaseSyncLFO1Btn;
-    std::unique_ptr<juce::TextButton> PhaseSyncLFO2Btn;
     std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> PhaseLFO1Sld;
     std::unique_ptr<juce::Label> PhaseLFO1Lbl;
     std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> PhaseLFO2Sld;
@@ -125,7 +123,6 @@ private:
     std::unique_ptr<juce::TextButton> TempoSyncMOD1Btn;
     std::unique_ptr<juce::Slider> TempoNumerMOD1Sld;
     std::unique_ptr<juce::Slider> TempoDenomMOD1Sld;
-    std::unique_ptr<juce::TextButton> PhaseSyncMOD1Btn;
     std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> PhaseMOD1Sld;
     std::unique_ptr<juce::Label> PhaseMOD1Lbl;
     std::unique_ptr<juce::GroupComponent> MOD2Group;
@@ -138,7 +135,6 @@ private:
     std::unique_ptr<juce::TextButton> TempoSyncMOD2Btn;
     std::unique_ptr<juce::Slider> TempoNumerMOD2Sld;
     std::unique_ptr<juce::Slider> TempoDenomMOD2Sld;
-    std::unique_ptr<juce::TextButton> PhaseSyncMOD2Btn;
     std::unique_ptr<WECore::JUCEPlugin::LabelReadoutSlider<double>> PhaseMOD2Sld;
     std::unique_ptr<juce::Label> PhaseMOD2Lbl;
     std::unique_ptr<juce::TextButton> StereoBtn;

@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 6.0.7
+  Created with Projucer version: 6.0.8
 
   ------------------------------------------------------------------------------
 
@@ -290,22 +290,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoDenomLFO2Sld->setBounds (364, 160, 56, 16);
 
-    PhaseSyncLFO1Btn.reset (new juce::TextButton ("LFO 1 Phase Sync Button"));
-    addAndMakeVisible (PhaseSyncLFO1Btn.get());
-    PhaseSyncLFO1Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
-    PhaseSyncLFO1Btn->setButtonText (TRANS("Phase"));
-    PhaseSyncLFO1Btn->addListener (this);
-
-    PhaseSyncLFO1Btn->setBounds (172, 96, 56, 16);
-
-    PhaseSyncLFO2Btn.reset (new juce::TextButton ("LFO 2 Phase Sync Button"));
-    addAndMakeVisible (PhaseSyncLFO2Btn.get());
-    PhaseSyncLFO2Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
-    PhaseSyncLFO2Btn->setButtonText (TRANS("Phase"));
-    PhaseSyncLFO2Btn->addListener (this);
-
-    PhaseSyncLFO2Btn->setBounds (472, 96, 56, 16);
-
     PhaseLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Phase Slider"));
     addAndMakeVisible (PhaseLFO1Sld.get());
     PhaseLFO1Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
@@ -454,14 +438,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoDenomMOD1Sld->setBounds (64, 288, 56, 16);
 
-    PhaseSyncMOD1Btn.reset (new juce::TextButton ("MOD 1 Phase Sync Button"));
-    addAndMakeVisible (PhaseSyncMOD1Btn.get());
-    PhaseSyncMOD1Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
-    PhaseSyncMOD1Btn->setButtonText (TRANS("Phase"));
-    PhaseSyncMOD1Btn->addListener (this);
-
-    PhaseSyncMOD1Btn->setBounds (172, 224, 56, 16);
-
     PhaseMOD1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 1 Phase Slider"));
     addAndMakeVisible (PhaseMOD1Sld.get());
     PhaseMOD1Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
@@ -586,14 +562,6 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     TempoDenomMOD2Sld->addListener (this);
 
     TempoDenomMOD2Sld->setBounds (364, 288, 56, 16);
-
-    PhaseSyncMOD2Btn.reset (new juce::TextButton ("MOD 2 Phase Sync Button"));
-    addAndMakeVisible (PhaseSyncMOD2Btn.get());
-    PhaseSyncMOD2Btn->setTooltip (TRANS("Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"));
-    PhaseSyncMOD2Btn->setButtonText (TRANS("Phase"));
-    PhaseSyncMOD2Btn->addListener (this);
-
-    PhaseSyncMOD2Btn->setBounds (472, 224, 56, 16);
 
     PhaseMOD2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 2 Phase Slider"));
     addAndMakeVisible (PhaseMOD2Sld.get());
@@ -739,7 +707,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     InvertLFO1Btn->setButtonText (TRANS("Invert"));
     InvertLFO1Btn->addListener (this);
 
-    InvertLFO1Btn->setBounds (172, 168, 56, 16);
+    InvertLFO1Btn->setBounds (172, 96, 56, 16);
 
     InvertLFO2Btn.reset (new juce::TextButton ("LFO 2 Invert Button"));
     addAndMakeVisible (InvertLFO2Btn.get());
@@ -747,7 +715,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     InvertLFO2Btn->setButtonText (TRANS("Invert"));
     InvertLFO2Btn->addListener (this);
 
-    InvertLFO2Btn->setBounds (472, 168, 56, 16);
+    InvertLFO2Btn->setBounds (472, 96, 56, 16);
 
     InvertMOD1Btn.reset (new juce::TextButton ("MOD 1 Invert Button"));
     addAndMakeVisible (InvertMOD1Btn.get());
@@ -755,7 +723,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     InvertMOD1Btn->setButtonText (TRANS("Invert"));
     InvertMOD1Btn->addListener (this);
 
-    InvertMOD1Btn->setBounds (172, 296, 56, 16);
+    InvertMOD1Btn->setBounds (172, 224, 56, 16);
 
     InvertMOD2Btn.reset (new juce::TextButton ("MOD 2 Invert Button"));
     addAndMakeVisible (InvertMOD2Btn.get());
@@ -763,7 +731,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     InvertMOD2Btn->setButtonText (TRANS("Invert"));
     InvertMOD2Btn->addListener (this);
 
-    InvertMOD2Btn->setBounds (472, 296, 56, 16);
+    InvertMOD2Btn->setBounds (472, 224, 56, 16);
 
 
     //[UserPreSize]
@@ -869,8 +837,6 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     TempoDenomLFO1Sld = nullptr;
     TempoNumerLFO2Sld = nullptr;
     TempoDenomLFO2Sld = nullptr;
-    PhaseSyncLFO1Btn = nullptr;
-    PhaseSyncLFO2Btn = nullptr;
     PhaseLFO1Sld = nullptr;
     PhaseLFO1Lbl = nullptr;
     PhaseLFO2Sld = nullptr;
@@ -885,7 +851,6 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     TempoSyncMOD1Btn = nullptr;
     TempoNumerMOD1Sld = nullptr;
     TempoDenomMOD1Sld = nullptr;
-    PhaseSyncMOD1Btn = nullptr;
     PhaseMOD1Sld = nullptr;
     PhaseMOD1Lbl = nullptr;
     MOD2Group = nullptr;
@@ -898,7 +863,6 @@ RichterAudioProcessorEditor::~RichterAudioProcessorEditor()
     TempoSyncMOD2Btn = nullptr;
     TempoNumerMOD2Sld = nullptr;
     TempoDenomMOD2Sld = nullptr;
-    PhaseSyncMOD2Btn = nullptr;
     PhaseMOD2Sld = nullptr;
     PhaseMOD2Lbl = nullptr;
     StereoBtn = nullptr;
@@ -1175,18 +1139,6 @@ void RichterAudioProcessorEditor::buttonClicked (juce::Button* buttonThatWasClic
         ourProcessor->setParameterValueInternal(ourProcessor->tempoSyncLFO2, !TempoSyncLFO2Btn->getToggleState());
         //[/UserButtonCode_TempoSyncLFO2Btn]
     }
-    else if (buttonThatWasClicked == PhaseSyncLFO1Btn.get())
-    {
-        //[UserButtonCode_PhaseSyncLFO1Btn] -- add your button handler code here..
-        ourProcessor->setParameterValueInternal(ourProcessor->phaseSyncLFO1, !PhaseSyncLFO1Btn->getToggleState());
-        //[/UserButtonCode_PhaseSyncLFO1Btn]
-    }
-    else if (buttonThatWasClicked == PhaseSyncLFO2Btn.get())
-    {
-        //[UserButtonCode_PhaseSyncLFO2Btn] -- add your button handler code here..
-        ourProcessor->setParameterValueInternal(ourProcessor->phaseSyncLFO2, !PhaseSyncLFO2Btn->getToggleState());
-        //[/UserButtonCode_PhaseSyncLFO2Btn]
-    }
     else if (buttonThatWasClicked == BypassMOD1Btn.get())
     {
         //[UserButtonCode_BypassMOD1Btn] -- add your button handler code here..
@@ -1199,12 +1151,6 @@ void RichterAudioProcessorEditor::buttonClicked (juce::Button* buttonThatWasClic
         ourProcessor->setParameterValueInternal(ourProcessor->tempoSyncMOD1, !TempoSyncMOD1Btn->getToggleState());
         //[/UserButtonCode_TempoSyncMOD1Btn]
     }
-    else if (buttonThatWasClicked == PhaseSyncMOD1Btn.get())
-    {
-        //[UserButtonCode_PhaseSyncMOD1Btn] -- add your button handler code here..
-        ourProcessor->setParameterValueInternal(ourProcessor->phaseSyncMOD1, !PhaseSyncMOD1Btn->getToggleState());
-        //[/UserButtonCode_PhaseSyncMOD1Btn]
-    }
     else if (buttonThatWasClicked == BypassMOD2Btn.get())
     {
         //[UserButtonCode_BypassMOD2Btn] -- add your button handler code here..
@@ -1216,12 +1162,6 @@ void RichterAudioProcessorEditor::buttonClicked (juce::Button* buttonThatWasClic
         //[UserButtonCode_TempoSyncMOD2Btn] -- add your button handler code here..
         ourProcessor->setParameterValueInternal(ourProcessor->tempoSyncMOD2, !TempoSyncMOD2Btn->getToggleState());
         //[/UserButtonCode_TempoSyncMOD2Btn]
-    }
-    else if (buttonThatWasClicked == PhaseSyncMOD2Btn.get())
-    {
-        //[UserButtonCode_PhaseSyncMOD2Btn] -- add your button handler code here..
-        ourProcessor->setParameterValueInternal(ourProcessor->phaseSyncMOD2, !PhaseSyncMOD2Btn->getToggleState());
-        //[/UserButtonCode_PhaseSyncMOD2Btn]
     }
     else if (buttonThatWasClicked == StereoBtn.get())
     {
@@ -1416,7 +1356,6 @@ void RichterAudioProcessorEditor::_onParameterUpdate() {
 
     // LFO 1
     BypassLFO1Btn->setToggleState(ourProcessor->bypassSwitchLFO1->get(), dontSendNotification);
-    PhaseSyncLFO1Btn->setToggleState(ourProcessor->phaseSyncLFO1->get(), dontSendNotification);
     TempoSyncLFO1Btn->setToggleState(ourProcessor->tempoSyncLFO1->get(), dontSendNotification);
     InvertLFO1Btn->setToggleState(ourProcessor->invertLFO1->get(), dontSendNotification);
     WaveLFO1Cmb->setSelectedId(ourProcessor->waveLFO1->get(), dontSendNotification);
@@ -1430,7 +1369,6 @@ void RichterAudioProcessorEditor::_onParameterUpdate() {
 
     // LFO 2
     BypassLFO2Btn->setToggleState(ourProcessor->bypassSwitchLFO2->get(), dontSendNotification);
-    PhaseSyncLFO2Btn->setToggleState(ourProcessor->phaseSyncLFO2->get(), dontSendNotification);
     TempoSyncLFO2Btn->setToggleState(ourProcessor->tempoSyncLFO2->get(), dontSendNotification);
     InvertLFO2Btn->setToggleState(ourProcessor->invertLFO2->get(), dontSendNotification);
     WaveLFO2Cmb->setSelectedId(ourProcessor->waveLFO2->get(), dontSendNotification);
@@ -1444,7 +1382,6 @@ void RichterAudioProcessorEditor::_onParameterUpdate() {
 
     // MOD 1
     BypassMOD1Btn->setToggleState(ourProcessor->bypassSwitchMOD1->get(), dontSendNotification);
-    PhaseSyncMOD1Btn->setToggleState(ourProcessor->phaseSyncMOD1->get(), dontSendNotification);
     TempoSyncMOD1Btn->setToggleState(ourProcessor->tempoSyncMOD1->get(), dontSendNotification);
     InvertMOD1Btn->setToggleState(ourProcessor->invertMOD1->get(), dontSendNotification);
     WaveMOD1Cmb->setSelectedId(ourProcessor->waveMOD1->get(), dontSendNotification);
@@ -1456,7 +1393,6 @@ void RichterAudioProcessorEditor::_onParameterUpdate() {
 
     // MOD2
     BypassMOD2Btn->setToggleState(ourProcessor->bypassSwitchMOD2->get(), dontSendNotification);
-    PhaseSyncMOD2Btn->setToggleState(ourProcessor->phaseSyncMOD2->get(), dontSendNotification);
     TempoSyncMOD2Btn->setToggleState(ourProcessor->tempoSyncMOD2->get(), dontSendNotification);
     InvertMOD2Btn->setToggleState(ourProcessor->invertMOD2->get(), dontSendNotification);
     WaveMOD2Cmb->setSelectedId(ourProcessor->waveMOD2->get(), dontSendNotification);
@@ -1493,12 +1429,6 @@ void RichterAudioProcessorEditor::_onParameterUpdate() {
     MOD1Group->repaint();
     MOD2Group->repaint();
 
-    // Activate/Deactivale phase control depending on phase sync
-    PhaseLFO1Sld->setEnabled(PhaseSyncLFO1Btn->getToggleState());
-    PhaseLFO2Sld->setEnabled(PhaseSyncLFO2Btn->getToggleState());
-    PhaseMOD1Sld->setEnabled(PhaseSyncMOD1Btn->getToggleState());
-    PhaseMOD2Sld->setEnabled(PhaseSyncMOD2Btn->getToggleState());
-
     _updateTempoToggles(false);
 
     // Update wave viewers
@@ -1527,22 +1457,22 @@ void RichterAudioProcessorEditor::_onParameterUpdate() {
     updateWaveView(WaveViewLFO1.get(),
                    ourProcessor->waveLFO1->get(),
                    ourProcessor->depthLFO1->get(),
-                   ourProcessor->phaseSyncLFO1->get() ? ourProcessor->phaseLFO1->get() : 0,
+                   ourProcessor->phaseLFO1->get(),
                    ourProcessor->invertLFO1->get());
     updateWaveView(WaveViewLFO2.get(),
                    ourProcessor->waveLFO2->get(),
                    ourProcessor->depthLFO2->get(),
-                   ourProcessor->phaseSyncLFO2->get() ? ourProcessor->phaseLFO2->get() : 0,
+                   ourProcessor->phaseLFO2->get(),
                    ourProcessor->invertLFO2->get());
     updateWaveView(WaveViewMOD1.get(),
                    ourProcessor->waveMOD1->get(),
                    ourProcessor->depthMOD1->get(),
-                   ourProcessor->phaseSyncMOD1->get() ? ourProcessor->phaseMOD1->get() : 0,
+                   ourProcessor->phaseMOD1->get(),
                    ourProcessor->invertMOD1->get());
     updateWaveView(WaveViewMOD2.get(),
                    ourProcessor->waveMOD2->get(),
                    ourProcessor->depthMOD2->get(),
-                   ourProcessor->phaseSyncMOD2->get() ? ourProcessor->phaseMOD2->get() : 0,
+                   ourProcessor->phaseMOD2->get(),
                    ourProcessor->invertMOD2->get());
 }
 
@@ -1625,10 +1555,6 @@ void RichterAudioProcessorEditor::_updateTempoToggles(bool forceUpdate) {
     static bool tempoSyncMOD1 {TempoSyncMOD1Btn->getToggleState()};
     static bool tempoSyncMOD2 {TempoSyncMOD2Btn->getToggleState()};
 
-    // Assume all invert buttons are the same width, store the original width so we know what it
-    // should be even after we've changed it
-    const static int initialinvertBtnWidth {InvertLFO1Btn->getWidth()};
-
     // Toggle visibility for rate controls and move MOD labels depending on tempo sync
     auto updateTempoButton = [](bool toggleState,
                                 Slider* freqSld,
@@ -1638,11 +1564,8 @@ void RichterAudioProcessorEditor::_updateTempoToggles(bool forceUpdate) {
                                 Slider* tempoNumerSld,
                                 Slider* tempoDenomSld,
                                 Label* modLeftLabel, // optional
-                                Label* modRightLabel, // optional
-                                TextButton* invertBtn) {
-
-        constexpr int INVERT_BTN_DELTA {22};
-
+                                Label* modRightLabel // optional
+                                ) {
         if (toggleState) {
             freqSld->setVisible(false);
             freqLbl->setVisible(false);
@@ -1656,13 +1579,6 @@ void RichterAudioProcessorEditor::_updateTempoToggles(bool forceUpdate) {
                 modLeftLabel->setVisible(false);
                 modRightLabel->setVisible(true);
                 depthModSld->start(modRightLabel, modRightLabel->getText());
-
-                // Resize the invert button
-                if (invertBtn->getWidth() == initialinvertBtnWidth) {
-                    Rectangle<int> invertBtnBounds = invertBtn->getBounds();
-                    invertBtn->setBounds(invertBtnBounds.withLeft(invertBtnBounds.getX() + INVERT_BTN_DELTA));
-                    invertBtn->setButtonText("Inv");
-                }
             }
 
         } else {
@@ -1678,13 +1594,6 @@ void RichterAudioProcessorEditor::_updateTempoToggles(bool forceUpdate) {
                 modLeftLabel->setVisible(true);
                 modRightLabel->setVisible(false);
                 depthModSld->start(modLeftLabel, modLeftLabel->getText());
-
-                // Resize the invert button
-                if (invertBtn->getWidth() != initialinvertBtnWidth) {
-                    Rectangle<int> invertBtnBounds = invertBtn->getBounds();
-                    invertBtn->setBounds(invertBtnBounds.withLeft(invertBtnBounds.getX() - INVERT_BTN_DELTA));
-                    invertBtn->setButtonText("Invert");
-                }
             }
         }
     };
@@ -1701,8 +1610,7 @@ void RichterAudioProcessorEditor::_updateTempoToggles(bool forceUpdate) {
                           TempoNumerLFO1Sld.get(),
                           TempoDenomLFO1Sld.get(),
                           MODLFO1LeftLbl.get(),
-                          MODLFO1RightLbl.get(),
-                          InvertLFO1Btn.get());
+                          MODLFO1RightLbl.get());
     }
 
     if (forceUpdate || TempoSyncLFO2Btn->getToggleState() != tempoSyncLFO2) {
@@ -1716,8 +1624,7 @@ void RichterAudioProcessorEditor::_updateTempoToggles(bool forceUpdate) {
                           TempoNumerLFO2Sld.get(),
                           TempoDenomLFO2Sld.get(),
                           MODLFO2LeftLbl.get(),
-                          MODLFO2RightLbl.get(),
-                          InvertLFO2Btn.get());
+                          MODLFO2RightLbl.get());
     }
 
     if (forceUpdate || TempoSyncMOD1Btn->getToggleState() != tempoSyncMOD1) {
@@ -1731,8 +1638,7 @@ void RichterAudioProcessorEditor::_updateTempoToggles(bool forceUpdate) {
                           TempoNumerMOD1Sld.get(),
                           TempoDenomMOD1Sld.get(),
                           nullptr,
-                          nullptr,
-                          InvertMOD1Btn.get());
+                          nullptr);
     }
 
     if (forceUpdate || TempoSyncMOD2Btn->getToggleState() != tempoSyncMOD2) {
@@ -1746,8 +1652,7 @@ void RichterAudioProcessorEditor::_updateTempoToggles(bool forceUpdate) {
                           TempoNumerMOD2Sld.get(),
                           TempoDenomMOD2Sld.get(),
                           nullptr,
-                          nullptr,
-                          InvertMOD2Btn.get());
+                          nullptr);
     }
 }
 
@@ -1915,12 +1820,6 @@ BEGIN_JUCER_METADATA
           textboxoutline="808080" min="1.0" max="32.0" int="1.0" style="IncDecButtons"
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
-  <TEXTBUTTON name="LFO 1 Phase Sync Button" id="1df73348199bbe85" memberName="PhaseSyncLFO1Btn"
-              virtualName="" explicitFocusOrder="0" pos="172 96 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
-              buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <TEXTBUTTON name="LFO 2 Phase Sync Button" id="6956f3f885f5801d" memberName="PhaseSyncLFO2Btn"
-              virtualName="" explicitFocusOrder="0" pos="472 96 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
-              buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="LFO 1 Phase Slider" id="1fa393dc85f550ee" memberName="PhaseLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="184 120 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
@@ -1987,9 +1886,6 @@ BEGIN_JUCER_METADATA
           textboxoutline="808080" min="1.0" max="32.0" int="1.0" style="IncDecButtons"
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
-  <TEXTBUTTON name="MOD 1 Phase Sync Button" id="4509e154e4918174" memberName="PhaseSyncMOD1Btn"
-              virtualName="" explicitFocusOrder="0" pos="172 224 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
-              buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 1 Phase Slider" id="3f1ef3d10c303bac" memberName="PhaseMOD1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="184 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
@@ -2045,9 +1941,6 @@ BEGIN_JUCER_METADATA
           textboxoutline="808080" min="1.0" max="32.0" int="1.0" style="IncDecButtons"
           textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
           textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
-  <TEXTBUTTON name="MOD 2 Phase Sync Button" id="7b0a4004498f92b3" memberName="PhaseSyncMOD2Btn"
-              virtualName="" explicitFocusOrder="0" pos="472 224 56 16" tooltip="Enable phase sync to ensure the phase of the LFO is consistent regardless of where the DAW playhead starts from"
-              buttonText="Phase" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 2 Phase Slider" id="54fd5481a5970106" memberName="PhaseMOD2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="484 248 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
@@ -2112,16 +2005,16 @@ BEGIN_JUCER_METADATA
                     virtualName="WECore::Richter::WaveViewer" explicitFocusOrder="0"
                     pos="532 250 80 31" class="juce::Component" params=""/>
   <TEXTBUTTON name="LFO 1 Invert Button" id="395539a668deb434" memberName="InvertLFO1Btn"
-              virtualName="" explicitFocusOrder="0" pos="172 168 56 16" tooltip="Inverts the LFO output"
+              virtualName="" explicitFocusOrder="0" pos="172 96 56 16" tooltip="Inverts the LFO output"
               buttonText="Invert" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="LFO 2 Invert Button" id="2bc437308a0791f7" memberName="InvertLFO2Btn"
-              virtualName="" explicitFocusOrder="0" pos="472 168 56 16" tooltip="Inverts the LFO output"
+              virtualName="" explicitFocusOrder="0" pos="472 96 56 16" tooltip="Inverts the LFO output"
               buttonText="Invert" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="MOD 1 Invert Button" id="ad36f1cd4f6d056a" memberName="InvertMOD1Btn"
-              virtualName="" explicitFocusOrder="0" pos="172 296 56 16" tooltip="Inverts the LFO output"
+              virtualName="" explicitFocusOrder="0" pos="172 224 56 16" tooltip="Inverts the LFO output"
               buttonText="Invert" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="MOD 2 Invert Button" id="2a2efae7eb2aae39" memberName="InvertMOD2Btn"
-              virtualName="" explicitFocusOrder="0" pos="472 296 56 16" tooltip="Inverts the LFO output"
+              virtualName="" explicitFocusOrder="0" pos="472 224 56 16" tooltip="Inverts the LFO output"
               buttonText="Invert" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
