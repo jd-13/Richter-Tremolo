@@ -24,6 +24,7 @@
 #include "JuceHeader.h"
 #include "CoreJUCEPlugin/CoreProcessorEditor.h"
 #include "CoreJUCEPlugin/LabelReadoutSlider.h"
+#include "CoreJUCEPlugin/TooltipLabelUpdater.h"
 #include "RichterLFOCache.h"
 #include "RichterLFOMeter.h"
 #include "RichterLookAndFeel.h"
@@ -74,6 +75,7 @@ private:
     RichterLookAndFeel customLookAndFeel;
     RichterTempoButtonLookAndFeel tempoLookAndFeel;
     Colour _highlightColour;
+    WECore::JUCEPlugin::TooltipLabelUpdater _tooltipLabelUpdater;
 
     virtual void _onParameterUpdate() override;
     void _enableDoubleClickToDefault();
@@ -155,6 +157,7 @@ private:
     std::unique_ptr<juce::TextButton> InvertLFO2Btn;
     std::unique_ptr<juce::TextButton> InvertMOD1Btn;
     std::unique_ptr<juce::TextButton> InvertMOD2Btn;
+    std::unique_ptr<juce::Label> tooltipLbl;
 
 
     //==============================================================================
