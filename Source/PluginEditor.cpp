@@ -1185,7 +1185,7 @@ void RichterAudioProcessorEditor::buttonClicked (juce::Button* buttonThatWasClic
     else if (buttonThatWasClicked == StereoBtn.get())
     {
         //[UserButtonCode_StereoBtn] -- add your button handler code here..
-        ourProcessor->setParameterValueInternal(ourProcessor->stereo, !StereoBtn->getToggleState());
+        ourProcessor->setStereo(!StereoBtn->getToggleState());
         //[/UserButtonCode_StereoBtn]
     }
     else if (buttonThatWasClicked == InvertLFO1Btn.get())

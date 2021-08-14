@@ -235,6 +235,20 @@ AudioProcessorEditor* RichterAudioProcessor::createEditor()
 }
 
 //==============================================================================
+void RichterAudioProcessor::setStereo(bool val) {
+    // This is called from _onParameterUpdate so only proceed if the value has actually changed,
+    // otherwise it will cause an infinite loop
+    if (val != mRichter.getStereo()) {
+        if (getNumOutputChannels() == 1) {
+            mRichter.setStereo(false);
+            stereo->setValueNotifyingHost(false);
+        } else {
+            mRichter.setStereo(val);
+            stereo->setValueNotifyingHost(val);
+        }
+    }
+}
+
 std::vector<juce::String> RichterAudioProcessor::_provideParamNamesForMigration() {
     return std::vector<juce::String> {
         SWITCHLFO1_STR,
@@ -364,7 +378,7 @@ void RichterAudioProcessor::_onParameterUpdate() {
     mRichter.LFOPair2.MOD->setTempoNumer(tempoNumerMOD2->get());
     mRichter.LFOPair2.MOD->setTempoDenom(tempoDenomMOD2->get());
 
-    mRichter.setStereo(stereo->get());
+    setStereo(stereo->get());
     mRichter.setOutputGain(outputGain->get());
 }
 

@@ -64,6 +64,8 @@ public:
     //==============================================================================
     const RichterLFOCache& getLFOCache() { return mRichter.getLFOCache(); }
 
+    void setStereo(bool val);
+
     AudioParameterBool* bypassSwitchLFO1;
     AudioParameterBool* tempoSyncLFO1;
     AudioParameterBool* invertLFO1;
