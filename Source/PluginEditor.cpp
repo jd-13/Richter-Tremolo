@@ -248,6 +248,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerLFO1Sld.reset (new juce::Slider ("LFO 1 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerLFO1Sld.get());
+    TempoNumerLFO1Sld->setTooltip (TRANS("Numerator for the tempo sync"));
     TempoNumerLFO1Sld->setRange (1, 16, 1);
     TempoNumerLFO1Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerLFO1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -259,6 +260,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoDenomLFO1Sld.reset (new juce::Slider ("LFO 1 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomLFO1Sld.get());
+    TempoDenomLFO1Sld->setTooltip (TRANS("Denominator for the tempo sync"));
     TempoDenomLFO1Sld->setRange (1, 32, 1);
     TempoDenomLFO1Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoDenomLFO1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -270,6 +272,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerLFO2Sld.reset (new juce::Slider ("LFO 2 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerLFO2Sld.get());
+    TempoNumerLFO2Sld->setTooltip (TRANS("Numerator for the tempo sync"));
     TempoNumerLFO2Sld->setRange (1, 16, 1);
     TempoNumerLFO2Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerLFO2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -281,6 +284,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoDenomLFO2Sld.reset (new juce::Slider ("LFO 2 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomLFO2Sld.get());
+    TempoDenomLFO2Sld->setTooltip (TRANS("Denominator for the tempo sync"));
     TempoDenomLFO2Sld->setRange (1, 32, 1);
     TempoDenomLFO2Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoDenomLFO2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -418,6 +422,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerMOD1Sld.reset (new juce::Slider ("MOD 1 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerMOD1Sld.get());
+    TempoNumerMOD1Sld->setTooltip (TRANS("Numerator for the tempo sync"));
     TempoNumerMOD1Sld->setRange (1, 16, 1);
     TempoNumerMOD1Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerMOD1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -429,6 +434,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoDenomMOD1Sld.reset (new juce::Slider ("MOD 1 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomMOD1Sld.get());
+    TempoDenomMOD1Sld->setTooltip (TRANS("Denominator for the tempo sync"));
     TempoDenomMOD1Sld->setRange (1, 32, 1);
     TempoDenomMOD1Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoDenomMOD1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -543,6 +549,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerMOD2Sld.reset (new juce::Slider ("MOD 2 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerMOD2Sld.get());
+    TempoNumerMOD2Sld->setTooltip (TRANS("Numerator for the tempo sync"));
     TempoNumerMOD2Sld->setRange (1, 16, 1);
     TempoNumerMOD2Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerMOD2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -554,6 +561,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoDenomMOD2Sld.reset (new juce::Slider ("MOD 2 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomMOD2Sld.get());
+    TempoDenomMOD2Sld->setTooltip (TRANS("Denominator for the tempo sync"));
     TempoDenomMOD2Sld->setRange (1, 32, 1);
     TempoDenomMOD2Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoDenomMOD2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -782,6 +790,19 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     customLookAndFeel.setColour(WECore::Richter::WaveViewer::ColourIds::highlightColourId,
                                 _highlightColour);
+
+
+    // Meter tooltips
+    MeterLFO1->setTooltip("Output of LFO 1");
+    MeterLFO2->setTooltip("Output of LFO 2");
+    MeterMOD1->setTooltip("Output of MOD 1");
+    MeterMOD2->setTooltip("Output of MOD 2");
+
+    // Wave shape tooltips
+    WaveViewLFO1->setTooltip("Wave shape that will be output by LFO 1");
+    WaveViewLFO2->setTooltip("Wave shape that will be output by LFO 2");
+    WaveViewMOD1->setTooltip("Wave shape that will be output by MOD 1");
+    WaveViewMOD2->setTooltip("Wave shape that will be output by MOD 2");
 
     // Start tooltip label
     addMouseListener(&_tooltipLabelUpdater, true);
@@ -1820,25 +1841,25 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="364 91 56 16" tooltip="Sync LFO frequency to host tempo"
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="LFO 1 Tempo Numer Slider" id="ae3b2cb5fc40f879" memberName="TempoNumerLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="64 123 56 16" textboxbkgd="ffc8c8c8"
-          textboxoutline="808080" min="1.0" max="16.0" int="1.0" style="IncDecButtons"
-          textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          virtualName="" explicitFocusOrder="0" pos="64 123 56 16" tooltip="Numerator for the tempo sync"
+          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="16.0"
+          int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 1 Tempo Denom Slider" id="79fb8b0e645e1976" memberName="TempoDenomLFO1Sld"
-          virtualName="" explicitFocusOrder="0" pos="64 155 56 16" textboxbkgd="ffc8c8c8"
-          textboxoutline="808080" min="1.0" max="32.0" int="1.0" style="IncDecButtons"
-          textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          virtualName="" explicitFocusOrder="0" pos="64 155 56 16" tooltip="Denominator for the tempo sync"
+          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="32.0"
+          int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Tempo Numer Slider" id="7ef07d530a2439f7" memberName="TempoNumerLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="364 123 56 16" textboxbkgd="ffc8c8c8"
-          textboxoutline="808080" min="1.0" max="16.0" int="1.0" style="IncDecButtons"
-          textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          virtualName="" explicitFocusOrder="0" pos="364 123 56 16" tooltip="Numerator for the tempo sync"
+          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="16.0"
+          int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Tempo Denom Slider" id="684fae94c6ad39f8" memberName="TempoDenomLFO2Sld"
-          virtualName="" explicitFocusOrder="0" pos="364 155 56 16" textboxbkgd="ffc8c8c8"
-          textboxoutline="808080" min="1.0" max="32.0" int="1.0" style="IncDecButtons"
-          textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          virtualName="" explicitFocusOrder="0" pos="364 155 56 16" tooltip="Denominator for the tempo sync"
+          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="32.0"
+          int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 1 Phase Slider" id="1fa393dc85f550ee" memberName="PhaseLFO1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="184 115 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
@@ -1896,15 +1917,15 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="64 213 56 16" tooltip="Sync LFO frequency to host tempo"
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 1 Tempo Numer Slider" id="6c49dac77f3e6f4b" memberName="TempoNumerMOD1Sld"
-          virtualName="" explicitFocusOrder="0" pos="64 245 56 16" textboxbkgd="ffc8c8c8"
-          textboxoutline="808080" min="1.0" max="16.0" int="1.0" style="IncDecButtons"
-          textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          virtualName="" explicitFocusOrder="0" pos="64 245 56 16" tooltip="Numerator for the tempo sync"
+          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="16.0"
+          int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 1 Tempo Denom Slider" id="a116d9c60bf4c7b5" memberName="TempoDenomMOD1Sld"
-          virtualName="" explicitFocusOrder="0" pos="64 277 56 16" textboxbkgd="ffc8c8c8"
-          textboxoutline="808080" min="1.0" max="32.0" int="1.0" style="IncDecButtons"
-          textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          virtualName="" explicitFocusOrder="0" pos="64 277 56 16" tooltip="Denominator for the tempo sync"
+          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="32.0"
+          int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 1 Phase Slider" id="3f1ef3d10c303bac" memberName="PhaseMOD1Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="184 237 32 24" tooltip="Phase shift the LFO by up to 360 degrees"
@@ -1951,15 +1972,15 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="364 213 56 16" tooltip="Sync LFO frequency to host tempo"
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 2 Tempo Numer Slider" id="2bcaaa8e6b75d2b9" memberName="TempoNumerMOD2Sld"
-          virtualName="" explicitFocusOrder="0" pos="364 248 56 13" textboxbkgd="ffc8c8c8"
-          textboxoutline="9808080" min="1.0" max="16.0" int="1.0" style="IncDecButtons"
-          textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          virtualName="" explicitFocusOrder="0" pos="364 248 56 13" tooltip="Numerator for the tempo sync"
+          textboxbkgd="ffc8c8c8" textboxoutline="9808080" min="1.0" max="16.0"
+          int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 2 Tempo Denom Slider" id="255bbe43957852ba" memberName="TempoDenomMOD2Sld"
-          virtualName="" explicitFocusOrder="0" pos="364 277 56 16" textboxbkgd="ffc8c8c8"
-          textboxoutline="808080" min="1.0" max="32.0" int="1.0" style="IncDecButtons"
-          textBoxPos="TextBoxLeft" textBoxEditable="1" textBoxWidth="40"
-          textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
+          virtualName="" explicitFocusOrder="0" pos="364 277 56 16" tooltip="Denominator for the tempo sync"
+          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="32.0"
+          int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
+          textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 2 Phase Slider" id="54fd5481a5970106" memberName="PhaseMOD2Sld"
           virtualName="WECore::JUCEPlugin::LabelReadoutSlider&lt;double&gt;"
           explicitFocusOrder="0" pos="484 237 32 24" tooltip="Phase shift the LFO by up to 360 degrees"

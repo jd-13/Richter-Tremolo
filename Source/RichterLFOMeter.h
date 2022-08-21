@@ -23,7 +23,8 @@
 
 #include "JuceHeader.h"
 
-class RichterLFOMeter: public Component {
+class RichterLFOMeter: public Component,
+                       public SettableTooltipClient {
 public:
     explicit RichterLFOMeter(bool isMod) : _isMod(isMod) {}
     virtual ~RichterLFOMeter() = default;
