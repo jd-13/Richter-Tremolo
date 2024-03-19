@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 7.0.2
+  Created with Projucer version: 7.0.9
 
   ------------------------------------------------------------------------------
 
@@ -34,7 +34,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     //[/Constructor_pre]
 
     LFO1Group.reset (new juce::GroupComponent ("LFO 1 Group",
-                                               TRANS("LFO1")));
+                                               TRANS ("LFO1")));
     addAndMakeVisible (LFO1Group.get());
     LFO1Group->setColour (juce::GroupComponent::textColourId, juce::Colours::black);
 
@@ -42,7 +42,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     DepthLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Depth Slider"));
     addAndMakeVisible (DepthLFO1Sld.get());
-    DepthLFO1Sld->setTooltip (TRANS("Depth of the LFO"));
+    DepthLFO1Sld->setTooltip (TRANS ("Depth of the LFO"));
     DepthLFO1Sld->setRange (0, 1, 0.01);
     DepthLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -52,7 +52,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Freq Slider"));
     addAndMakeVisible (FreqLFO1Sld.get());
-    FreqLFO1Sld->setTooltip (TRANS("Frequency of the LFO in Hz"));
+    FreqLFO1Sld->setTooltip (TRANS ("Frequency of the LFO in Hz"));
     FreqLFO1Sld->setRange (0, 1, 0.01);
     FreqLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -62,22 +62,22 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     WaveLFO1Cmb.reset (new juce::ComboBox ("LFO 1 Wave"));
     addAndMakeVisible (WaveLFO1Cmb.get());
-    WaveLFO1Cmb->setTooltip (TRANS("LFO wave shape"));
+    WaveLFO1Cmb->setTooltip (TRANS ("LFO wave shape"));
     WaveLFO1Cmb->setEditableText (false);
     WaveLFO1Cmb->setJustificationType (juce::Justification::centredLeft);
     WaveLFO1Cmb->setTextWhenNothingSelected (juce::String());
-    WaveLFO1Cmb->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
-    WaveLFO1Cmb->addItem (TRANS("Sine"), 1);
-    WaveLFO1Cmb->addItem (TRANS("Square"), 2);
-    WaveLFO1Cmb->addItem (TRANS("Saw"), 3);
-    WaveLFO1Cmb->addItem (TRANS("SC Comp"), 4);
+    WaveLFO1Cmb->setTextWhenNoChoicesAvailable (TRANS ("(no choices)"));
+    WaveLFO1Cmb->addItem (TRANS ("Sine"), 1);
+    WaveLFO1Cmb->addItem (TRANS ("Square"), 2);
+    WaveLFO1Cmb->addItem (TRANS ("Saw"), 3);
+    WaveLFO1Cmb->addItem (TRANS ("SC Comp"), 4);
     WaveLFO1Cmb->addListener (this);
 
     WaveLFO1Cmb->setBounds (232, 157, 80, 24);
 
     DepthModLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Depth Mod Slider"));
     addAndMakeVisible (DepthModLFO1Sld.get());
-    DepthModLFO1Sld->setTooltip (TRANS("Amount of depth modulation from MOD 1"));
+    DepthModLFO1Sld->setTooltip (TRANS ("Amount of depth modulation from MOD 1"));
     DepthModLFO1Sld->setRange (0, 1, 0.01);
     DepthModLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthModLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -87,7 +87,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqModLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Freq Mod Slider"));
     addAndMakeVisible (FreqModLFO1Sld.get());
-    FreqModLFO1Sld->setTooltip (TRANS("Amount of rate modulation from MOD 1"));
+    FreqModLFO1Sld->setTooltip (TRANS ("Amount of rate modulation from MOD 1"));
     FreqModLFO1Sld->setRange (0, 1, 0.01);
     FreqModLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqModLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -97,7 +97,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     OutputGainSld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("Output Gain Slider"));
     addAndMakeVisible (OutputGainSld.get());
-    OutputGainSld->setTooltip (TRANS("Output gain"));
+    OutputGainSld->setTooltip (TRANS ("Output gain"));
     OutputGainSld->setRange (0, 1, 0.01);
     OutputGainSld->setSliderStyle (juce::Slider::LinearHorizontal);
     OutputGainSld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -107,14 +107,14 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     BypassLFO1Btn.reset (new juce::TextButton ("LFO 1 Bypass Button"));
     addAndMakeVisible (BypassLFO1Btn.get());
-    BypassLFO1Btn->setTooltip (TRANS("Bypass button for LFO 1, which operates directly on the input audio"));
-    BypassLFO1Btn->setButtonText (TRANS("LFO 1"));
+    BypassLFO1Btn->setTooltip (TRANS ("Bypass button for LFO 1, which operates directly on the input audio"));
+    BypassLFO1Btn->setButtonText (TRANS ("LFO 1"));
     BypassLFO1Btn->addListener (this);
 
     BypassLFO1Btn->setBounds (256, 83, 56, 24);
 
     FreqLFO1Lbl.reset (new juce::Label ("LFO 1 Freq Label",
-                                        TRANS("Rate")));
+                                        TRANS ("Rate")));
     addAndMakeVisible (FreqLFO1Lbl.get());
     FreqLFO1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     FreqLFO1Lbl->setJustificationType (juce::Justification::centred);
@@ -126,7 +126,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqLFO1Lbl->setBounds (68, 139, 40, 24);
 
     DepthLFO1Lbl.reset (new juce::Label ("LFO 1 Depth Label",
-                                         TRANS("Depth")));
+                                         TRANS ("Depth")));
     addAndMakeVisible (DepthLFO1Lbl.get());
     DepthLFO1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     DepthLFO1Lbl->setJustificationType (juce::Justification::centred);
@@ -138,14 +138,14 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     DepthLFO1Lbl->setBounds (121, 139, 46, 24);
 
     LFO2Group.reset (new juce::GroupComponent ("LFO 2 Group",
-                                               TRANS("LFO2")));
+                                               TRANS ("LFO2")));
     addAndMakeVisible (LFO2Group.get());
 
     LFO2Group->setBounds (340, 72, 288, 123);
 
     DepthLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Depth Slider"));
     addAndMakeVisible (DepthLFO2Sld.get());
-    DepthLFO2Sld->setTooltip (TRANS("Depth of the LFO"));
+    DepthLFO2Sld->setTooltip (TRANS ("Depth of the LFO"));
     DepthLFO2Sld->setRange (0, 1, 0.01);
     DepthLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -155,7 +155,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Freq Slider"));
     addAndMakeVisible (FreqLFO2Sld.get());
-    FreqLFO2Sld->setTooltip (TRANS("Frequency of the LFO in Hz"));
+    FreqLFO2Sld->setTooltip (TRANS ("Frequency of the LFO in Hz"));
     FreqLFO2Sld->setRange (0, 1, 0.01);
     FreqLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -165,22 +165,22 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     WaveLFO2Cmb.reset (new juce::ComboBox ("LFO 2 Wave"));
     addAndMakeVisible (WaveLFO2Cmb.get());
-    WaveLFO2Cmb->setTooltip (TRANS("LFO wave shape"));
+    WaveLFO2Cmb->setTooltip (TRANS ("LFO wave shape"));
     WaveLFO2Cmb->setEditableText (false);
     WaveLFO2Cmb->setJustificationType (juce::Justification::centredLeft);
     WaveLFO2Cmb->setTextWhenNothingSelected (juce::String());
-    WaveLFO2Cmb->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
-    WaveLFO2Cmb->addItem (TRANS("Sine"), 1);
-    WaveLFO2Cmb->addItem (TRANS("Square"), 2);
-    WaveLFO2Cmb->addItem (TRANS("Saw"), 3);
-    WaveLFO2Cmb->addItem (TRANS("SC Comp"), 4);
+    WaveLFO2Cmb->setTextWhenNoChoicesAvailable (TRANS ("(no choices)"));
+    WaveLFO2Cmb->addItem (TRANS ("Sine"), 1);
+    WaveLFO2Cmb->addItem (TRANS ("Square"), 2);
+    WaveLFO2Cmb->addItem (TRANS ("Saw"), 3);
+    WaveLFO2Cmb->addItem (TRANS ("SC Comp"), 4);
     WaveLFO2Cmb->addListener (this);
 
     WaveLFO2Cmb->setBounds (532, 157, 80, 24);
 
     DepthModLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Depth Mod Slider"));
     addAndMakeVisible (DepthModLFO2Sld.get());
-    DepthModLFO2Sld->setTooltip (TRANS("Amount of depth modulation from MOD 2"));
+    DepthModLFO2Sld->setTooltip (TRANS ("Amount of depth modulation from MOD 2"));
     DepthModLFO2Sld->setRange (0, 1, 0.01);
     DepthModLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthModLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -190,7 +190,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqModLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Freq Mod Slider"));
     addAndMakeVisible (FreqModLFO2Sld.get());
-    FreqModLFO2Sld->setTooltip (TRANS("Amount of rate modulation from MOD 2"));
+    FreqModLFO2Sld->setTooltip (TRANS ("Amount of rate modulation from MOD 2"));
     FreqModLFO2Sld->setRange (0, 1, 0.01);
     FreqModLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqModLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -200,14 +200,14 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     BypassLFO2Btn.reset (new juce::TextButton ("LFO 2 Bypass Button"));
     addAndMakeVisible (BypassLFO2Btn.get());
-    BypassLFO2Btn->setTooltip (TRANS("Bypass button for LFO 2, which operates directly on the input audio"));
-    BypassLFO2Btn->setButtonText (TRANS("LFO 2"));
+    BypassLFO2Btn->setTooltip (TRANS ("Bypass button for LFO 2, which operates directly on the input audio"));
+    BypassLFO2Btn->setButtonText (TRANS ("LFO 2"));
     BypassLFO2Btn->addListener (this);
 
     BypassLFO2Btn->setBounds (556, 83, 56, 24);
 
     FreqLFO2Lbl.reset (new juce::Label ("LFO 2 Freq Label",
-                                        TRANS("Rate")));
+                                        TRANS ("Rate")));
     addAndMakeVisible (FreqLFO2Lbl.get());
     FreqLFO2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     FreqLFO2Lbl->setJustificationType (juce::Justification::centred);
@@ -219,7 +219,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqLFO2Lbl->setBounds (368, 139, 40, 24);
 
     DepthLFO2Lbl.reset (new juce::Label ("LFO 2 Depth Label",
-                                         TRANS("Depth")));
+                                         TRANS ("Depth")));
     addAndMakeVisible (DepthLFO2Lbl.get());
     DepthLFO2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     DepthLFO2Lbl->setJustificationType (juce::Justification::centred);
@@ -232,24 +232,24 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoSyncLFO1Btn.reset (new juce::TextButton ("LFO 1 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncLFO1Btn.get());
-    TempoSyncLFO1Btn->setTooltip (TRANS("Sync LFO frequency to host tempo"));
-    TempoSyncLFO1Btn->setButtonText (TRANS("Tempo"));
+    TempoSyncLFO1Btn->setTooltip (TRANS ("Sync LFO frequency to host tempo"));
+    TempoSyncLFO1Btn->setButtonText (TRANS ("Tempo"));
     TempoSyncLFO1Btn->addListener (this);
 
     TempoSyncLFO1Btn->setBounds (64, 91, 56, 16);
 
     TempoSyncLFO2Btn.reset (new juce::TextButton ("LFO 2 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncLFO2Btn.get());
-    TempoSyncLFO2Btn->setTooltip (TRANS("Sync LFO frequency to host tempo"));
-    TempoSyncLFO2Btn->setButtonText (TRANS("Tempo"));
+    TempoSyncLFO2Btn->setTooltip (TRANS ("Sync LFO frequency to host tempo"));
+    TempoSyncLFO2Btn->setButtonText (TRANS ("Tempo"));
     TempoSyncLFO2Btn->addListener (this);
 
     TempoSyncLFO2Btn->setBounds (364, 91, 56, 16);
 
     TempoNumerLFO1Sld.reset (new juce::Slider ("LFO 1 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerLFO1Sld.get());
-    TempoNumerLFO1Sld->setTooltip (TRANS("Numerator for the tempo sync"));
-    TempoNumerLFO1Sld->setRange (1, 16, 1);
+    TempoNumerLFO1Sld->setTooltip (TRANS ("Numerator for the tempo sync"));
+    TempoNumerLFO1Sld->setRange (1, 32, 1);
     TempoNumerLFO1Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerLFO1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
     TempoNumerLFO1Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
@@ -260,7 +260,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoDenomLFO1Sld.reset (new juce::Slider ("LFO 1 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomLFO1Sld.get());
-    TempoDenomLFO1Sld->setTooltip (TRANS("Denominator for the tempo sync"));
+    TempoDenomLFO1Sld->setTooltip (TRANS ("Denominator for the tempo sync"));
     TempoDenomLFO1Sld->setRange (1, 32, 1);
     TempoDenomLFO1Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoDenomLFO1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -272,8 +272,8 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoNumerLFO2Sld.reset (new juce::Slider ("LFO 2 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerLFO2Sld.get());
-    TempoNumerLFO2Sld->setTooltip (TRANS("Numerator for the tempo sync"));
-    TempoNumerLFO2Sld->setRange (1, 16, 1);
+    TempoNumerLFO2Sld->setTooltip (TRANS ("Numerator for the tempo sync"));
+    TempoNumerLFO2Sld->setRange (1, 32, 1);
     TempoNumerLFO2Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerLFO2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
     TempoNumerLFO2Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
@@ -284,7 +284,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoDenomLFO2Sld.reset (new juce::Slider ("LFO 2 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomLFO2Sld.get());
-    TempoDenomLFO2Sld->setTooltip (TRANS("Denominator for the tempo sync"));
+    TempoDenomLFO2Sld->setTooltip (TRANS ("Denominator for the tempo sync"));
     TempoDenomLFO2Sld->setRange (1, 32, 1);
     TempoDenomLFO2Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoDenomLFO2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -296,7 +296,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     PhaseLFO1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 1 Phase Slider"));
     addAndMakeVisible (PhaseLFO1Sld.get());
-    PhaseLFO1Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
+    PhaseLFO1Sld->setTooltip (TRANS ("Phase shift the LFO by up to 360 degrees"));
     PhaseLFO1Sld->setRange (0, 1, 0.01);
     PhaseLFO1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     PhaseLFO1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -306,7 +306,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseLFO1Sld->setBounds (184, 115, 32, 24);
 
     PhaseLFO1Lbl.reset (new juce::Label ("LFO 1 Phase Label",
-                                         TRANS("Phase")));
+                                         TRANS ("Phase")));
     addAndMakeVisible (PhaseLFO1Lbl.get());
     PhaseLFO1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     PhaseLFO1Lbl->setJustificationType (juce::Justification::centred);
@@ -319,7 +319,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     PhaseLFO2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("LFO 2 Phase Slider"));
     addAndMakeVisible (PhaseLFO2Sld.get());
-    PhaseLFO2Sld->setTooltip (TRANS("Changes the phase of the LFO by up to 360 degrees"));
+    PhaseLFO2Sld->setTooltip (TRANS ("Changes the phase of the LFO by up to 360 degrees"));
     PhaseLFO2Sld->setRange (0, 1, 0.01);
     PhaseLFO2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     PhaseLFO2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -328,7 +328,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseLFO2Sld->setBounds (484, 115, 32, 24);
 
     PhaseLFO2Lbl.reset (new juce::Label ("LFO 2 Phase Label",
-                                         TRANS("Phase")));
+                                         TRANS ("Phase")));
     addAndMakeVisible (PhaseLFO2Lbl.get());
     PhaseLFO2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     PhaseLFO2Lbl->setJustificationType (juce::Justification::centred);
@@ -340,14 +340,14 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseLFO2Lbl->setBounds (477, 139, 46, 24);
 
     MOD1Group.reset (new juce::GroupComponent ("MOD 1 Group",
-                                               TRANS("MOD1")));
+                                               TRANS ("MOD1")));
     addAndMakeVisible (MOD1Group.get());
 
     MOD1Group->setBounds (48, 194, 288, 123);
 
     DepthMOD1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 1 Depth Slider"));
     addAndMakeVisible (DepthMOD1Sld.get());
-    DepthMOD1Sld->setTooltip (TRANS("Depth of the LFO"));
+    DepthMOD1Sld->setTooltip (TRANS ("Depth of the LFO"));
     DepthMOD1Sld->setRange (0, 1, 0.01);
     DepthMOD1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthMOD1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -357,7 +357,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqMOD1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 1 Freq Slider"));
     addAndMakeVisible (FreqMOD1Sld.get());
-    FreqMOD1Sld->setTooltip (TRANS("Frequency of the LFO in Hz"));
+    FreqMOD1Sld->setTooltip (TRANS ("Frequency of the LFO in Hz"));
     FreqMOD1Sld->setRange (0, 1, 0.01);
     FreqMOD1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqMOD1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -367,29 +367,29 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     WaveMOD1Cmb.reset (new juce::ComboBox ("MOD 1 Wave"));
     addAndMakeVisible (WaveMOD1Cmb.get());
-    WaveMOD1Cmb->setTooltip (TRANS("LFO wave shape"));
+    WaveMOD1Cmb->setTooltip (TRANS ("LFO wave shape"));
     WaveMOD1Cmb->setEditableText (false);
     WaveMOD1Cmb->setJustificationType (juce::Justification::centredLeft);
     WaveMOD1Cmb->setTextWhenNothingSelected (juce::String());
-    WaveMOD1Cmb->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
-    WaveMOD1Cmb->addItem (TRANS("Sine"), 1);
-    WaveMOD1Cmb->addItem (TRANS("Square"), 2);
-    WaveMOD1Cmb->addItem (TRANS("Saw"), 3);
-    WaveMOD1Cmb->addItem (TRANS("SC Comp"), 4);
+    WaveMOD1Cmb->setTextWhenNoChoicesAvailable (TRANS ("(no choices)"));
+    WaveMOD1Cmb->addItem (TRANS ("Sine"), 1);
+    WaveMOD1Cmb->addItem (TRANS ("Square"), 2);
+    WaveMOD1Cmb->addItem (TRANS ("Saw"), 3);
+    WaveMOD1Cmb->addItem (TRANS ("SC Comp"), 4);
     WaveMOD1Cmb->addListener (this);
 
     WaveMOD1Cmb->setBounds (232, 279, 80, 24);
 
     BypassMOD1Btn.reset (new juce::TextButton ("MOD 1 Bypass Button"));
     addAndMakeVisible (BypassMOD1Btn.get());
-    BypassMOD1Btn->setTooltip (TRANS("Bypass button for MOD 1, which modulates the rate and depth of LFO 1"));
-    BypassMOD1Btn->setButtonText (TRANS("MOD 1"));
+    BypassMOD1Btn->setTooltip (TRANS ("Bypass button for MOD 1, which modulates the rate and depth of LFO 1"));
+    BypassMOD1Btn->setButtonText (TRANS ("MOD 1"));
     BypassMOD1Btn->addListener (this);
 
     BypassMOD1Btn->setBounds (256, 205, 56, 24);
 
     FreqMOD1Lbl.reset (new juce::Label ("MOD 1 Freq Label",
-                                        TRANS("Rate")));
+                                        TRANS ("Rate")));
     addAndMakeVisible (FreqMOD1Lbl.get());
     FreqMOD1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     FreqMOD1Lbl->setJustificationType (juce::Justification::centred);
@@ -401,7 +401,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqMOD1Lbl->setBounds (68, 261, 40, 24);
 
     DepthMOD1Lbl.reset (new juce::Label ("MOD 1 Depth Label",
-                                         TRANS("Depth")));
+                                         TRANS ("Depth")));
     addAndMakeVisible (DepthMOD1Lbl.get());
     DepthMOD1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     DepthMOD1Lbl->setJustificationType (juce::Justification::centred);
@@ -414,16 +414,16 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoSyncMOD1Btn.reset (new juce::TextButton ("MOD 1 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncMOD1Btn.get());
-    TempoSyncMOD1Btn->setTooltip (TRANS("Sync LFO frequency to host tempo"));
-    TempoSyncMOD1Btn->setButtonText (TRANS("Tempo"));
+    TempoSyncMOD1Btn->setTooltip (TRANS ("Sync LFO frequency to host tempo"));
+    TempoSyncMOD1Btn->setButtonText (TRANS ("Tempo"));
     TempoSyncMOD1Btn->addListener (this);
 
     TempoSyncMOD1Btn->setBounds (64, 213, 56, 16);
 
     TempoNumerMOD1Sld.reset (new juce::Slider ("MOD 1 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerMOD1Sld.get());
-    TempoNumerMOD1Sld->setTooltip (TRANS("Numerator for the tempo sync"));
-    TempoNumerMOD1Sld->setRange (1, 16, 1);
+    TempoNumerMOD1Sld->setTooltip (TRANS ("Numerator for the tempo sync"));
+    TempoNumerMOD1Sld->setRange (1, 32, 1);
     TempoNumerMOD1Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerMOD1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
     TempoNumerMOD1Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
@@ -434,7 +434,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoDenomMOD1Sld.reset (new juce::Slider ("MOD 1 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomMOD1Sld.get());
-    TempoDenomMOD1Sld->setTooltip (TRANS("Denominator for the tempo sync"));
+    TempoDenomMOD1Sld->setTooltip (TRANS ("Denominator for the tempo sync"));
     TempoDenomMOD1Sld->setRange (1, 32, 1);
     TempoDenomMOD1Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoDenomMOD1Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -446,7 +446,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     PhaseMOD1Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 1 Phase Slider"));
     addAndMakeVisible (PhaseMOD1Sld.get());
-    PhaseMOD1Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
+    PhaseMOD1Sld->setTooltip (TRANS ("Phase shift the LFO by up to 360 degrees"));
     PhaseMOD1Sld->setRange (0, 1, 0.01);
     PhaseMOD1Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     PhaseMOD1Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -455,7 +455,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseMOD1Sld->setBounds (184, 237, 32, 24);
 
     PhaseMOD1Lbl.reset (new juce::Label ("MOD 1 Phase Label",
-                                         TRANS("Phase")));
+                                         TRANS ("Phase")));
     addAndMakeVisible (PhaseMOD1Lbl.get());
     PhaseMOD1Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     PhaseMOD1Lbl->setJustificationType (juce::Justification::centred);
@@ -467,14 +467,14 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseMOD1Lbl->setBounds (177, 261, 46, 24);
 
     MOD2Group.reset (new juce::GroupComponent ("MOD 2 Group",
-                                               TRANS("MOD2")));
+                                               TRANS ("MOD2")));
     addAndMakeVisible (MOD2Group.get());
 
     MOD2Group->setBounds (340, 194, 288, 123);
 
     DepthMOD2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 2 Depth Slider"));
     addAndMakeVisible (DepthMOD2Sld.get());
-    DepthMOD2Sld->setTooltip (TRANS("Depth of the LFO"));
+    DepthMOD2Sld->setTooltip (TRANS ("Depth of the LFO"));
     DepthMOD2Sld->setRange (0, 1, 0.01);
     DepthMOD2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     DepthMOD2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -484,7 +484,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     FreqMOD2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 2 Freq Slider"));
     addAndMakeVisible (FreqMOD2Sld.get());
-    FreqMOD2Sld->setTooltip (TRANS("Frequency of the LFO in Hz"));
+    FreqMOD2Sld->setTooltip (TRANS ("Frequency of the LFO in Hz"));
     FreqMOD2Sld->setRange (0, 1, 0.01);
     FreqMOD2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     FreqMOD2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -494,29 +494,29 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     WaveMOD2Cmb.reset (new juce::ComboBox ("MOD 2 Wave"));
     addAndMakeVisible (WaveMOD2Cmb.get());
-    WaveMOD2Cmb->setTooltip (TRANS("LFO wave shape"));
+    WaveMOD2Cmb->setTooltip (TRANS ("LFO wave shape"));
     WaveMOD2Cmb->setEditableText (false);
     WaveMOD2Cmb->setJustificationType (juce::Justification::centredLeft);
     WaveMOD2Cmb->setTextWhenNothingSelected (juce::String());
-    WaveMOD2Cmb->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
-    WaveMOD2Cmb->addItem (TRANS("Sine"), 1);
-    WaveMOD2Cmb->addItem (TRANS("Square"), 2);
-    WaveMOD2Cmb->addItem (TRANS("Saw"), 3);
-    WaveMOD2Cmb->addItem (TRANS("SC Comp"), 4);
+    WaveMOD2Cmb->setTextWhenNoChoicesAvailable (TRANS ("(no choices)"));
+    WaveMOD2Cmb->addItem (TRANS ("Sine"), 1);
+    WaveMOD2Cmb->addItem (TRANS ("Square"), 2);
+    WaveMOD2Cmb->addItem (TRANS ("Saw"), 3);
+    WaveMOD2Cmb->addItem (TRANS ("SC Comp"), 4);
     WaveMOD2Cmb->addListener (this);
 
     WaveMOD2Cmb->setBounds (532, 279, 80, 24);
 
     BypassMOD2Btn.reset (new juce::TextButton ("MOD 2 Bypass Button"));
     addAndMakeVisible (BypassMOD2Btn.get());
-    BypassMOD2Btn->setTooltip (TRANS("Bypass button for MOD 2, which modulates the rate and depth of LFO 2"));
-    BypassMOD2Btn->setButtonText (TRANS("MOD 2"));
+    BypassMOD2Btn->setTooltip (TRANS ("Bypass button for MOD 2, which modulates the rate and depth of LFO 2"));
+    BypassMOD2Btn->setButtonText (TRANS ("MOD 2"));
     BypassMOD2Btn->addListener (this);
 
     BypassMOD2Btn->setBounds (556, 205, 56, 24);
 
     FreqMOD2Lbl.reset (new juce::Label ("MOD 2 Freq Label",
-                                        TRANS("Rate")));
+                                        TRANS ("Rate")));
     addAndMakeVisible (FreqMOD2Lbl.get());
     FreqMOD2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     FreqMOD2Lbl->setJustificationType (juce::Justification::centred);
@@ -528,7 +528,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     FreqMOD2Lbl->setBounds (368, 261, 40, 24);
 
     DepthMOD2Lbl.reset (new juce::Label ("MOD 2 Depth Label",
-                                         TRANS("Depth")));
+                                         TRANS ("Depth")));
     addAndMakeVisible (DepthMOD2Lbl.get());
     DepthMOD2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     DepthMOD2Lbl->setJustificationType (juce::Justification::centred);
@@ -541,16 +541,16 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoSyncMOD2Btn.reset (new juce::TextButton ("MOD 2 Tempo Sync Button"));
     addAndMakeVisible (TempoSyncMOD2Btn.get());
-    TempoSyncMOD2Btn->setTooltip (TRANS("Sync LFO frequency to host tempo"));
-    TempoSyncMOD2Btn->setButtonText (TRANS("Tempo"));
+    TempoSyncMOD2Btn->setTooltip (TRANS ("Sync LFO frequency to host tempo"));
+    TempoSyncMOD2Btn->setButtonText (TRANS ("Tempo"));
     TempoSyncMOD2Btn->addListener (this);
 
     TempoSyncMOD2Btn->setBounds (364, 213, 56, 16);
 
     TempoNumerMOD2Sld.reset (new juce::Slider ("MOD 2 Tempo Numer Slider"));
     addAndMakeVisible (TempoNumerMOD2Sld.get());
-    TempoNumerMOD2Sld->setTooltip (TRANS("Numerator for the tempo sync"));
-    TempoNumerMOD2Sld->setRange (1, 16, 1);
+    TempoNumerMOD2Sld->setTooltip (TRANS ("Numerator for the tempo sync"));
+    TempoNumerMOD2Sld->setRange (1, 32, 1);
     TempoNumerMOD2Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoNumerMOD2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
     TempoNumerMOD2Sld->setColour (juce::Slider::textBoxBackgroundColourId, juce::Colour (0xffc8c8c8));
@@ -561,7 +561,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     TempoDenomMOD2Sld.reset (new juce::Slider ("MOD 2 Tempo Denom Slider"));
     addAndMakeVisible (TempoDenomMOD2Sld.get());
-    TempoDenomMOD2Sld->setTooltip (TRANS("Denominator for the tempo sync"));
+    TempoDenomMOD2Sld->setTooltip (TRANS ("Denominator for the tempo sync"));
     TempoDenomMOD2Sld->setRange (1, 32, 1);
     TempoDenomMOD2Sld->setSliderStyle (juce::Slider::IncDecButtons);
     TempoDenomMOD2Sld->setTextBoxStyle (juce::Slider::TextBoxLeft, false, 40, 20);
@@ -573,7 +573,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     PhaseMOD2Sld.reset (new WECore::JUCEPlugin::LabelReadoutSlider<double> ("MOD 2 Phase Slider"));
     addAndMakeVisible (PhaseMOD2Sld.get());
-    PhaseMOD2Sld->setTooltip (TRANS("Phase shift the LFO by up to 360 degrees"));
+    PhaseMOD2Sld->setTooltip (TRANS ("Phase shift the LFO by up to 360 degrees"));
     PhaseMOD2Sld->setRange (0, 1, 0.01);
     PhaseMOD2Sld->setSliderStyle (juce::Slider::RotaryVerticalDrag);
     PhaseMOD2Sld->setTextBoxStyle (juce::Slider::NoTextBox, false, 80, 20);
@@ -582,7 +582,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     PhaseMOD2Sld->setBounds (484, 237, 32, 24);
 
     PhaseMOD2Lbl.reset (new juce::Label ("MOD 2 Phase Label",
-                                         TRANS("Phase")));
+                                         TRANS ("Phase")));
     addAndMakeVisible (PhaseMOD2Lbl.get());
     PhaseMOD2Lbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     PhaseMOD2Lbl->setJustificationType (juce::Justification::centred);
@@ -595,14 +595,14 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     StereoBtn.reset (new juce::TextButton ("Stereo Button"));
     addAndMakeVisible (StereoBtn.get());
-    StereoBtn->setTooltip (TRANS("Enables LFO 1 and LFO 2 to operate on the left and right channels independently"));
-    StereoBtn->setButtonText (TRANS("Stereo"));
+    StereoBtn->setTooltip (TRANS ("Enables LFO 1 and LFO 2 to operate on the left and right channels independently"));
+    StereoBtn->setButtonText (TRANS ("Stereo"));
     StereoBtn->addListener (this);
 
     StereoBtn->setBounds (542, 43, 72, 24);
 
     OutputGainLbl.reset (new juce::Label ("Output Gain Label",
-                                          TRANS("Output Gain")));
+                                          TRANS ("Output Gain")));
     addAndMakeVisible (OutputGainLbl.get());
     OutputGainLbl->setFont (juce::Font (15.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     OutputGainLbl->setJustificationType (juce::Justification::centredLeft);
@@ -614,7 +614,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     OutputGainLbl->setBounds (448, 43, 88, 24);
 
     MODLFO1LeftLbl.reset (new juce::Label ("MOD LFO1 Left Label",
-                                           TRANS("- MOD -")));
+                                           TRANS ("- MOD -")));
     addAndMakeVisible (MODLFO1LeftLbl.get());
     MODLFO1LeftLbl->setFont (juce::Font (10.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     MODLFO1LeftLbl->setJustificationType (juce::Justification::centred);
@@ -626,7 +626,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     MODLFO1LeftLbl->setBounds (97, 159, 38, 24);
 
     MODLFO2LeftLbl.reset (new juce::Label ("MOD LFO2 Left Label",
-                                           TRANS("- MOD -")));
+                                           TRANS ("- MOD -")));
     addAndMakeVisible (MODLFO2LeftLbl.get());
     MODLFO2LeftLbl->setFont (juce::Font (10.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     MODLFO2LeftLbl->setJustificationType (juce::Justification::centred);
@@ -662,7 +662,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     MeterMOD2->setBounds (350, 207, 4, 96);
 
     MODLFO1RightLbl.reset (new juce::Label ("MOD LFO1 Right Label",
-                                            TRANS("- MOD")));
+                                            TRANS ("- MOD")));
     addAndMakeVisible (MODLFO1RightLbl.get());
     MODLFO1RightLbl->setFont (juce::Font (10.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     MODLFO1RightLbl->setJustificationType (juce::Justification::centred);
@@ -674,7 +674,7 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
     MODLFO1RightLbl->setBounds (153, 159, 38, 24);
 
     MODLFO2RightLbl.reset (new juce::Label ("MOD LFO2 Right Label",
-                                            TRANS("- MOD")));
+                                            TRANS ("- MOD")));
     addAndMakeVisible (MODLFO2RightLbl.get());
     MODLFO2RightLbl->setFont (juce::Font (10.00f, juce::Font::plain).withTypefaceStyle ("Regular"));
     MODLFO2RightLbl->setJustificationType (juce::Justification::centred);
@@ -711,32 +711,32 @@ RichterAudioProcessorEditor::RichterAudioProcessorEditor (RichterAudioProcessor&
 
     InvertLFO1Btn.reset (new juce::TextButton ("LFO 1 Invert Button"));
     addAndMakeVisible (InvertLFO1Btn.get());
-    InvertLFO1Btn->setTooltip (TRANS("Inverts the LFO output"));
-    InvertLFO1Btn->setButtonText (TRANS("Invert"));
+    InvertLFO1Btn->setTooltip (TRANS ("Inverts the LFO output"));
+    InvertLFO1Btn->setButtonText (TRANS ("Invert"));
     InvertLFO1Btn->addListener (this);
 
     InvertLFO1Btn->setBounds (172, 91, 56, 16);
 
     InvertLFO2Btn.reset (new juce::TextButton ("LFO 2 Invert Button"));
     addAndMakeVisible (InvertLFO2Btn.get());
-    InvertLFO2Btn->setTooltip (TRANS("Inverts the LFO output"));
-    InvertLFO2Btn->setButtonText (TRANS("Invert"));
+    InvertLFO2Btn->setTooltip (TRANS ("Inverts the LFO output"));
+    InvertLFO2Btn->setButtonText (TRANS ("Invert"));
     InvertLFO2Btn->addListener (this);
 
     InvertLFO2Btn->setBounds (472, 91, 56, 16);
 
     InvertMOD1Btn.reset (new juce::TextButton ("MOD 1 Invert Button"));
     addAndMakeVisible (InvertMOD1Btn.get());
-    InvertMOD1Btn->setTooltip (TRANS("Inverts the LFO output"));
-    InvertMOD1Btn->setButtonText (TRANS("Invert"));
+    InvertMOD1Btn->setTooltip (TRANS ("Inverts the LFO output"));
+    InvertMOD1Btn->setButtonText (TRANS ("Invert"));
     InvertMOD1Btn->addListener (this);
 
     InvertMOD1Btn->setBounds (172, 213, 56, 16);
 
     InvertMOD2Btn.reset (new juce::TextButton ("MOD 2 Invert Button"));
     addAndMakeVisible (InvertMOD2Btn.get());
-    InvertMOD2Btn->setTooltip (TRANS("Inverts the LFO output"));
-    InvertMOD2Btn->setButtonText (TRANS("Invert"));
+    InvertMOD2Btn->setTooltip (TRANS ("Inverts the LFO output"));
+    InvertMOD2Btn->setButtonText (TRANS ("Invert"));
     InvertMOD2Btn->addListener (this);
 
     InvertMOD2Btn->setBounds (472, 213, 56, 16);
@@ -1842,7 +1842,7 @@ BEGIN_JUCER_METADATA
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="LFO 1 Tempo Numer Slider" id="ae3b2cb5fc40f879" memberName="TempoNumerLFO1Sld"
           virtualName="" explicitFocusOrder="0" pos="64 123 56 16" tooltip="Numerator for the tempo sync"
-          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="16.0"
+          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="32.0"
           int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
           textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 1 Tempo Denom Slider" id="79fb8b0e645e1976" memberName="TempoDenomLFO1Sld"
@@ -1852,7 +1852,7 @@ BEGIN_JUCER_METADATA
           textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Tempo Numer Slider" id="7ef07d530a2439f7" memberName="TempoNumerLFO2Sld"
           virtualName="" explicitFocusOrder="0" pos="364 123 56 16" tooltip="Numerator for the tempo sync"
-          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="16.0"
+          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="32.0"
           int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
           textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="LFO 2 Tempo Denom Slider" id="684fae94c6ad39f8" memberName="TempoDenomLFO2Sld"
@@ -1918,7 +1918,7 @@ BEGIN_JUCER_METADATA
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 1 Tempo Numer Slider" id="6c49dac77f3e6f4b" memberName="TempoNumerMOD1Sld"
           virtualName="" explicitFocusOrder="0" pos="64 245 56 16" tooltip="Numerator for the tempo sync"
-          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="16.0"
+          textboxbkgd="ffc8c8c8" textboxoutline="808080" min="1.0" max="32.0"
           int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
           textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 1 Tempo Denom Slider" id="a116d9c60bf4c7b5" memberName="TempoDenomMOD1Sld"
@@ -1973,7 +1973,7 @@ BEGIN_JUCER_METADATA
               buttonText="Tempo" connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <SLIDER name="MOD 2 Tempo Numer Slider" id="2bcaaa8e6b75d2b9" memberName="TempoNumerMOD2Sld"
           virtualName="" explicitFocusOrder="0" pos="364 248 56 13" tooltip="Numerator for the tempo sync"
-          textboxbkgd="ffc8c8c8" textboxoutline="9808080" min="1.0" max="16.0"
+          textboxbkgd="ffc8c8c8" textboxoutline="9808080" min="1.0" max="32.0"
           int="1.0" style="IncDecButtons" textBoxPos="TextBoxLeft" textBoxEditable="1"
           textBoxWidth="40" textBoxHeight="20" skewFactor="1.0" needsCallback="1"/>
   <SLIDER name="MOD 2 Tempo Denom Slider" id="255bbe43957852ba" memberName="TempoDenomMOD2Sld"

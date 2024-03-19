@@ -310,9 +310,13 @@ void RichterAudioProcessor::_migrateParamValues(std::vector<float>& paramValues)
     namespace RP = WECore::Richter::Parameters;
 
     if (paramValues.size() == 46) {
+        // The LFO frequency minimum changed from 0.5 to 0, but we need to use the original range
+        // when migrating the parameter value
+        const ParameterDefinition::RangedParameter<double> ORIGINAL_FREQ(0.5, 20, 2);
+
         paramValues[4] = RP::DEPTH.NormalisedToInternal(paramValues[4]);
         paramValues[5] = RP::DEPTHMOD.NormalisedToInternal(paramValues[5]);
-        paramValues[6] = RP::FREQ.NormalisedToInternal(paramValues[6]);
+        paramValues[6] = ORIGINAL_FREQ.NormalisedToInternal(paramValues[6]);
         paramValues[7] = RP::FREQMOD.NormalisedToInternal(paramValues[7]);
         paramValues[8] = RP::PHASE.NormalisedToInternal(paramValues[8]);
 
